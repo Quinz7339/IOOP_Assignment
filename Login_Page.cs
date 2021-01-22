@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace IOOP_Assignment
 {
-    public partial class Form1 : Form
+    public partial class Login_Page : Form
     {
-        public Form1()
+        public Login_Page()
         {
             InitializeComponent();
         }

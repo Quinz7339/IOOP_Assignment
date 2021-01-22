@@ -1,6 +1,6 @@
 ﻿namespace IOOP_Assignment
 {
-    partial class Form1
+    partial class Login_Page
     {
         /// <summary>
         /// Required designer variable.
