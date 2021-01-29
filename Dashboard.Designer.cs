@@ -164,7 +164,7 @@
             this.btnDashboad.Name = "btnDashboad";
             this.btnDashboad.Size = new System.Drawing.Size(186, 50);
             this.btnDashboad.TabIndex = 1;
-            this.btnDashboad.Text = "Dashbard";
+            this.btnDashboad.Text = "Dashboard";
             this.btnDashboad.UseVisualStyleBackColor = false;
             this.btnDashboad.Click += new System.EventHandler(this.btnDashboad_Click);
             this.btnDashboad.Leave += new System.EventHandler(this.btnDashboad_Leave);
