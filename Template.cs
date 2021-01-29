@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace IOOP_Assignment
 {
-    public partial class Dashboard : Form
+    public partial class Template : Form
     {
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
 
@@ -22,11 +22,11 @@ namespace IOOP_Assignment
               int nRightRect,
               int nBottomRect,
               int nWidthEllipse,
-                 int nHeightEllipse
+              int nHeightEllipse
 
           );
 
-        public Dashboard()
+        public Template()
         {
             InitializeComponent();
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 25, 25));
@@ -47,22 +47,6 @@ namespace IOOP_Assignment
             pnlNav.Top = btnDashboad.Top;
             pnlNav.Left = btnDashboad.Left;
             btnDashboad.BackColor = Color.FromArgb(46, 51, 73);
-        }
-
-        private void btnResRoom_Click(object sender, EventArgs e)
-        {
-            pnlNav.Height = btnResRoom.Height;
-            pnlNav.Top = btnResRoom.Top;
-            pnlNav.Left = btnResRoom.Left;
-            btnResRoom.BackColor = Color.FromArgb(46, 51, 73);
-        }
-
-        private void btnResStatus_Click(object sender, EventArgs e)
-        {
-            pnlNav.Height = btnResStatus.Height;
-            pnlNav.Top = btnResStatus.Top;
-            pnlNav.Left = btnResStatus.Left;
-            btnResStatus.BackColor = Color.FromArgb(46, 51, 73);
         }
 
         private void btnResReport_Click(object sender, EventArgs e)
@@ -92,16 +76,6 @@ namespace IOOP_Assignment
         private void btnDashboad_Leave(object sender, EventArgs e)
         {
             btnDashboad.BackColor = Color.FromArgb(24, 30,54);
-        }
-
-        private void btnResRoom_Leave(object sender, EventArgs e)
-        {
-            btnResRoom.BackColor = Color.FromArgb(24, 30, 54);
-        }
-
-        private void btnResStatus_Leave(object sender, EventArgs e)
-        {
-            btnResStatus.BackColor = Color.FromArgb(24, 30, 54);
         }
 
         private void btnResReport_Leave(object sender, EventArgs e)

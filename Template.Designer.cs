@@ -1,6 +1,6 @@
 ﻿namespace IOOP_Assignment
 {
-    partial class Dashboard
+    partial class Template
     {
         /// <summary>
         /// Required designer variable.
@@ -32,8 +32,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
-            this.btnResRoom = new System.Windows.Forms.Button();
-            this.btnResStatus = new System.Windows.Forms.Button();
             this.btnResReport = new System.Windows.Forms.Button();
             this.btnDashboad = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -55,8 +53,6 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
             this.panel1.Controls.Add(this.btnUpdate);
             this.panel1.Controls.Add(this.btnLogout);
-            this.panel1.Controls.Add(this.btnResRoom);
-            this.panel1.Controls.Add(this.btnResStatus);
             this.panel1.Controls.Add(this.btnResReport);
             this.panel1.Controls.Add(this.btnDashboad);
             this.panel1.Controls.Add(this.panel2);
@@ -74,7 +70,7 @@
             this.btnUpdate.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.btnUpdate.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.btnUpdate.Location = new System.Drawing.Point(-3, 378);
+            this.btnUpdate.Location = new System.Drawing.Point(0, 378);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(186, 50);
             this.btnUpdate.TabIndex = 6;
@@ -101,40 +97,6 @@
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             this.btnLogout.Leave += new System.EventHandler(this.btnLogout_Leave);
             // 
-            // btnResRoom
-            // 
-            this.btnResRoom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
-            this.btnResRoom.FlatAppearance.BorderSize = 0;
-            this.btnResRoom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnResRoom.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnResRoom.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.btnResRoom.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.btnResRoom.Location = new System.Drawing.Point(0, 210);
-            this.btnResRoom.Name = "btnResRoom";
-            this.btnResRoom.Size = new System.Drawing.Size(186, 50);
-            this.btnResRoom.TabIndex = 4;
-            this.btnResRoom.Text = "Reserve Room";
-            this.btnResRoom.UseVisualStyleBackColor = false;
-            this.btnResRoom.Click += new System.EventHandler(this.btnResRoom_Click);
-            this.btnResRoom.Leave += new System.EventHandler(this.btnResRoom_Leave);
-            // 
-            // btnResStatus
-            // 
-            this.btnResStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
-            this.btnResStatus.FlatAppearance.BorderSize = 0;
-            this.btnResStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnResStatus.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnResStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.btnResStatus.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.btnResStatus.Location = new System.Drawing.Point(-3, 266);
-            this.btnResStatus.Name = "btnResStatus";
-            this.btnResStatus.Size = new System.Drawing.Size(186, 50);
-            this.btnResStatus.TabIndex = 3;
-            this.btnResStatus.Text = "Reservation Status";
-            this.btnResStatus.UseVisualStyleBackColor = false;
-            this.btnResStatus.Click += new System.EventHandler(this.btnResStatus_Click);
-            this.btnResStatus.Leave += new System.EventHandler(this.btnResStatus_Leave);
-            // 
             // btnResReport
             // 
             this.btnResReport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
@@ -143,7 +105,7 @@
             this.btnResReport.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnResReport.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.btnResReport.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.btnResReport.Location = new System.Drawing.Point(-3, 322);
+            this.btnResReport.Location = new System.Drawing.Point(0, 322);
             this.btnResReport.Name = "btnResReport";
             this.btnResReport.Size = new System.Drawing.Size(186, 50);
             this.btnResReport.TabIndex = 2;
@@ -217,7 +179,7 @@
             this.pnlNav.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(127)))), ((int)(((byte)(0)))));
             this.pnlNav.Location = new System.Drawing.Point(0, 154);
             this.pnlNav.Name = "pnlNav";
-            this.pnlNav.Size = new System.Drawing.Size(5, 200);
+            this.pnlNav.Size = new System.Drawing.Size(10, 87);
             this.pnlNav.TabIndex = 1;
             // 
             // label3
@@ -256,7 +218,7 @@
             this.lblDateTime.TabIndex = 5;
             this.lblDateTime.Text = "Date and Time";
             // 
-            // Dashboard
+            // Template
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -268,7 +230,7 @@
             this.Controls.Add(this.pnlNav);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Dashboard";
+            this.Name = "Template";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Login_Page_Load);
@@ -291,8 +253,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnResReport;
         private System.Windows.Forms.Button btnLogout;
-        private System.Windows.Forms.Button btnResRoom;
-        private System.Windows.Forms.Button btnResStatus;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.FlowLayoutPanel pnlNav;
         private System.Windows.Forms.Label label3;
