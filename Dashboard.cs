@@ -38,7 +38,7 @@ namespace IOOP_Assignment
 
         private void Login_Page_Load(object sender, EventArgs e)
         {
-
+            lblDateTime.Text = DateTime.Now.ToString();
         }
 
         private void btnDashboad_Click(object sender, EventArgs e)
@@ -117,6 +117,11 @@ namespace IOOP_Assignment
         private void btnLogout_Leave(object sender, EventArgs e)
         {
             btnLogout.BackColor = Color.FromArgb(24, 30, 54);
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
