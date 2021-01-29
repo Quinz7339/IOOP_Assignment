@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace IOOP_Assignment
 {
-    public partial class Template : Form
+    public partial class Librarian_Dashboard : Form
     {
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
 
@@ -26,7 +26,7 @@ namespace IOOP_Assignment
 
           );
 
-        public Template()
+        public Librarian_Dashboard()
         {
             InitializeComponent();
             this.Size = new Size(960, 575);
@@ -49,6 +49,14 @@ namespace IOOP_Assignment
             pnlNav.Top = btnDashboad.Top;
             pnlNav.Left = btnDashboad.Left;
             btnDashboad.BackColor = Color.FromArgb(46, 51, 73);
+        }
+
+        private void btnPendingRes_Click(object sender, EventArgs e)
+        {
+            pnlNav.Height = btnPendingRes.Height;
+            pnlNav.Top = btnPendingRes.Top;
+            pnlNav.Left = btnPendingRes.Left;
+            btnPendingRes.BackColor = Color.FromArgb(46, 51, 73);
         }
 
         private void btnResReport_Click(object sender, EventArgs e)
@@ -79,6 +87,8 @@ namespace IOOP_Assignment
         {
             btnDashboad.BackColor = Color.FromArgb(24, 30,54);
         }
+
+       
 
         private void btnResReport_Leave(object sender, EventArgs e)
         {
