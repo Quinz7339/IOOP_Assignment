@@ -29,11 +29,13 @@ namespace IOOP_Assignment
         public Template()
         {
             InitializeComponent();
+            this.Size = new Size(960, 575);
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 25, 25));
             pnlNav.Height = btnDashboad.Height;
             pnlNav.Top = btnDashboad.Top;
             pnlNav.Left = btnDashboad.Left;
             btnDashboad.BackColor = Color.FromArgb(46, 51, 73);
+            
         }
 
         private void Login_Page_Load(object sender, EventArgs e)
