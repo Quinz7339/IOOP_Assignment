@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace IOOP_Assignment
 {
-    public partial class Template : Form
+    public partial class studentResRoom : Form
     {
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
 
@@ -26,7 +26,7 @@ namespace IOOP_Assignment
 
           );
 
-        public Template()
+        public studentResRoom()
         {
             InitializeComponent();
             this.Size = new Size(960, 575);
@@ -35,12 +35,14 @@ namespace IOOP_Assignment
             pnlNav.Top = btnDashboad.Top;
             pnlNav.Left = btnDashboad.Left;
             btnDashboad.BackColor = Color.FromArgb(46, 51, 73);
-            
+
         }
 
         private void Login_Page_Load(object sender, EventArgs e)
         {
             lblDateTime.Text = DateTime.Now.ToString();
+            setDateTime();
+            setTimeCombo();
         }
 
         private void btnDashboad_Click(object sender, EventArgs e)
@@ -77,7 +79,7 @@ namespace IOOP_Assignment
 
         private void btnDashboad_Leave(object sender, EventArgs e)
         {
-            btnDashboad.BackColor = Color.FromArgb(24, 30,54);
+            btnDashboad.BackColor = Color.FromArgb(24, 30, 54);
         }
 
         private void btnResReport_Leave(object sender, EventArgs e)
@@ -99,5 +101,27 @@ namespace IOOP_Assignment
         {
             this.Close();
         }
+
+        private void setDateTime()
+        {
+            //Booking date between 2 days to 32 days after today
+            dtpResDate.MinDate = DateTime.Now.AddDays(2);
+            dtpResDate.MaxDate = DateTime.Now.AddDays(32);
+        }
+
+        private void setTimeCombo()
+        {
+            //DateTime time = DateTime.Now;
+            if ()
+            {
+
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+         
+        }
     }
+
 }

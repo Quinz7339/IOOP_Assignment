@@ -30,6 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
             this.btnResReport = new System.Windows.Forms.Button();
@@ -51,6 +53,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            this.panel1.Controls.Add(this.button2);
+            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.btnUpdate);
             this.panel1.Controls.Add(this.btnLogout);
             this.panel1.Controls.Add(this.btnResReport);
@@ -61,6 +65,37 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(186, 577);
             this.panel1.TabIndex = 0;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+            this.button2.Location = new System.Drawing.Point(0, 266);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(186, 50);
+            this.button2.TabIndex = 6;
+            this.button2.Text = "Reservation Status";
+            this.button2.UseVisualStyleBackColor = false;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+            this.button1.Location = new System.Drawing.Point(0, 210);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(186, 50);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "Reserve Room";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnUpdate
             // 
@@ -224,9 +259,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(951, 577);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.lblDateTime);
             this.Controls.Add(this.btnClose);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.pnlNav);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -259,6 +294,8 @@
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label lblDateTime;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
     }
 }
 
