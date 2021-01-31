@@ -40,25 +40,35 @@ namespace IOOP_Assignment
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
-        {
-           
-            conn = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\DBLab.mdf;Integrated Security=True;Connect Timeout=30");
-            string strSQL = "SELECT * FROM Users WHERE Username='" + txtUsername.Text + "' AND Password='" + txtPassword.Text + "'";
-            conn.Open();      
+        {    
+            //commands for USER_PASSWORD_T for authentication purposes
+            conn = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;Initial Catalog=C:\\Users\\phili\\source\\repos\\IOOP_Assignment\\Library_Reservation_Database.mdf;Integrated Security=True;Connect Timeout=30;");
+            SqlCommand cmd = new SqlCommand("SELECT * FROM USER_PASSWORD_T WHERE userId = @usrId AND pwd= @pwd");
+            conn.Open();
 
-            //declare sqlcommand variable and sql data reader
-            cmd = new SqlCommand(strSQL, conn);            
+            //concentate TextBox values to SQL string
+            cmd.Parameters.AddWithValue("@usrId", txtUsername.Text);
+            cmd.Parameters.AddWithValue("@pwd", txtPassword.Text);
+
+            //establish cmd connection
+            cmd.Connection = conn;
             dr = cmd.ExecuteReader();
+
+            //commands for USER_INFO_T for display purposes
 
             // check if any record exist in the data reader
             if (dr.HasRows)
             { // log in success
+
                 dr.Read(); // read the data
-                fullname = dr["Fullname"].ToString();
-                MessageBox.Show("Welcome " + fullname + ". You have logged in successfully", "Login Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                StudentDashboard dsb = new Dashboard();
-                dsb.fullname = fullname;
-                dsb.Show();
+                
+                //full_name = dr["fullname"].tostring();
+                //messagebox.show("welcome " + full_name + ". you have logged in successfully", "login success", messageboxbuttons.ok, messageboxicon.information);
+                //studentdashboard dsb = new dashboard();
+                //dsb.fullname = fullname;
+                //dsb.show();
+                MessageBox.Show("Hi", "Log in Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Hide();
 
             }
             else // login fail
@@ -68,13 +78,13 @@ namespace IOOP_Assignment
 
             // close the connection
             conn.Close();
-            this.Hide();
+            
             
         }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
         }
     }
 }
