@@ -360,9 +360,8 @@
             this.lblRoomSelected.ForeColor = System.Drawing.Color.White;
             this.lblRoomSelected.Location = new System.Drawing.Point(137, 45);
             this.lblRoomSelected.Name = "lblRoomSelected";
-            this.lblRoomSelected.Size = new System.Drawing.Size(52, 20);
+            this.lblRoomSelected.Size = new System.Drawing.Size(0, 20);
             this.lblRoomSelected.TabIndex = 16;
-            this.lblRoomSelected.Text = "Room";
             // 
             // label14
             // 
@@ -492,6 +491,7 @@
             this.btnAmber.Size = new System.Drawing.Size(299, 94);
             this.btnAmber.TabIndex = 19;
             this.btnAmber.UseVisualStyleBackColor = false;
+            this.btnAmber.Click += new System.EventHandler(this.btnAmber_Click);
             // 
             // pictureBox4
             // 
@@ -778,6 +778,7 @@
             this.btnBlackThron.Size = new System.Drawing.Size(299, 94);
             this.btnBlackThron.TabIndex = 21;
             this.btnBlackThron.UseVisualStyleBackColor = false;
+            this.btnBlackThron.Click += new System.EventHandler(this.btnBlackThron_Click);
             // 
             // btnDapgne
             // 
@@ -792,6 +793,7 @@
             this.btnDapgne.Size = new System.Drawing.Size(299, 94);
             this.btnDapgne.TabIndex = 23;
             this.btnDapgne.UseVisualStyleBackColor = false;
+            this.btnDapgne.Click += new System.EventHandler(this.btnDapgne_Click);
             // 
             // btnCedar
             // 
@@ -806,6 +808,7 @@
             this.btnCedar.Size = new System.Drawing.Size(299, 94);
             this.btnCedar.TabIndex = 22;
             this.btnCedar.UseVisualStyleBackColor = false;
+            this.btnCedar.Click += new System.EventHandler(this.btnCedar_Click);
             // 
             // studentResRoom
             // 
