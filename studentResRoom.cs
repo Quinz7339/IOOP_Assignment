@@ -55,9 +55,8 @@ namespace IOOP_Assignment
             pnlNav.Top = btnDashboad.Top;
             pnlNav.Left = btnDashboad.Left;
             btnDashboad.BackColor = Color.FromArgb(46, 51, 73);
-            
             studentDashboard dsb = new studentDashboard();
-            dsb.Show();
+            dsb.ShowDialog();
             this.Hide();
         }
 
