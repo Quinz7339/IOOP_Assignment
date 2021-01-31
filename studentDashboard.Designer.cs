@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnResRoom = new System.Windows.Forms.Button();
             this.btnResStatus = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
@@ -66,7 +67,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.btnResRoom = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -96,6 +96,22 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(186, 577);
             this.panel1.TabIndex = 0;
+            // 
+            // btnResRoom
+            // 
+            this.btnResRoom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            this.btnResRoom.FlatAppearance.BorderSize = 0;
+            this.btnResRoom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnResRoom.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnResRoom.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.btnResRoom.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+            this.btnResRoom.Location = new System.Drawing.Point(-3, 210);
+            this.btnResRoom.Name = "btnResRoom";
+            this.btnResRoom.Size = new System.Drawing.Size(186, 50);
+            this.btnResRoom.TabIndex = 7;
+            this.btnResRoom.Text = "Reserve Room";
+            this.btnResRoom.UseVisualStyleBackColor = false;
+            this.btnResRoom.Click += new System.EventHandler(this.btnResRoom_Click);
             // 
             // btnResStatus
             // 
@@ -288,7 +304,7 @@
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(137, 25);
             this.label12.TabIndex = 0;
-            this.label12.Text = "Some Prograss";
+            this.label12.Text = "Some Progress";
             // 
             // label10
             // 
@@ -506,22 +522,6 @@
             this.label4.Size = new System.Drawing.Size(85, 25);
             this.label4.TabIndex = 0;
             this.label4.Text = "Earnings";
-            // 
-            // btnResRoom
-            // 
-            this.btnResRoom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
-            this.btnResRoom.FlatAppearance.BorderSize = 0;
-            this.btnResRoom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnResRoom.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnResRoom.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.btnResRoom.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.btnResRoom.Location = new System.Drawing.Point(-3, 210);
-            this.btnResRoom.Name = "btnResRoom";
-            this.btnResRoom.Size = new System.Drawing.Size(186, 50);
-            this.btnResRoom.TabIndex = 7;
-            this.btnResRoom.Text = "Reserve Room";
-            this.btnResRoom.UseVisualStyleBackColor = false;
-            this.btnResRoom.Click += new System.EventHandler(this.btnResRoom_Click);
             // 
             // studentDashboard
             // 
