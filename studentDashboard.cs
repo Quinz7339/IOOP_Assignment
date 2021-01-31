@@ -51,12 +51,35 @@ namespace IOOP_Assignment
             btnDashboad.BackColor = Color.FromArgb(46, 51, 73);
         }
 
+        private void btnResRoom_Click(object sender, EventArgs e)
+        {
+            pnlNav.Height = btnResRoom.Height;
+            pnlNav.Top = btnResRoom.Top;
+            pnlNav.Left = btnResRoom.Left;
+            btnResRoom.BackColor = Color.FromArgb(46, 51, 73);
+            
+            studentResRoom ResRoom = new studentResRoom();
+            ResRoom.Show();
+            this.Hide();
+        }
+
+        private void btnResStatus_Click(object sender, EventArgs e)
+        {
+            pnlNav.Height = btnResStatus.Height;
+            pnlNav.Top = btnResStatus.Top;
+            pnlNav.Left = btnResStatus.Left;
+            btnResStatus.BackColor = Color.FromArgb(46, 51, 73);
+        }
+
         private void btnResReport_Click(object sender, EventArgs e)
         {
             pnlNav.Height = btnResReport.Height;
             pnlNav.Top = btnResReport.Top;
             pnlNav.Left = btnResReport.Left;
             btnResReport.BackColor = Color.FromArgb(46, 51, 73);
+            this.Close();
+            studentResRoom ResRoom = new studentResRoom();
+            ResRoom.Show();
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -80,6 +103,16 @@ namespace IOOP_Assignment
             btnDashboad.BackColor = Color.FromArgb(24, 30, 54);
         }
 
+        private void btnResRoom_Leave(object sender, EventArgs e)
+        {
+            btnResRoom.BackColor = Color.FromArgb(24, 30, 54);
+        }
+
+        private void btnResStatus_Leave(object sender, EventArgs e)
+        {
+            btnResStatus.BackColor = Color.FromArgb(24, 30, 54);
+        }
+
         private void btnResReport_Leave(object sender, EventArgs e)
         {
             btnResReport.BackColor = Color.FromArgb(24, 30, 54);
@@ -98,11 +131,6 @@ namespace IOOP_Assignment
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-         
         }
     }
 

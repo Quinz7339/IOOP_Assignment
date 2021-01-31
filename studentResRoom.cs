@@ -31,10 +31,14 @@ namespace IOOP_Assignment
             InitializeComponent();
             this.Size = new Size(960, 575);
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 25, 25));
-            pnlNav.Height = btnDashboad.Height;
-            pnlNav.Top = btnDashboad.Top;
-            pnlNav.Left = btnDashboad.Left;
-            btnDashboad.BackColor = Color.FromArgb(46, 51, 73);
+            pnlNav.Height = btnResRoom.Height;
+            pnlNav.Top = btnResRoom.Top;
+            pnlNav.Left = btnResRoom.Left;
+            btnResRoom.BackColor = Color.FromArgb(46, 51, 73);
+
+            string bookedRoom;
+            string bookedDate;
+            string bookedTime;
 
         }
 
@@ -51,6 +55,26 @@ namespace IOOP_Assignment
             pnlNav.Top = btnDashboad.Top;
             pnlNav.Left = btnDashboad.Left;
             btnDashboad.BackColor = Color.FromArgb(46, 51, 73);
+            
+            studentDashboard dsb = new studentDashboard();
+            dsb.Show();
+            this.Hide();
+        }
+
+        private void btnResRoom_Click(object sender, EventArgs e)
+        {
+            pnlNav.Height = btnResRoom.Height;
+            pnlNav.Top = btnResRoom.Top;
+            pnlNav.Left = btnResRoom.Left;
+            btnResRoom.BackColor = Color.FromArgb(46, 51, 73);
+        }
+
+        private void btnResStatus_Click(object sender, EventArgs e)
+        {
+            pnlNav.Height = btnResStatus.Height;
+            pnlNav.Top = btnResStatus.Top;
+            pnlNav.Left = btnResStatus.Left;
+            btnResStatus.BackColor = Color.FromArgb(46, 51, 73);
         }
 
         private void btnResReport_Click(object sender, EventArgs e)
@@ -82,6 +106,16 @@ namespace IOOP_Assignment
             btnDashboad.BackColor = Color.FromArgb(24, 30, 54);
         }
 
+        private void btnResRoom_Leave(object sender, EventArgs e)
+        {
+            btnResRoom.BackColor = Color.FromArgb(24, 30, 54);
+        }
+
+        private void btnResStatus_Leave(object sender, EventArgs e)
+        {
+            btnResStatus.BackColor = Color.FromArgb(24, 30, 54);
+        }
+
         private void btnResReport_Leave(object sender, EventArgs e)
         {
             btnResReport.BackColor = Color.FromArgb(24, 30, 54);
@@ -111,16 +145,43 @@ namespace IOOP_Assignment
 
         private void setTimeCombo()
         {
-            //DateTime time = DateTime.Now;
-            if ()
+            //set current date and time to dt
+            DateTime dt = DateTime.Now;
+            
+            for (int i = 1; i <= 30; i += 5)
             {
-
+                dt = dt.AddMinutes(i);
+                cboTime.Items.Add(dt.ToShortTimeString());
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnSubmit_Click(object sender, EventArgs e)
         {
-         
+            //string room;
+            //if (room = btnAmber.Click)
+            //{
+
+            //}
+            ////lblRoomSelected.Text("Amber");
+
+
+            //lblRoomSelected.Text = btnAmber
+
+
+            //// clears the listbox before displaying new items
+            //lstReceipt.Items.Clear();
+
+            //lstReceipt.Items.Add("Date: " + DateTime.Now.ToShortDateString());
+            //lstReceipt.Items.Add("Time: " + DateTime.Now.ToShortTimeString());
+            //lstReceipt.Items.Add("\n"); // displays a new empty line
+            //// \n represents a new line
+            //// \t is equal to one tab space (approx. 8 characters)
+            //lstReceipt.Items.Add("Food n Beverages \t\t" + .ToString("c"));
+            //lstReceipt.Items.Add("Service Charge\t\t" + svc.ToString("c"));
+            //lstReceipt.Items.Add("Tax\t\t\t" + tax.ToString("c"));
+            //lstReceipt.Items.Add("\t\t\t------------");
+            //lstReceipt.Items.Add("Total\t\t\t" + total.ToString("c"));
+            //lstReceipt.Items.Add("\t\t\t=======");
         }
     }
 
