@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnPendingRes = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
             this.btnResReport = new System.Windows.Forms.Button();
@@ -43,7 +44,8 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.lblDateTime = new System.Windows.Forms.Label();
-            this.btnPendingRes = new System.Windows.Forms.Button();
+            this.lblPending = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -63,6 +65,23 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(279, 888);
             this.panel1.TabIndex = 0;
+            // 
+            // btnPendingRes
+            // 
+            this.btnPendingRes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            this.btnPendingRes.FlatAppearance.BorderSize = 0;
+            this.btnPendingRes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPendingRes.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPendingRes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.btnPendingRes.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+            this.btnPendingRes.Location = new System.Drawing.Point(0, 313);
+            this.btnPendingRes.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnPendingRes.Name = "btnPendingRes";
+            this.btnPendingRes.Size = new System.Drawing.Size(279, 77);
+            this.btnPendingRes.TabIndex = 7;
+            this.btnPendingRes.Text = "Pending reservation";
+            this.btnPendingRes.UseVisualStyleBackColor = false;
+            this.btnPendingRes.Click += new System.EventHandler(this.btnPendingRes_Click);
             // 
             // btnUpdate
             // 
@@ -232,29 +251,32 @@
             this.lblDateTime.TabIndex = 5;
             this.lblDateTime.Text = "Date and Time";
             // 
-            // btnPendingRes
+            // lblPending
             // 
-            this.btnPendingRes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
-            this.btnPendingRes.FlatAppearance.BorderSize = 0;
-            this.btnPendingRes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPendingRes.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPendingRes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.btnPendingRes.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.btnPendingRes.Location = new System.Drawing.Point(0, 313);
-            this.btnPendingRes.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnPendingRes.Name = "btnPendingRes";
-            this.btnPendingRes.Size = new System.Drawing.Size(279, 77);
-            this.btnPendingRes.TabIndex = 7;
-            this.btnPendingRes.Text = "Pending reservation";
-            this.btnPendingRes.UseVisualStyleBackColor = false;
-            this.btnPendingRes.Click += new System.EventHandler(this.btnPendingRes_Click);
+            this.lblPending.AutoSize = true;
+            this.lblPending.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPending.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblPending.Location = new System.Drawing.Point(321, 106);
+            this.lblPending.Name = "lblPending";
+            this.lblPending.Size = new System.Drawing.Size(89, 25);
+            this.lblPending.TabIndex = 6;
+            this.lblPending.Text = "Pending ";
             // 
-            // Template
+            // panel3
+            // 
+            this.panel3.Location = new System.Drawing.Point(326, 151);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(867, 52);
+            this.panel3.TabIndex = 7;
+            // 
+            // Librarian_Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(1426, 888);
+            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.lblPending);
             this.Controls.Add(this.lblDateTime);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.label3);
@@ -262,7 +284,7 @@
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.Name = "Template";
+            this.Name = "Librarian_Dashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Login_Page_Load);
@@ -292,6 +314,8 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label lblDateTime;
         private System.Windows.Forms.Button btnPendingRes;
+        private System.Windows.Forms.Label lblPending;
+        private System.Windows.Forms.Panel panel3;
     }
 }
 
