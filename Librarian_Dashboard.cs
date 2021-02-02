@@ -88,12 +88,6 @@ namespace IOOP_Assignment
             btnDashboad.BackColor = Color.FromArgb(24, 30,54);
         }
 
-       
-
-        private void btnResReport_Leave(object sender, EventArgs e)
-        {
-            btnResReport.BackColor = Color.FromArgb(24, 30, 54);
-        }
 
         private void btnUpdate_Leave(object sender, EventArgs e)
         {
@@ -113,6 +107,40 @@ namespace IOOP_Assignment
         private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void btnPastRev_Click(object sender, EventArgs e)
+        {
+            pnlNav.Height = btnPastRes.Height;
+            pnlNav.Top = btnPastRes.Top;
+            pnlNav.Left = btnPastRes.Left;
+            btnPastRes.BackColor = Color.FromArgb(46, 51, 73);
+        }
+
+       
+
+        private void btnResReport_Click_1(object sender, EventArgs e)
+        {
+            pnlNav.Height = btnResReport.Height;
+            pnlNav.Top = btnResReport.Top;
+            pnlNav.Left = btnResReport.Left;
+            btnResReport.BackColor = Color.FromArgb(46, 51, 73);
+        }
+
+        private void btnPastRes_Click(object sender, EventArgs e)
+        {
+            pnlNav.Height = btnPastRes.Height;
+            pnlNav.Top = btnPastRes.Top;
+            pnlNav.Left = btnPastRes.Left;
+            btnPastRes.BackColor = Color.FromArgb(46, 51, 73);
+        }
+
+        private void btnResReport_Click_2(object sender, EventArgs e)
+        {
+            pnlNav.Height = btnResReport.Height;
+            pnlNav.Top = btnResReport.Top;
+            pnlNav.Left = btnResReport.Left;
+            btnResReport.BackColor = Color.FromArgb(46, 51, 73);
         }
     }
 }

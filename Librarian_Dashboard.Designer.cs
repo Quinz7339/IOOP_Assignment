@@ -33,7 +33,6 @@
             this.btnPendingRes = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
-            this.btnResReport = new System.Windows.Forms.Button();
             this.btnDashboad = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -53,8 +52,8 @@
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lblapproved = new System.Windows.Forms.Label();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblapproved = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -72,6 +71,8 @@
             this.Column19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnPastRes = new System.Windows.Forms.Button();
+            this.btnResReport = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -83,10 +84,11 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            this.panel1.Controls.Add(this.btnResReport);
+            this.panel1.Controls.Add(this.btnPastRes);
             this.panel1.Controls.Add(this.btnPendingRes);
             this.panel1.Controls.Add(this.btnUpdate);
             this.panel1.Controls.Add(this.btnLogout);
-            this.panel1.Controls.Add(this.btnResReport);
             this.panel1.Controls.Add(this.btnDashboad);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -108,7 +110,7 @@
             this.btnPendingRes.Name = "btnPendingRes";
             this.btnPendingRes.Size = new System.Drawing.Size(279, 77);
             this.btnPendingRes.TabIndex = 7;
-            this.btnPendingRes.Text = "Pending reservation";
+            this.btnPendingRes.Text = "Pending Reservations";
             this.btnPendingRes.UseVisualStyleBackColor = false;
             this.btnPendingRes.Click += new System.EventHandler(this.btnPendingRes_Click);
             // 
@@ -120,7 +122,7 @@
             this.btnUpdate.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.btnUpdate.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.btnUpdate.Location = new System.Drawing.Point(0, 582);
+            this.btnUpdate.Location = new System.Drawing.Point(0, 538);
             this.btnUpdate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(279, 77);
@@ -148,24 +150,6 @@
             this.btnLogout.UseVisualStyleBackColor = false;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             this.btnLogout.Leave += new System.EventHandler(this.btnLogout_Leave);
-            // 
-            // btnResReport
-            // 
-            this.btnResReport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
-            this.btnResReport.FlatAppearance.BorderSize = 0;
-            this.btnResReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnResReport.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnResReport.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.btnResReport.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.btnResReport.Location = new System.Drawing.Point(0, 495);
-            this.btnResReport.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnResReport.Name = "btnResReport";
-            this.btnResReport.Size = new System.Drawing.Size(279, 77);
-            this.btnResReport.TabIndex = 2;
-            this.btnResReport.Text = "Reservation Report";
-            this.btnResReport.UseVisualStyleBackColor = false;
-            this.btnResReport.Click += new System.EventHandler(this.btnResReport_Click);
-            this.btnResReport.Leave += new System.EventHandler(this.btnResReport_Leave);
             // 
             // btnDashboad
             // 
@@ -307,7 +291,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(1264, 134);
+            this.dataGridView1.Size = new System.Drawing.Size(1106, 134);
             this.dataGridView1.TabIndex = 8;
             // 
             // a
@@ -359,6 +343,13 @@
             this.Column6.Name = "Column6";
             this.Column6.Width = 150;
             // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "Accept/Reject";
+            this.Column7.MinimumWidth = 8;
+            this.Column7.Name = "Column7";
+            this.Column7.Width = 150;
+            // 
             // lblapproved
             // 
             this.lblapproved.AutoSize = true;
@@ -369,13 +360,6 @@
             this.lblapproved.Size = new System.Drawing.Size(97, 25);
             this.lblapproved.TabIndex = 9;
             this.lblapproved.Text = "Approved";
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "Accept/Reject";
-            this.Column7.MinimumWidth = 8;
-            this.Column7.Name = "Column7";
-            this.Column7.Width = 150;
             // 
             // dataGridView2
             // 
@@ -523,6 +507,40 @@
             this.Column21.Name = "Column21";
             this.Column21.Width = 150;
             // 
+            // btnPastRes
+            // 
+            this.btnPastRes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            this.btnPastRes.FlatAppearance.BorderSize = 0;
+            this.btnPastRes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPastRes.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPastRes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.btnPastRes.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+            this.btnPastRes.Location = new System.Drawing.Point(0, 390);
+            this.btnPastRes.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnPastRes.Name = "btnPastRes";
+            this.btnPastRes.Size = new System.Drawing.Size(279, 77);
+            this.btnPastRes.TabIndex = 10;
+            this.btnPastRes.Text = "Past Reservations";
+            this.btnPastRes.UseVisualStyleBackColor = false;
+            this.btnPastRes.Click += new System.EventHandler(this.btnPastRes_Click);
+            // 
+            // btnResReport
+            // 
+            this.btnResReport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            this.btnResReport.FlatAppearance.BorderSize = 0;
+            this.btnResReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnResReport.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnResReport.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.btnResReport.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+            this.btnResReport.Location = new System.Drawing.Point(0, 463);
+            this.btnResReport.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnResReport.Name = "btnResReport";
+            this.btnResReport.Size = new System.Drawing.Size(279, 77);
+            this.btnResReport.TabIndex = 11;
+            this.btnResReport.Text = "Reservation Report";
+            this.btnResReport.UseVisualStyleBackColor = false;
+            this.btnResReport.Click += new System.EventHandler(this.btnResReport_Click_2);
+            // 
             // Librarian_Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -565,7 +583,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnDashboad;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnResReport;
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.FlowLayoutPanel pnlNav;
@@ -602,6 +619,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column19;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column20;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column21;
+        private System.Windows.Forms.Button btnPastRes;
+        private System.Windows.Forms.Button btnResReport;
     }
 }
 
