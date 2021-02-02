@@ -85,7 +85,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.lblCapacity = new System.Windows.Forms.Label();
             this.lblATotal = new System.Windows.Forms.Label();
-            this.btnBlackThron = new System.Windows.Forms.Button();
+            this.btnBlackThorn = new System.Windows.Forms.Button();
             this.btnDapgne = new System.Windows.Forms.Button();
             this.btnCedar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
@@ -673,9 +673,9 @@
             this.label13.ForeColor = System.Drawing.Color.White;
             this.label13.Location = new System.Drawing.Point(311, 246);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(138, 25);
+            this.label13.Size = new System.Drawing.Size(131, 25);
             this.label13.TabIndex = 1;
-            this.label13.Text = "Black Thron";
+            this.label13.Text = "BlackThorn";
             // 
             // pictureBox3
             // 
@@ -765,20 +765,20 @@
             this.lblATotal.TabIndex = 5;
             this.lblATotal.Text = "5";
             // 
-            // btnBlackThron
+            // btnBlackThorn
             // 
-            this.btnBlackThron.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
-            this.btnBlackThron.FlatAppearance.BorderSize = 0;
-            this.btnBlackThron.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBlackThron.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBlackThron.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.btnBlackThron.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.btnBlackThron.Location = new System.Drawing.Point(217, 232);
-            this.btnBlackThron.Name = "btnBlackThron";
-            this.btnBlackThron.Size = new System.Drawing.Size(299, 94);
-            this.btnBlackThron.TabIndex = 21;
-            this.btnBlackThron.UseVisualStyleBackColor = false;
-            this.btnBlackThron.Click += new System.EventHandler(this.btnBlackThron_Click);
+            this.btnBlackThorn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            this.btnBlackThorn.FlatAppearance.BorderSize = 0;
+            this.btnBlackThorn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBlackThorn.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBlackThorn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.btnBlackThorn.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+            this.btnBlackThorn.Location = new System.Drawing.Point(217, 232);
+            this.btnBlackThorn.Name = "btnBlackThorn";
+            this.btnBlackThorn.Size = new System.Drawing.Size(299, 94);
+            this.btnBlackThorn.TabIndex = 21;
+            this.btnBlackThorn.UseVisualStyleBackColor = false;
+            this.btnBlackThorn.Click += new System.EventHandler(this.btnBlackThorn_Click);
             // 
             // btnDapgne
             // 
@@ -849,7 +849,7 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel8);
             this.Controls.Add(this.btnAmber);
-            this.Controls.Add(this.btnBlackThron);
+            this.Controls.Add(this.btnBlackThorn);
             this.Controls.Add(this.btnCedar);
             this.Controls.Add(this.btnDapgne);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -932,7 +932,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label lblCapacity;
         private System.Windows.Forms.Label lblATotal;
-        private System.Windows.Forms.Button btnBlackThron;
+        private System.Windows.Forms.Button btnBlackThorn;
         private System.Windows.Forms.Button btnDapgne;
         private System.Windows.Forms.Button btnCedar;
     }

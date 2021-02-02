@@ -14,7 +14,7 @@ namespace IOOP_Assignment
     public partial class studentResRoom : Form
     {
         string roomType;
-        double date;
+        string date;
         double time;
 
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
@@ -140,30 +140,45 @@ namespace IOOP_Assignment
             //Booking date between 2 days to 32 days after today
             dtpResDate.MinDate = DateTime.Now.AddDays(2);
             dtpResDate.MaxDate = DateTime.Now.AddDays(32);
-            //date = dtpResDate;
+        }
+
+        public static DateTime RoundUp(DateTime dt, TimeSpan d)
+        {
+            var modTicks = dt.Ticks % d.Ticks;
+            var delta = modTicks != 0 ? d.Ticks - modTicks : 0;
+            return new DateTime(dt.Ticks + delta, dt.Kind);
         }
 
         private void setTimeCombo()
         {
-            //set current date and time to dt
             DateTime dt = DateTime.Now;
-            
-            for (int i = 1; i <= 30; i += 5)
+            var dateTime = new DateTime(dt.Year, dt.Month, dt.Day, 20, 0, 0);         //dt.Date.ToShortDateString() + "20:00";
+            var dateTime1 = new DateTime(dt.Year, dt.Month, dt.Day, 8, 0, 0);
+
+            while (dt <= Convert.ToDateTime(dateTime) && dt >= Convert.ToDateTime(dateTime1))
             {
-                dt = dt.AddMinutes(i);
-                time = cboTime.Items.Add(dt.ToShortTimeString());
+                DateTime dt1 = RoundUp(DateTime.Now,TimeSpan.FromMinutes(15));
+                time = cboTime.Items.Add(dt1.ToShortTimeString());
             }
+            //    //set current date and time to dt
+            //    DateTime dt = DateTime.Now;
+
+            //    for (int i = 1; i <= 30; i += 5)
+            //    {
+            //        dt = dt.AddMinutes(i);
+            //        time = cboTime.Items.Add(dt.ToShortTimeString());
+            //    }
         }
 
-        private void btnAmber_Click(object sender, EventArgs e)
+    private void btnAmber_Click(object sender, EventArgs e)
         {
             roomType = ("Amber");
             lblRoomSelected.Text = roomType;
         }
 
-        private void btnBlackThron_Click(object sender, EventArgs e)
+        private void btnBlackThorn_Click(object sender, EventArgs e)
         {
-            roomType = ("Black Thron");
+            roomType = ("BlackThorn");
             lblRoomSelected.Text = roomType;
         }
 
@@ -181,6 +196,7 @@ namespace IOOP_Assignment
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
+            date = dtpResDate.Value.ToShortDateString();
             // clears the listbox before displaying new items
             lstReceipt.Items.Clear();
 
@@ -188,8 +204,6 @@ namespace IOOP_Assignment
             lstReceipt.Items.Add("Time: " + DateTime.Now.ToShortTimeString());
             lstReceipt.Items.Add("\n"); // displays a new empty line
 
-             //n represents a new line
-             //t is equal to one tab space(approx. 8 characters)
             lstReceipt.Items.Add("Room Booked:\t" + roomType);
             lstReceipt.Items.Add("Booked Date:\t" + date);
             lstReceipt.Items.Add("Booked Time:\t" + time);

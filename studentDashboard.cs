@@ -132,6 +132,11 @@ namespace IOOP_Assignment
         {
             this.Close();
         }
+
+        private void lblDateTime_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }

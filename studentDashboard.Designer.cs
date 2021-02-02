@@ -284,6 +284,7 @@
             this.lblDateTime.Size = new System.Drawing.Size(113, 20);
             this.lblDateTime.TabIndex = 5;
             this.lblDateTime.Text = "Date and Time";
+            this.lblDateTime.Click += new System.EventHandler(this.lblDateTime_Click);
             // 
             // panel6
             // 
