@@ -309,7 +309,7 @@
             this.Column12,
             this.Column13,
             this.Column14});
-            this.dataGridView2.Location = new System.Drawing.Point(286, 191);
+            this.dataGridView2.Location = new System.Drawing.Point(296, 191);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowHeadersWidth = 62;
             this.dataGridView2.RowTemplate.Height = 28;
