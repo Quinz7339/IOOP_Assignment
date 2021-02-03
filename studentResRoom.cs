@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using System.Diagnostics;
 
 namespace IOOP_Assignment
 {
@@ -15,7 +16,7 @@ namespace IOOP_Assignment
     {
         string roomType;
         string date;
-        double time;
+        string time;
 
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
 
@@ -44,7 +45,7 @@ namespace IOOP_Assignment
 
         private void Login_Page_Load(object sender, EventArgs e)
         {
-            lblDateTime.Text = DateTime.Now.ToString();
+            lblDateTime.Text = DateTime.Now.ToString("dd / MMM / yyyy      hh / mm / tt");
             setDateTime();
             setTimeCombo();
         }
@@ -142,37 +143,37 @@ namespace IOOP_Assignment
             dtpResDate.MaxDate = DateTime.Now.AddDays(32);
         }
 
-        public static DateTime RoundUp(DateTime dt, TimeSpan d)
-        {
-            var modTicks = dt.Ticks % d.Ticks;
-            var delta = modTicks != 0 ? d.Ticks - modTicks : 0;
-            return new DateTime(dt.Ticks + delta, dt.Kind);
-        }
-
         private void setTimeCombo()
         {
-            DateTime dt = DateTime.Now;
-            var dateTime = new DateTime(dt.Year, dt.Month, dt.Day, 20, 0, 0);         //dt.Date.ToShortDateString() + "20:00";
-            var dateTime1 = new DateTime(dt.Year, dt.Month, dt.Day, 8, 0, 0);
+            //display start and end time
+            DateTime start = DateTime.Parse("8:00AM");
+            DateTime end = DateTime.Parse("8:30PM");
 
-            while (dt <= Convert.ToDateTime(dateTime) && dt >= Convert.ToDateTime(dateTime1))
-            {
-                DateTime dt1 = RoundUp(DateTime.Now,TimeSpan.FromMinutes(15));
-                time = cboTime.Items.Add(dt1.ToShortTimeString());
-            }
-            //    //set current date and time to dt
-            //    DateTime dt = DateTime.Now;
-
-            //    for (int i = 1; i <= 30; i += 5)
-            //    {
-            //        dt = dt.AddMinutes(i);
-            //        time = cboTime.Items.Add(dt.ToShortTimeString());
-            //    }
+            // available time has 30min interval
+            for (DateTime i = start; i < end; i = i.AddMinutes(30))
+                cboTime.Items.Add(i.ToString("HH:mm tt"));
         }
 
-    private void btnAmber_Click(object sender, EventArgs e)
+        private void btnSubmit_Click(object sender, EventArgs e)
         {
-            roomType = ("Amber");
+            date = dtpResDate.Value.ToString("dd / MMM / yyyy");
+            time = cboTime.SelectedItem.ToString();
+
+            // clears the listbox before displaying new items
+            lstReceipt.Items.Clear();
+
+            lstReceipt.Items.Add("Date: " + DateTime.Now.ToString("dd / MMM / yyyy"));
+            lstReceipt.Items.Add("Time: " + DateTime.Now.ToString("hh / mm / tt"));
+            lstReceipt.Items.Add("\n"); // displays a new empty line
+
+            lstReceipt.Items.Add("Room Booked:\t" + roomType);
+            lstReceipt.Items.Add("Booked Date:\t" + date);
+            lstReceipt.Items.Add("Booked Time:\t" + time);
+        }
+
+        private void btnDapgne_Click(object sender, EventArgs e)
+        {
+            roomType = ("Daphne");
             lblRoomSelected.Text = roomType;
         }
 
@@ -182,34 +183,17 @@ namespace IOOP_Assignment
             lblRoomSelected.Text = roomType;
         }
 
+        private void btnAmber_Click(object sender, EventArgs e)
+        {
+            roomType = ("Amber");
+            lblRoomSelected.Text = roomType;
+        }
+
         private void btnCedar_Click(object sender, EventArgs e)
         {
             roomType = ("Cedar");
             lblRoomSelected.Text = roomType;
         }
-
-        private void btnDapgne_Click(object sender, EventArgs e)
-        {
-            roomType = ("Daphne");
-            lblRoomSelected.Text = roomType;
-        }
-
-        private void btnSubmit_Click(object sender, EventArgs e)
-        {
-            date = dtpResDate.Value.ToShortDateString();
-            // clears the listbox before displaying new items
-            lstReceipt.Items.Clear();
-
-            lstReceipt.Items.Add("Date: " + DateTime.Now.ToShortDateString());
-            lstReceipt.Items.Add("Time: " + DateTime.Now.ToShortTimeString());
-            lstReceipt.Items.Add("\n"); // displays a new empty line
-
-            lstReceipt.Items.Add("Room Booked:\t" + roomType);
-            lstReceipt.Items.Add("Booked Date:\t" + date);
-            lstReceipt.Items.Add("Booked Time:\t" + time);
-        }
-
-
     }
-
 }
+

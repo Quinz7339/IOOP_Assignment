@@ -40,7 +40,7 @@ namespace IOOP_Assignment
 
         private void Login_Page_Load(object sender, EventArgs e)
         {
-            lblDateTime.Text = DateTime.Now.ToString();
+            lblDateTime.Text = DateTime.Now.ToString("dd / MMM / yyyy      hh / mm / tt");
         }
 
         private void btnDashboad_Click(object sender, EventArgs e)
