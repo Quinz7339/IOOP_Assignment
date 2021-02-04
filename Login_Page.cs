@@ -15,8 +15,9 @@ namespace IOOP_Assignment
     public partial class Login_Page : Form
     {
         public string fullname;
+        string usr = "Usrxxxx";
+        string pw = "8 characters or longer";
         SqlConnection conn;
-        SqlCommand cmd;
         SqlDataReader dr;
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
 
@@ -36,7 +37,62 @@ namespace IOOP_Assignment
             InitializeComponent();
             this.Size = new Size(700, 450);
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 25, 25));
-            
+            txtUsername.Text = usr;
+            txtUsername.ForeColor = SystemColors.GrayText;
+            txtPassword.Text = pw;
+            txtPassword.ForeColor = SystemColors.GrayText;
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+        private void txtUsername_Leave(object sender, EventArgs e)
+        {
+            if (txtUsername.Text == "")
+            {
+                txtUsername.Text = usr;
+                txtUsername.ForeColor = Color.Gray;
+            }
+        }
+
+        private void txtPassword_Leave(object sender, EventArgs e)
+        {
+            if (txtPassword.Text == "" || txtPassword.Text == pw)
+            {
+                txtPassword.Text = pw;
+                txtPassword.ForeColor = Color.Gray;
+                txtPassword.UseSystemPasswordChar = false;
+            }
+        }
+
+        private void txtUsername_Enter(object sender, EventArgs e)
+        {
+            if (txtUsername.Text == usr)
+            {
+                txtUsername.Text = "";
+                txtUsername.ForeColor = Color.Black;
+            }
+        }
+
+        private void txtPassword_Enter(object sender, EventArgs e)
+        {
+            if (txtPassword.Text == pw)
+            {
+                txtPassword.Text = "";
+                txtPassword.ForeColor = Color.Black;
+                txtPassword.UseSystemPasswordChar = true;
+            }
+        }
+
+        private void pictureBox2_MouseEnter(object sender, EventArgs e)
+        {
+            txtPassword.UseSystemPasswordChar = false;
+        }
+
+        private void pictureBox2_MouseLeave(object sender, EventArgs e)
+        {
+            txtPassword.UseSystemPasswordChar = true;
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -59,17 +115,8 @@ namespace IOOP_Assignment
             // check if any record exist in the data reader
             if (dr.HasRows)
             { // log in success
-
-                dr.Read(); // read the data
-                
-                //full_name = dr["fullname"].tostring();
-                //messagebox.show("welcome " + full_name + ". you have logged in successfully", "login success", messageboxbuttons.ok, messageboxicon.information);
-                //studentdashboard dsb = new dashboard();
-                //dsb.fullname = fullname;
-                //dsb.show();
-                MessageBox.Show("Hi", "Log in Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                this.Hide();
-
+                MessageBox.Show("Work in progress", "Log in Success. Work In Progress", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
             }
             else // login fail
             {
@@ -77,14 +124,9 @@ namespace IOOP_Assignment
             }
 
             // close the connection
-            conn.Close();
-            
-            
+            conn.Close(); 
         }
 
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
+        
     }
 }
