@@ -43,17 +43,6 @@ namespace IOOP_Assignment
             lblDateTime.Text = DateTime.Now.ToString();
         }
 
-        private void btnDashboard_Click(object sender, EventArgs e)
-        {
-            pnlNav.Height = btnDashboard.Height;
-            pnlNav.Top = btnDashboard.Top;
-            pnlNav.Left = btnDashboard.Left;
-            btnDashboard.BackColor = Color.FromArgb(46, 51, 73);
-
-            Librarian_Dashboard librarian_Dashboard = new Librarian_Dashboard();
-            librarian_Dashboard.ShowDialog();
-        }
-
         private void btnPendingRes_Click(object sender, EventArgs e)
         {
             pnlNav.Height = btnPendingRes.Height;
@@ -61,8 +50,9 @@ namespace IOOP_Assignment
             pnlNav.Left = btnPendingRes.Left;
             btnPendingRes.BackColor = Color.FromArgb(46, 51, 73);
 
-            Librarian_PendingRes librarian_PendingRes = new Librarian_PendingRes();
-            librarian_PendingRes.ShowDialog();
+            Librarian_PendingRes LibPendingRes = new Librarian_PendingRes();
+            LibPendingRes.Show();
+            this.Hide();
         }
 
         private void btnResReport_Click(object sender, EventArgs e)
