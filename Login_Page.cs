@@ -14,9 +14,10 @@ namespace IOOP_Assignment
 {
     public partial class Login_Page : Form
     {
-        public string fullname;
-        string usr = "Usrxxxx";
-        string pw = "8 characters or longer";
+        public string usrId;
+        readonly string usr = "Usrxxxx";
+        readonly string pw = "8 characters or longer";
+        
         SqlConnection conn;
         SqlDataReader dr;
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
@@ -29,7 +30,6 @@ namespace IOOP_Assignment
               int nBottomRect,
               int nWidthEllipse,
               int nHeightEllipse
-
           );
 
         public Login_Page()
@@ -45,7 +45,12 @@ namespace IOOP_Assignment
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to quit?", "Exit?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dialogResult == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+            
         }
         private void txtUsername_Leave(object sender, EventArgs e)
         {
@@ -98,7 +103,7 @@ namespace IOOP_Assignment
         private void btnLogin_Click(object sender, EventArgs e)
         {    
             //commands for USER_PASSWORD_T for authentication purposes
-            conn = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;Initial Catalog=C:\\Users\\phili\\source\\repos\\IOOP_Assignment\\Library_Reservation_Database.mdf;Integrated Security=True;Connect Timeout=30;");
+            conn = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\Library_Reservation_Database.mdf;Integrated Security=True;Connect Timeout=30;");
             SqlCommand cmd = new SqlCommand("SELECT * FROM USER_PASSWORD_T WHERE userId = @usrId AND pwd= @pwd");
             conn.Open();
 
@@ -110,13 +115,11 @@ namespace IOOP_Assignment
             cmd.Connection = conn;
             dr = cmd.ExecuteReader();
 
-            //commands for USER_INFO_T for display purposes
-
             // check if any record exist in the data reader
             if (dr.HasRows)
             { // log in success
-                MessageBox.Show("Work in progress", "Log in Success. Work In Progress", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                this.Close();
+                usrId = txtUsername.Text;
+                this.Hide();
             }
             else // login fail
             {
@@ -127,6 +130,5 @@ namespace IOOP_Assignment
             conn.Close(); 
         }
 
-        
     }
 }

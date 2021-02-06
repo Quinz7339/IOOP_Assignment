@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace IOOP_Assignment
 {
-    class Controllers
+    public class Controllers
     {
-        
+        // list of shared variables
+
     }
+   
 }
