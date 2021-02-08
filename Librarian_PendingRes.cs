@@ -141,6 +141,10 @@ namespace IOOP_Assignment
             pnlNav.Top = btnPastRes.Top;
             pnlNav.Left = btnPastRes.Left;
             btnPastRes.BackColor = Color.FromArgb(46, 51, 73);
+
+            Librarian_PendingRes LibPendingRes = new Librarian_PendingRes();
+            LibPendingRes.Show();
+            this.Hide();
         }
 
         private void btnResReport_Click_2(object sender, EventArgs e)
