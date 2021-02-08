@@ -16,7 +16,8 @@ namespace IOOP_Assignment
     {
         string roomType;
         string date;
-        string time;
+        string startTime;
+        string endTime;
 
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
 
@@ -43,7 +44,7 @@ namespace IOOP_Assignment
 
         }
 
-        private void Login_Page_Load(object sender, EventArgs e)
+        private void StudentResRoom(object sender, EventArgs e)
         {
             lblDateTime.Text = DateTime.Now.ToString("dd / MMM / yyyy      hh / mm / tt");
             setDateTime();
@@ -133,7 +134,7 @@ namespace IOOP_Assignment
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
         }
 
         private void setDateTime()
@@ -146,19 +147,28 @@ namespace IOOP_Assignment
         private void setTimeCombo()
         {
             //display start and end time
-            DateTime start = DateTime.Parse("8:00AM");
-            DateTime end = DateTime.Parse("8:30PM");
+            DateTime sStart = DateTime.Parse("08:00AM");
+            DateTime sEnd = DateTime.Parse("08:30PM");
 
             // available time has 30min interval
-            for (DateTime i = start; i < end; i = i.AddMinutes(30))
-                cboTime.Items.Add(i.ToString("HH:mm tt"));
+            for (DateTime tm = sStart; tm < sEnd; tm = tm.AddMinutes(30))
+                cboStartTime.Items.Add(tm.ToString("08:30PM"));
+
+            //DateTime eStart = DateTime.Parse("8:00AM");
+            //DateTime eEnd = DateTime.Parse("8:30PM");
+            //for (DateTime tm = eStart; tm < eEnd; tm = tm.AddMinutes(30))
+            //    cboEndTime.Items.Add(tm.ToString("HH:mm tt"));
+
+
+
+            //comboBox1.Items.Remove("Tokyo");
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             date = dtpResDate.Value.ToString("dd / MMM / yyyy");
-            time = cboTime.SelectedItem.ToString();
-
+            startTime = cboStartTime.SelectedItem.ToString();
+            endTime = cboStartTime.SelectedItem.ToString();
             // clears the listbox before displaying new items
             lstReceipt.Items.Clear();
 
@@ -168,7 +178,8 @@ namespace IOOP_Assignment
 
             lstReceipt.Items.Add("Room Booked:\t" + roomType);
             lstReceipt.Items.Add("Booked Date:\t" + date);
-            lstReceipt.Items.Add("Booked Time:\t" + time);
+            lstReceipt.Items.Add("Booked Start Time:\t" + startTime);
+            lstReceipt.Items.Add("Booked End Time:\t" + endTime);
         }
 
         private void btnDapgne_Click(object sender, EventArgs e)

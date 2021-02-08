@@ -130,7 +130,7 @@ namespace IOOP_Assignment
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
         }
 
         private void lblDateTime_Click(object sender, EventArgs e)

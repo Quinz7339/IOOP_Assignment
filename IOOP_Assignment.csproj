@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="resRoom.cs" />
     <Compile Include="studentResRoom.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -58,6 +59,7 @@
     <Compile Include="studentDashboard.Designer.cs">
       <DependentUpon>studentDashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="studentResRoomController.cs" />
     <Compile Include="Template.cs">
       <SubType>Form</SubType>
     </Compile>
