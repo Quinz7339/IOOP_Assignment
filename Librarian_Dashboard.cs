@@ -31,28 +31,16 @@ namespace IOOP_Assignment
             InitializeComponent();
             this.Size = new Size(960, 575);
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 25, 25));
-            pnlNav.Height = btnDashboad.Height;
-            pnlNav.Top = btnDashboad.Top;
-            pnlNav.Left = btnDashboad.Left;
-            btnDashboad.BackColor = Color.FromArgb(46, 51, 73);
+            pnlNav.Height = btnDashboard.Height;
+            pnlNav.Top = btnDashboard.Top;
+            pnlNav.Left = btnDashboard.Left;
+            btnDashboard.BackColor = Color.FromArgb(46, 51, 73);
             
         }
 
         private void Login_Page_Load(object sender, EventArgs e)
         {
             lblDateTime.Text = DateTime.Now.ToString();
-        }
-
-        private void btnDashboad_Click(object sender, EventArgs e)
-        {
-            pnlNav.Height = btnDashboad.Height;
-            pnlNav.Top = btnDashboad.Top;
-            pnlNav.Left = btnDashboad.Left;
-            btnDashboad.BackColor = Color.FromArgb(46, 51, 73);
-
-            Librarian_Dashboard librarian_Dashboard = new Librarian_Dashboard();
-            librarian_Dashboard.ShowDialog();
-            this.Hide();
         }
 
         private void btnPendingRes_Click(object sender, EventArgs e)
@@ -62,8 +50,8 @@ namespace IOOP_Assignment
             pnlNav.Left = btnPendingRes.Left;
             btnPendingRes.BackColor = Color.FromArgb(46, 51, 73);
 
-            Librarian_PendingRes librarian_PendingRes = new Librarian_PendingRes();
-            librarian_PendingRes.ShowDialog();
+            Librarian_PendingRes LibPendingRes = new Librarian_PendingRes();
+            LibPendingRes.Show();
             this.Hide();
         }
 
@@ -91,9 +79,9 @@ namespace IOOP_Assignment
             btnLogout.BackColor = Color.FromArgb(46, 51, 73);
         }
 
-        private void btnDashboad_Leave(object sender, EventArgs e)
+        private void btnDashboard_Leave(object sender, EventArgs e)
         {
-            btnDashboad.BackColor = Color.FromArgb(24, 30,54);
+            btnDashboard.BackColor = Color.FromArgb(24, 30,54);
         }
 
 
@@ -144,7 +132,6 @@ namespace IOOP_Assignment
 
             Librarian_PastRes librarian_PastRes = new Librarian_PastRes();
             librarian_PastRes.ShowDialog();
-            this.Hide();
         }
 
         private void btnResReport_Click_2(object sender, EventArgs e)

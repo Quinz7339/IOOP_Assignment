@@ -49,6 +49,10 @@ namespace IOOP_Assignment
             pnlNav.Top = btnDashboad.Top;
             pnlNav.Left = btnDashboad.Left;
             btnDashboad.BackColor = Color.FromArgb(46, 51, 73);
+
+            Librarian_Dashboard LibDash = new Librarian_Dashboard();
+            LibDash.Show();
+            this.Hide();
         }
 
         private void btnPendingRes_Click(object sender, EventArgs e)
