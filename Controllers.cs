@@ -10,12 +10,30 @@ namespace IOOP_Assignment
 {
     public class Controllers
     {
-        SqlConnection conn;
-        SqlDataReader dr;
         // list of shared variables
-        public static string getUserId(string userId)
+        public static bool getUserId(string userId, string password)
         {
-            return userId;
+            //commands for USER_PASSWORD_T for authentication purposes
+            SqlConnection conn = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\Library_Reservation_Database.mdf;Integrated Security=True;Connect Timeout=30;");
+            SqlCommand cmd = new SqlCommand("SELECT * FROM USER_PASSWORD_T WHERE userId = @usrId AND pwd= @pwd");
+            conn.Open();
+
+            //concentate TextBox values to SQL string
+            cmd.Parameters.AddWithValue("@usrId", userId);
+            cmd.Parameters.AddWithValue("@pwd", password);
+
+            //establish cmd connection
+            cmd.Connection = conn;
+            SqlDataReader dr = cmd.ExecuteReader();
+
+            //check if credentials entered is present in the database
+            if (dr.HasRows)
+            {
+                conn.Close(); //closses the connection to SQL DB
+                return true;
+            }
+            conn.Close(); //closses the connection to SQL DB
+            return false;
         }
 
     }

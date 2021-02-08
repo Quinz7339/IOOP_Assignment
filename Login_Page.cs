@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
-using System.Data.SqlClient;
 
 
 namespace IOOP_Assignment
@@ -19,8 +18,6 @@ namespace IOOP_Assignment
         readonly string usr = "Usrxxxx";
         readonly string pw = "8 characters or longer";
 
-        SqlConnection conn;
-        SqlDataReader dr;
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
 
         private static extern IntPtr CreateRoundRectRgn
@@ -103,32 +100,18 @@ namespace IOOP_Assignment
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            //commands for USER_PASSWORD_T for authentication purposes
-            conn = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\Library_Reservation_Database.mdf;Integrated Security=True;Connect Timeout=30;");
-            SqlCommand cmd = new SqlCommand("SELECT * FROM USER_PASSWORD_T WHERE userId = @usrId AND pwd= @pwd");
-            conn.Open();
-
-            //concentate TextBox values to SQL string
-            cmd.Parameters.AddWithValue("@usrId", txtUsername.Text);
-            cmd.Parameters.AddWithValue("@pwd", txtPassword.Text);
-
-            //establish cmd connection
-            cmd.Connection = conn;
-            dr = cmd.ExecuteReader();
-
-            // check if any record exist in the data reader
-            if (dr.HasRows)
-            { // log in success
-                Controllers.getUserId(txtUsername.Text);
+            // method to check if any record exist in the Database
+            if (Controllers.getUserId(txtUsername.Text, txtPassword.Text) == true)
+            {
+                //login sucess, hides this form 
                 this.Hide();
             }
-            else // login fail
+            else 
             {
+                //login failed
                 MessageBox.Show("Incorrect Username or Password OR you do not have the authority to access the system", "Log in Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            // close the connection
-            conn.Close();
         }
 
     }
