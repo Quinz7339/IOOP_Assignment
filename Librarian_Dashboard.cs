@@ -52,6 +52,7 @@ namespace IOOP_Assignment
 
             Librarian_Dashboard librarian_Dashboard = new Librarian_Dashboard();
             librarian_Dashboard.ShowDialog();
+            this.Hide();
         }
 
         private void btnPendingRes_Click(object sender, EventArgs e)
@@ -63,6 +64,7 @@ namespace IOOP_Assignment
 
             Librarian_PendingRes librarian_PendingRes = new Librarian_PendingRes();
             librarian_PendingRes.ShowDialog();
+            this.Hide();
         }
 
         private void btnResReport_Click(object sender, EventArgs e)
@@ -142,6 +144,7 @@ namespace IOOP_Assignment
 
             Librarian_PastRes librarian_PastRes = new Librarian_PastRes();
             librarian_PastRes.ShowDialog();
+            this.Hide();
         }
 
         private void btnResReport_Click_2(object sender, EventArgs e)
