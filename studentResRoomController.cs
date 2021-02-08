@@ -20,15 +20,14 @@ namespace IOOP_Assignment
         }
 
         //int is to check status success of faild the insert value
-        public int addReservation(string userID, string resRoomID, string resRoomType, string resDate, string resStartTime, string resEndTime, string currentDate, string currentTime) 
+        public int addReservation(string userID, string resRoomID, string resRoomType, string resDate, string resStartTime, string resEndTime, string currentDate, string currentTime)
         {
-            string insertSQL = "INSERT INTO RESERVATION(UserID, ResRoomID, ResRoomType, ResDate, ResStartTime, ResEndTime, CurrentDate, CurrentTime) VALUES(@userID, @resRoomID, @resRoomType, @resDate, @resStartTime, @resEndTime, @currentDate, @currentTime)";
+            string insertSQL = "INSERT INTO RESERVATION_INFO_T(reserveId, roomId, bookingDate, bookingTime, reserveDate, reserveStartTime, reserveEndTime, reservStatus, userID) VALUES(@reserveID, @roomID, @resRoomType, @resDate, @resStartTime, @resEndTime, @currentDate, @currentTime)";
 
             Connect();
             SqlCommand cmd = new SqlCommand(insertSQL, conn);
-            resRoom std = new resRoom(userID, resRoomID, resRoomType, resDate, resStartTime, resEndTime, currentDate, currentTime);
 
-            cmd.Parameters.AddWithValue("@studentID", std.StudentID);
+            cmd.Parameters.AddWithValue("@userID", userID);
             cmd.Parameters.AddWithValue("@fullname", std.Fullname);
             cmd.Parameters.AddWithValue("@phone", std.PhoneNumber);
             cmd.Parameters.AddWithValue("@course", std.Course);

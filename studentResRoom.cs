@@ -42,13 +42,10 @@ namespace IOOP_Assignment
             pnlNav.Left = btnResRoom.Left;
             btnResRoom.BackColor = Color.FromArgb(46, 51, 73);
 
-        }
-
-        private void StudentResRoom(object sender, EventArgs e)
-        {
             lblDateTime.Text = DateTime.Now.ToString("dd / MMM / yyyy      hh / mm / tt");
             setDateTime();
             setTimeCombo();
+            cboEndTime.Enabled = false;
         }
 
         private void btnDashboad_Click(object sender, EventArgs e)
@@ -147,20 +144,14 @@ namespace IOOP_Assignment
         private void setTimeCombo()
         {
             //display start and end time
-            DateTime sStart = DateTime.Parse("08:00AM");
-            DateTime sEnd = DateTime.Parse("08:30PM");
+            DateTime startTime_Start = DateTime.Parse("08:00AM");
+            DateTime startTime_End = DateTime.Parse("08:30PM");
 
             // available time has 30min interval
-            for (DateTime tm = sStart; tm < sEnd; tm = tm.AddMinutes(30))
-                cboStartTime.Items.Add(tm.ToString("08:30PM"));
-
-            //DateTime eStart = DateTime.Parse("8:00AM");
-            //DateTime eEnd = DateTime.Parse("8:30PM");
-            //for (DateTime tm = eStart; tm < eEnd; tm = tm.AddMinutes(30))
-            //    cboEndTime.Items.Add(tm.ToString("HH:mm tt"));
-
-
-
+            for (DateTime tm = startTime_Start; tm < startTime_End; tm = tm.AddMinutes(30))
+            {
+                cboStartTime.Items.Add(tm.ToString("HH:mm tt"));
+            }
             //comboBox1.Items.Remove("Tokyo");
         }
 
@@ -168,7 +159,7 @@ namespace IOOP_Assignment
         {
             date = dtpResDate.Value.ToString("dd / MMM / yyyy");
             startTime = cboStartTime.SelectedItem.ToString();
-            endTime = cboStartTime.SelectedItem.ToString();
+            endTime = cboEndTime.SelectedItem.ToString();
             // clears the listbox before displaying new items
             lstReceipt.Items.Clear();
 
@@ -204,6 +195,19 @@ namespace IOOP_Assignment
         {
             roomType = ("Cedar");
             lblRoomSelected.Text = roomType;
+        }
+
+        private void cboStartTime_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cboEndTime.Items.Clear();
+            cboEndTime.Enabled = true;
+
+            string selectedStartTime = cboStartTime.SelectedItem.ToString();
+            //available time has 30min interval
+            for (DateTime tm = DateTime.Parse(selectedStartTime).AddHours(1); tm <= DateTime.Parse(selectedStartTime).AddHours(6) && tm <= DateTime.Parse("09:00PM"); tm = tm.AddMinutes(30))
+            {
+                cboEndTime.Items.Add(tm.ToString("HH:mm tt"));
+            }
         }
     }
 }
