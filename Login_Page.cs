@@ -1,14 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Runtime.InteropServices;
 using System.Data.SqlClient;
+using System.Drawing;
+using System.Runtime.InteropServices;
+using System.Windows.Forms;
 
 namespace IOOP_Assignment
 {
@@ -17,7 +11,7 @@ namespace IOOP_Assignment
         public string usrId;
         readonly string usr = "Usrxxxx";
         readonly string pw = "8 characters or longer";
-        
+
         SqlConnection conn;
         SqlDataReader dr;
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
@@ -50,7 +44,7 @@ namespace IOOP_Assignment
             {
                 Application.Exit();
             }
-            
+
         }
         private void txtUsername_Leave(object sender, EventArgs e)
         {
@@ -101,7 +95,7 @@ namespace IOOP_Assignment
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
-        {    
+        {
             //commands for USER_PASSWORD_T for authentication purposes
             conn = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\Library_Reservation_Database.mdf;Integrated Security=True;Connect Timeout=30;");
             SqlCommand cmd = new SqlCommand("SELECT * FROM USER_PASSWORD_T WHERE userId = @usrId AND pwd= @pwd");
@@ -118,7 +112,7 @@ namespace IOOP_Assignment
             // check if any record exist in the data reader
             if (dr.HasRows)
             { // log in success
-                usrId = txtUsername.Text;
+                Controllers.getUserId(txtUsername.Text);
                 this.Hide();
             }
             else // login fail
@@ -127,7 +121,7 @@ namespace IOOP_Assignment
             }
 
             // close the connection
-            conn.Close(); 
+            conn.Close();
         }
 
     }

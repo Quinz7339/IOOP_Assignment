@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace IOOP_Assignment
+﻿namespace IOOP_Assignment
 {
     public class Controllers
     {
         // list of shared variables
-
+        public static string getUserId(string userId)
+        {
+            return userId;
+        }
     }
-   
+
 }
