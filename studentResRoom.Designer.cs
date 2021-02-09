@@ -37,7 +37,7 @@
             this.btnResReport = new System.Windows.Forms.Button();
             this.btnDashboad = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.lblUserPosition = new System.Windows.Forms.Label();
+            this.lblUserId = new System.Windows.Forms.Label();
             this.lblUsername = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlNav = new System.Windows.Forms.FlowLayoutPanel();
@@ -222,7 +222,7 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.lblUserPosition);
+            this.panel2.Controls.Add(this.lblUserId);
             this.panel2.Controls.Add(this.lblUsername);
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
@@ -231,16 +231,16 @@
             this.panel2.Size = new System.Drawing.Size(186, 154);
             this.panel2.TabIndex = 0;
             // 
-            // lblUserPosition
+            // lblUserId
             // 
-            this.lblUserPosition.AutoSize = true;
-            this.lblUserPosition.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUserPosition.ForeColor = System.Drawing.Color.White;
-            this.lblUserPosition.Location = new System.Drawing.Point(41, 124);
-            this.lblUserPosition.Name = "lblUserPosition";
-            this.lblUserPosition.Size = new System.Drawing.Size(100, 16);
-            this.lblUserPosition.TabIndex = 3;
-            this.lblUserPosition.Text = "User position";
+            this.lblUserId.AutoSize = true;
+            this.lblUserId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUserId.ForeColor = System.Drawing.Color.White;
+            this.lblUserId.Location = new System.Drawing.Point(57, 124);
+            this.lblUserId.Name = "lblUserId";
+            this.lblUserId.Size = new System.Drawing.Size(60, 16);
+            this.lblUserId.TabIndex = 3;
+            this.lblUserId.Text = "User ID";
             // 
             // lblUsername
             // 
@@ -359,6 +359,7 @@
             this.btnReset.TabIndex = 20;
             this.btnReset.Text = "Reset";
             this.btnReset.UseVisualStyleBackColor = false;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // btnSubmit
             // 
@@ -381,10 +382,11 @@
             this.lblRoomSelected.AutoSize = true;
             this.lblRoomSelected.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRoomSelected.ForeColor = System.Drawing.Color.White;
-            this.lblRoomSelected.Location = new System.Drawing.Point(139, 43);
+            this.lblRoomSelected.Location = new System.Drawing.Point(138, 46);
             this.lblRoomSelected.Name = "lblRoomSelected";
-            this.lblRoomSelected.Size = new System.Drawing.Size(0, 20);
+            this.lblRoomSelected.Size = new System.Drawing.Size(81, 20);
             this.lblRoomSelected.TabIndex = 16;
+            this.lblRoomSelected.Text = "                  ";
             // 
             // label14
             // 
@@ -906,7 +908,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lblUsername;
         private System.Windows.Forms.Button btnDashboad;
-        private System.Windows.Forms.Label lblUserPosition;
+        private System.Windows.Forms.Label lblUserId;
         private System.Windows.Forms.Button btnResReport;
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.Button btnUpdate;

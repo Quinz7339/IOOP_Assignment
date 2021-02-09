@@ -20,17 +20,22 @@ namespace IOOP_Assignment
         }
 
         //int is to check status success of faild the insert value
-        public int addReservation(string userID, string resRoomID, string resRoomType, string resDate, string resStartTime, string resEndTime, string currentDate, string currentTime)
+        public int addReservation(string roomId, string bookingDate, string bookingTime, string reserveDate, string reserveStartTime, string reserveEndTime, string reserveStatus, string userId)
         {
-            string insertSQL = "INSERT INTO RESERVATION_INFO_T(reserveId, roomId, bookingDate, bookingTime, reserveDate, reserveStartTime, reserveEndTime, reservStatus, userID) VALUES(@reserveID, @roomID, @resRoomType, @resDate, @resStartTime, @resEndTime, @currentDate, @currentTime)";
+            string insertSQL = "INSERT INTO RESERVATION_INFO_T(roomId, bookingDate, bookingTime, reserveDate, reserveStartTime, reserveEndTime, reserveStatus, userId) VALUES(@reserveID, @roomId, @bookingDate, @bookingTime, @reserveDate, @reserveStartTime, @reserveEndTime, @reserveStatus, @userId)";
 
             Connect();
             SqlCommand cmd = new SqlCommand(insertSQL, conn);
 
-            cmd.Parameters.AddWithValue("@userID", userID);
-            cmd.Parameters.AddWithValue("@fullname", std.Fullname);
-            cmd.Parameters.AddWithValue("@phone", std.PhoneNumber);
-            cmd.Parameters.AddWithValue("@course", std.Course);
+            cmd.Parameters.AddWithValue("@roomId", roomId);
+            cmd.Parameters.AddWithValue("@bookingDate", bookingDate);
+            cmd.Parameters.AddWithValue("@bookingTime", bookingTime);
+            cmd.Parameters.AddWithValue("@reserveDate", reserveDate);
+            cmd.Parameters.AddWithValue("@reserveStartTime", reserveStartTime);
+            cmd.Parameters.AddWithValue("@reserveEndTime", reserveEndTime);
+            cmd.Parameters.AddWithValue("@reservStatus", reserveStatus);
+            cmd.Parameters.AddWithValue("@userId", userId);
+
             int status = cmd.ExecuteNonQuery(); //int is to check status success of faild the insert value
             conn.Close();
             return status;
