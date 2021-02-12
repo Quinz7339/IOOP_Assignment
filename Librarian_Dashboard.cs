@@ -158,5 +158,17 @@ namespace IOOP_Assignment
             LibPendingRes.ShowDialog();
             this.Hide();
         }
+
+        private void btnCheckPast_Click(object sender, EventArgs e)
+        {
+            Librarian_PastRes LibPastRes = new Librarian_PastRes();
+            LibPastRes.ShowDialog();
+            this.Hide();
+        }
+
+        private void btnUpdateInfo_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
