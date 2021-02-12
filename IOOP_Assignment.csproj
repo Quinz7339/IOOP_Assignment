@@ -47,6 +47,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="resRoom.cs" />
+    <Compile Include="studentResStatus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="studentResStatus.Designer.cs">
+      <DependentUpon>studentResStatus.cs</DependentUpon>
+    </Compile>
     <Compile Include="studentResRoom.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -68,6 +74,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="studentResStatus.resx">
+      <DependentUpon>studentResStatus.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="studentResRoom.resx">
       <DependentUpon>studentResRoom.cs</DependentUpon>
     </EmbeddedResource>

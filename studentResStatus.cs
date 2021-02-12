@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace IOOP_Assignment
 {
-    public partial class studentDashboard : Form
+    public partial class studentResStatus : Form
     {
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
 
@@ -26,7 +26,7 @@ namespace IOOP_Assignment
 
           );
 
-        public studentDashboard()
+        public studentResStatus()
         {
             InitializeComponent();
             this.Size = new Size(960, 575);
@@ -71,6 +71,17 @@ namespace IOOP_Assignment
             btnResStatus.BackColor = Color.FromArgb(46, 51, 73);
         }
 
+        private void btnResReport_Click(object sender, EventArgs e)
+        {
+            pnlNav.Height = btnResReport.Height;
+            pnlNav.Top = btnResReport.Top;
+            pnlNav.Left = btnResReport.Left;
+            btnResReport.BackColor = Color.FromArgb(46, 51, 73);
+            this.Close();
+            studentResRoom ResRoom = new studentResRoom();
+            ResRoom.Show();
+        }
+
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             pnlNav.Height = btnUpdate.Height;
@@ -100,6 +111,11 @@ namespace IOOP_Assignment
         private void btnResStatus_Leave(object sender, EventArgs e)
         {
             btnResStatus.BackColor = Color.FromArgb(24, 30, 54);
+        }
+
+        private void btnResReport_Leave(object sender, EventArgs e)
+        {
+            btnResReport.BackColor = Color.FromArgb(24, 30, 54);
         }
 
         private void btnUpdate_Leave(object sender, EventArgs e)
