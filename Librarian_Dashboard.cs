@@ -151,5 +151,12 @@ namespace IOOP_Assignment
             btnDashboard.BackColor = Color.FromArgb(46, 51, 73);
 
         }
+
+        private void btnCheckPending_Click(object sender, EventArgs e)
+        {
+            Librarian_PendingRes LibPendingRes = new Librarian_PendingRes();
+            LibPendingRes.ShowDialog();
+            this.Hide();
+        }
     }
 }

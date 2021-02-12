@@ -45,6 +45,10 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.lblDateTime = new System.Windows.Forms.Label();
+            this.btnCheckPending = new System.Windows.Forms.Button();
+            this.btnCheckPast = new System.Windows.Forms.Button();
+            this.btnUpdateInfo = new System.Windows.Forms.Button();
+            this.btnWeeklyRep = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -267,12 +271,68 @@
             this.lblDateTime.TabIndex = 5;
             this.lblDateTime.Text = "Date and Time";
             // 
+            // btnCheckPending
+            // 
+            this.btnCheckPending.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
+            this.btnCheckPending.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCheckPending.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(151)))), ((int)(((byte)(176)))));
+            this.btnCheckPending.Location = new System.Drawing.Point(457, 191);
+            this.btnCheckPending.Name = "btnCheckPending";
+            this.btnCheckPending.Size = new System.Drawing.Size(316, 224);
+            this.btnCheckPending.TabIndex = 6;
+            this.btnCheckPending.Text = "Check pending reservations?";
+            this.btnCheckPending.UseVisualStyleBackColor = false;
+            this.btnCheckPending.Click += new System.EventHandler(this.btnCheckPending_Click);
+            // 
+            // btnCheckPast
+            // 
+            this.btnCheckPast.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
+            this.btnCheckPast.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCheckPast.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(151)))), ((int)(((byte)(176)))));
+            this.btnCheckPast.Location = new System.Drawing.Point(956, 191);
+            this.btnCheckPast.Name = "btnCheckPast";
+            this.btnCheckPast.Size = new System.Drawing.Size(316, 224);
+            this.btnCheckPast.TabIndex = 6;
+            this.btnCheckPast.Text = "Check past reservations?";
+            this.btnCheckPast.UseVisualStyleBackColor = false;
+            this.btnCheckPast.Click += new System.EventHandler(this.btnCheckPending_Click);
+            // 
+            // btnUpdateInfo
+            // 
+            this.btnUpdateInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
+            this.btnUpdateInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdateInfo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(151)))), ((int)(((byte)(176)))));
+            this.btnUpdateInfo.Location = new System.Drawing.Point(457, 515);
+            this.btnUpdateInfo.Name = "btnUpdateInfo";
+            this.btnUpdateInfo.Size = new System.Drawing.Size(316, 224);
+            this.btnUpdateInfo.TabIndex = 6;
+            this.btnUpdateInfo.Text = "Update info?";
+            this.btnUpdateInfo.UseVisualStyleBackColor = false;
+            this.btnUpdateInfo.Click += new System.EventHandler(this.btnCheckPending_Click);
+            // 
+            // btnWeeklyRep
+            // 
+            this.btnWeeklyRep.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
+            this.btnWeeklyRep.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnWeeklyRep.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(151)))), ((int)(((byte)(176)))));
+            this.btnWeeklyRep.Location = new System.Drawing.Point(956, 515);
+            this.btnWeeklyRep.Name = "btnWeeklyRep";
+            this.btnWeeklyRep.Size = new System.Drawing.Size(316, 224);
+            this.btnWeeklyRep.TabIndex = 6;
+            this.btnWeeklyRep.Text = "Print weekly report?\r\n";
+            this.btnWeeklyRep.UseVisualStyleBackColor = false;
+            this.btnWeeklyRep.Click += new System.EventHandler(this.btnCheckPending_Click);
+            // 
             // Librarian_Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(1552, 888);
+            this.Controls.Add(this.btnWeeklyRep);
+            this.Controls.Add(this.btnUpdateInfo);
+            this.Controls.Add(this.btnCheckPast);
+            this.Controls.Add(this.btnCheckPending);
             this.Controls.Add(this.lblDateTime);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.lblDashboard);
@@ -310,6 +370,10 @@
         private System.Windows.Forms.Button btnPendingRes;
         private System.Windows.Forms.Button btnPastRes;
         private System.Windows.Forms.Button btnResReport;
+        private System.Windows.Forms.Button btnCheckPending;
+        private System.Windows.Forms.Button btnCheckPast;
+        private System.Windows.Forms.Button btnUpdateInfo;
+        private System.Windows.Forms.Button btnWeeklyRep;
     }
 }
 
