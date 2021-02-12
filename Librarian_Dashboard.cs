@@ -150,9 +150,6 @@ namespace IOOP_Assignment
             pnlNav.Left = btnDashboard.Left;
             btnDashboard.BackColor = Color.FromArgb(46, 51, 73);
 
-            Librarian_Dashboard LibDashboard = new Librarian_Dashboard();
-            LibDashboard.ShowDialog();
-            this.Hide();
         }
     }
 }
