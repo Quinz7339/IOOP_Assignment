@@ -46,7 +46,7 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.lblDateTime = new System.Windows.Forms.Label();
             this.lblapproved = new System.Windows.Forms.Label();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.dgvApprovedRes = new System.Windows.Forms.DataGridView();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,7 +55,7 @@
             this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblRejected = new System.Windows.Forms.Label();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.dgvRejectedRes = new System.Windows.Forms.DataGridView();
             this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -66,8 +66,8 @@
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvApprovedRes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRejectedRes)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -298,10 +298,11 @@
             this.lblapproved.TabIndex = 9;
             this.lblapproved.Text = "Approved";
             // 
-            // dataGridView2
+            // dgvApprovedRes
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvApprovedRes.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.dgvApprovedRes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvApprovedRes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column8,
             this.Column9,
             this.Column10,
@@ -309,12 +310,12 @@
             this.Column12,
             this.Column13,
             this.Column14});
-            this.dataGridView2.Location = new System.Drawing.Point(296, 191);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowHeadersWidth = 62;
-            this.dataGridView2.RowTemplate.Height = 28;
-            this.dataGridView2.Size = new System.Drawing.Size(1117, 269);
-            this.dataGridView2.TabIndex = 10;
+            this.dgvApprovedRes.Location = new System.Drawing.Point(296, 191);
+            this.dgvApprovedRes.Name = "dgvApprovedRes";
+            this.dgvApprovedRes.RowHeadersWidth = 62;
+            this.dgvApprovedRes.RowTemplate.Height = 28;
+            this.dgvApprovedRes.Size = new System.Drawing.Size(1117, 269);
+            this.dgvApprovedRes.TabIndex = 10;
             // 
             // Column8
             // 
@@ -376,10 +377,11 @@
             this.lblRejected.TabIndex = 11;
             this.lblRejected.Text = "Rejected";
             // 
-            // dataGridView3
+            // dgvRejectedRes
             // 
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvRejectedRes.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.dgvRejectedRes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvRejectedRes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column15,
             this.Column16,
             this.Column17,
@@ -387,13 +389,13 @@
             this.Column19,
             this.Column20,
             this.Column21});
-            this.dataGridView3.Location = new System.Drawing.Point(296, 523);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.RowHeadersWidth = 62;
-            this.dataGridView3.RowTemplate.Height = 28;
-            this.dataGridView3.Size = new System.Drawing.Size(1117, 314);
-            this.dataGridView3.TabIndex = 12;
-            this.dataGridView3.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView3_CellContentClick);
+            this.dgvRejectedRes.Location = new System.Drawing.Point(296, 523);
+            this.dgvRejectedRes.Name = "dgvRejectedRes";
+            this.dgvRejectedRes.RowHeadersWidth = 62;
+            this.dgvRejectedRes.RowTemplate.Height = 28;
+            this.dgvRejectedRes.Size = new System.Drawing.Size(1117, 314);
+            this.dgvRejectedRes.TabIndex = 12;
+            this.dgvRejectedRes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView3_CellContentClick);
             // 
             // Column15
             // 
@@ -450,9 +452,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(1552, 888);
-            this.Controls.Add(this.dataGridView3);
+            this.Controls.Add(this.dgvRejectedRes);
             this.Controls.Add(this.lblRejected);
-            this.Controls.Add(this.dataGridView2);
+            this.Controls.Add(this.dgvApprovedRes);
             this.Controls.Add(this.lblapproved);
             this.Controls.Add(this.lblDateTime);
             this.Controls.Add(this.btnClose);
@@ -468,8 +470,8 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvApprovedRes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRejectedRes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -492,7 +494,7 @@
         private System.Windows.Forms.Label lblDateTime;
         private System.Windows.Forms.Button btnPendingRes;
         private System.Windows.Forms.Label lblapproved;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView dgvApprovedRes;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
@@ -501,7 +503,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
         private System.Windows.Forms.Label lblRejected;
-        private System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.DataGridView dgvRejectedRes;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column15;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column16;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column17;
