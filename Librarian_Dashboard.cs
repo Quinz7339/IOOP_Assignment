@@ -141,6 +141,10 @@ namespace IOOP_Assignment
             pnlNav.Top = btnResReport.Top;
             pnlNav.Left = btnResReport.Left;
             btnResReport.BackColor = Color.FromArgb(46, 51, 73);
+
+            Librarian_ReservationRep LibReservationRep = new Librarian_ReservationRep();
+            LibReservationRep.Show();
+            this.Hide();
         }
 
         private void btnDashboard_Click(object sender, EventArgs e)
@@ -169,6 +173,13 @@ namespace IOOP_Assignment
         private void btnUpdateInfo_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnPrintWeekly_Click(object sender, EventArgs e)
+        {
+            Librarian_ReservationRep LibReservationRep = new Librarian_ReservationRep();
+            LibReservationRep.Show();
+            this.Hide();
         }
     }
 }

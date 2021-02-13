@@ -1,6 +1,6 @@
 ﻿namespace IOOP_Assignment
 {
-    partial class Librarian_Dashboard
+    partial class Librarian_ReservationRep
     {
         /// <summary>
         /// Required designer variable.
@@ -45,10 +45,8 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.lblDateTime = new System.Windows.Forms.Label();
-            this.btnCheckPending = new System.Windows.Forms.Button();
-            this.btnCheckPast = new System.Windows.Forms.Button();
-            this.btnUpdateInfo = new System.Windows.Forms.Button();
             this.btnPrintWeekly = new System.Windows.Forms.Button();
+            this.btnPrintDaily = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -271,68 +269,39 @@
             this.lblDateTime.TabIndex = 5;
             this.lblDateTime.Text = "Date and Time";
             // 
-            // btnCheckPending
-            // 
-            this.btnCheckPending.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
-            this.btnCheckPending.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCheckPending.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(151)))), ((int)(((byte)(176)))));
-            this.btnCheckPending.Location = new System.Drawing.Point(457, 191);
-            this.btnCheckPending.Name = "btnCheckPending";
-            this.btnCheckPending.Size = new System.Drawing.Size(316, 224);
-            this.btnCheckPending.TabIndex = 6;
-            this.btnCheckPending.Text = "Check pending reservations?";
-            this.btnCheckPending.UseVisualStyleBackColor = false;
-            this.btnCheckPending.Click += new System.EventHandler(this.btnCheckPending_Click);
-            // 
-            // btnCheckPast
-            // 
-            this.btnCheckPast.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
-            this.btnCheckPast.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCheckPast.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(151)))), ((int)(((byte)(176)))));
-            this.btnCheckPast.Location = new System.Drawing.Point(941, 191);
-            this.btnCheckPast.Name = "btnCheckPast";
-            this.btnCheckPast.Size = new System.Drawing.Size(316, 224);
-            this.btnCheckPast.TabIndex = 7;
-            this.btnCheckPast.Text = "Check past reservations?";
-            this.btnCheckPast.UseVisualStyleBackColor = false;
-            this.btnCheckPast.Click += new System.EventHandler(this.btnCheckPast_Click);
-            // 
-            // btnUpdateInfo
-            // 
-            this.btnUpdateInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
-            this.btnUpdateInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdateInfo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(151)))), ((int)(((byte)(176)))));
-            this.btnUpdateInfo.Location = new System.Drawing.Point(941, 528);
-            this.btnUpdateInfo.Name = "btnUpdateInfo";
-            this.btnUpdateInfo.Size = new System.Drawing.Size(316, 224);
-            this.btnUpdateInfo.TabIndex = 8;
-            this.btnUpdateInfo.Text = "Update Info?";
-            this.btnUpdateInfo.UseVisualStyleBackColor = false;
-            this.btnUpdateInfo.Click += new System.EventHandler(this.btnUpdateInfo_Click);
-            // 
             // btnPrintWeekly
             // 
             this.btnPrintWeekly.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
             this.btnPrintWeekly.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPrintWeekly.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(151)))), ((int)(((byte)(176)))));
-            this.btnPrintWeekly.Location = new System.Drawing.Point(457, 528);
+            this.btnPrintWeekly.Location = new System.Drawing.Point(924, 360);
             this.btnPrintWeekly.Name = "btnPrintWeekly";
             this.btnPrintWeekly.Size = new System.Drawing.Size(316, 224);
-            this.btnPrintWeekly.TabIndex = 9;
-            this.btnPrintWeekly.Text = "Print reservation report?";
+            this.btnPrintWeekly.TabIndex = 8;
+            this.btnPrintWeekly.Text = "Print weekly report";
             this.btnPrintWeekly.UseVisualStyleBackColor = false;
-            this.btnPrintWeekly.Click += new System.EventHandler(this.btnPrintWeekly_Click);
+            this.btnPrintWeekly.Click += new System.EventHandler(this.btnUpdateInfo_Click);
             // 
-            // Librarian_Dashboard
+            // btnPrintDaily
+            // 
+            this.btnPrintDaily.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
+            this.btnPrintDaily.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrintDaily.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(151)))), ((int)(((byte)(176)))));
+            this.btnPrintDaily.Location = new System.Drawing.Point(448, 360);
+            this.btnPrintDaily.Name = "btnPrintDaily";
+            this.btnPrintDaily.Size = new System.Drawing.Size(316, 224);
+            this.btnPrintDaily.TabIndex = 9;
+            this.btnPrintDaily.Text = "Print daily report";
+            this.btnPrintDaily.UseVisualStyleBackColor = false;
+            // 
+            // Librarian_ReservationRep
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(1552, 888);
+            this.Controls.Add(this.btnPrintDaily);
             this.Controls.Add(this.btnPrintWeekly);
-            this.Controls.Add(this.btnUpdateInfo);
-            this.Controls.Add(this.btnCheckPast);
-            this.Controls.Add(this.btnCheckPending);
             this.Controls.Add(this.lblDateTime);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.lblDashboard);
@@ -340,7 +309,7 @@
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.Name = "Librarian_Dashboard";
+            this.Name = "Librarian_ReservationRep";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.Login_Page_Load);
             this.panel1.ResumeLayout(false);
@@ -370,10 +339,8 @@
         private System.Windows.Forms.Button btnPendingRes;
         private System.Windows.Forms.Button btnPastRes;
         private System.Windows.Forms.Button btnResReport;
-        private System.Windows.Forms.Button btnCheckPending;
-        private System.Windows.Forms.Button btnCheckPast;
-        private System.Windows.Forms.Button btnUpdateInfo;
         private System.Windows.Forms.Button btnPrintWeekly;
+        private System.Windows.Forms.Button btnPrintDaily;
     }
 }
 

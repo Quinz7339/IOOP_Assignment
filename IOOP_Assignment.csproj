@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Librarian_ReservationRep.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Librarian_ReservationRep.Designer.cs">
+      <DependentUpon>Librarian_ReservationRep.cs</DependentUpon>
+    </Compile>
     <Compile Include="Librarian_Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,6 +72,9 @@
     <Compile Include="Librarian_PendingRes.Designer.cs">
       <DependentUpon>Librarian_PendingRes.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Librarian_ReservationRep.resx">
+      <DependentUpon>Librarian_ReservationRep.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Librarian_Dashboard.resx">
       <DependentUpon>Librarian_Dashboard.cs</DependentUpon>
     </EmbeddedResource>

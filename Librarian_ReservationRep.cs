@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace IOOP_Assignment
 {
-    public partial class Librarian_PastRes : Form
+    public partial class Librarian_ReservationRep : Form
     {
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
 
@@ -26,33 +26,21 @@ namespace IOOP_Assignment
 
           );
 
-        public Librarian_PastRes()
+        public Librarian_ReservationRep()
         {
             InitializeComponent();
             this.Size = new Size(960, 575);
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 25, 25));
-            pnlNav.Height = btnDashboad.Height;
-            pnlNav.Top = btnDashboad.Top;
-            pnlNav.Left = btnDashboad.Left;
-            btnDashboad.BackColor = Color.FromArgb(46, 51, 73);
+            pnlNav.Height = btnDashboard.Height;
+            pnlNav.Top = btnDashboard.Top;
+            pnlNav.Left = btnDashboard.Left;
+            btnDashboard.BackColor = Color.FromArgb(46, 51, 73);
             
         }
 
         private void Login_Page_Load(object sender, EventArgs e)
         {
             lblDateTime.Text = DateTime.Now.ToString();
-        }
-
-        private void btnDashboad_Click(object sender, EventArgs e)
-        {
-            pnlNav.Height = btnDashboad.Height;
-            pnlNav.Top = btnDashboad.Top;
-            pnlNav.Left = btnDashboad.Left;
-            btnDashboad.BackColor = Color.FromArgb(46, 51, 73);
-
-            Librarian_Dashboard LibDash = new Librarian_Dashboard();
-            LibDash.Show();
-            this.Hide();
         }
 
         private void btnPendingRes_Click(object sender, EventArgs e)
@@ -63,7 +51,7 @@ namespace IOOP_Assignment
             btnPendingRes.BackColor = Color.FromArgb(46, 51, 73);
 
             Librarian_PendingRes LibPendingRes = new Librarian_PendingRes();
-            LibPendingRes.Show();
+            LibPendingRes.ShowDialog();
             this.Hide();
         }
 
@@ -91,9 +79,9 @@ namespace IOOP_Assignment
             btnLogout.BackColor = Color.FromArgb(46, 51, 73);
         }
 
-        private void btnDashboad_Leave(object sender, EventArgs e)
+        private void btnDashboard_Leave(object sender, EventArgs e)
         {
-            btnDashboad.BackColor = Color.FromArgb(24, 30,54);
+            btnDashboard.BackColor = Color.FromArgb(24, 30,54);
         }
 
 
@@ -142,6 +130,9 @@ namespace IOOP_Assignment
             pnlNav.Left = btnPastRes.Left;
             btnPastRes.BackColor = Color.FromArgb(46, 51, 73);
 
+            Librarian_PastRes LibPastRes = new Librarian_PastRes();
+            LibPastRes.ShowDialog();
+            this.Hide();
         }
 
         private void btnResReport_Click_2(object sender, EventArgs e)
@@ -150,10 +141,37 @@ namespace IOOP_Assignment
             pnlNav.Top = btnResReport.Top;
             pnlNav.Left = btnResReport.Left;
             btnResReport.BackColor = Color.FromArgb(46, 51, 73);
+        }
 
-            Librarian_ReservationRep LibReservationRep = new Librarian_ReservationRep();
-            LibReservationRep.Show();
+        private void btnDashboard_Click(object sender, EventArgs e)
+        {
+            pnlNav.Height = btnDashboard.Height;
+            pnlNav.Top = btnDashboard.Top;
+            pnlNav.Left = btnDashboard.Left;
+            btnDashboard.BackColor = Color.FromArgb(46, 51, 73);
+
+            Librarian_Dashboard LibDash = new Librarian_Dashboard();
+            LibDash.Show();
             this.Hide();
+        }
+
+        private void btnCheckPending_Click(object sender, EventArgs e)
+        {
+            Librarian_PendingRes LibPendingRes = new Librarian_PendingRes();
+            LibPendingRes.ShowDialog();
+            this.Hide();
+        }
+
+        private void btnCheckPast_Click(object sender, EventArgs e)
+        {
+            Librarian_PastRes LibPastRes = new Librarian_PastRes();
+            LibPastRes.ShowDialog();
+            this.Hide();
+        }
+
+        private void btnUpdateInfo_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
