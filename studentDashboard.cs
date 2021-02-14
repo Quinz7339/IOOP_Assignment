@@ -40,7 +40,7 @@ namespace IOOP_Assignment
 
         private void Login_Page_Load(object sender, EventArgs e)
         {
-            lblDateTime.Text = DateTime.Now.ToString("dd / MMM / yyyy      hh / mm / tt");
+            lblDateTime.Text = DateTime.Now.ToString("dd MMM yyyy      hh:mm tt");
         }
 
         private void btnDashboad_Click(object sender, EventArgs e)
@@ -69,6 +69,10 @@ namespace IOOP_Assignment
             pnlNav.Top = btnResStatus.Top;
             pnlNav.Left = btnResStatus.Left;
             btnResStatus.BackColor = Color.FromArgb(46, 51, 73);
+
+            studentResStatus resStatus = new studentResStatus();
+            resStatus.Show();
+            this.Hide();
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -77,6 +81,10 @@ namespace IOOP_Assignment
             pnlNav.Top = btnUpdate.Top;
             pnlNav.Left = btnUpdate.Left;
             btnUpdate.BackColor = Color.FromArgb(46, 51, 73);
+
+            studentUpdateInfo uptInfo = new studentUpdateInfo();
+            uptInfo.Show();
+            this.Hide();
         }
 
         private void btnLogout_Click(object sender, EventArgs e)

@@ -34,7 +34,6 @@
             this.btnResStatus = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
-            this.btnResReport = new System.Windows.Forms.Button();
             this.btnDashboad = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -67,7 +66,6 @@
             this.panel1.Controls.Add(this.btnResStatus);
             this.panel1.Controls.Add(this.btnUpdate);
             this.panel1.Controls.Add(this.btnLogout);
-            this.panel1.Controls.Add(this.btnResReport);
             this.panel1.Controls.Add(this.btnDashboad);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
@@ -106,7 +104,6 @@
             this.btnResStatus.TabIndex = 6;
             this.btnResStatus.Text = "Reservation Status";
             this.btnResStatus.UseVisualStyleBackColor = false;
-            this.btnResStatus.Click += new System.EventHandler(this.btnResStatus_Click);
             // 
             // btnUpdate
             // 
@@ -116,7 +113,7 @@
             this.btnUpdate.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.btnUpdate.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.btnUpdate.Location = new System.Drawing.Point(0, 378);
+            this.btnUpdate.Location = new System.Drawing.Point(0, 322);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(186, 50);
             this.btnUpdate.TabIndex = 6;
@@ -142,23 +139,6 @@
             this.btnLogout.UseVisualStyleBackColor = false;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             this.btnLogout.Leave += new System.EventHandler(this.btnLogout_Leave);
-            // 
-            // btnResReport
-            // 
-            this.btnResReport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
-            this.btnResReport.FlatAppearance.BorderSize = 0;
-            this.btnResReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnResReport.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnResReport.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.btnResReport.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.btnResReport.Location = new System.Drawing.Point(0, 322);
-            this.btnResReport.Name = "btnResReport";
-            this.btnResReport.Size = new System.Drawing.Size(186, 50);
-            this.btnResReport.TabIndex = 2;
-            this.btnResReport.Text = "Reservation Report";
-            this.btnResReport.UseVisualStyleBackColor = false;
-            this.btnResReport.Click += new System.EventHandler(this.btnResReport_Click);
-            this.btnResReport.Leave += new System.EventHandler(this.btnResReport_Leave);
             // 
             // btnDashboad
             // 
@@ -258,7 +238,7 @@
             this.lblDateTime.AutoSize = true;
             this.lblDateTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDateTime.ForeColor = System.Drawing.Color.White;
-            this.lblDateTime.Location = new System.Drawing.Point(634, 32);
+            this.lblDateTime.Location = new System.Drawing.Point(700, 32);
             this.lblDateTime.Name = "lblDateTime";
             this.lblDateTime.Size = new System.Drawing.Size(113, 20);
             this.lblDateTime.TabIndex = 5;
@@ -279,7 +259,7 @@
             // cboRoom
             // 
             this.cboRoom.FormattingEnabled = true;
-            this.cboRoom.Location = new System.Drawing.Point(21, 14);
+            this.cboRoom.Location = new System.Drawing.Point(136, 20);
             this.cboRoom.Name = "cboRoom";
             this.cboRoom.Size = new System.Drawing.Size(121, 21);
             this.cboRoom.TabIndex = 24;
@@ -307,7 +287,7 @@
             this.btnChangeRoom.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnChangeRoom.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.btnChangeRoom.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.btnChangeRoom.Location = new System.Drawing.Point(159, 14);
+            this.btnChangeRoom.Location = new System.Drawing.Point(15, 14);
             this.btnChangeRoom.Name = "btnChangeRoom";
             this.btnChangeRoom.Size = new System.Drawing.Size(112, 27);
             this.btnChangeRoom.TabIndex = 25;
@@ -403,7 +383,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnDashboad;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnResReport;
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.FlowLayoutPanel pnlNav;

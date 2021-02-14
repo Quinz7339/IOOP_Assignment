@@ -38,6 +38,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlNav = new System.Windows.Forms.FlowLayoutPanel();
             this.label3 = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
@@ -45,20 +46,19 @@
             this.lblDateTime = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.lblUpComResDate1 = new System.Windows.Forms.Label();
-            this.lblUpComResTime1 = new System.Windows.Forms.Label();
-            this.lblUpComResRoom1 = new System.Windows.Forms.Label();
-            this.lblUpComResTime2 = new System.Windows.Forms.Label();
-            this.lblUpComResRoom2 = new System.Windows.Forms.Label();
-            this.lblUpComResDate2 = new System.Windows.Forms.Label();
             this.lblUpComResTime3 = new System.Windows.Forms.Label();
             this.lblUpComResRoom3 = new System.Windows.Forms.Label();
             this.lblUpComResDate3 = new System.Windows.Forms.Label();
+            this.lblUpComResTime2 = new System.Windows.Forms.Label();
+            this.lblUpComResRoom2 = new System.Windows.Forms.Label();
+            this.lblUpComResDate2 = new System.Windows.Forms.Label();
+            this.lblUpComResTime1 = new System.Windows.Forms.Label();
+            this.lblUpComResRoom1 = new System.Windows.Forms.Label();
+            this.lblUpComResDate1 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.lblPastResTime3 = new System.Windows.Forms.Label();
             this.lblPastResRoom3 = new System.Windows.Forms.Label();
@@ -74,8 +74,8 @@
             this.label29 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -211,6 +211,16 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Username";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::IOOP_Assignment.Properties.Resources.User_profile_pic;
+            this.pictureBox1.Location = new System.Drawing.Point(60, 22);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(63, 63);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
             // pnlNav
             // 
             this.pnlNav.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(127)))), ((int)(((byte)(0)))));
@@ -249,7 +259,7 @@
             this.lblDateTime.AutoSize = true;
             this.lblDateTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDateTime.ForeColor = System.Drawing.Color.White;
-            this.lblDateTime.Location = new System.Drawing.Point(634, 32);
+            this.lblDateTime.Location = new System.Drawing.Point(700, 32);
             this.lblDateTime.Name = "lblDateTime";
             this.lblDateTime.Size = new System.Drawing.Size(113, 20);
             this.lblDateTime.TabIndex = 5;
@@ -287,92 +297,38 @@
             this.panel3.Size = new System.Drawing.Size(666, 148);
             this.panel3.TabIndex = 20;
             // 
-            // label4
+            // lblUpComResTime3
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Nirmala UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(213, 75);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(233, 25);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Upcoming Room Reserved";
+            this.lblUpComResTime3.AutoSize = true;
+            this.lblUpComResTime3.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUpComResTime3.ForeColor = System.Drawing.Color.White;
+            this.lblUpComResTime3.Location = new System.Drawing.Point(229, 107);
+            this.lblUpComResTime3.Name = "lblUpComResTime3";
+            this.lblUpComResTime3.Size = new System.Drawing.Size(161, 21);
+            this.lblUpComResTime3.TabIndex = 30;
+            this.lblUpComResTime3.Text = "Reserved Time Range";
             // 
-            // pictureBox1
+            // lblUpComResRoom3
             // 
-            this.pictureBox1.Image = global::IOOP_Assignment.Properties.Resources.User_profile_pic;
-            this.pictureBox1.Location = new System.Drawing.Point(60, 22);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(63, 63);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.lblUpComResRoom3.AutoSize = true;
+            this.lblUpComResRoom3.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUpComResRoom3.ForeColor = System.Drawing.Color.White;
+            this.lblUpComResRoom3.Location = new System.Drawing.Point(505, 107);
+            this.lblUpComResRoom3.Name = "lblUpComResRoom3";
+            this.lblUpComResRoom3.Size = new System.Drawing.Size(121, 21);
+            this.lblUpComResRoom3.TabIndex = 29;
+            this.lblUpComResRoom3.Text = "Reserved Room";
             // 
-            // label5
+            // lblUpComResDate3
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(506, 16);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(129, 21);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "Reserved Room";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(21, 16);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(120, 21);
-            this.label6.TabIndex = 2;
-            this.label6.Text = "Reserved Date";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(230, 16);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(174, 21);
-            this.label7.TabIndex = 21;
-            this.label7.Text = "Reserved Time Range";
-            // 
-            // lblUpComResDate1
-            // 
-            this.lblUpComResDate1.AutoSize = true;
-            this.lblUpComResDate1.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUpComResDate1.ForeColor = System.Drawing.Color.White;
-            this.lblUpComResDate1.Location = new System.Drawing.Point(21, 51);
-            this.lblUpComResDate1.Name = "lblUpComResDate1";
-            this.lblUpComResDate1.Size = new System.Drawing.Size(111, 21);
-            this.lblUpComResDate1.TabIndex = 22;
-            this.lblUpComResDate1.Text = "Reserved Date";
-            // 
-            // lblUpComResTime1
-            // 
-            this.lblUpComResTime1.AutoSize = true;
-            this.lblUpComResTime1.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUpComResTime1.ForeColor = System.Drawing.Color.White;
-            this.lblUpComResTime1.Location = new System.Drawing.Point(230, 51);
-            this.lblUpComResTime1.Name = "lblUpComResTime1";
-            this.lblUpComResTime1.Size = new System.Drawing.Size(161, 21);
-            this.lblUpComResTime1.TabIndex = 24;
-            this.lblUpComResTime1.Text = "Reserved Time Range";
-            // 
-            // lblUpComResRoom1
-            // 
-            this.lblUpComResRoom1.AutoSize = true;
-            this.lblUpComResRoom1.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUpComResRoom1.ForeColor = System.Drawing.Color.White;
-            this.lblUpComResRoom1.Location = new System.Drawing.Point(506, 51);
-            this.lblUpComResRoom1.Name = "lblUpComResRoom1";
-            this.lblUpComResRoom1.Size = new System.Drawing.Size(121, 21);
-            this.lblUpComResRoom1.TabIndex = 23;
-            this.lblUpComResRoom1.Text = "Reserved Room";
+            this.lblUpComResDate3.AutoSize = true;
+            this.lblUpComResDate3.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUpComResDate3.ForeColor = System.Drawing.Color.White;
+            this.lblUpComResDate3.Location = new System.Drawing.Point(20, 107);
+            this.lblUpComResDate3.Name = "lblUpComResDate3";
+            this.lblUpComResDate3.Size = new System.Drawing.Size(111, 21);
+            this.lblUpComResDate3.TabIndex = 28;
+            this.lblUpComResDate3.Text = "Reserved Date";
             // 
             // lblUpComResTime2
             // 
@@ -407,38 +363,82 @@
             this.lblUpComResDate2.TabIndex = 25;
             this.lblUpComResDate2.Text = "Reserved Date";
             // 
-            // lblUpComResTime3
+            // lblUpComResTime1
             // 
-            this.lblUpComResTime3.AutoSize = true;
-            this.lblUpComResTime3.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUpComResTime3.ForeColor = System.Drawing.Color.White;
-            this.lblUpComResTime3.Location = new System.Drawing.Point(229, 107);
-            this.lblUpComResTime3.Name = "lblUpComResTime3";
-            this.lblUpComResTime3.Size = new System.Drawing.Size(161, 21);
-            this.lblUpComResTime3.TabIndex = 30;
-            this.lblUpComResTime3.Text = "Reserved Time Range";
+            this.lblUpComResTime1.AutoSize = true;
+            this.lblUpComResTime1.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUpComResTime1.ForeColor = System.Drawing.Color.White;
+            this.lblUpComResTime1.Location = new System.Drawing.Point(230, 51);
+            this.lblUpComResTime1.Name = "lblUpComResTime1";
+            this.lblUpComResTime1.Size = new System.Drawing.Size(161, 21);
+            this.lblUpComResTime1.TabIndex = 24;
+            this.lblUpComResTime1.Text = "Reserved Time Range";
             // 
-            // lblUpComResRoom3
+            // lblUpComResRoom1
             // 
-            this.lblUpComResRoom3.AutoSize = true;
-            this.lblUpComResRoom3.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUpComResRoom3.ForeColor = System.Drawing.Color.White;
-            this.lblUpComResRoom3.Location = new System.Drawing.Point(505, 107);
-            this.lblUpComResRoom3.Name = "lblUpComResRoom3";
-            this.lblUpComResRoom3.Size = new System.Drawing.Size(121, 21);
-            this.lblUpComResRoom3.TabIndex = 29;
-            this.lblUpComResRoom3.Text = "Reserved Room";
+            this.lblUpComResRoom1.AutoSize = true;
+            this.lblUpComResRoom1.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUpComResRoom1.ForeColor = System.Drawing.Color.White;
+            this.lblUpComResRoom1.Location = new System.Drawing.Point(506, 51);
+            this.lblUpComResRoom1.Name = "lblUpComResRoom1";
+            this.lblUpComResRoom1.Size = new System.Drawing.Size(121, 21);
+            this.lblUpComResRoom1.TabIndex = 23;
+            this.lblUpComResRoom1.Text = "Reserved Room";
             // 
-            // lblUpComResDate3
+            // lblUpComResDate1
             // 
-            this.lblUpComResDate3.AutoSize = true;
-            this.lblUpComResDate3.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUpComResDate3.ForeColor = System.Drawing.Color.White;
-            this.lblUpComResDate3.Location = new System.Drawing.Point(20, 107);
-            this.lblUpComResDate3.Name = "lblUpComResDate3";
-            this.lblUpComResDate3.Size = new System.Drawing.Size(111, 21);
-            this.lblUpComResDate3.TabIndex = 28;
-            this.lblUpComResDate3.Text = "Reserved Date";
+            this.lblUpComResDate1.AutoSize = true;
+            this.lblUpComResDate1.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUpComResDate1.ForeColor = System.Drawing.Color.White;
+            this.lblUpComResDate1.Location = new System.Drawing.Point(21, 51);
+            this.lblUpComResDate1.Name = "lblUpComResDate1";
+            this.lblUpComResDate1.Size = new System.Drawing.Size(111, 21);
+            this.lblUpComResDate1.TabIndex = 22;
+            this.lblUpComResDate1.Text = "Reserved Date";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(230, 16);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(174, 21);
+            this.label7.TabIndex = 21;
+            this.label7.Text = "Reserved Time Range";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(21, 16);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(120, 21);
+            this.label6.TabIndex = 2;
+            this.label6.Text = "Reserved Date";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(506, 16);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(129, 21);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "Reserved Room";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Nirmala UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(213, 75);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(233, 25);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Upcoming Room Reserved";
             // 
             // panel4
             // 
@@ -615,9 +615,9 @@
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.ResumeLayout(false);

@@ -49,9 +49,9 @@ namespace IOOP_Assignment
             pnlNav.Left = btnResRoom.Left;
             btnResRoom.BackColor = Color.FromArgb(46, 51, 73);
 
-            conn = new SqlConnection("Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = |DataDirectory|\\Library_Reservation_Database.mdf; Integrated Security = True; Connect Timeout = 30");
+            conn = new SqlConnection("Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename =|DataDirectory|\\Library_Reservation_Database.mdf; Integrated Security = True; Connect Timeout = 30");
 
-                lblDateTime.Text = DateTime.Now.ToString("dd / MMM / yyyy      hh / mm / tt");
+            lblDateTime.Text = DateTime.Now.ToString("dd MMM yyyy      hh:mm tt");
             setDateTime();
             setTimeCombo();
             setRoomID();
@@ -65,8 +65,9 @@ namespace IOOP_Assignment
             pnlNav.Top = btnDashboad.Top;
             pnlNav.Left = btnDashboad.Left;
             btnDashboad.BackColor = Color.FromArgb(46, 51, 73);
+
             studentDashboard dsb = new studentDashboard();
-            dsb.ShowDialog();
+            dsb.Show();
             this.Hide();
         }
 
@@ -84,6 +85,10 @@ namespace IOOP_Assignment
             pnlNav.Top = btnResStatus.Top;
             pnlNav.Left = btnResStatus.Left;
             btnResStatus.BackColor = Color.FromArgb(46, 51, 73);
+
+            studentResStatus resStatus = new studentResStatus();
+            resStatus.Show();
+            this.Hide();
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -92,6 +97,10 @@ namespace IOOP_Assignment
             pnlNav.Top = btnUpdate.Top;
             pnlNav.Left = btnUpdate.Left;
             btnUpdate.BackColor = Color.FromArgb(46, 51, 73);
+
+            studentUpdateInfo uptInfo = new studentUpdateInfo();
+            uptInfo.Show();
+            this.Hide();
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
@@ -148,7 +157,7 @@ namespace IOOP_Assignment
             // available time has 30min interval
             for (DateTime tm = startTime_Start; tm < startTime_End; tm = tm.AddMinutes(30))
             {
-                conn.Open();
+                //conn.Open();
 
                 string strSQL = "SELECT * FROM RESERVATION_INFO_T WHERE reserveStartTime = @Tm";
 
@@ -157,15 +166,15 @@ namespace IOOP_Assignment
                 cmd.Parameters.AddWithValue("@Tm", tm);
 
                 // execute the command and store the result into the data reader
-                dr = cmd.ExecuteReader();
+                //dr = cmd.ExecuteReader();
 
                 // check if any record exist in the data reader
-                if (dr.HasRows)
+                //if (dr.HasRows)
                 { // record found
 
                     cboStartTime.Items.Remove(tm.ToString("HH:mm tt"));
                 }
-                else // record not found
+                //else // record not found
                 {
                     cboStartTime.Items.Add(tm.ToString("HH:mm tt"));
                 }
@@ -188,18 +197,18 @@ namespace IOOP_Assignment
             cmd.Parameters.AddWithValue("@IdNum", idNum.ToString());
 
             // execute the command and store the result into the data reader
-            dr = cmd.ExecuteReader();
+            //dr = cmd.ExecuteReader();
 
-            // check if any record exist in the data reader
-            if (dr.HasRows)
-            { // record found
-                for (int num = idNum; num < 004; num = +1)
-                    continue;
-            }
-            else // record not found
-            {
-                roomId = idNum.ToString();
-            }
+            //// check if any record exist in the data reader
+            //if (dr.HasRows)
+            //{ // record found
+            //    for (int num = idNum; num < 004; num = +1)
+            //        continue;
+            //}
+            //else // record not found
+            //{
+            //    roomId = idNum.ToString();
+            //}
 
             // close the connection
             conn.Close();
