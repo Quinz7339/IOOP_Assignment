@@ -55,6 +55,30 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="studentDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="studentDashboard.designer.cs">
+      <DependentUpon>studentDashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="studentResRoom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="studentResRoom.designer.cs">
+      <DependentUpon>studentResRoom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="studentResStatus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="studentResStatus.designer.cs">
+      <DependentUpon>studentResStatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="studentUpdateInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="studentUpdateInfo.designer.cs">
+      <DependentUpon>studentUpdateInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Update_Info.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -68,6 +92,18 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="studentDashboard.resx">
+      <DependentUpon>studentDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="studentResRoom.resx">
+      <DependentUpon>studentResRoom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="studentResStatus.resx">
+      <DependentUpon>studentResStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="studentUpdateInfo.resx">
+      <DependentUpon>studentUpdateInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Update_Info.resx">
       <DependentUpon>Update_Info.cs</DependentUpon>

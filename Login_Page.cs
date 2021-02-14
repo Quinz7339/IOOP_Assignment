@@ -101,15 +101,20 @@ namespace IOOP_Assignment
         private void btnLogin_Click(object sender, EventArgs e)
         {
             // method to check if any record exist in the Database
-            if (Controllers.getUserId(txtUsername.Text, txtPassword.Text) == true)
+            Controllers getUserId = new Controllers();
+
+            if (getUserId.getUserId(txtUsername.Text, txtPassword.Text) == true)
             {
+                studentDashboard dsb = new studentDashboard();
+                dsb.Show();
+
                 //login sucess, hides this form 
                 this.Hide();
             }
             else 
             {
                 //login failed
-                MessageBox.Show("Incorrect Username or Password OR you do not have the authority to access the system", "Log in Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Incorrect Username or Password. Please try again.", "Log in Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
