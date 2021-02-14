@@ -155,5 +155,10 @@ namespace IOOP_Assignment
             LibReservationRep.Show();
             this.Hide();
         }
+
+        private void dgvPendingRes_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
     }
 }

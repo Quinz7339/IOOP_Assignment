@@ -54,7 +54,7 @@
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -308,6 +308,7 @@
             this.dgvPendingRes.RowTemplate.Height = 28;
             this.dgvPendingRes.Size = new System.Drawing.Size(1106, 689);
             this.dgvPendingRes.TabIndex = 8;
+            this.dgvPendingRes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPendingRes_CellContentClick);
             // 
             // a
             // 
@@ -360,9 +361,11 @@
             // 
             // Column7
             // 
-            this.Column7.HeaderText = "Accept/Reject";
+            this.Column7.HeaderText = "Approve";
             this.Column7.MinimumWidth = 8;
             this.Column7.Name = "Column7";
+            this.Column7.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column7.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.Column7.Width = 150;
             // 
             // Librarian_PendingRes
@@ -411,6 +414,8 @@
         private System.Windows.Forms.Button btnPendingRes;
         private System.Windows.Forms.Label lblPending;
         private System.Windows.Forms.DataGridView dgvPendingRes;
+        private System.Windows.Forms.Button btnPastRes;
+        private System.Windows.Forms.Button btnResReport;
         private System.Windows.Forms.DataGridViewTextBoxColumn a;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
@@ -418,9 +423,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.Button btnPastRes;
-        private System.Windows.Forms.Button btnResReport;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Column7;
     }
 }
 
