@@ -15,6 +15,7 @@ namespace IOOP_Assignment
     public partial class Login_Page : Form
     {
         public string usrId;
+        string userRole = Controllers.userRole;
         readonly string usr = "Usrxxxx";
         readonly string pw = "8 characters or longer";
 
@@ -105,8 +106,20 @@ namespace IOOP_Assignment
 
             if (getUserId.getUserId(txtUsername.Text, txtPassword.Text) == true)
             {
-                studentDashboard dsb = new studentDashboard();
-                dsb.Show();
+                userRole = Controllers.userRole;
+                //opens student's side of program
+                if (userRole == "S")
+                {
+                    studentDashboard dsb = new studentDashboard();
+                    dsb.Show();
+                }
+
+                //opens librarian's side of program
+                else
+                {
+                    //work in progress....
+                    MessageBox.Show("Bruh", "Hi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
 
                 //login sucess, hides this form 
                 this.Hide();

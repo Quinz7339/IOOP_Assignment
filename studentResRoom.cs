@@ -23,7 +23,6 @@ namespace IOOP_Assignment
         string resStartTime;
         string resEndTime;
 
-        SqlConnection conn;
         SqlCommand cmd;
         SqlDataReader dr;
 
@@ -52,8 +51,7 @@ namespace IOOP_Assignment
 
             lblDateTime.Text = DateTime.Now.ToString("dd MMM yyyy      hh:mm tt");
             setDateTime();
-            setTimeCombo();
-            setRoomID();
+            cboStartTime.Enabled = false;
             cboEndTime.Enabled = false;
             lblUserId.Text = userId;
             lblUsername.Text = userName;
@@ -148,68 +146,70 @@ namespace IOOP_Assignment
             dtpResDate.MaxDate = DateTime.Now.AddDays(32);
         }
 
-        private void setRoomID()
+        private void setRoomID(string roomName)
         {
             int idNum = 001;
-            conn.Open();
+            using (SqlConnection setRoomIDConn = new SqlConnection("Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = |DataDirectory|\\Library_Reservation_Database.mdf; Integrated Security = True; Connect Timeout = 30"))
+            {
+                string setRoomIDStr = "SELECT * FROM RESERVATION_INFO_T WHERE roomId = @RoomSelected + @IdNum";
+                setRoomIDConn.Open();
 
-            string strSQL = "SELECT * FROM RESERVATION_INFO_T WHERE roomId = @RoomSelected + @IdNum";
+                using (SqlCommand setRoomIDCmd = new SqlCommand(setRoomIDStr, setRoomIDConn))
+                {
+                    // create the command object
+                    setRoomIDCmd.Parameters.AddWithValue("@RoomSelected", roomSelected);
+                    setRoomIDCmd.Parameters.AddWithValue("@IdNum", idNum.ToString());
 
-            // create the command object
-            cmd = new SqlCommand(strSQL, conn);
-            cmd.Parameters.AddWithValue("@RoomSelected", roomSelected);
-            cmd.Parameters.AddWithValue("@IdNum", idNum.ToString());
+                    // execute the command and store the result into the data reader
+                    dr = setRoomIDCmd.ExecuteReader();
 
-            // execute the command and store the result into the data reader
-            //dr = cmd.ExecuteReader();
-
-            //// check if any record exist in the data reader
-            //if (dr.HasRows)
-            //{ // record found
-            //    for (int num = idNum; num < 004; num = +1)
-            //        continue;
-            //}
-            //else // record not found
-            //{
-            //    roomId = idNum.ToString();
-            //}
-
-            // close the connection
-            conn.Close();
+                    // check if any record exist in the data reader
+                    if (dr.HasRows)
+                    { // record found
+                        for (int num = idNum; num < 004; num = +1)
+                            continue;
+                    }
+                    else // record not found
+                    {
+                        roomId = idNum.ToString();
+                    }
+                }
+            }
         }
+
+
         private void setTimeCombo()
         {
             //display start and end time
+            //DateTime dateToReserve = DateTime.Parse();
             DateTime startTime_Start = DateTime.Parse("08:00AM");
             DateTime startTime_End = DateTime.Parse("08:30PM");
-
-            // available time has 30min interval
-            for (DateTime tm = startTime_Start; tm < startTime_End; tm = tm.AddMinutes(30))
+            using (SqlConnection setTimeComboConn = new SqlConnection("Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = |DataDirectory|\\Library_Reservation_Database.mdf; Integrated Security = True; Connect Timeout = 30"))
             {
-                conn.Open();
+                string setTimeComboStr = "SELECT * FROM RESERVATION_INFO_T WHERE reserveStartTime = @Tm";
+                setTimeComboConn.Open();
 
-                string strSQL = "SELECT * FROM RESERVATION_INFO_T WHERE reserveStartTime = @Tm";
-
-                // create the command object
-                cmd = new SqlCommand(strSQL, conn);
-                cmd.Parameters.AddWithValue("@Tm", tm);
-
-                // execute the command and store the result into the data reader
-                dr = cmd.ExecuteReader();
-
-                // check if any record exist in the data reader
-                if (dr.Read())
+                using (SqlCommand setTimeComboCmd = new SqlCommand(setTimeComboStr, setTimeComboConn))
                 {
+                    // available time has 30min interval
+                    for (DateTime tm = startTime_Start; tm < startTime_End; tm = tm.AddMinutes(30))
+                    {
+                        setTimeComboCmd.Parameters.AddWithValue("@Tm", tm);
+                        // execute the command and store the result into the data reader
+                        dr = setTimeComboCmd.ExecuteReader();
 
-                    cboStartTime.Items.Remove(tm.ToString("HH:mm tt"));
-                }
-                //else // record not found
-                {
-                    cboStartTime.Items.Add(tm.ToString("HH:mm tt"));
+                        // check if any record exist in the data reader
+                        if (dr.Read())
+                        {
+                            cboStartTime.Items.Remove(tm.ToString("HH:mm tt"));
+                        }
+                        else // record not found
+                        {
+                            cboStartTime.Items.Add(tm.ToString("HH:mm tt"));
+                        }
+                    }
                 }
             }
-            // close the connection
-            conn.Close();
         }
         private void cboStartTime_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -228,29 +228,34 @@ namespace IOOP_Assignment
         {
             roomSelected = ("Amber");
             lblRoomSelected.Text = roomSelected;
+            setRoomID(roomSelected);
+            setTimeCombo();
         }
 
         private void btnBlackThorn_Click(object sender, EventArgs e)
         {
             roomSelected = ("BlackThorn");
             lblRoomSelected.Text = roomSelected;
+            setRoomID(roomSelected);
         }
 
         private void btnCedar_Click(object sender, EventArgs e)
         {
             roomSelected = ("Cedar");
             lblRoomSelected.Text = roomSelected;
+            setRoomID(roomSelected); 
         }
 
         private void btnDapgne_Click(object sender, EventArgs e)
         {
             roomSelected = ("Daphne");
             lblRoomSelected.Text = roomSelected;
+            setRoomID(roomSelected);
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-
+            //changing user input data to string
             resDate = dtpResDate.Value.ToString("dd / MMM / yyyy");
             resStartTime = cboStartTime.SelectedItem.ToString();
             resEndTime = cboEndTime.SelectedItem.ToString();
