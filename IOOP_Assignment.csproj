@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers.cs" />
     <Compile Include="Librarian_ReservationRep.cs">
       <SubType>Form</SubType>
     </Compile>
