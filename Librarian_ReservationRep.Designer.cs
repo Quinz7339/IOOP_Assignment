@@ -39,17 +39,19 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlNav = new System.Windows.Forms.FlowLayoutPanel();
-            this.lblDashboard = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.lblDateTime = new System.Windows.Forms.Label();
-            this.btnPrintWeekly = new System.Windows.Forms.Button();
-            this.btnPrintDaily = new System.Windows.Forms.Button();
+            this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.btnDailyRep = new System.Windows.Forms.Button();
+            this.btnMonthlyRep = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -210,17 +212,6 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Username";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::IOOP_Assignment.Properties.Resources.User_profile_pic;
-            this.pictureBox1.Location = new System.Drawing.Point(90, 34);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(94, 97);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
             // pnlNav
             // 
             this.pnlNav.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(127)))), ((int)(((byte)(0)))));
@@ -229,18 +220,6 @@
             this.pnlNav.Name = "pnlNav";
             this.pnlNav.Size = new System.Drawing.Size(22, 152);
             this.pnlNav.TabIndex = 1;
-            // 
-            // lblDashboard
-            // 
-            this.lblDashboard.AutoSize = true;
-            this.lblDashboard.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDashboard.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(161)))), ((int)(((byte)(176)))));
-            this.lblDashboard.Location = new System.Drawing.Point(318, 34);
-            this.lblDashboard.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblDashboard.Name = "lblDashboard";
-            this.lblDashboard.Size = new System.Drawing.Size(232, 47);
-            this.lblDashboard.TabIndex = 2;
-            this.lblDashboard.Text = "Dashboard";
             // 
             // btnClose
             // 
@@ -269,30 +248,58 @@
             this.lblDateTime.TabIndex = 5;
             this.lblDateTime.Text = "Date and Time";
             // 
-            // btnPrintWeekly
+            // crystalReportViewer1
             // 
-            this.btnPrintWeekly.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
-            this.btnPrintWeekly.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPrintWeekly.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(151)))), ((int)(((byte)(176)))));
-            this.btnPrintWeekly.Location = new System.Drawing.Point(924, 360);
-            this.btnPrintWeekly.Name = "btnPrintWeekly";
-            this.btnPrintWeekly.Size = new System.Drawing.Size(316, 224);
-            this.btnPrintWeekly.TabIndex = 8;
-            this.btnPrintWeekly.Text = "Print weekly report";
-            this.btnPrintWeekly.UseVisualStyleBackColor = false;
-            this.btnPrintWeekly.Click += new System.EventHandler(this.btnUpdateInfo_Click);
+            this.crystalReportViewer1.ActiveViewIndex = -1;
+            this.crystalReportViewer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.crystalReportViewer1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.crystalReportViewer1.Location = new System.Drawing.Point(286, 215);
+            this.crystalReportViewer1.Name = "crystalReportViewer1";
+            this.crystalReportViewer1.Size = new System.Drawing.Size(1147, 673);
+            this.crystalReportViewer1.TabIndex = 6;
+            this.crystalReportViewer1.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
             // 
-            // btnPrintDaily
+            // pictureBox1
             // 
-            this.btnPrintDaily.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
-            this.btnPrintDaily.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPrintDaily.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(159)))), ((int)(((byte)(151)))), ((int)(((byte)(176)))));
-            this.btnPrintDaily.Location = new System.Drawing.Point(448, 360);
-            this.btnPrintDaily.Name = "btnPrintDaily";
-            this.btnPrintDaily.Size = new System.Drawing.Size(316, 224);
-            this.btnPrintDaily.TabIndex = 9;
-            this.btnPrintDaily.Text = "Print daily report";
-            this.btnPrintDaily.UseVisualStyleBackColor = false;
+            this.pictureBox1.Image = global::IOOP_Assignment.Properties.Resources.User_profile_pic;
+            this.pictureBox1.Location = new System.Drawing.Point(90, 34);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(94, 97);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.btnMonthlyRep);
+            this.panel3.Controls.Add(this.btnDailyRep);
+            this.panel3.Location = new System.Drawing.Point(286, 116);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1147, 100);
+            this.panel3.TabIndex = 7;
+            // 
+            // btnDailyRep
+            // 
+            this.btnDailyRep.Font = new System.Drawing.Font("Baskerville Old Face", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDailyRep.Location = new System.Drawing.Point(82, 22);
+            this.btnDailyRep.Name = "btnDailyRep";
+            this.btnDailyRep.Size = new System.Drawing.Size(268, 53);
+            this.btnDailyRep.TabIndex = 0;
+            this.btnDailyRep.Text = "Daily Reservations Report";
+            this.btnDailyRep.UseVisualStyleBackColor = true;
+            this.btnDailyRep.Click += new System.EventHandler(this.btnDailyRep_Click);
+            // 
+            // btnMonthlyRep
+            // 
+            this.btnMonthlyRep.Font = new System.Drawing.Font("Baskerville Old Face", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMonthlyRep.Location = new System.Drawing.Point(411, 22);
+            this.btnMonthlyRep.Name = "btnMonthlyRep";
+            this.btnMonthlyRep.Size = new System.Drawing.Size(326, 53);
+            this.btnMonthlyRep.TabIndex = 1;
+            this.btnMonthlyRep.Text = "Monthly Room Utilization Report";
+            this.btnMonthlyRep.UseVisualStyleBackColor = true;
+            this.btnMonthlyRep.Click += new System.EventHandler(this.btnMonthlyRep_Click);
             // 
             // Librarian_ReservationRep
             // 
@@ -300,11 +307,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(1552, 888);
-            this.Controls.Add(this.btnPrintDaily);
-            this.Controls.Add(this.btnPrintWeekly);
+            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.crystalReportViewer1);
             this.Controls.Add(this.lblDateTime);
             this.Controls.Add(this.btnClose);
-            this.Controls.Add(this.lblDashboard);
             this.Controls.Add(this.pnlNav);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -316,6 +322,7 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -332,15 +339,16 @@
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.FlowLayoutPanel pnlNav;
-        private System.Windows.Forms.Label lblDashboard;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label lblDateTime;
         private System.Windows.Forms.Button btnPendingRes;
         private System.Windows.Forms.Button btnPastRes;
         private System.Windows.Forms.Button btnResReport;
-        private System.Windows.Forms.Button btnPrintWeekly;
-        private System.Windows.Forms.Button btnPrintDaily;
+        private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer1;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Button btnMonthlyRep;
+        private System.Windows.Forms.Button btnDailyRep;
     }
 }
 

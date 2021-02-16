@@ -33,8 +33,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AxShockwaveFlashObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -47,6 +54,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers.cs" />
+    <Compile Include="DailyReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DailyReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="dsDailyReport.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsDailyReport.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsMonthlyReport.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsMonthlyReport.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Librarian_ReservationRep.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -65,6 +88,12 @@
     <Compile Include="Librarian_PastRes.Designer.cs">
       <DependentUpon>Librarian_PastRes.cs</DependentUpon>
     </Compile>
+    <Compile Include="MonthlyReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MonthlyReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Librarian_PendingRes.cs">
@@ -73,6 +102,10 @@
     <Compile Include="Librarian_PendingRes.Designer.cs">
       <DependentUpon>Librarian_PendingRes.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="DailyReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>DailyReport.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Librarian_ReservationRep.resx">
       <DependentUpon>Librarian_ReservationRep.cs</DependentUpon>
     </EmbeddedResource>
@@ -81,6 +114,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Librarian_PastRes.resx">
       <DependentUpon>Librarian_PastRes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MonthlyReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>MonthlyReport.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -95,6 +132,28 @@
     <EmbeddedResource Include="Librarian_PendingRes.resx">
       <DependentUpon>Librarian_PendingRes.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="dsDailyReport.xsc">
+      <DependentUpon>dsDailyReport.xsd</DependentUpon>
+    </None>
+    <None Include="dsDailyReport.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsDailyReport.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dsDailyReport.xss">
+      <DependentUpon>dsDailyReport.xsd</DependentUpon>
+    </None>
+    <None Include="dsMonthlyReport.xsc">
+      <DependentUpon>dsMonthlyReport.xsd</DependentUpon>
+    </None>
+    <None Include="dsMonthlyReport.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsMonthlyReport.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dsMonthlyReport.xss">
+      <DependentUpon>dsMonthlyReport.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -113,6 +172,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="home icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

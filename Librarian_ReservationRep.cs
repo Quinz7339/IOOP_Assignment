@@ -173,5 +173,30 @@ namespace IOOP_Assignment
         {
 
         }
+
+        private void lblDashboard_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDailyRep_Click(object sender, EventArgs e)
+        {
+            dsDailyReport dsD = new dsDailyReport();
+            dsDailyReportTableAdapters.RESERVATION_INFO_TTableAdapter ad = new dsDailyReportTableAdapters.RESERVATION_INFO_TTableAdapter();
+            ad.Fill(dsD.RESERVATION_INFO_T);
+            DailyReport rpt = new DailyReport();
+            rpt.SetDataSource(dsD);
+            crystalReportViewer1.ReportSource = rpt;
+        }
+
+        private void btnMonthlyRep_Click(object sender, EventArgs e)
+        {
+            dsMonthlyReport dsM = new dsMonthlyReport();
+            dsMonthlyReportTableAdapters.ROOM_INFO_TTableAdapter ad = new dsMonthlyReportTableAdapters.ROOM_INFO_TTableAdapter();
+            ad.Fill(dsM.ROOM_INFO_T);
+            MonthlyReport rpt = new MonthlyReport();
+            rpt.SetDataSource(dsM);
+            crystalReportViewer1.ReportSource = rpt;
+        }
     }
 }
