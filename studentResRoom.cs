@@ -19,6 +19,7 @@ namespace IOOP_Assignment
         string userName = Controllers.userName;
         string roomId;
         string roomSelected;
+        string roomSelectedPrefix;
         string resDate;
         string resStartTime;
         string resEndTime;
@@ -180,77 +181,108 @@ namespace IOOP_Assignment
 
         private void setTimeCombo()
         {
+
+            cboStartTime.Items.Clear();
             //display start and end time
             //DateTime dateToReserve = DateTime.Parse();
             DateTime startTime_Start = DateTime.Parse("08:00AM");
-            DateTime startTime_End = DateTime.Parse("08:30PM");
-            using (SqlConnection setTimeComboConn = new SqlConnection("Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = |DataDirectory|\\Library_Reservation_Database.mdf; Integrated Security = True; Connect Timeout = 30"))
+            DateTime startTime_End = DateTime.Parse("09:00PM");
+            
+            for (DateTime tm = startTime_Start; tm < startTime_End; tm = tm.AddHours(1))
             {
-                string setTimeComboStr = "SELECT * FROM RESERVATION_INFO_T WHERE reserveStartTime = @Tm";
-                setTimeComboConn.Open();
-
-                using (SqlCommand setTimeComboCmd = new SqlCommand(setTimeComboStr, setTimeComboConn))
-                {
-                    // available time has 30min interval
-                    for (DateTime tm = startTime_Start; tm < startTime_End; tm = tm.AddMinutes(30))
-                    {
-                        setTimeComboCmd.Parameters.AddWithValue("@Tm", tm);
-                        // execute the command and store the result into the data reader
-                        dr = setTimeComboCmd.ExecuteReader();
-
-                        // check if any record exist in the data reader
-                        if (dr.Read())
-                        {
-                            cboStartTime.Items.Remove(tm.ToString("HH:mm tt"));
-                        }
-                        else // record not found
-                        {
-                            cboStartTime.Items.Add(tm.ToString("HH:mm tt"));
-                        }
-                    }
-                }
+                //startTime_Start.AddHours(1 * i);
+                cboStartTime.Items.Add(tm.ToString("HH:mm tt"));
             }
+            
+          
+            //using (SqlConnection setTimeComboConn = new SqlConnection("Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = |DataDirectory|\\Library_Reservation_Database.mdf; Integrated Security = True; Connect Timeout = 30"))
+            //{
+            //    string setTimeComboStr = "SELECT * FROM RESERVATION_INFO_T WHERE reserveDate = @resDate AND reserveStartTime = @reserveStartTime";
+            //    setTimeComboConn.Open();
+
+            //    using (SqlCommand setTimeComboCmd = new SqlCommand(setTimeComboStr, setTimeComboConn))
+            //    {
+            //        setTimeComboCmd.Parameters.AddWithValue("@resDate", resDate.ToString());
+            //        //setTimeComboCmd.Parameters.AddWithValue("@reserveStartTime", tm.ToString("HH:mm tt"));
+
+            //        // execute the command and store the result into the data reader
+            //        dr = setTimeComboCmd.ExecuteReader();
+            //        // available time has 30min interval
+            //        for (DateTime tm = startTime_Start; tm < startTime_End; tm = tm.AddMinutes(30))
+            //        {
+                        
+            //            // check if any record exist in the data reader
+            //            if (dr.Read())
+            //            {
+            //                cboStartTime.Items.Remove(tm.ToString("HH:mm tt"));
+            //            }
+            //            else // record not found
+            //            {
+            //                cboStartTime.Items.Add(tm.ToString("HH:mm tt"));
+            //            }
+            //        }
+            //    }
+            //}
         }
+        private void dtpResDate_ValueChanged(object sender, EventArgs e)
+        {
+            cboStartTime.Enabled = true;
+        }
+
+        //add time based on input on StartTime
         private void cboStartTime_SelectedIndexChanged(object sender, EventArgs e)
         {
             cboEndTime.Items.Clear();
-            cboEndTime.Enabled = true;
 
             string selectedStartTime = cboStartTime.SelectedItem.ToString();
             //available time has 30min interval
             for (DateTime tm = DateTime.Parse(selectedStartTime).AddHours(1); tm <= DateTime.Parse(selectedStartTime).AddHours(6) && tm <= DateTime.Parse("09:00PM"); tm = tm.AddMinutes(30))
             {
-                cboEndTime.Items.Add(tm.ToString("HH:mm tt"));
+                cboEndTime.Items.Add(tm.ToString("hh:mm tt"));
             }
+
+            cboEndTime.Enabled = true;
         }
+
 
         private void btnAmber_Click(object sender, EventArgs e)
         {
             roomSelected = ("Amber");
             lblRoomSelected.Text = roomSelected;
-            setRoomID(roomSelected);
+            dtpResDate.Enabled = true;
+            cboStartTime.Enabled = true;
             setTimeCombo();
+            //setRoomID(roomSelected);
         }
 
         private void btnBlackThorn_Click(object sender, EventArgs e)
         {
             roomSelected = ("BlackThorn");
             lblRoomSelected.Text = roomSelected;
-            setRoomID(roomSelected);
+            dtpResDate.Enabled = true;
+            cboStartTime.Enabled = true;
+            setTimeCombo();
+            //setRoomID(roomSelected);
         }
 
         private void btnCedar_Click(object sender, EventArgs e)
         {
             roomSelected = ("Cedar");
             lblRoomSelected.Text = roomSelected;
-            setRoomID(roomSelected); 
+            dtpResDate.Enabled = true;
+            cboStartTime.Enabled = true;
+            setTimeCombo();
+            //setRoomID(roomSelected); 
         }
 
         private void btnDapgne_Click(object sender, EventArgs e)
         {
             roomSelected = ("Daphne");
             lblRoomSelected.Text = roomSelected;
-            setRoomID(roomSelected);
+            dtpResDate.Enabled = true;
+            cboStartTime.Enabled = true;
+            setTimeCombo();
+            //setRoomID(roomSelected);
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
@@ -298,6 +330,21 @@ namespace IOOP_Assignment
             cboStartTime.ResetText();
             cboEndTime.ResetText();
             lstReceipt.Items.Clear();
+        }
+
+        private void cboEndTime_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            using (SqlConnection checkRoomConn = new SqlConnection("Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = |DataDirectory|\\Library_Reservation_Database.mdf; Integrated Security = True; Connect Timeout = 30"))
+            {
+                checkRoomConn.Open();
+
+                //if there is a reservation on the date AND time, then the room is not viable
+
+                //string checkRoomStr = "SELECT reserveDate, reserveStartTime, reserveEndTime, reserveStatus FROM RESERVATION_INFO_T WHERE reserveDate = @reserveDate";
+                string checkRoomStr = "SELECT reserveStartTime, reserveEndTime, reserveStatus FROM RESERVATION_INFO_T  WHERE reserveDate = @reserveDate AND (reserveStatus = PENDING";
+
+
+            }
         }
     }
 }

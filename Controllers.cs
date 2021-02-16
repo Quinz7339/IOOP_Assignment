@@ -80,14 +80,13 @@ namespace IOOP_Assignment
                     addReservationCmd.Parameters.AddWithValue("@reserveDate", reserveDate);
                     addReservationCmd.Parameters.AddWithValue("@reserveStartTime", reserveStartTime);
                     addReservationCmd.Parameters.AddWithValue("@reserveEndTime", reserveEndTime);
-                    addReservationCmd.Parameters.AddWithValue("@reservStatus", reserveStatus);
+                    addReservationCmd.Parameters.AddWithValue("@reserveStatus", "Approved");
                     addReservationCmd.Parameters.AddWithValue("@userId", userId);
 
                     int status = addReservationCmd.ExecuteNonQuery(); //int is to check status success of faild the insert value
                     return status;
                 }
             }
-
         }
         
 

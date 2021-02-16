@@ -315,6 +315,7 @@
             this.cboEndTime.Name = "cboEndTime";
             this.cboEndTime.Size = new System.Drawing.Size(121, 21);
             this.cboEndTime.TabIndex = 22;
+            this.cboEndTime.SelectedIndexChanged += new System.EventHandler(this.cboEndTime_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -407,6 +408,7 @@
             this.dtpResDate.Name = "dtpResDate";
             this.dtpResDate.Size = new System.Drawing.Size(200, 20);
             this.dtpResDate.TabIndex = 11;
+            this.dtpResDate.ValueChanged += new System.EventHandler(this.dtpResDate_ValueChanged);
             // 
             // label9
             // 
