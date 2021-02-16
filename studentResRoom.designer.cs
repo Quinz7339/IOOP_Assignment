@@ -83,7 +83,7 @@
             this.lblCapacity = new System.Windows.Forms.Label();
             this.lblATotal = new System.Windows.Forms.Label();
             this.btnBlackThorn = new System.Windows.Forms.Button();
-            this.btnDapgne = new System.Windows.Forms.Button();
+            this.btnDaphne = new System.Windows.Forms.Button();
             this.btnCedar = new System.Windows.Forms.Button();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
@@ -310,6 +310,7 @@
             // 
             // cboEndTime
             // 
+            this.cboEndTime.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboEndTime.FormattingEnabled = true;
             this.cboEndTime.Location = new System.Drawing.Point(142, 119);
             this.cboEndTime.Name = "cboEndTime";
@@ -395,6 +396,7 @@
             // 
             // cboStartTime
             // 
+            this.cboStartTime.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboStartTime.FormattingEnabled = true;
             this.cboStartTime.Location = new System.Drawing.Point(142, 94);
             this.cboStartTime.Name = "cboStartTime";
@@ -760,20 +762,20 @@
             this.btnBlackThorn.UseVisualStyleBackColor = false;
             this.btnBlackThorn.Click += new System.EventHandler(this.btnBlackThorn_Click);
             // 
-            // btnDapgne
+            // btnDaphne
             // 
-            this.btnDapgne.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
-            this.btnDapgne.FlatAppearance.BorderSize = 0;
-            this.btnDapgne.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDapgne.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDapgne.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.btnDapgne.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.btnDapgne.Location = new System.Drawing.Point(217, 460);
-            this.btnDapgne.Name = "btnDapgne";
-            this.btnDapgne.Size = new System.Drawing.Size(299, 94);
-            this.btnDapgne.TabIndex = 23;
-            this.btnDapgne.UseVisualStyleBackColor = false;
-            this.btnDapgne.Click += new System.EventHandler(this.btnDapgne_Click);
+            this.btnDaphne.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            this.btnDaphne.FlatAppearance.BorderSize = 0;
+            this.btnDaphne.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDaphne.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDaphne.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.btnDaphne.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+            this.btnDaphne.Location = new System.Drawing.Point(217, 460);
+            this.btnDaphne.Name = "btnDaphne";
+            this.btnDaphne.Size = new System.Drawing.Size(299, 94);
+            this.btnDaphne.TabIndex = 23;
+            this.btnDaphne.UseVisualStyleBackColor = false;
+            this.btnDaphne.Click += new System.EventHandler(this.btnDaphne_Click);
             // 
             // btnCedar
             // 
@@ -863,7 +865,7 @@
             this.Controls.Add(this.btnAmber);
             this.Controls.Add(this.btnBlackThorn);
             this.Controls.Add(this.btnCedar);
-            this.Controls.Add(this.btnDapgne);
+            this.Controls.Add(this.btnDaphne);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "studentResRoom";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -943,7 +945,7 @@
         private System.Windows.Forms.Label lblCapacity;
         private System.Windows.Forms.Label lblATotal;
         private System.Windows.Forms.Button btnBlackThorn;
-        private System.Windows.Forms.Button btnDapgne;
+        private System.Windows.Forms.Button btnDaphne;
         private System.Windows.Forms.Button btnCedar;
         private System.Windows.Forms.ComboBox cboEndTime;
         private System.Windows.Forms.Label label1;

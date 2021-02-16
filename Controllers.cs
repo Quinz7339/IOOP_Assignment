@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
+using System.Globalization;
 
 
 namespace IOOP_Assignment
@@ -29,21 +30,22 @@ namespace IOOP_Assignment
                     checkPasswordCmd.Parameters.AddWithValue("@usrId", userId);
                     checkPasswordCmd.Parameters.AddWithValue("@pwd", password);
 
-                    SqlDataReader dr = checkPasswordCmd.ExecuteReader();
-
-                    //check if credentials entered is present in the database
-                    if (dr.Read())
+                    using (SqlDataReader checkPasswordDr = checkPasswordCmd.ExecuteReader())
                     {
-                        userID = dr["userId"].ToString();
-                        getUserInfo(userID);
-                        return true;
+                        //check if credentials entered is present in the database
+                        if (checkPasswordDr.Read())
+                        {
+                            userID = checkPasswordDr["userId"].ToString();
+                            getUserInfo(userID);
+                            return true;
+                        }
+                        return false;
                     }
-                    return false;
                 }
             }
         }
 
-        public void getUserInfo(string userID)
+        private void getUserInfo(string userID)
         {
             string cmdGetUserInfo = "SELECT * FROM USER_INFO_T WHERE userId = @usrId";
             using (SqlConnection getUserInfoConn = new SqlConnection("Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = |DataDirectory|\\Library_Reservation_Database.mdf; Integrated Security = True; Connect Timeout = 30"))
@@ -52,21 +54,24 @@ namespace IOOP_Assignment
                 using (SqlCommand getUserInfoCmd = new SqlCommand(cmdGetUserInfo, getUserInfoConn))
                 {
                     getUserInfoCmd.Parameters.AddWithValue("@usrId", userID);
-                    SqlDataReader dr = getUserInfoCmd.ExecuteReader();
-                    if (dr.Read())
+
+                    using (SqlDataReader getUserInfoDr = getUserInfoCmd.ExecuteReader())
                     {
-                        userName = dr["usrName"].ToString();
-                        userRole = dr["user_role"].ToString();
+                        if (getUserInfoDr.Read())
+                        {
+                            userName = getUserInfoDr["usrName"].ToString();
+                            userRole = getUserInfoDr["user_role"].ToString();
+                        }
                     }
                 }
             }
         }
 
-        //return status of adding reservation, either sucess or fail
+        //return status of adding reservation, either success or fail
         public int addReservation(string roomId, string bookingDate, string bookingTime, string reserveDate, string reserveStartTime, string reserveEndTime, string reserveStatus, string userId)
         {
             //SQL command to insert user's reservation info into the database table (RESERVATION_INFO_T)
-            string addReservationStr = "INSERT INTO RESERVATION_INFO_T(roomId, bookingDate, bookingTime, reserveDate, reserveStartTime, reserveEndTime, reserveStatus, userId) VALUES(@reserveID, @roomId, @bookingDate, @bookingTime, @reserveDate, @reserveStartTime, @reserveEndTime, @reserveStatus, @userId)";
+            string addReservationStr = "INSERT INTO RESERVATION_INFO_T(roomId, bookingDate, bookingTime, reserveDate, reserveStartTime, reserveEndTime, reserveStatus, userId) VALUES (@roomId, @bookingDate, @bookingTime, @reserveDate, @reserveStartTime, @reserveEndTime, @reserveStatus, @userId)";
 
             using (SqlConnection addReservationConn = new SqlConnection("Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = |DataDirectory|\\Library_Reservation_Database.mdf; Integrated Security = True; Connect Timeout = 30"))
             {
@@ -75,13 +80,14 @@ namespace IOOP_Assignment
                 {
                     //concentate TextBox values to SQL string
                     addReservationCmd.Parameters.AddWithValue("@roomId", roomId);
-                    addReservationCmd.Parameters.AddWithValue("@bookingDate", bookingDate);
-                    addReservationCmd.Parameters.AddWithValue("@bookingTime", bookingTime);
-                    addReservationCmd.Parameters.AddWithValue("@reserveDate", reserveDate);
-                    addReservationCmd.Parameters.AddWithValue("@reserveStartTime", reserveStartTime);
-                    addReservationCmd.Parameters.AddWithValue("@reserveEndTime", reserveEndTime);
-                    addReservationCmd.Parameters.AddWithValue("@reserveStatus", "Approved");
+                    addReservationCmd.Parameters.AddWithValue("@bookingDate", DateTime.ParseExact(bookingDate, "dd/M/yyyy", CultureInfo.InvariantCulture));
+                    addReservationCmd.Parameters.AddWithValue("@bookingTime", DateTime.ParseExact(bookingTime, "hh:mm tt", CultureInfo.InvariantCulture));
+                    addReservationCmd.Parameters.AddWithValue("@reserveDate", DateTime.ParseExact(reserveDate, "dd/M/yyyy", CultureInfo.InvariantCulture));
+                    addReservationCmd.Parameters.AddWithValue("@reserveStartTime", DateTime.ParseExact(reserveStartTime, "hh:mm tt", CultureInfo.InvariantCulture));
+                    addReservationCmd.Parameters.AddWithValue("@reserveEndTime", DateTime.ParseExact(reserveEndTime, "hh:mm tt", CultureInfo.InvariantCulture));
+                    addReservationCmd.Parameters.AddWithValue("@reserveStatus", "APPROVED");
                     addReservationCmd.Parameters.AddWithValue("@userId", userId);
+
 
                     int status = addReservationCmd.ExecuteNonQuery(); //int is to check status success of faild the insert value
                     return status;

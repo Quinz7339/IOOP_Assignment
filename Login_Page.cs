@@ -14,7 +14,6 @@ namespace IOOP_Assignment
 {
     public partial class Login_Page : Form
     {
-        public string usrId;
         string userRole = Controllers.userRole;
         readonly string usr = "Usrxxxx";
         readonly string pw = "8 characters or longer";
