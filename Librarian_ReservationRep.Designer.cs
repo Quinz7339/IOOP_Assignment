@@ -39,15 +39,15 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlNav = new System.Windows.Forms.FlowLayoutPanel();
             this.btnClose = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.lblDateTime = new System.Windows.Forms.Label();
             this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.btnDailyRep = new System.Windows.Forms.Button();
             this.btnMonthlyRep = new System.Windows.Forms.Button();
+            this.btnDailyRep = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -212,6 +212,17 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Username";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::IOOP_Assignment.Properties.Resources.User_profile_pic;
+            this.pictureBox1.Location = new System.Drawing.Point(90, 34);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(94, 97);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
             // pnlNav
             // 
             this.pnlNav.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(127)))), ((int)(((byte)(0)))));
@@ -255,20 +266,9 @@
             this.crystalReportViewer1.Cursor = System.Windows.Forms.Cursors.Default;
             this.crystalReportViewer1.Location = new System.Drawing.Point(286, 215);
             this.crystalReportViewer1.Name = "crystalReportViewer1";
-            this.crystalReportViewer1.Size = new System.Drawing.Size(1147, 673);
+            this.crystalReportViewer1.Size = new System.Drawing.Size(1147, 661);
             this.crystalReportViewer1.TabIndex = 6;
             this.crystalReportViewer1.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::IOOP_Assignment.Properties.Resources.User_profile_pic;
-            this.pictureBox1.Location = new System.Drawing.Point(90, 34);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(94, 97);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // panel3
             // 
@@ -278,17 +278,6 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1147, 100);
             this.panel3.TabIndex = 7;
-            // 
-            // btnDailyRep
-            // 
-            this.btnDailyRep.Font = new System.Drawing.Font("Baskerville Old Face", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDailyRep.Location = new System.Drawing.Point(82, 22);
-            this.btnDailyRep.Name = "btnDailyRep";
-            this.btnDailyRep.Size = new System.Drawing.Size(268, 53);
-            this.btnDailyRep.TabIndex = 0;
-            this.btnDailyRep.Text = "Daily Reservations Report";
-            this.btnDailyRep.UseVisualStyleBackColor = true;
-            this.btnDailyRep.Click += new System.EventHandler(this.btnDailyRep_Click);
             // 
             // btnMonthlyRep
             // 
@@ -300,6 +289,17 @@
             this.btnMonthlyRep.Text = "Monthly Room Utilization Report";
             this.btnMonthlyRep.UseVisualStyleBackColor = true;
             this.btnMonthlyRep.Click += new System.EventHandler(this.btnMonthlyRep_Click);
+            // 
+            // btnDailyRep
+            // 
+            this.btnDailyRep.Font = new System.Drawing.Font("Baskerville Old Face", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDailyRep.Location = new System.Drawing.Point(82, 22);
+            this.btnDailyRep.Name = "btnDailyRep";
+            this.btnDailyRep.Size = new System.Drawing.Size(268, 53);
+            this.btnDailyRep.TabIndex = 0;
+            this.btnDailyRep.Text = "Daily Reservations Report";
+            this.btnDailyRep.UseVisualStyleBackColor = true;
+            this.btnDailyRep.Click += new System.EventHandler(this.btnDailyRep_Click);
             // 
             // Librarian_ReservationRep
             // 
