@@ -31,10 +31,10 @@ namespace IOOP_Assignment
             InitializeComponent();
             this.Size = new Size(960, 575);
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 25, 25));
-            pnlNav.Height = btnDashboad.Height;
-            pnlNav.Top = btnDashboad.Top;
-            pnlNav.Left = btnDashboad.Left;
-            btnDashboad.BackColor = Color.FromArgb(46, 51, 73);
+            pnlNav.Height = btnPastRes.Height;
+            pnlNav.Top = btnPastRes.Top;
+            pnlNav.Left = btnPastRes.Left;
+            btnPastRes.BackColor = Color.FromArgb(46, 51, 73);
             
         }
 
@@ -43,12 +43,12 @@ namespace IOOP_Assignment
             lblDateTime.Text = DateTime.Now.ToString();
         }
 
-        private void btnDashboad_Click(object sender, EventArgs e)
+        private void btnDashboard_Click(object sender, EventArgs e)
         {
-            pnlNav.Height = btnDashboad.Height;
-            pnlNav.Top = btnDashboad.Top;
-            pnlNav.Left = btnDashboad.Left;
-            btnDashboad.BackColor = Color.FromArgb(46, 51, 73);
+            pnlNav.Height = btnDashboard.Height;
+            pnlNav.Top = btnDashboard.Top;
+            pnlNav.Left = btnDashboard.Left;
+            btnDashboard.BackColor = Color.FromArgb(46, 51, 73);
 
             Librarian_Dashboard LibDash = new Librarian_Dashboard();
             LibDash.Show();
@@ -91,20 +91,20 @@ namespace IOOP_Assignment
             btnLogout.BackColor = Color.FromArgb(46, 51, 73);
         }
 
-        private void btnDashboad_Leave(object sender, EventArgs e)
+        private void btnDashboard_Leave(object sender, EventArgs e)
         {
-            btnDashboad.BackColor = Color.FromArgb(24, 30,54);
+            btnDashboard.BackColor = Color.FromArgb(24, 30, 54);
         }
 
 
         private void btnUpdate_Leave(object sender, EventArgs e)
         {
-            btnUpdate.BackColor = Color.FromArgb(24, 30, 54);
+           
         }
 
         private void btnLogout_Leave(object sender, EventArgs e)
         {
-            btnLogout.BackColor = Color.FromArgb(24, 30, 54);
+           
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -158,17 +158,17 @@ namespace IOOP_Assignment
 
         private void btnPendingRes_Leave(object sender, EventArgs e)
         {
-            btnPendingRes.BackColor = Color.FromArgb(24, 30, 54);
+            
         }
 
         private void btnPastRes_Leave(object sender, EventArgs e)
         {
-            btnPastRes.BackColor = Color.FromArgb(24, 30, 54);
+            
         }
 
         private void btnResReport_Leave(object sender, EventArgs e)
         {
-            btnResReport.BackColor = Color.FromArgb(24, 30, 54);
+            
         }
     }
 }

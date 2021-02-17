@@ -81,7 +81,7 @@ namespace IOOP_Assignment
 
         private void btnDashboard_Leave(object sender, EventArgs e)
         {
-            btnDashboard.BackColor = Color.FromArgb(24, 30,54);
+            btnDashboard.BackColor = Color.FromArgb(24, 30, 54);
         }
 
 
