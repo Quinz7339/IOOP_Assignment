@@ -53,10 +53,14 @@ namespace IOOP_Assignment
         private void pastRes_Page_Load(object sender, EventArgs e)
         {
             lblDateTime.Text = DateTime.Now.ToString();
+            dgvApproved.Update();
+            dgvApproved.Refresh();
+            dgvRejected.Update();
+            dgvRejected.Refresh();
 
-            strApproved = "SELECT userId AS [User ID], reserveId As [Reserve ID], roomId As [Room Id], bookingDate As [Booking Date], bookingTime As [Booking Time], reserveDate AS [Reserve Date], CONCAT(reserveStartTime,'-', reserveEndTime) AS [Reserve Time], reserveStatus As [Reserve Status] FROM RESERVATION_INFO_T WHERE reserveStatus = 'APPROVED'";
+            strApproved = "SELECT userId AS [User ID], reserveId As [Reserve ID], roomId As [Room Id], bookingDate As [Booking Date], bookingTime As [Booking Time], reserveDate AS [Reserve Date], reserveStartTime AS [Reserve Start Time], reserveEndTime AS [Reserve End Time], reserveStatus As [Reserve Status] FROM RESERVATION_INFO_T WHERE reserveStatus = 'APPROVED'";
 
-            strRejected = "SELECT userId AS [User ID], reserveId As [Reserve ID], roomId As [Room Id], bookingDate As [Booking Date], bookingTime As [Booking Time], reserveDate AS [Reserve Date], CONCAT(reserveStartTime,'-', reserveEndTime) AS [Reserve Time], reserveStatus As [Reserve Status] FROM RESERVATION_INFO_T WHERE reserveStatus = 'REJECTED'";
+            strRejected = "SELECT userId AS [User ID], reserveId As [Reserve ID], roomId As [Room Id], bookingDate As [Booking Date], bookingTime As [Booking Time], reserveDate AS [Reserve Date], reserveStartTime AS [Reserve Start Time], reserveEndTime AS [Reserve End Time], reserveStatus As [Reserve Status] FROM RESERVATION_INFO_T WHERE reserveStatus = 'REJECTED'";
 
             conn.Open();
 
@@ -78,25 +82,38 @@ namespace IOOP_Assignment
             dgvRejected.DataSource = dsRejected.Tables["RESERVATION_INFO_T"];
 
             //format the cells' width
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 3; i++)
             {
-                dgvApproved.Columns[i].Width = 75;
+                dgvApproved.Columns[i].Width = 60;
             }
-            dgvApproved.Columns[6].Width = 120;
-            dgvApproved.Columns[7].Width = 80;
 
-            for (int i = 0; i < 5; i++)
+            for (int i = 3; i < 8; i++)
             {
-                dgvRejected.Columns[i].Width = 75;
+                dgvApproved.Columns[i].Width = 80;
             }
-            dgvRejected.Columns[6].Width = 120;
-            dgvRejected.Columns[7].Width = 80;
+
+            for (int i = 0; i < 3; i++)
+            {
+                dgvRejected.Columns[i].Width = 60;
+            }
+
+            for (int i = 3; i < 8; i++)
+            {
+                dgvRejected.Columns[i].Width = 80;
+            }
 
             // format the date and time column to use the date format dd MMM yyyy
-            //dgvApproved.Columns[3].DefaultCellStyle.Format = "dd MMM yyyy";
-            //dgvApproved.Columns[4].DefaultCellStyle.Format = "hh:mm";
-            //dgvApproved.Columns[5].DefaultCellStyle.Format = "dd MMM yyyy";
-            //dgvApproved.Columns[6].DefaultCellStyle.Format = "hh:mm";         
+            dgvApproved.Columns[3].DefaultCellStyle.Format = "dd MMM yyyy";
+            dgvApproved.Columns[4].DefaultCellStyle.Format = "hh:mm tt";
+            dgvApproved.Columns[5].DefaultCellStyle.Format = "dd MMM yyyy";
+            dgvApproved.Columns[6].DefaultCellStyle.Format = "hh:mm tt";
+            dgvApproved.Columns[7].DefaultCellStyle.Format = "hh:mm tt";
+
+            dgvRejected.Columns[3].DefaultCellStyle.Format = "dd MMM yyyy";
+            dgvRejected.Columns[4].DefaultCellStyle.Format = "hh:mm tt";
+            dgvRejected.Columns[5].DefaultCellStyle.Format = "dd MMM yyyy";
+            dgvRejected.Columns[6].DefaultCellStyle.Format = "hh:mm tt";
+            dgvRejected.Columns[7].DefaultCellStyle.Format = "hh:mm tt";
 
             conn.Close(); // close the connection
         }

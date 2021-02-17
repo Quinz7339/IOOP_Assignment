@@ -49,8 +49,7 @@
             this.library_Reservation_DatabaseDataSet = new IOOP_Assignment.Library_Reservation_DatabaseDataSet();
             this.libraryReservationDatabaseDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dgvPending = new System.Windows.Forms.DataGridView();
-            this.btnRejected = new System.Windows.Forms.Button();
-            this.btnApproved = new System.Windows.Forms.Button();
+            this.btnUpdateDgv = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -294,37 +293,21 @@
             this.dgvPending.TabIndex = 7;
             this.dgvPending.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPending_CellClick);
             // 
-            // btnRejected
+            // btnUpdateDgv
             // 
-            this.btnRejected.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
-            this.btnRejected.FlatAppearance.BorderSize = 0;
-            this.btnRejected.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRejected.Font = new System.Drawing.Font("Nirmala UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRejected.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.btnRejected.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.btnRejected.Location = new System.Drawing.Point(706, 496);
-            this.btnRejected.Name = "btnRejected";
-            this.btnRejected.Size = new System.Drawing.Size(141, 52);
-            this.btnRejected.TabIndex = 8;
-            this.btnRejected.Text = "Rejected";
-            this.btnRejected.UseVisualStyleBackColor = false;
-            this.btnRejected.Click += new System.EventHandler(this.btnRejected_Click);
-            // 
-            // btnApproved
-            // 
-            this.btnApproved.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
-            this.btnApproved.FlatAppearance.BorderSize = 0;
-            this.btnApproved.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnApproved.Font = new System.Drawing.Font("Nirmala UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnApproved.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.btnApproved.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.btnApproved.Location = new System.Drawing.Point(359, 496);
-            this.btnApproved.Name = "btnApproved";
-            this.btnApproved.Size = new System.Drawing.Size(141, 52);
-            this.btnApproved.TabIndex = 9;
-            this.btnApproved.Text = "Approved";
-            this.btnApproved.UseVisualStyleBackColor = false;
-            this.btnApproved.Click += new System.EventHandler(this.btnApproved_Click);
+            this.btnUpdateDgv.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            this.btnUpdateDgv.FlatAppearance.BorderSize = 0;
+            this.btnUpdateDgv.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpdateDgv.Font = new System.Drawing.Font("Nirmala UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdateDgv.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.btnUpdateDgv.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+            this.btnUpdateDgv.Location = new System.Drawing.Point(527, 496);
+            this.btnUpdateDgv.Name = "btnUpdateDgv";
+            this.btnUpdateDgv.Size = new System.Drawing.Size(138, 41);
+            this.btnUpdateDgv.TabIndex = 9;
+            this.btnUpdateDgv.Text = "Update";
+            this.btnUpdateDgv.UseVisualStyleBackColor = false;
+            this.btnUpdateDgv.Click += new System.EventHandler(this.btnUpdateDgv_Click);
             // 
             // Librarian_PendingRes
             // 
@@ -332,8 +315,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(1035, 577);
-            this.Controls.Add(this.btnApproved);
-            this.Controls.Add(this.btnRejected);
+            this.Controls.Add(this.btnUpdateDgv);
             this.Controls.Add(this.dgvPending);
             this.Controls.Add(this.lblPending);
             this.Controls.Add(this.lblDateTime);
@@ -379,8 +361,7 @@
         private System.Windows.Forms.BindingSource libraryReservationDatabaseDataSetBindingSource;
         private Library_Reservation_DatabaseDataSet library_Reservation_DatabaseDataSet;
         private System.Windows.Forms.DataGridView dgvPending;
-        private System.Windows.Forms.Button btnRejected;
-        private System.Windows.Forms.Button btnApproved;
+        private System.Windows.Forms.Button btnUpdateDgv;
     }
 }
 

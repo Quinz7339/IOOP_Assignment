@@ -27,18 +27,24 @@ namespace IOOP_Assignment
 
           );
 
-        //connect to sql
+        
         string strPending;
+        string reserveId;
+        string userId;
+        string roomId;
+        string bookingDate;
+        string bookingTime;
+        string reserveDate;
+        string reserveStartTime;
+        string reserveEndTime;
+        string approveOrReject;
 
+        //connect to sql
         SqlConnection conn = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\Library_Reservation_Database.mdf;Integrated Security=True;Connect Timeout=30");
 
         SqlDataAdapter daPending;
         DataSet dsPending;
-        SqlCommandBuilder cmdbdl;
-
-        string status;
-        int col;
-        int row;
+        SqlCommand cmd;
 
         public Librarian_PendingRes()
         {
@@ -52,11 +58,12 @@ namespace IOOP_Assignment
             dgvPending.Size = new Size(720, 392);
         }
 
-        private void Pending_Page_Load(object sender, EventArgs e)
+        private void dgvLoad()
         {
-            lblDateTime.Text = DateTime.Now.ToString();
+            dgvPending.Update();
+            dgvPending.Refresh();
 
-            strPending = "SELECT userId AS [User ID], reserveId As [Reserve ID], roomId As [Room Id], bookingDate As [Booking Date], bookingTime As [Booking Time], reserveDate AS [Reserve Date], CONCAT(reserveStartTime,'-', reserveEndTime) AS [Reserve Time], reserveStatus As [Reserve Status] FROM RESERVATION_INFO_T WHERE reserveStatus = 'PENDING'";
+            strPending = "SELECT userId AS [User ID], reserveId As [Reserve ID], roomId As [Room Id], bookingDate As [Booking Date], bookingTime As [Booking Time], reserveDate AS [Reserve Date], reserveStartTime AS [Reserve Start Time], reserveEndTime AS [Reserve End Time] FROM RESERVATION_INFO_T WHERE reserveStatus = 'PENDING'";
 
             conn.Open();
 
@@ -77,62 +84,82 @@ namespace IOOP_Assignment
             dgvPending.DataSource = dsPending.Tables["RESERVATION_INFO_T"];
 
             //format the cells' width
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 3; i++)
             {
-               dgvPending.Columns[i].Width = 75;
+                dgvPending.Columns[i].Width = 55;
             }
-            dgvPending.Columns[6].Width = 120;
-            dgvPending.Columns[7].Width = 80;
+
+            for (int i = 3; i < 8; i++)
+            {
+                dgvPending.Columns[i].Width = 70;
+            }
 
             // format the date and time column to use the date format dd MMM yyyy
             dgvPending.Columns[3].DefaultCellStyle.Format = "dd MMM yyyy";
+            dgvPending.Columns[4].DefaultCellStyle.Format = "hh:mm tt";
             dgvPending.Columns[5].DefaultCellStyle.Format = "dd MMM yyyy";
-            //dgvPending.Columns[4].DefaultCellStyle.Format = "hh:mm tt";
-            //dgvPending.Columns[6].DefaultCellStyle.Format = "hh:mm tt";          
+            dgvPending.Columns[6].DefaultCellStyle.Format = "hh:mm tt";
+            dgvPending.Columns[7].DefaultCellStyle.Format = "hh:mm tt";
 
             conn.Close(); // close the connection
+
+            // create the datagridview column buttons
+            DataGridViewButtonColumn btn1 = new DataGridViewButtonColumn();
+            DataGridViewButtonColumn btn2 = new DataGridViewButtonColumn();
+
+            // add the datagridview column buttons
+            dgvPending.Columns.Add(btn1);
+            dgvPending.Columns.Add(btn2);
+
+            // setting for 1st button
+            btn1.HeaderText = "APPROVE";
+            btn1.Text = "Approve";
+            btn1.Name = "btnApprove";
+            btn1.UseColumnTextForButtonValue = true;
+
+            // for second button
+            btn2.HeaderText = "REJECT";
+            btn2.Text = "Reject";
+            btn2.Name = "btnReject";
+            btn2.UseColumnTextForButtonValue = true;
+        }
+
+        private void Pending_Page_Load(object sender, EventArgs e)
+        {
+            lblDateTime.Text = DateTime.Now.ToString();
+            dgvLoad();
         }
 
         private void dgvPending_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            col = e.ColumnIndex;
-            row = e.RowIndex;
+            if (e.ColumnIndex == 8)
+            {
+                userId = dgvPending.Rows[e.RowIndex].Cells[0].Value.ToString();
+                reserveId = dgvPending.Rows[e.RowIndex].Cells[1].Value.ToString();
+                roomId = dgvPending.Rows[e.RowIndex].Cells[2].Value.ToString();
+                bookingDate = dgvPending.Rows[e.RowIndex].Cells[3].Value.ToString();
+                bookingTime = dgvPending.Rows[e.RowIndex].Cells[4].Value.ToString();
+                reserveDate = dgvPending.Rows[e.RowIndex].Cells[5].Value.ToString();
+                reserveStartTime = dgvPending.Rows[e.RowIndex].Cells[6].Value.ToString();
+                reserveEndTime = dgvPending.Rows[e.RowIndex].Cells[7].Value.ToString();
+                approveOrReject = "APPROVED";
+                MessageBox.Show("Reserve Id of " + reserveId + " is APPROVED");
+            }
+            if (e.ColumnIndex == 9)
+            {
+                userId = dgvPending.Rows[e.RowIndex].Cells[0].Value.ToString();
+                reserveId = dgvPending.Rows[e.RowIndex].Cells[1].Value.ToString();
+                roomId = dgvPending.Rows[e.RowIndex].Cells[2].Value.ToString();
+                bookingDate = dgvPending.Rows[e.RowIndex].Cells[3].Value.ToString();
+                bookingTime = dgvPending.Rows[e.RowIndex].Cells[4].Value.ToString();
+                reserveDate = dgvPending.Rows[e.RowIndex].Cells[5].Value.ToString();
+                reserveStartTime = dgvPending.Rows[e.RowIndex].Cells[6].Value.ToString();
+                reserveEndTime = dgvPending.Rows[e.RowIndex].Cells[7].Value.ToString();
+                approveOrReject = "REJECTED";
+                MessageBox.Show("Reserve Id of " + reserveId + " is REJECTED");
+            }
         }
 
-        private void btnApproved_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                dgvPending.Rows[row].Cells[col] = "APPROVED";
-                cmdbdl = new SqlCommandBuilder(daPending);
-                daPending.Update(dsPending, "RESERVATION_INFO_T");
-                MessageBox.Show("Updated", "Room reservation status is" + status, MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            dgvPending.Refresh();
-        }
-
-        private void btnRejected_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                dgvPending.Rows[row].Cells[col].Value = "REJECTED";
-                cmdbdl = new SqlCommandBuilder(daPending);
-                daPending.Update(dsPending, "RESERVATION_INFO_T");
-                MessageBox.Show("Updated", "Room reservation status is" + status, MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            dgvPending.Refresh();
-            dgvPending.Refresh();
-        }
         private void btnDashboad_Click(object sender, EventArgs e)
         {
             pnlNav.Height = btnDashboad.Height;
@@ -180,7 +207,7 @@ namespace IOOP_Assignment
 
         private void btnDashboad_Leave(object sender, EventArgs e)
         {
-            btnDashboad.BackColor = Color.FromArgb(24, 30,54);
+            btnDashboad.BackColor = Color.FromArgb(24, 30, 54);
         }
 
 
@@ -234,5 +261,28 @@ namespace IOOP_Assignment
             pnlNav.Left = btnResReport.Left;
             btnResReport.BackColor = Color.FromArgb(46, 51, 73);
         }
-    }
+
+        private void btnUpdateDgv_Click(object sender, EventArgs e)
+        {
+            conn.Open();
+
+            cmd = new SqlCommand("Update RESERVATION_INFO_T SET reserveStatus=@status WHERE userId=@usrId AND reserveId=@resId AND roomId=@rmId AND bookingDate=@bookDate AND bookingTime=@bookTime AND reserveDate=@resDate AND reserveStartTime=@resStartTime AND reserveEndTime=@resEndTime", conn);
+            cmd.Parameters.Add("status", approveOrReject);
+            cmd.Parameters.Add("usrid", userId);
+            cmd.Parameters.Add("resid", reserveId);
+            cmd.Parameters.Add("rmid", roomId);
+            cmd.Parameters.Add("bookDate", bookingDate);
+            cmd.Parameters.Add("bookTime", bookingTime);
+            cmd.Parameters.Add("resDate", reserveDate);
+            cmd.Parameters.Add("resStartTime", reserveStartTime);
+            cmd.Parameters.Add("resEndTime", reserveEndTime);
+            cmd.ExecuteNonQuery();
+
+            dgvPending.Update();
+            dgvPending.Refresh();
+
+            conn.Close();
+        }
+    } 
 }
+
