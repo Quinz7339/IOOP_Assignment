@@ -181,5 +181,20 @@ namespace IOOP_Assignment
             LibReservationRep.Show();
             this.Hide();
         }
+
+        private void btnPendingRes_Leave(object sender, EventArgs e)
+        {
+            btnPendingRes.BackColor = Color.FromArgb(24, 30, 54);
+        }
+
+        private void btnPastRes_Leave(object sender, EventArgs e)
+        {
+            btnPastRes.BackColor = Color.FromArgb(24, 30, 54);
+        }
+
+        private void btnResReport_Leave(object sender, EventArgs e)
+        {
+            btnResReport.BackColor = Color.FromArgb(24, 30, 54);
+        }
     }
 }

@@ -102,6 +102,7 @@
             this.btnResReport.Text = "Reservation Report";
             this.btnResReport.UseVisualStyleBackColor = false;
             this.btnResReport.Click += new System.EventHandler(this.btnResReport_Click_2);
+            this.btnResReport.Leave += new System.EventHandler(this.btnResReport_Leave);
             // 
             // btnPastRes
             // 
@@ -119,6 +120,7 @@
             this.btnPastRes.Text = "Past Reservations";
             this.btnPastRes.UseVisualStyleBackColor = false;
             this.btnPastRes.Click += new System.EventHandler(this.btnPastRes_Click);
+            this.btnPastRes.Leave += new System.EventHandler(this.btnPastRes_Leave);
             // 
             // btnPendingRes
             // 
@@ -136,6 +138,7 @@
             this.btnPendingRes.Text = "Pending Reservations";
             this.btnPendingRes.UseVisualStyleBackColor = false;
             this.btnPendingRes.Click += new System.EventHandler(this.btnPendingRes_Click);
+            this.btnPendingRes.Leave += new System.EventHandler(this.btnPendingRes_Leave);
             // 
             // btnUpdate
             // 

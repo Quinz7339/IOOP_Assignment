@@ -69,6 +69,8 @@ namespace IOOP_Assignment
             pnlNav.Top = btnUpdate.Top;
             pnlNav.Left = btnUpdate.Left;
             btnUpdate.BackColor = Color.FromArgb(46, 51, 73);
+
+
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
@@ -111,6 +113,8 @@ namespace IOOP_Assignment
             pnlNav.Top = btnPastRes.Top;
             pnlNav.Left = btnPastRes.Left;
             btnPastRes.BackColor = Color.FromArgb(46, 51, 73);
+
+
         }
 
        
@@ -197,6 +201,21 @@ namespace IOOP_Assignment
             MonthlyReport rpt = new MonthlyReport();
             rpt.SetDataSource(dsM);
             crystalReportViewer1.ReportSource = rpt;
+        }
+
+        private void btnPendingRes_Leave(object sender, EventArgs e)
+        {
+            btnPendingRes.BackColor = Color.FromArgb(24, 30, 54);
+        }
+
+        private void btnPastRes_Leave(object sender, EventArgs e)
+        {
+            btnPastRes.BackColor = Color.FromArgb(24, 30, 54);
+        }
+
+        private void btnResReport_Leave(object sender, EventArgs e)
+        {
+            btnResReport.BackColor = Color.FromArgb(24, 30, 54);
         }
     }
 }
