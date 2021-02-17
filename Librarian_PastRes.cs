@@ -99,12 +99,12 @@ namespace IOOP_Assignment
 
         private void btnUpdate_Leave(object sender, EventArgs e)
         {
-           
+            btnUpdate.BackColor = Color.FromArgb(24, 30, 54);
         }
 
         private void btnLogout_Leave(object sender, EventArgs e)
         {
-           
+            btnLogout.BackColor = Color.FromArgb(24, 30, 54);
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -158,17 +158,17 @@ namespace IOOP_Assignment
 
         private void btnPendingRes_Leave(object sender, EventArgs e)
         {
-            
+            btnPendingRes.BackColor = Color.FromArgb(24, 30, 54);
         }
 
         private void btnPastRes_Leave(object sender, EventArgs e)
         {
-            
+            btnPastRes.BackColor = Color.FromArgb(24, 30, 54);
         }
 
         private void btnResReport_Leave(object sender, EventArgs e)
         {
-            
+            btnResReport.BackColor = Color.FromArgb(24, 30, 54);
         }
     }
 }

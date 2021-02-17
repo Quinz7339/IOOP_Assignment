@@ -96,7 +96,7 @@
             this.btnPastRes.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPastRes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.btnPastRes.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.btnPastRes.Location = new System.Drawing.Point(0, 399);
+            this.btnPastRes.Location = new System.Drawing.Point(0, 390);
             this.btnPastRes.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnPastRes.Name = "btnPastRes";
             this.btnPastRes.Size = new System.Drawing.Size(279, 77);
