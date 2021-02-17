@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using System.Data.SqlClient;
 
 namespace IOOP_Assignment
 {
@@ -26,6 +27,16 @@ namespace IOOP_Assignment
 
           );
 
+        //connect to sql
+        string strApproved;
+        string strRejected;
+        SqlConnection conn = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\Library_Reservation_Database.mdf;Integrated Security=True;Connect Timeout=30");
+
+        SqlDataAdapter daApproved; 
+        SqlDataAdapter daRejected;
+        DataSet dsApproved;
+        DataSet dsRejected;
+
         public Librarian_PastRes()
         {
             InitializeComponent();
@@ -35,12 +46,59 @@ namespace IOOP_Assignment
             pnlNav.Top = btnDashboad.Top;
             pnlNav.Left = btnDashboad.Left;
             btnDashboad.BackColor = Color.FromArgb(46, 51, 73);
-            
+            dgvApproved.Size = new Size (720, 150);
+            dgvRejected.Size = new Size(720, 150);
         }
 
-        private void Login_Page_Load(object sender, EventArgs e)
+        private void pastRes_Page_Load(object sender, EventArgs e)
         {
             lblDateTime.Text = DateTime.Now.ToString();
+
+            strApproved = "SELECT userId AS [User ID], reserveId As [Reserve ID], roomId As [Room Id], bookingDate As [Booking Date], bookingTime As [Booking Time], reserveDate AS [Reserve Date], CONCAT(reserveStartTime,'-', reserveEndTime) AS [Reserve Time], reserveStatus As [Reserve Status] FROM RESERVATION_INFO_T WHERE reserveStatus = 'APPROVED'";
+
+            strRejected = "SELECT userId AS [User ID], reserveId As [Reserve ID], roomId As [Room Id], bookingDate As [Booking Date], bookingTime As [Booking Time], reserveDate AS [Reserve Date], CONCAT(reserveStartTime,'-', reserveEndTime) AS [Reserve Time], reserveStatus As [Reserve Status] FROM RESERVATION_INFO_T WHERE reserveStatus = 'REJECTED'";
+
+            conn.Open();
+
+            daApproved = new SqlDataAdapter(strApproved, conn);
+            daRejected = new SqlDataAdapter(strRejected, conn);
+
+            // dataset is a virtual copy of a database
+            // a dataset can contain one or more datatables
+            dsApproved = new DataSet("RESERVATION_INFO_T");
+            dsRejected = new DataSet("RESERVATION_INFO_T");
+
+            // use the data adapter to fill the dataset 
+            // with the result of the Select query
+            daApproved.Fill(dsApproved, "RESERVATION_INFO_T");
+            daRejected.Fill(dsRejected, "RESERVATION_INFO_T");
+
+            // display the result on the datagridview
+            dgvApproved.DataSource = dsApproved.Tables["RESERVATION_INFO_T"];
+            dgvRejected.DataSource = dsRejected.Tables["RESERVATION_INFO_T"];
+
+            //format the cells' width
+            for (int i = 0; i < 5; i++)
+            {
+                dgvApproved.Columns[i].Width = 75;
+            }
+            dgvApproved.Columns[6].Width = 120;
+            dgvApproved.Columns[7].Width = 80;
+
+            for (int i = 0; i < 5; i++)
+            {
+                dgvRejected.Columns[i].Width = 75;
+            }
+            dgvRejected.Columns[6].Width = 120;
+            dgvRejected.Columns[7].Width = 80;
+
+            // format the date and time column to use the date format dd MMM yyyy
+            //dgvApproved.Columns[3].DefaultCellStyle.Format = "dd MMM yyyy";
+            //dgvApproved.Columns[4].DefaultCellStyle.Format = "hh:mm";
+            //dgvApproved.Columns[5].DefaultCellStyle.Format = "dd MMM yyyy";
+            //dgvApproved.Columns[6].DefaultCellStyle.Format = "hh:mm";         
+
+            conn.Close(); // close the connection
         }
 
         private void btnDashboad_Click(object sender, EventArgs e)
@@ -109,7 +167,7 @@ namespace IOOP_Assignment
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
         }
 
         private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)

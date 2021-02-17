@@ -58,6 +58,11 @@
     <Compile Include="Librarian_PastRes.Designer.cs">
       <DependentUpon>Librarian_PastRes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Library_Reservation_DatabaseDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Library_Reservation_DatabaseDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Librarian_PendingRes.cs">
@@ -85,6 +90,17 @@
     <EmbeddedResource Include="Librarian_PendingRes.resx">
       <DependentUpon>Librarian_PendingRes.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Library_Reservation_DatabaseDataSet.xsc">
+      <DependentUpon>Library_Reservation_DatabaseDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Library_Reservation_DatabaseDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Library_Reservation_DatabaseDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Library_Reservation_DatabaseDataSet.xss">
+      <DependentUpon>Library_Reservation_DatabaseDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

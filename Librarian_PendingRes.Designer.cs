@@ -46,19 +46,17 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.lblDateTime = new System.Windows.Forms.Label();
             this.lblPending = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.a = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.library_Reservation_DatabaseDataSet = new IOOP_Assignment.Library_Reservation_DatabaseDataSet();
+            this.libraryReservationDatabaseDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dgvPending = new System.Windows.Forms.DataGridView();
+            this.btnRejected = new System.Windows.Forms.Button();
+            this.btnApproved = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.library_Reservation_DatabaseDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.libraryReservationDatabaseDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPending)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -72,9 +70,8 @@
             this.panel1.Controls.Add(this.btnDashboad);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(279, 888);
+            this.panel1.Size = new System.Drawing.Size(186, 577);
             this.panel1.TabIndex = 0;
             // 
             // btnResReport
@@ -85,10 +82,9 @@
             this.btnResReport.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnResReport.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.btnResReport.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.btnResReport.Location = new System.Drawing.Point(0, 463);
-            this.btnResReport.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnResReport.Location = new System.Drawing.Point(0, 301);
             this.btnResReport.Name = "btnResReport";
-            this.btnResReport.Size = new System.Drawing.Size(279, 77);
+            this.btnResReport.Size = new System.Drawing.Size(186, 50);
             this.btnResReport.TabIndex = 11;
             this.btnResReport.Text = "Reservation Report";
             this.btnResReport.UseVisualStyleBackColor = false;
@@ -102,10 +98,9 @@
             this.btnPastRes.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPastRes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.btnPastRes.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.btnPastRes.Location = new System.Drawing.Point(0, 390);
-            this.btnPastRes.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnPastRes.Location = new System.Drawing.Point(0, 253);
             this.btnPastRes.Name = "btnPastRes";
-            this.btnPastRes.Size = new System.Drawing.Size(279, 77);
+            this.btnPastRes.Size = new System.Drawing.Size(186, 50);
             this.btnPastRes.TabIndex = 10;
             this.btnPastRes.Text = "Past Reservations";
             this.btnPastRes.UseVisualStyleBackColor = false;
@@ -119,10 +114,9 @@
             this.btnPendingRes.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPendingRes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.btnPendingRes.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.btnPendingRes.Location = new System.Drawing.Point(0, 313);
-            this.btnPendingRes.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnPendingRes.Location = new System.Drawing.Point(0, 203);
             this.btnPendingRes.Name = "btnPendingRes";
-            this.btnPendingRes.Size = new System.Drawing.Size(279, 77);
+            this.btnPendingRes.Size = new System.Drawing.Size(186, 50);
             this.btnPendingRes.TabIndex = 7;
             this.btnPendingRes.Text = "Pending Reservations";
             this.btnPendingRes.UseVisualStyleBackColor = false;
@@ -136,10 +130,9 @@
             this.btnUpdate.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.btnUpdate.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.btnUpdate.Location = new System.Drawing.Point(0, 538);
-            this.btnUpdate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnUpdate.Location = new System.Drawing.Point(0, 350);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(279, 77);
+            this.btnUpdate.Size = new System.Drawing.Size(186, 50);
             this.btnUpdate.TabIndex = 6;
             this.btnUpdate.Text = "Update Info";
             this.btnUpdate.UseVisualStyleBackColor = false;
@@ -155,10 +148,9 @@
             this.btnLogout.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogout.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.btnLogout.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.btnLogout.Location = new System.Drawing.Point(0, 811);
-            this.btnLogout.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnLogout.Location = new System.Drawing.Point(0, 527);
             this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(279, 77);
+            this.btnLogout.Size = new System.Drawing.Size(186, 50);
             this.btnLogout.TabIndex = 5;
             this.btnLogout.Text = "Logout";
             this.btnLogout.UseVisualStyleBackColor = false;
@@ -173,10 +165,9 @@
             this.btnDashboad.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDashboad.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.btnDashboad.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.btnDashboad.Location = new System.Drawing.Point(0, 237);
-            this.btnDashboad.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnDashboad.Location = new System.Drawing.Point(0, 154);
             this.btnDashboad.Name = "btnDashboad";
-            this.btnDashboad.Size = new System.Drawing.Size(279, 77);
+            this.btnDashboad.Size = new System.Drawing.Size(186, 50);
             this.btnDashboad.TabIndex = 1;
             this.btnDashboad.Text = "Dashboard";
             this.btnDashboad.UseVisualStyleBackColor = false;
@@ -190,9 +181,8 @@
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(279, 237);
+            this.panel2.Size = new System.Drawing.Size(186, 154);
             this.panel2.TabIndex = 0;
             // 
             // label1
@@ -200,10 +190,9 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(62, 191);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(41, 124);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(138, 25);
+            this.label1.Size = new System.Drawing.Size(100, 16);
             this.label1.TabIndex = 3;
             this.label1.Text = "User position";
             // 
@@ -212,20 +201,18 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.label2.Location = new System.Drawing.Point(78, 151);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(52, 98);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(110, 25);
+            this.label2.Size = new System.Drawing.Size(79, 16);
             this.label2.TabIndex = 2;
             this.label2.Text = "Username";
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::IOOP_Assignment.Properties.Resources.User_profile_pic;
-            this.pictureBox1.Location = new System.Drawing.Point(90, 34);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pictureBox1.Location = new System.Drawing.Point(60, 22);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(94, 97);
+            this.pictureBox1.Size = new System.Drawing.Size(63, 63);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -233,10 +220,9 @@
             // pnlNav
             // 
             this.pnlNav.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(127)))), ((int)(((byte)(0)))));
-            this.pnlNav.Location = new System.Drawing.Point(0, 237);
-            this.pnlNav.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pnlNav.Location = new System.Drawing.Point(0, 154);
             this.pnlNav.Name = "pnlNav";
-            this.pnlNav.Size = new System.Drawing.Size(22, 153);
+            this.pnlNav.Size = new System.Drawing.Size(15, 99);
             this.pnlNav.TabIndex = 1;
             // 
             // lblPendingRes
@@ -244,10 +230,9 @@
             this.lblPendingRes.AutoSize = true;
             this.lblPendingRes.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPendingRes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(161)))), ((int)(((byte)(176)))));
-            this.lblPendingRes.Location = new System.Drawing.Point(318, 34);
-            this.lblPendingRes.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblPendingRes.Location = new System.Drawing.Point(212, 22);
             this.lblPendingRes.Name = "lblPendingRes";
-            this.lblPendingRes.Size = new System.Drawing.Size(446, 47);
+            this.lblPendingRes.Size = new System.Drawing.Size(300, 31);
             this.lblPendingRes.TabIndex = 2;
             this.lblPendingRes.Text = "Pending Reservations";
             // 
@@ -257,10 +242,9 @@
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(127)))), ((int)(((byte)(0)))));
-            this.btnClose.Location = new System.Drawing.Point(1347, 40);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnClose.Location = new System.Drawing.Point(898, 26);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(45, 46);
+            this.btnClose.Size = new System.Drawing.Size(30, 30);
             this.btnClose.TabIndex = 4;
             this.btnClose.Text = "X";
             this.btnClose.UseVisualStyleBackColor = true;
@@ -271,10 +255,9 @@
             this.lblDateTime.AutoSize = true;
             this.lblDateTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDateTime.ForeColor = System.Drawing.Color.White;
-            this.lblDateTime.Location = new System.Drawing.Point(1022, 49);
-            this.lblDateTime.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblDateTime.Location = new System.Drawing.Point(681, 32);
             this.lblDateTime.Name = "lblDateTime";
-            this.lblDateTime.Size = new System.Drawing.Size(171, 29);
+            this.lblDateTime.Size = new System.Drawing.Size(113, 20);
             this.lblDateTime.TabIndex = 5;
             this.lblDateTime.Text = "Date and Time";
             // 
@@ -283,94 +266,75 @@
             this.lblPending.AutoSize = true;
             this.lblPending.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPending.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblPending.Location = new System.Drawing.Point(321, 106);
+            this.lblPending.Location = new System.Drawing.Point(214, 69);
+            this.lblPending.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPending.Name = "lblPending";
-            this.lblPending.Size = new System.Drawing.Size(89, 25);
+            this.lblPending.Size = new System.Drawing.Size(64, 17);
             this.lblPending.TabIndex = 6;
             this.lblPending.Text = "Pending ";
             // 
-            // dataGridView1
+            // library_Reservation_DatabaseDataSet
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.a,
-            this.Column1,
-            this.Column2,
-            this.Column3,
-            this.Column4,
-            this.Column5,
-            this.Column6,
-            this.Column7});
-            this.dataGridView1.Location = new System.Drawing.Point(286, 151);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 62;
-            this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(1106, 689);
-            this.dataGridView1.TabIndex = 8;
+            this.library_Reservation_DatabaseDataSet.DataSetName = "Library_Reservation_DatabaseDataSet";
+            this.library_Reservation_DatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // a
+            // libraryReservationDatabaseDataSetBindingSource
             // 
-            this.a.HeaderText = "Name";
-            this.a.MinimumWidth = 8;
-            this.a.Name = "a";
-            this.a.Width = 150;
+            this.libraryReservationDatabaseDataSetBindingSource.DataSource = this.library_Reservation_DatabaseDataSet;
+            this.libraryReservationDatabaseDataSetBindingSource.Position = 0;
             // 
-            // Column1
+            // dgvPending
             // 
-            this.Column1.HeaderText = "TP number";
-            this.Column1.MinimumWidth = 8;
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 150;
+            this.dgvPending.AllowUserToAddRows = false;
+            this.dgvPending.AllowUserToDeleteRows = false;
+            this.dgvPending.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPending.Location = new System.Drawing.Point(218, 98);
+            this.dgvPending.Name = "dgvPending";
+            this.dgvPending.Size = new System.Drawing.Size(772, 392);
+            this.dgvPending.TabIndex = 7;
+            this.dgvPending.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPending_CellClick);
             // 
-            // Column2
+            // btnRejected
             // 
-            this.Column2.HeaderText = "Room";
-            this.Column2.MinimumWidth = 8;
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 150;
+            this.btnRejected.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            this.btnRejected.FlatAppearance.BorderSize = 0;
+            this.btnRejected.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRejected.Font = new System.Drawing.Font("Nirmala UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRejected.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.btnRejected.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+            this.btnRejected.Location = new System.Drawing.Point(706, 496);
+            this.btnRejected.Name = "btnRejected";
+            this.btnRejected.Size = new System.Drawing.Size(141, 52);
+            this.btnRejected.TabIndex = 8;
+            this.btnRejected.Text = "Rejected";
+            this.btnRejected.UseVisualStyleBackColor = false;
+            this.btnRejected.Click += new System.EventHandler(this.btnRejected_Click);
             // 
-            // Column3
+            // btnApproved
             // 
-            this.Column3.HeaderText = "Booked date";
-            this.Column3.MinimumWidth = 8;
-            this.Column3.Name = "Column3";
-            this.Column3.Width = 150;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Booked time";
-            this.Column4.MinimumWidth = 8;
-            this.Column4.Name = "Column4";
-            this.Column4.Width = 150;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Booking date";
-            this.Column5.MinimumWidth = 8;
-            this.Column5.Name = "Column5";
-            this.Column5.Width = 150;
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Booking time";
-            this.Column6.MinimumWidth = 8;
-            this.Column6.Name = "Column6";
-            this.Column6.Width = 150;
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "Accept/Reject";
-            this.Column7.MinimumWidth = 8;
-            this.Column7.Name = "Column7";
-            this.Column7.Width = 150;
+            this.btnApproved.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            this.btnApproved.FlatAppearance.BorderSize = 0;
+            this.btnApproved.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnApproved.Font = new System.Drawing.Font("Nirmala UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnApproved.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.btnApproved.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+            this.btnApproved.Location = new System.Drawing.Point(359, 496);
+            this.btnApproved.Name = "btnApproved";
+            this.btnApproved.Size = new System.Drawing.Size(141, 52);
+            this.btnApproved.TabIndex = 9;
+            this.btnApproved.Text = "Approved";
+            this.btnApproved.UseVisualStyleBackColor = false;
+            this.btnApproved.Click += new System.EventHandler(this.btnApproved_Click);
             // 
             // Librarian_PendingRes
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.ClientSize = new System.Drawing.Size(1552, 888);
-            this.Controls.Add(this.dataGridView1);
+            this.ClientSize = new System.Drawing.Size(1035, 577);
+            this.Controls.Add(this.btnApproved);
+            this.Controls.Add(this.btnRejected);
+            this.Controls.Add(this.dgvPending);
             this.Controls.Add(this.lblPending);
             this.Controls.Add(this.lblDateTime);
             this.Controls.Add(this.btnClose);
@@ -378,15 +342,16 @@
             this.Controls.Add(this.pnlNav);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Librarian_PendingRes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Load += new System.EventHandler(this.Login_Page_Load);
+            this.Load += new System.EventHandler(this.Pending_Page_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.library_Reservation_DatabaseDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.libraryReservationDatabaseDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPending)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -409,17 +374,13 @@
         private System.Windows.Forms.Label lblDateTime;
         private System.Windows.Forms.Button btnPendingRes;
         private System.Windows.Forms.Label lblPending;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn a;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.Button btnPastRes;
         private System.Windows.Forms.Button btnResReport;
+        private System.Windows.Forms.BindingSource libraryReservationDatabaseDataSetBindingSource;
+        private Library_Reservation_DatabaseDataSet library_Reservation_DatabaseDataSet;
+        private System.Windows.Forms.DataGridView dgvPending;
+        private System.Windows.Forms.Button btnRejected;
+        private System.Windows.Forms.Button btnApproved;
     }
 }
 
