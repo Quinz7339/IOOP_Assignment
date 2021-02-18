@@ -117,10 +117,6 @@ namespace IOOP_Assignment
             Application.Exit();
         }
 
-        private void lblDateTime_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 
 }

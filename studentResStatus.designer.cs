@@ -243,7 +243,6 @@
             this.lblDateTime.Size = new System.Drawing.Size(113, 20);
             this.lblDateTime.TabIndex = 5;
             this.lblDateTime.Text = "Date and Time";
-            this.lblDateTime.Click += new System.EventHandler(this.lblDateTime_Click);
             // 
             // label4
             // 
@@ -252,9 +251,9 @@
             this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(213, 76);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(132, 25);
+            this.label4.Size = new System.Drawing.Size(143, 25);
             this.label4.TabIndex = 21;
-            this.label4.Text = "Reserve Status";
+            this.label4.Text = "Reservation List";
             // 
             // cboRoom
             // 
