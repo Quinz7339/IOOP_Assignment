@@ -50,12 +50,12 @@
             this.btnChangeRoom = new System.Windows.Forms.Button();
             this.btnReset = new System.Windows.Forms.Button();
             this.btnSubmit = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvPendingRes = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPendingRes)).BeginInit();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -251,9 +251,9 @@
             this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(213, 76);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(143, 25);
+            this.label4.Size = new System.Drawing.Size(189, 25);
             this.label4.TabIndex = 21;
-            this.label4.Text = "Reservation List";
+            this.label4.Text = "Pending reservations";
             // 
             // cboRoom
             // 
@@ -323,13 +323,13 @@
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = false;
             // 
-            // dataGridView1
+            // dgvPendingRes
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(218, 104);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(697, 324);
-            this.dataGridView1.TabIndex = 29;
+            this.dgvPendingRes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPendingRes.Location = new System.Drawing.Point(218, 104);
+            this.dgvPendingRes.Name = "dgvPendingRes";
+            this.dgvPendingRes.Size = new System.Drawing.Size(697, 156);
+            this.dgvPendingRes.TabIndex = 29;
             // 
             // panel3
             // 
@@ -349,7 +349,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(951, 577);
             this.Controls.Add(this.panel3);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvPendingRes);
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.label4);
@@ -367,7 +367,7 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPendingRes)).EndInit();
             this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -397,7 +397,7 @@
         private System.Windows.Forms.Button btnChangeRoom;
         private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.Button btnSubmit;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvPendingRes;
         private System.Windows.Forms.Panel panel3;
     }
 }
