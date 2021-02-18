@@ -38,9 +38,12 @@ namespace IOOP_Assignment
 
         }
 
-        private void Login_Page_Load(object sender, EventArgs e)
+
+        private void Mod_Res_Page(object sender, EventArgs e)
         {
             lblDateTime.Text = DateTime.Now.ToString("dd MMM yyyy      hh:mm tt");
+            string LoadDataStr = "SELECT userId AS [User ID], reserveId As [Reserve ID], roomId As [Room Id], bookingDate As [Booking Date], bookingTime As [Booking Time], reserveDate AS [Reserve Date], reserveStartTime AS [Reserve Start Time], reserveEndTime AS [Reserve End Time] FROM RESERVATION_INFO_T WHERE reserveStatus = 'PENDING'";
+
         }
 
         private void btnDashboad_Click(object sender, EventArgs e)

@@ -362,7 +362,7 @@
             this.Name = "studentResStatus";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Login_Page_Load);
+            this.Load += new System.EventHandler(this.Mod_Res_Page);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
