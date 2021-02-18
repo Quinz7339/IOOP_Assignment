@@ -1,6 +1,6 @@
 ﻿namespace IOOP_Assignment
 {
-    partial class Librarian_PendingRes
+    partial class Librarian_Report
     {
         /// <summary>
         /// Required designer variable.
@@ -35,27 +35,19 @@
             this.btnPendingRes = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
-            this.btnDashboad = new System.Windows.Forms.Button();
+            this.btnDashboard = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlNav = new System.Windows.Forms.FlowLayoutPanel();
-            this.lblPendingRes = new System.Windows.Forms.Label();
+            this.lblDashboard = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.lblDateTime = new System.Windows.Forms.Label();
-            this.lblPending = new System.Windows.Forms.Label();
-            this.library_Reservation_DatabaseDataSet = new IOOP_Assignment.Library_Reservation_DatabaseDataSet();
-            this.libraryReservationDatabaseDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dgvPending = new System.Windows.Forms.DataGridView();
-            this.btnUpdateDgv = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.library_Reservation_DatabaseDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.libraryReservationDatabaseDataSetBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPending)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -66,7 +58,7 @@
             this.panel1.Controls.Add(this.btnPendingRes);
             this.panel1.Controls.Add(this.btnUpdate);
             this.panel1.Controls.Add(this.btnLogout);
-            this.panel1.Controls.Add(this.btnDashboad);
+            this.panel1.Controls.Add(this.btnDashboard);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
@@ -156,22 +148,22 @@
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             this.btnLogout.Leave += new System.EventHandler(this.btnLogout_Leave);
             // 
-            // btnDashboad
+            // btnDashboard
             // 
-            this.btnDashboad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
-            this.btnDashboad.FlatAppearance.BorderSize = 0;
-            this.btnDashboad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDashboad.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDashboad.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.btnDashboad.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.btnDashboad.Location = new System.Drawing.Point(0, 154);
-            this.btnDashboad.Name = "btnDashboad";
-            this.btnDashboad.Size = new System.Drawing.Size(186, 50);
-            this.btnDashboad.TabIndex = 1;
-            this.btnDashboad.Text = "Dashboard";
-            this.btnDashboad.UseVisualStyleBackColor = false;
-            this.btnDashboad.Click += new System.EventHandler(this.btnDashboad_Click);
-            this.btnDashboad.Leave += new System.EventHandler(this.btnDashboad_Leave);
+            this.btnDashboard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            this.btnDashboard.FlatAppearance.BorderSize = 0;
+            this.btnDashboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDashboard.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDashboard.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.btnDashboard.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+            this.btnDashboard.Location = new System.Drawing.Point(0, 154);
+            this.btnDashboard.Name = "btnDashboard";
+            this.btnDashboard.Size = new System.Drawing.Size(186, 50);
+            this.btnDashboard.TabIndex = 1;
+            this.btnDashboard.Text = "Dashboard";
+            this.btnDashboard.UseVisualStyleBackColor = false;
+            this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
+            this.btnDashboard.Leave += new System.EventHandler(this.btnDashboard_Leave);
             // 
             // panel2
             // 
@@ -224,16 +216,16 @@
             this.pnlNav.Size = new System.Drawing.Size(15, 99);
             this.pnlNav.TabIndex = 1;
             // 
-            // lblPendingRes
+            // lblDashboard
             // 
-            this.lblPendingRes.AutoSize = true;
-            this.lblPendingRes.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPendingRes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(161)))), ((int)(((byte)(176)))));
-            this.lblPendingRes.Location = new System.Drawing.Point(212, 22);
-            this.lblPendingRes.Name = "lblPendingRes";
-            this.lblPendingRes.Size = new System.Drawing.Size(300, 31);
-            this.lblPendingRes.TabIndex = 2;
-            this.lblPendingRes.Text = "Pending Reservations";
+            this.lblDashboard.AutoSize = true;
+            this.lblDashboard.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDashboard.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(161)))), ((int)(((byte)(176)))));
+            this.lblDashboard.Location = new System.Drawing.Point(212, 22);
+            this.lblDashboard.Name = "lblDashboard";
+            this.lblDashboard.Size = new System.Drawing.Size(156, 31);
+            this.lblDashboard.TabIndex = 2;
+            this.lblDashboard.Text = "Dashboard";
             // 
             // btnClose
             // 
@@ -260,80 +252,25 @@
             this.lblDateTime.TabIndex = 5;
             this.lblDateTime.Text = "Date and Time";
             // 
-            // lblPending
-            // 
-            this.lblPending.AutoSize = true;
-            this.lblPending.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPending.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblPending.Location = new System.Drawing.Point(214, 69);
-            this.lblPending.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblPending.Name = "lblPending";
-            this.lblPending.Size = new System.Drawing.Size(64, 17);
-            this.lblPending.TabIndex = 6;
-            this.lblPending.Text = "Pending ";
-            // 
-            // library_Reservation_DatabaseDataSet
-            // 
-            this.library_Reservation_DatabaseDataSet.DataSetName = "Library_Reservation_DatabaseDataSet";
-            this.library_Reservation_DatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // libraryReservationDatabaseDataSetBindingSource
-            // 
-            this.libraryReservationDatabaseDataSetBindingSource.DataSource = this.library_Reservation_DatabaseDataSet;
-            this.libraryReservationDatabaseDataSetBindingSource.Position = 0;
-            // 
-            // dgvPending
-            // 
-            this.dgvPending.AllowUserToAddRows = false;
-            this.dgvPending.AllowUserToDeleteRows = false;
-            this.dgvPending.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPending.Location = new System.Drawing.Point(218, 98);
-            this.dgvPending.Name = "dgvPending";
-            this.dgvPending.Size = new System.Drawing.Size(772, 392);
-            this.dgvPending.TabIndex = 7;
-            this.dgvPending.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPending_CellClick);
-            // 
-            // btnUpdateDgv
-            // 
-            this.btnUpdateDgv.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
-            this.btnUpdateDgv.FlatAppearance.BorderSize = 0;
-            this.btnUpdateDgv.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUpdateDgv.Font = new System.Drawing.Font("Nirmala UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdateDgv.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.btnUpdateDgv.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.btnUpdateDgv.Location = new System.Drawing.Point(523, 507);
-            this.btnUpdateDgv.Name = "btnUpdateDgv";
-            this.btnUpdateDgv.Size = new System.Drawing.Size(138, 41);
-            this.btnUpdateDgv.TabIndex = 9;
-            this.btnUpdateDgv.Text = "Update";
-            this.btnUpdateDgv.UseVisualStyleBackColor = false;
-            this.btnUpdateDgv.Click += new System.EventHandler(this.btnUpdateDgv_Click);
-            // 
-            // Librarian_PendingRes
+            // Librarian_Report
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(1035, 577);
-            this.Controls.Add(this.btnUpdateDgv);
-            this.Controls.Add(this.dgvPending);
-            this.Controls.Add(this.lblPending);
             this.Controls.Add(this.lblDateTime);
             this.Controls.Add(this.btnClose);
-            this.Controls.Add(this.lblPendingRes);
+            this.Controls.Add(this.lblDashboard);
             this.Controls.Add(this.pnlNav);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Librarian_PendingRes";
+            this.Name = "Librarian_Report";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Load += new System.EventHandler(this.Pending_Page_Load);
+            this.Load += new System.EventHandler(this.Login_Page_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.library_Reservation_DatabaseDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.libraryReservationDatabaseDataSetBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPending)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -345,23 +282,18 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btnDashboad;
+        private System.Windows.Forms.Button btnDashboard;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.FlowLayoutPanel pnlNav;
-        private System.Windows.Forms.Label lblPendingRes;
+        private System.Windows.Forms.Label lblDashboard;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label lblDateTime;
         private System.Windows.Forms.Button btnPendingRes;
-        private System.Windows.Forms.Label lblPending;
         private System.Windows.Forms.Button btnPastRes;
         private System.Windows.Forms.Button btnResReport;
-        private System.Windows.Forms.BindingSource libraryReservationDatabaseDataSetBindingSource;
-        private Library_Reservation_DatabaseDataSet library_Reservation_DatabaseDataSet;
-        private System.Windows.Forms.DataGridView dgvPending;
-        private System.Windows.Forms.Button btnUpdateDgv;
     }
 }
 

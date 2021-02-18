@@ -85,7 +85,7 @@
             this.btnResReport.TabIndex = 11;
             this.btnResReport.Text = "Reservation Report";
             this.btnResReport.UseVisualStyleBackColor = false;
-            this.btnResReport.Click += new System.EventHandler(this.btnResReport_Click_2);
+            this.btnResReport.Click += new System.EventHandler(this.btnResReport_Click);
             // 
             // btnPastRes
             // 

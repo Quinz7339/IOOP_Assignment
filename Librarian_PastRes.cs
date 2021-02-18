@@ -42,10 +42,10 @@ namespace IOOP_Assignment
             InitializeComponent();
             this.Size = new Size(960, 575);
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 25, 25));
-            pnlNav.Height = btnDashboad.Height;
-            pnlNav.Top = btnDashboad.Top;
-            pnlNav.Left = btnDashboad.Left;
-            btnDashboad.BackColor = Color.FromArgb(46, 51, 73);
+            pnlNav.Height = btnPastRes.Height;
+            pnlNav.Top = btnPastRes.Top;
+            pnlNav.Left = btnPastRes.Left;
+            btnPastRes.BackColor = Color.FromArgb(46, 51, 73);
             dgvApproved.Size = new Size (720, 150);
             dgvRejected.Size = new Size(720, 150);
         }
@@ -142,12 +142,23 @@ namespace IOOP_Assignment
             this.Hide();
         }
 
+        private void btnPastRes_Click(object sender, EventArgs e)
+        {
+            pnlNav.Height = btnPastRes.Height;
+            pnlNav.Top = btnPastRes.Top;
+            pnlNav.Left = btnPastRes.Left;
+            btnPastRes.BackColor = Color.FromArgb(46, 51, 73);
+        }
+
         private void btnResReport_Click(object sender, EventArgs e)
         {
             pnlNav.Height = btnResReport.Height;
             pnlNav.Top = btnResReport.Top;
             pnlNav.Left = btnResReport.Left;
             btnResReport.BackColor = Color.FromArgb(46, 51, 73);
+            Librarian_Report LibReport = new Librarian_Report();
+            LibReport.Show();
+            this.Hide();
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -156,6 +167,9 @@ namespace IOOP_Assignment
             pnlNav.Top = btnUpdate.Top;
             pnlNav.Left = btnUpdate.Left;
             btnUpdate.BackColor = Color.FromArgb(46, 51, 73);
+            Librarian_Update LibUpdate = new Librarian_Update();
+            LibUpdate.Show();
+            this.Hide();
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
@@ -171,6 +185,20 @@ namespace IOOP_Assignment
             btnDashboad.BackColor = Color.FromArgb(24, 30,54);
         }
 
+        private void btnPendingRes_Leave(object sender, EventArgs e)
+        {
+            btnPendingRes.BackColor = Color.FromArgb(24, 30, 54);
+        }
+
+        private void btnPastRes_Leave(object sender, EventArgs e)
+        {
+            btnPastRes.BackColor = Color.FromArgb(24, 30, 54);
+        }
+
+        private void btnResReport_Leave(object sender, EventArgs e)
+        {
+            btnResReport.BackColor = Color.FromArgb(24, 30, 54);
+        }
 
         private void btnUpdate_Leave(object sender, EventArgs e)
         {
@@ -185,46 +213,6 @@ namespace IOOP_Assignment
         private void btnClose_Click(object sender, EventArgs e)
         {
             Application.Exit();
-        }
-
-        private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void btnPastRev_Click(object sender, EventArgs e)
-        {
-            pnlNav.Height = btnPastRes.Height;
-            pnlNav.Top = btnPastRes.Top;
-            pnlNav.Left = btnPastRes.Left;
-            btnPastRes.BackColor = Color.FromArgb(46, 51, 73);
-        }
-
-       
-
-        private void btnResReport_Click_1(object sender, EventArgs e)
-        {
-            pnlNav.Height = btnResReport.Height;
-            pnlNav.Top = btnResReport.Top;
-            pnlNav.Left = btnResReport.Left;
-            btnResReport.BackColor = Color.FromArgb(46, 51, 73);
-        }
-
-        private void btnPastRes_Click(object sender, EventArgs e)
-        {
-            pnlNav.Height = btnPastRes.Height;
-            pnlNav.Top = btnPastRes.Top;
-            pnlNav.Left = btnPastRes.Left;
-            btnPastRes.BackColor = Color.FromArgb(46, 51, 73);
-
-        }
-
-        private void btnResReport_Click_2(object sender, EventArgs e)
-        {
-            pnlNav.Height = btnResReport.Height;
-            pnlNav.Top = btnResReport.Top;
-            pnlNav.Left = btnResReport.Left;
-            btnResReport.BackColor = Color.FromArgb(46, 51, 73);
         }
     }
 }

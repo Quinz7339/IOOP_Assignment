@@ -51,17 +51,16 @@ namespace IOOP_Assignment
             InitializeComponent();
             this.Size = new Size(960, 575);
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 25, 25));
-            pnlNav.Height = btnDashboad.Height;
-            pnlNav.Top = btnDashboad.Top;
-            pnlNav.Left = btnDashboad.Left;
-            btnDashboad.BackColor = Color.FromArgb(46, 51, 73);
+            pnlNav.Height = btnPendingRes.Height;
+            pnlNav.Top = btnPendingRes.Top;
+            pnlNav.Left = btnPendingRes.Left;
+            btnPendingRes.BackColor = Color.FromArgb(46, 51, 73);
             dgvPending.Size = new Size(720, 392);
         }
 
-        private void dgvLoad()
+        private void Pending_Page_Load(object sender, EventArgs e)
         {
-            dgvPending.Update();
-            dgvPending.Refresh();
+            lblDateTime.Text = DateTime.Now.ToString();
 
             strPending = "SELECT userId AS [User ID], reserveId As [Reserve ID], roomId As [Room Id], bookingDate As [Booking Date], bookingTime As [Booking Time], reserveDate AS [Reserve Date], reserveStartTime AS [Reserve Start Time], reserveEndTime AS [Reserve End Time] FROM RESERVATION_INFO_T WHERE reserveStatus = 'PENDING'";
 
@@ -107,10 +106,6 @@ namespace IOOP_Assignment
             DataGridViewButtonColumn btn1 = new DataGridViewButtonColumn();
             DataGridViewButtonColumn btn2 = new DataGridViewButtonColumn();
 
-            // add the datagridview column buttons
-            dgvPending.Columns.Add(btn1);
-            dgvPending.Columns.Add(btn2);
-
             // setting for 1st button
             btn1.HeaderText = "APPROVE";
             btn1.Text = "Approve";
@@ -122,18 +117,17 @@ namespace IOOP_Assignment
             btn2.Text = "Reject";
             btn2.Name = "btnReject";
             btn2.UseColumnTextForButtonValue = true;
-        }
 
-        private void Pending_Page_Load(object sender, EventArgs e)
-        {
-            lblDateTime.Text = DateTime.Now.ToString();
-            dgvLoad();
+            // add the datagridview column buttons
+            dgvPending.Columns.Add(btn1);
+            dgvPending.Columns.Add(btn2);
         }
 
         private void dgvPending_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == 8)
             {
+
                 userId = dgvPending.Rows[e.RowIndex].Cells[0].Value.ToString();
                 reserveId = dgvPending.Rows[e.RowIndex].Cells[1].Value.ToString();
                 roomId = dgvPending.Rows[e.RowIndex].Cells[2].Value.ToString();
@@ -143,7 +137,9 @@ namespace IOOP_Assignment
                 reserveStartTime = dgvPending.Rows[e.RowIndex].Cells[6].Value.ToString();
                 reserveEndTime = dgvPending.Rows[e.RowIndex].Cells[7].Value.ToString();
                 approveOrReject = "APPROVED";
-                MessageBox.Show("Reserve Id of " + reserveId + " is APPROVED");
+                MessageBox.Show("Reserve Id of " + reserveId + " is " + approveOrReject);
+                updateDb();
+
             }
             if (e.ColumnIndex == 9)
             {
@@ -156,8 +152,35 @@ namespace IOOP_Assignment
                 reserveStartTime = dgvPending.Rows[e.RowIndex].Cells[6].Value.ToString();
                 reserveEndTime = dgvPending.Rows[e.RowIndex].Cells[7].Value.ToString();
                 approveOrReject = "REJECTED";
-                MessageBox.Show("Reserve Id of " + reserveId + " is REJECTED");
+                MessageBox.Show("Reserve Id of " + reserveId + " is " + approveOrReject);
+                updateDb(); 
             }
+        }
+
+        private void updateDb()
+        {
+            conn.Open();
+
+            cmd = new SqlCommand("Update RESERVATION_INFO_T SET reserveStatus=@status WHERE userId=@usrId AND reserveId=@resId AND roomId=@rmId AND bookingDate=@bookDate AND bookingTime=@bookTime AND reserveDate=@resDate AND reserveStartTime=@resStartTime AND reserveEndTime=@resEndTime", conn);
+            cmd.Parameters.AddWithValue("@status", approveOrReject);
+            cmd.Parameters.AddWithValue("@usrid", userId);
+            cmd.Parameters.AddWithValue("@resid", reserveId);
+            cmd.Parameters.AddWithValue("@rmid", roomId);
+            cmd.Parameters.AddWithValue("@bookDate", bookingDate);
+            cmd.Parameters.AddWithValue("@bookTime", bookingTime);
+            cmd.Parameters.AddWithValue("@resDate", reserveDate);
+            cmd.Parameters.AddWithValue("@resStartTime", reserveStartTime);
+            cmd.Parameters.AddWithValue("@resEndTime", reserveEndTime);
+            cmd.ExecuteNonQuery();
+
+            conn.Close();
+        }
+
+        private void btnUpdateDgv_Click(object sender, EventArgs e)
+        {
+            Librarian_PendingRes LibPendingRes = new Librarian_PendingRes();
+            LibPendingRes.Show();
+            this.Hide();
         }
 
         private void btnDashboad_Click(object sender, EventArgs e)
@@ -178,7 +201,18 @@ namespace IOOP_Assignment
             pnlNav.Top = btnPendingRes.Top;
             pnlNav.Left = btnPendingRes.Left;
             btnPendingRes.BackColor = Color.FromArgb(46, 51, 73);
+        }
 
+        private void btnPastRes_Click(object sender, EventArgs e)
+        {
+            pnlNav.Height = btnPastRes.Height;
+            pnlNav.Top = btnPastRes.Top;
+            pnlNav.Left = btnPastRes.Left;
+            btnPastRes.BackColor = Color.FromArgb(46, 51, 73);
+
+            Librarian_PastRes LibPastRes = new Librarian_PastRes();
+            LibPastRes.Show();
+            this.Hide();
         }
 
         private void btnResReport_Click(object sender, EventArgs e)
@@ -187,6 +221,9 @@ namespace IOOP_Assignment
             pnlNav.Top = btnResReport.Top;
             pnlNav.Left = btnResReport.Left;
             btnResReport.BackColor = Color.FromArgb(46, 51, 73);
+            Librarian_Report LibReport = new Librarian_Report();
+            LibReport.Show();
+            this.Hide();
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -195,6 +232,10 @@ namespace IOOP_Assignment
             pnlNav.Top = btnUpdate.Top;
             pnlNav.Left = btnUpdate.Left;
             btnUpdate.BackColor = Color.FromArgb(46, 51, 73);
+            Librarian_Update LibUpdate = new Librarian_Update();
+            LibUpdate.Show();
+            this.Hide();
+
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
@@ -210,6 +251,20 @@ namespace IOOP_Assignment
             btnDashboad.BackColor = Color.FromArgb(24, 30, 54);
         }
 
+        private void btnPendingRes_Leave(object sender, EventArgs e)
+        {
+            btnPendingRes.BackColor = Color.FromArgb(24, 30, 54);
+        }
+
+        private void btnPastRes_Leave(object sender, EventArgs e)
+        {
+            btnPastRes.BackColor = Color.FromArgb(24, 30, 54);
+        }
+
+        private void btnResReport_Leave(object sender, EventArgs e)
+        {
+            btnResReport.BackColor = Color.FromArgb(24, 30, 54);
+        }
 
         private void btnUpdate_Leave(object sender, EventArgs e)
         {
@@ -224,64 +279,6 @@ namespace IOOP_Assignment
         private void btnClose_Click(object sender, EventArgs e)
         {
             Application.Exit();
-        }
-
-        private void btnPastRev_Click(object sender, EventArgs e)
-        {
-            pnlNav.Height = btnPastRes.Height;
-            pnlNav.Top = btnPastRes.Top;
-            pnlNav.Left = btnPastRes.Left;
-            btnPastRes.BackColor = Color.FromArgb(46, 51, 73);
-        }
-
-        private void btnResReport_Click_1(object sender, EventArgs e)
-        {
-            pnlNav.Height = btnResReport.Height;
-            pnlNav.Top = btnResReport.Top;
-            pnlNav.Left = btnResReport.Left;
-            btnResReport.BackColor = Color.FromArgb(46, 51, 73);
-        }
-
-        private void btnPastRes_Click(object sender, EventArgs e)
-        {
-            pnlNav.Height = btnPastRes.Height;
-            pnlNav.Top = btnPastRes.Top;
-            pnlNav.Left = btnPastRes.Left;
-            btnPastRes.BackColor = Color.FromArgb(46, 51, 73);
-
-            Librarian_PastRes LibPastRes = new Librarian_PastRes();
-            LibPastRes.Show();
-            this.Hide();
-        }
-
-        private void btnResReport_Click_2(object sender, EventArgs e)
-        {
-            pnlNav.Height = btnResReport.Height;
-            pnlNav.Top = btnResReport.Top;
-            pnlNav.Left = btnResReport.Left;
-            btnResReport.BackColor = Color.FromArgb(46, 51, 73);
-        }
-
-        private void btnUpdateDgv_Click(object sender, EventArgs e)
-        {
-            conn.Open();
-
-            cmd = new SqlCommand("Update RESERVATION_INFO_T SET reserveStatus=@status WHERE userId=@usrId AND reserveId=@resId AND roomId=@rmId AND bookingDate=@bookDate AND bookingTime=@bookTime AND reserveDate=@resDate AND reserveStartTime=@resStartTime AND reserveEndTime=@resEndTime", conn);
-            cmd.Parameters.Add("status", approveOrReject);
-            cmd.Parameters.Add("usrid", userId);
-            cmd.Parameters.Add("resid", reserveId);
-            cmd.Parameters.Add("rmid", roomId);
-            cmd.Parameters.Add("bookDate", bookingDate);
-            cmd.Parameters.Add("bookTime", bookingTime);
-            cmd.Parameters.Add("resDate", reserveDate);
-            cmd.Parameters.Add("resStartTime", reserveStartTime);
-            cmd.Parameters.Add("resEndTime", reserveEndTime);
-            cmd.ExecuteNonQuery();
-
-            dgvPending.Update();
-            dgvPending.Refresh();
-
-            conn.Close();
         }
     } 
 }

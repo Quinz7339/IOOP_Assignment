@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace IOOP_Assignment
 {
-    public partial class Librarian_Dashboard : Form
+    public partial class Librarian_Update : Form
     {
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
 
@@ -26,15 +26,15 @@ namespace IOOP_Assignment
 
           );
 
-        public Librarian_Dashboard()
+        public Librarian_Update()
         {
             InitializeComponent();
             this.Size = new Size(960, 575);
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 25, 25));
-            pnlNav.Height = btnDashboard.Height;
-            pnlNav.Top = btnDashboard.Top;
-            pnlNav.Left = btnDashboard.Left;
-            btnDashboard.BackColor = Color.FromArgb(46, 51, 73);
+            pnlNav.Height = btnUpdate.Height;
+            pnlNav.Top = btnUpdate.Top;
+            pnlNav.Left = btnUpdate.Left;
+            btnUpdate.BackColor = Color.FromArgb(46, 51, 73);
             
         }
 
@@ -93,9 +93,6 @@ namespace IOOP_Assignment
             pnlNav.Top = btnUpdate.Top;
             pnlNav.Left = btnUpdate.Left;
             btnUpdate.BackColor = Color.FromArgb(46, 51, 73);
-            Librarian_Update LibUpdate = new Librarian_Update();
-            LibUpdate.Show();
-            this.Hide();
         }
 
         private void btnLogout_Click(object sender, EventArgs e)

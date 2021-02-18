@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace IOOP_Assignment
 {
-    public partial class Librarian_Dashboard : Form
+    public partial class Librarian_Report : Form
     {
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
 
@@ -26,16 +26,15 @@ namespace IOOP_Assignment
 
           );
 
-        public Librarian_Dashboard()
+        public Librarian_Report()
         {
             InitializeComponent();
             this.Size = new Size(960, 575);
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 25, 25));
-            pnlNav.Height = btnDashboard.Height;
-            pnlNav.Top = btnDashboard.Top;
-            pnlNav.Left = btnDashboard.Left;
-            btnDashboard.BackColor = Color.FromArgb(46, 51, 73);
-            
+            pnlNav.Height = btnResReport.Height;
+            pnlNav.Top = btnResReport.Top;
+            pnlNav.Left = btnResReport.Left;
+            btnResReport.BackColor = Color.FromArgb(46, 51, 73);
         }
 
         private void Login_Page_Load(object sender, EventArgs e)
@@ -49,6 +48,9 @@ namespace IOOP_Assignment
             pnlNav.Top = btnDashboard.Top;
             pnlNav.Left = btnDashboard.Left;
             btnDashboard.BackColor = Color.FromArgb(46, 51, 73);
+            Librarian_Dashboard LibDash = new Librarian_Dashboard();
+            LibDash.Show();
+            this.Hide();
 
         }
 
@@ -82,9 +84,6 @@ namespace IOOP_Assignment
             pnlNav.Top = btnResReport.Top;
             pnlNav.Left = btnResReport.Left;
             btnResReport.BackColor = Color.FromArgb(46, 51, 73);
-            Librarian_Report LibReport = new Librarian_Report();
-            LibReport.Show();
-            this.Hide();
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)

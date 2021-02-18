@@ -46,6 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Librarian_Report.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Librarian_Report.Designer.cs">
+      <DependentUpon>Librarian_Report.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Librarian_Update.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Librarian_Update.Designer.cs">
+      <DependentUpon>Librarian_Update.cs</DependentUpon>
+    </Compile>
     <Compile Include="Librarian_Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -71,6 +83,12 @@
     <Compile Include="Librarian_PendingRes.Designer.cs">
       <DependentUpon>Librarian_PendingRes.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Librarian_Report.resx">
+      <DependentUpon>Librarian_Report.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Librarian_Update.resx">
+      <DependentUpon>Librarian_Update.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Librarian_Dashboard.resx">
       <DependentUpon>Librarian_Dashboard.cs</DependentUpon>
     </EmbeddedResource>
