@@ -46,14 +46,12 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.lblDateTime = new System.Windows.Forms.Label();
             this.lblPending = new System.Windows.Forms.Label();
-            this.library_Reservation_DatabaseDataSet = new IOOP_Assignment.Library_Reservation_DatabaseDataSet();
             this.libraryReservationDatabaseDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dgvPending = new System.Windows.Forms.DataGridView();
             this.btnUpdateDgv = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.library_Reservation_DatabaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.libraryReservationDatabaseDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPending)).BeginInit();
             this.SuspendLayout();
@@ -274,12 +272,9 @@
             // 
             // library_Reservation_DatabaseDataSet
             // 
-            this.library_Reservation_DatabaseDataSet.DataSetName = "Library_Reservation_DatabaseDataSet";
-            this.library_Reservation_DatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // libraryReservationDatabaseDataSetBindingSource
             // 
-            this.libraryReservationDatabaseDataSetBindingSource.DataSource = this.library_Reservation_DatabaseDataSet;
             this.libraryReservationDatabaseDataSetBindingSource.Position = 0;
             // 
             // dgvPending
@@ -331,7 +326,6 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.library_Reservation_DatabaseDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.libraryReservationDatabaseDataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPending)).EndInit();
             this.ResumeLayout(false);
@@ -359,7 +353,6 @@
         private System.Windows.Forms.Button btnPastRes;
         private System.Windows.Forms.Button btnResReport;
         private System.Windows.Forms.BindingSource libraryReservationDatabaseDataSetBindingSource;
-        private Library_Reservation_DatabaseDataSet library_Reservation_DatabaseDataSet;
         private System.Windows.Forms.DataGridView dgvPending;
         private System.Windows.Forms.Button btnUpdateDgv;
     }

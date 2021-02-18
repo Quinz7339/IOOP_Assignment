@@ -90,7 +90,7 @@ namespace IOOP_Assignment
 
             for (int i = 3; i < 8; i++)
             {
-                dgvPending.Columns[i].Width = 70;
+                dgvPending.Columns[i].Width = 65;
             }
 
             // format the date and time column to use the date format dd MMM yyyy
