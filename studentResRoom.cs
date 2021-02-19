@@ -209,7 +209,6 @@ namespace IOOP_Assignment
                 }
             }
 
-            //load roomId into an array
             using (SqlConnection checkRoomConn = new SqlConnection("Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = |DataDirectory|\\Library_Reservation_Database.mdf; Integrated Security = True; Connect Timeout = 30"))
             {
                 checkRoomConn.Open();
@@ -231,14 +230,18 @@ namespace IOOP_Assignment
                             DateTime recordStartTime = DateTime.Parse(checkRoomReader[1].ToString());
                             DateTime recordEndTime = DateTime.Parse(checkRoomReader[2].ToString());
 
-
-                            //if either of this is true, where the user selected time intesects with any records' time, code blocks below is executed
+                             //if either of this is true, where the user selected time intesects with any records' time, code blocks below is executed
                             if ((DateTime.Compare(selectedStartTime, recordStartTime) >= 0 && DateTime.Compare(selectedStartTime, recordEndTime) <= 0) || // Check if user selected start time is both (later than a record's start time ) AND (earlier than a record's end time)
-                                (DateTime.Compare(selectedEndTime, recordStartTime) <= 0 && DateTime.Compare(selectedEndTime, recordEndTime) >= 0) || // Check if user selected endtime is both (earlier than a record's start time ) AND (laterthan a record's end time)
+                                (DateTime.Compare(selectedEndTime, recordStartTime) >= 0 && DateTime.Compare(selectedEndTime, recordEndTime) <= 0) || // Check if user selected endtime is both (later than a record's start time ) AND (earlier than a record's end time)
                                 (DateTime.Compare(selectedStartTime, recordStartTime) <= 0 && DateTime.Compare(selectedEndTime, recordEndTime) >= 0)) // Check if user's (selected start time is earlier than a record's start time ) AND (selected end time later than a record's end time)
                             {
-                                roomIds.Remove(checkRoomReader[0].ToString());
-                                continue;
+                                for (int i = 0; i < roomIds.Count; i ++)
+                                {
+                                    if (roomIds[i] == checkRoomReader[0].ToString())
+                                    {
+                                        roomIds.RemoveAt(i);
+                                    }
+                                }
                             }
                         }
                     }
