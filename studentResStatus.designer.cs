@@ -34,7 +34,7 @@
             this.btnResStatus = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
-            this.btnDashboad = new System.Windows.Forms.Button();
+            this.btnDashboard = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -50,12 +50,12 @@
             this.btnChangeRoom = new System.Windows.Forms.Button();
             this.btnReset = new System.Windows.Forms.Button();
             this.btnSubmit = new System.Windows.Forms.Button();
-            this.dgvPendingRes = new System.Windows.Forms.DataGridView();
+            this.dgvModRes = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPendingRes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvModRes)).BeginInit();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -66,7 +66,7 @@
             this.panel1.Controls.Add(this.btnResStatus);
             this.panel1.Controls.Add(this.btnUpdate);
             this.panel1.Controls.Add(this.btnLogout);
-            this.panel1.Controls.Add(this.btnDashboad);
+            this.panel1.Controls.Add(this.btnDashboard);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -140,22 +140,22 @@
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             this.btnLogout.Leave += new System.EventHandler(this.btnLogout_Leave);
             // 
-            // btnDashboad
+            // btnDashboard
             // 
-            this.btnDashboad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
-            this.btnDashboad.FlatAppearance.BorderSize = 0;
-            this.btnDashboad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDashboad.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDashboad.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.btnDashboad.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.btnDashboad.Location = new System.Drawing.Point(0, 154);
-            this.btnDashboad.Name = "btnDashboad";
-            this.btnDashboad.Size = new System.Drawing.Size(186, 50);
-            this.btnDashboad.TabIndex = 1;
-            this.btnDashboad.Text = "Dashboard";
-            this.btnDashboad.UseVisualStyleBackColor = false;
-            this.btnDashboad.Click += new System.EventHandler(this.btnDashboad_Click);
-            this.btnDashboad.Leave += new System.EventHandler(this.btnDashboad_Leave);
+            this.btnDashboard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            this.btnDashboard.FlatAppearance.BorderSize = 0;
+            this.btnDashboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDashboard.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDashboard.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.btnDashboard.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+            this.btnDashboard.Location = new System.Drawing.Point(0, 154);
+            this.btnDashboard.Name = "btnDashboard";
+            this.btnDashboard.Size = new System.Drawing.Size(186, 50);
+            this.btnDashboard.TabIndex = 1;
+            this.btnDashboard.Text = "Dashboard";
+            this.btnDashboard.UseVisualStyleBackColor = false;
+            this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
+            this.btnDashboard.Leave += new System.EventHandler(this.btnDashboad_Leave);
             // 
             // panel2
             // 
@@ -323,13 +323,13 @@
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = false;
             // 
-            // dgvPendingRes
+            // dgvModRes
             // 
-            this.dgvPendingRes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPendingRes.Location = new System.Drawing.Point(218, 104);
-            this.dgvPendingRes.Name = "dgvPendingRes";
-            this.dgvPendingRes.Size = new System.Drawing.Size(697, 156);
-            this.dgvPendingRes.TabIndex = 29;
+            this.dgvModRes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvModRes.Location = new System.Drawing.Point(218, 104);
+            this.dgvModRes.Name = "dgvModRes";
+            this.dgvModRes.Size = new System.Drawing.Size(697, 156);
+            this.dgvModRes.TabIndex = 29;
             // 
             // panel3
             // 
@@ -349,7 +349,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(951, 577);
             this.Controls.Add(this.panel3);
-            this.Controls.Add(this.dgvPendingRes);
+            this.Controls.Add(this.dgvModRes);
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.label4);
@@ -367,7 +367,7 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPendingRes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvModRes)).EndInit();
             this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -380,7 +380,7 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btnDashboad;
+        private System.Windows.Forms.Button btnDashboard;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.Button btnUpdate;
@@ -397,7 +397,7 @@
         private System.Windows.Forms.Button btnChangeRoom;
         private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.Button btnSubmit;
-        private System.Windows.Forms.DataGridView dgvPendingRes;
+        private System.Windows.Forms.DataGridView dgvModRes;
         private System.Windows.Forms.Panel panel3;
     }
 }

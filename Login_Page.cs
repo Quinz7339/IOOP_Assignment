@@ -128,8 +128,6 @@ namespace IOOP_Assignment
                 //login failed
                 MessageBox.Show("Incorrect Username or Password. Please try again.", "Log in Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
         }
-
     }
 }

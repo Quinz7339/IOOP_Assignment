@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using System.Data.SqlClient;
 
 namespace IOOP_Assignment
 {
@@ -35,23 +36,42 @@ namespace IOOP_Assignment
             pnlNav.Top = btnResStatus.Top;
             pnlNav.Left = btnResStatus.Left;
             btnResStatus.BackColor = Color.FromArgb(46, 51, 73);
-
+            dgvModRes.Size = new Size(720, 250);
         }
 
 
         private void Mod_Res_Page(object sender, EventArgs e)
         {
             lblDateTime.Text = DateTime.Now.ToString("dd MMM yyyy      hh:mm tt");
-            string LoadDataStr = "SELECT userId AS [User ID], reserveId As [Reserve ID], roomId As [Room Id], bookingDate As [Booking Date], bookingTime As [Booking Time], reserveDate AS [Reserve Date], reserveStartTime AS [Reserve Start Time], reserveEndTime AS [Reserve End Time] FROM RESERVATION_INFO_T WHERE reserveStatus = 'PENDING'";
+            string ModResStr = "SELECT roomId As [Room Id], bookingDate As [Booking Date], bookingTime As [Booking Time], reserveDate AS [Reserve Date], reserveStartTime AS [Reserve Start Time], reserveEndTime AS [Reserve End Time], reserveStatus AS [Status] FROM RESERVATION_INFO_T WHERE userId = @userId AND reserveStatus IN ('APPROVED','PENDING')";
+            using (SqlConnection ModResConn = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\Library_Reservation_Database.mdf;Integrated Security=True;Connect Timeout=30"))
+            {
+                ModResConn.Open();
+
+                using (SqlCommand ModResCmd = new SqlCommand(ModResStr, ModResConn))
+                {
+                    ModResCmd.Parameters.AddWithValue("@userId", Controllers.userID);
+                    //SqlDataAdapter ModResDa = new SqlDataAdapter(ModResStr,ModResConn);
+
+                }
+                using (SqlDataAdapter ModResDa = new SqlDataAdapter(ModResStr, ModResConn))
+                {
+                    ModResDa.SelectCommand.Parameters.AddWithValue("@userId", Controllers.userID); //adds the parametrized value to the select command of the data adapter
+                    DataSet ModResDs = new DataSet("RESERVATION_INFO_T");
+                    ModResDa.Fill(ModResDs, "RESERVATION_INFO_T");
+                    dgvModRes.DataSource = ModResDs.Tables["RESERVATION_INFO_T"];
+                }
+            }
+
 
         }
 
-        private void btnDashboad_Click(object sender, EventArgs e)
+        private void btnDashboard_Click(object sender, EventArgs e)
         {
-            pnlNav.Height = btnDashboad.Height;
-            pnlNav.Top = btnDashboad.Top;
-            pnlNav.Left = btnDashboad.Left;
-            btnDashboad.BackColor = Color.FromArgb(46, 51, 73);
+            pnlNav.Height = btnDashboard.Height;
+            pnlNav.Top = btnDashboard.Top;
+            pnlNav.Left = btnDashboard.Left;
+            btnDashboard.BackColor = Color.FromArgb(46, 51, 73);
 
             studentDashboard dsb = new studentDashboard();
             dsb.Show();
@@ -92,7 +112,7 @@ namespace IOOP_Assignment
 
         private void btnDashboad_Leave(object sender, EventArgs e)
         {
-            btnDashboad.BackColor = Color.FromArgb(24, 30, 54);
+            btnDashboard.BackColor = Color.FromArgb(24, 30, 54);
         }
 
         private void btnResRoom_Leave(object sender, EventArgs e)
@@ -119,7 +139,6 @@ namespace IOOP_Assignment
         {
             Application.Exit();
         }
-
     }
 
 }
