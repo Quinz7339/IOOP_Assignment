@@ -66,12 +66,12 @@ namespace IOOP_Assignment
             this.Hide();
         }
 
-        private void btnResStatus_Click(object sender, EventArgs e)
+        private void btnModRes_Click(object sender, EventArgs e)
         {
-            pnlNav.Height = btnResStatus.Height;
-            pnlNav.Top = btnResStatus.Top;
-            pnlNav.Left = btnResStatus.Left;
-            btnResStatus.BackColor = Color.FromArgb(46, 51, 73);
+            pnlNav.Height = btnModRes.Height;
+            pnlNav.Top = btnModRes.Top;
+            pnlNav.Left = btnModRes.Left;
+            btnModRes.BackColor = Color.FromArgb(46, 51, 73);
 
             studentResStatus resStatus = new studentResStatus();
             resStatus.Show();
@@ -110,7 +110,7 @@ namespace IOOP_Assignment
 
         private void btnResStatus_Leave(object sender, EventArgs e)
         {
-            btnResStatus.BackColor = Color.FromArgb(24, 30, 54);
+            btnModRes.BackColor = Color.FromArgb(24, 30, 54);
         }
 
         private void btnUpdate_Leave(object sender, EventArgs e)

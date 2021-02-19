@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnResStatus = new System.Windows.Forms.Button();
+            this.btnModRes = new System.Windows.Forms.Button();
             this.btnResRoom = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
@@ -103,7 +103,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
-            this.panel1.Controls.Add(this.btnResStatus);
+            this.panel1.Controls.Add(this.btnModRes);
             this.panel1.Controls.Add(this.btnResRoom);
             this.panel1.Controls.Add(this.btnUpdate);
             this.panel1.Controls.Add(this.btnLogout);
@@ -115,22 +115,22 @@
             this.panel1.Size = new System.Drawing.Size(186, 577);
             this.panel1.TabIndex = 0;
             // 
-            // btnResStatus
+            // btnModRes
             // 
-            this.btnResStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
-            this.btnResStatus.FlatAppearance.BorderSize = 0;
-            this.btnResStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnResStatus.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnResStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.btnResStatus.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.btnResStatus.Location = new System.Drawing.Point(0, 266);
-            this.btnResStatus.Name = "btnResStatus";
-            this.btnResStatus.Size = new System.Drawing.Size(186, 50);
-            this.btnResStatus.TabIndex = 6;
-            this.btnResStatus.Text = "Reservation Status";
-            this.btnResStatus.UseVisualStyleBackColor = false;
-            this.btnResStatus.Click += new System.EventHandler(this.btnResStatus_Click);
-            this.btnResStatus.Leave += new System.EventHandler(this.btnResStatus_Leave);
+            this.btnModRes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            this.btnModRes.FlatAppearance.BorderSize = 0;
+            this.btnModRes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnModRes.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModRes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.btnModRes.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+            this.btnModRes.Location = new System.Drawing.Point(0, 266);
+            this.btnModRes.Name = "btnModRes";
+            this.btnModRes.Size = new System.Drawing.Size(186, 50);
+            this.btnModRes.TabIndex = 6;
+            this.btnModRes.Text = "Modify Reservation";
+            this.btnModRes.UseVisualStyleBackColor = false;
+            this.btnModRes.Click += new System.EventHandler(this.btnModRes_Click);
+            this.btnModRes.Leave += new System.EventHandler(this.btnModRes_Leave);
             // 
             // btnResRoom
             // 
@@ -902,7 +902,7 @@
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label lblDateTime;
-        private System.Windows.Forms.Button btnResStatus;
+        private System.Windows.Forms.Button btnModRes;
         private System.Windows.Forms.Button btnResRoom;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.ComboBox cboStartTime;

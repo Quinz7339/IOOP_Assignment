@@ -24,7 +24,6 @@ namespace IOOP_Assignment
               int nBottomRect,
               int nWidthEllipse,
               int nHeightEllipse
-
           );
 
         public studentResStatus()
@@ -37,13 +36,14 @@ namespace IOOP_Assignment
             pnlNav.Left = btnResStatus.Left;
             btnResStatus.BackColor = Color.FromArgb(46, 51, 73);
             dgvModRes.Size = new Size(720, 250);
+            cboResId.Enabled = false;
         }
 
 
         private void Mod_Res_Load(object sender, EventArgs e)
         {
             lblDateTime.Text = DateTime.Now.ToString("dd MMM yyyy      hh:mm tt");
-            string ModResStr = "SELECT res.roomId As [Room Id], ro.roomName AS [Room Name], res.bookingDate As [Booking Date], res.bookingTime As [Booking Time], res.reserveDate AS [Reserve Date], res.reserveStartTime AS [Reserve Start Time], res.reserveEndTime AS [Reserve End Time], res.reserveStatus AS [Status] FROM RESERVATION_INFO_T  res INNER JOIN ROOM_INFO_T ro ON res.roomId = ro.roomId WHERE userId = @userId AND reserveStatus IN ('APPROVED','PENDING')";
+            string ModResStr = "SELECT res.reserveId AS [Reservation Id], res.roomId As [Room Id], ro.roomName AS [Room Name], res.bookingDate As [Booking Date], res.bookingTime As [Booking Time], res.reserveDate AS [Reserve Date], res.reserveStartTime AS [Reserve Start Time], res.reserveEndTime AS [Reserve End Time], res.reserveStatus AS [Status] FROM RESERVATION_INFO_T  res INNER JOIN ROOM_INFO_T ro ON res.roomId = ro.roomId WHERE userId = @userId AND reserveStatus IN ('APPROVED','PENDING')";
             using (SqlConnection ModResConn = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\Library_Reservation_Database.mdf;Integrated Security=True;Connect Timeout=30"))
             {
                 ModResConn.Open();
@@ -58,39 +58,39 @@ namespace IOOP_Assignment
                 }
             }
             // create the datagridview column buttons
-            DataGridViewButtonColumn btnModify = new DataGridViewButtonColumn();
-            DataGridViewButtonColumn btnCancel = new DataGridViewButtonColumn();
+            //DataGridViewButtonColumn btnModify = new DataGridViewButtonColumn();
+            //DataGridViewButtonColumn btnCancel = new DataGridViewButtonColumn();
 
-            // setting for the Modify button in the datagridview
-            btnModify.HeaderText = "MODIFY";
-            btnModify.Text = "Modify";
-            btnModify.UseColumnTextForButtonValue = true;
+            //// setting for the Modify button in the datagridview
+            //btnModify.HeaderText = "MODIFY";
+            //btnModify.Text = "Modify";
+            //btnModify.UseColumnTextForButtonValue = true;
 
-            //setting for the Cancel button in the datagridview
-            btnCancel.HeaderText = "CANCEL";
-            btnCancel.Text = "Cancel";
-            btnCancel.UseColumnTextForButtonValue = true;
+            ////setting for the Cancel button in the datagridview
+            //btnCancel.HeaderText = "CANCEL";
+            //btnCancel.Text = "Cancel";
+            //btnCancel.UseColumnTextForButtonValue = true;
 
             // add the datagridview column buttons
-            dgvModRes.Columns.Add(btnModify);
-            dgvModRes.Columns.Add(btnCancel);
+            //dgvModRes.Columns.Add(btnModify);
+            //dgvModRes.Columns.Add(btnCancel);
             dgvModRes.Columns[0].Width = 60;
-            dgvModRes.Columns[1].Width = 80;
-            dgvModRes.Columns[2].Width = 70;
-            dgvModRes.Columns[3].Width = 60;
-            dgvModRes.Columns[4].Width = 70;
-            dgvModRes.Columns[5].Width = 60;
+            dgvModRes.Columns[1].Width = 60;
+            dgvModRes.Columns[2].Width = 80;
+            dgvModRes.Columns[3].Width = 70;
+            dgvModRes.Columns[4].Width = 60;
+            dgvModRes.Columns[5].Width = 70;
             dgvModRes.Columns[6].Width = 60;
             dgvModRes.Columns[7].Width = 60;
-            dgvModRes.Columns[8].Width = 50;
-            dgvModRes.Columns[9].Width = 50;
+            dgvModRes.Columns[8].Width = 60;
+
 
             //formating the dates and times format 
-            dgvModRes.Columns[2].DefaultCellStyle.Format = "dd MMM yyyy";
-            dgvModRes.Columns[3].DefaultCellStyle.Format = "hh:mm tt";
-            dgvModRes.Columns[4].DefaultCellStyle.Format = "dd MMM yyyy";
-            dgvModRes.Columns[5].DefaultCellStyle.Format = "hh:mm tt";
+            dgvModRes.Columns[3].DefaultCellStyle.Format = "dd MMM yyyy";
+            dgvModRes.Columns[4].DefaultCellStyle.Format = "hh:mm tt";
+            dgvModRes.Columns[5].DefaultCellStyle.Format = "dd MMM yyyy";
             dgvModRes.Columns[6].DefaultCellStyle.Format = "hh:mm tt";
+            dgvModRes.Columns[7].DefaultCellStyle.Format = "hh:mm tt";
 
             for (int i = 0; i < dgvModRes.ColumnCount - 2; i++)
             {
@@ -131,6 +131,13 @@ namespace IOOP_Assignment
                 //reserveId = dgvPending.Rows[e.RowIndex].Cells[1].Value.ToString();
 
             }
+        }
+        private void btnChangeRoom_Click(object sender, EventArgs e)
+        {
+            cboResId.Enabled = true;
+            List<string> roomNames_L = new List<string>() { "Amber", "BlackThorn", "Cedar", "Daphne" };
+            string a = dgvModRes.Rows[e.RowIndex].Cells[1].Value.ToString().Trim();
+
         }
 
         private void btnDashboard_Click(object sender, EventArgs e)
@@ -206,8 +213,6 @@ namespace IOOP_Assignment
         {
             Application.Exit();
         }
-
-
     }
 
 }

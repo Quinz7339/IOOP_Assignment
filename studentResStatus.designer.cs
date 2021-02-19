@@ -45,18 +45,22 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.lblDateTime = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.cboRoom = new System.Windows.Forms.ComboBox();
+            this.cboResId = new System.Windows.Forms.ComboBox();
             this.btnCancelBooking = new System.Windows.Forms.Button();
             this.btnChangeRoom = new System.Windows.Forms.Button();
             this.btnReset = new System.Windows.Forms.Button();
             this.btnSubmit = new System.Windows.Forms.Button();
             this.dgvModRes = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvModRes)).BeginInit();
             this.panel3.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -102,7 +106,7 @@
             this.btnResStatus.Name = "btnResStatus";
             this.btnResStatus.Size = new System.Drawing.Size(186, 50);
             this.btnResStatus.TabIndex = 6;
-            this.btnResStatus.Text = "Reservation Status";
+            this.btnResStatus.Text = "Modify Reservation";
             this.btnResStatus.UseVisualStyleBackColor = false;
             // 
             // btnUpdate
@@ -255,13 +259,13 @@
             this.label4.TabIndex = 21;
             this.label4.Text = "Pending reservations";
             // 
-            // cboRoom
+            // cboResId
             // 
-            this.cboRoom.FormattingEnabled = true;
-            this.cboRoom.Location = new System.Drawing.Point(136, 20);
-            this.cboRoom.Name = "cboRoom";
-            this.cboRoom.Size = new System.Drawing.Size(121, 21);
-            this.cboRoom.TabIndex = 24;
+            this.cboResId.FormattingEnabled = true;
+            this.cboResId.Location = new System.Drawing.Point(404, 24);
+            this.cboResId.Name = "cboResId";
+            this.cboResId.Size = new System.Drawing.Size(121, 21);
+            this.cboResId.TabIndex = 24;
             // 
             // btnCancelBooking
             // 
@@ -271,7 +275,7 @@
             this.btnCancelBooking.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelBooking.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.btnCancelBooking.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.btnCancelBooking.Location = new System.Drawing.Point(411, 14);
+            this.btnCancelBooking.Location = new System.Drawing.Point(66, 61);
             this.btnCancelBooking.Name = "btnCancelBooking";
             this.btnCancelBooking.Size = new System.Drawing.Size(118, 27);
             this.btnCancelBooking.TabIndex = 26;
@@ -286,12 +290,13 @@
             this.btnChangeRoom.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnChangeRoom.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.btnChangeRoom.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.btnChangeRoom.Location = new System.Drawing.Point(15, 14);
+            this.btnChangeRoom.Location = new System.Drawing.Point(66, 20);
             this.btnChangeRoom.Name = "btnChangeRoom";
-            this.btnChangeRoom.Size = new System.Drawing.Size(112, 27);
+            this.btnChangeRoom.Size = new System.Drawing.Size(118, 27);
             this.btnChangeRoom.TabIndex = 25;
             this.btnChangeRoom.Text = "Change Room";
             this.btnChangeRoom.UseVisualStyleBackColor = false;
+            this.btnChangeRoom.Click += new System.EventHandler(this.btnChangeRoom_Click);
             // 
             // btnReset
             // 
@@ -301,7 +306,7 @@
             this.btnReset.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReset.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.btnReset.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.btnReset.Location = new System.Drawing.Point(818, 456);
+            this.btnReset.Location = new System.Drawing.Point(831, 478);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(97, 27);
             this.btnReset.TabIndex = 28;
@@ -316,7 +321,7 @@
             this.btnSubmit.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSubmit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.btnSubmit.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.btnSubmit.Location = new System.Drawing.Point(818, 514);
+            this.btnSubmit.Location = new System.Drawing.Point(831, 527);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(97, 27);
             this.btnSubmit.TabIndex = 27;
@@ -328,20 +333,51 @@
             this.dgvModRes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvModRes.Location = new System.Drawing.Point(218, 104);
             this.dgvModRes.Name = "dgvModRes";
-            this.dgvModRes.Size = new System.Drawing.Size(697, 156);
+            this.dgvModRes.Size = new System.Drawing.Size(697, 137);
             this.dgvModRes.TabIndex = 29;
             this.dgvModRes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvModRes_CellContentClick);
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
+            this.panel3.Controls.Add(this.label5);
             this.panel3.Controls.Add(this.btnChangeRoom);
-            this.panel3.Controls.Add(this.cboRoom);
+            this.panel3.Controls.Add(this.cboResId);
             this.panel3.Controls.Add(this.btnCancelBooking);
-            this.panel3.Location = new System.Drawing.Point(218, 442);
+            this.panel3.Location = new System.Drawing.Point(218, 453);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(571, 112);
             this.panel3.TabIndex = 32;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.label5.Location = new System.Drawing.Point(239, 25);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(138, 16);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "Select reservation:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Nirmala UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(3, 16);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(175, 25);
+            this.label6.TabIndex = 33;
+            this.label6.Text = "Modification result:";
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.label6);
+            this.panel4.Location = new System.Drawing.Point(218, 257);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(697, 178);
+            this.panel4.TabIndex = 34;
             // 
             // studentResStatus
             // 
@@ -349,6 +385,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(951, 577);
+            this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.dgvModRes);
             this.Controls.Add(this.btnReset);
@@ -370,6 +407,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvModRes)).EndInit();
             this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -393,13 +433,16 @@
         private System.Windows.Forms.Button btnResStatus;
         private System.Windows.Forms.Button btnResRoom;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox cboRoom;
+        private System.Windows.Forms.ComboBox cboResId;
         private System.Windows.Forms.Button btnCancelBooking;
         private System.Windows.Forms.Button btnChangeRoom;
         private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.DataGridView dgvModRes;
         private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Panel panel4;
     }
 }
 
