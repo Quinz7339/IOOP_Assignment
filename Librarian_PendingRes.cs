@@ -85,7 +85,7 @@ namespace IOOP_Assignment
             //format the cells' width
             for (int i = 0; i < 3; i++)
             {
-                dgvPending.Columns[i].Width = 55;
+                dgvPending.Columns[i].Width = 60;
             }
 
             for (int i = 3; i < 8; i++)
@@ -166,11 +166,11 @@ namespace IOOP_Assignment
             cmd.Parameters.AddWithValue("@usrid", userId);
             cmd.Parameters.AddWithValue("@resid", reserveId);
             cmd.Parameters.AddWithValue("@rmid", roomId);
-            cmd.Parameters.AddWithValue("@bookDate", bookingDate);
-            cmd.Parameters.AddWithValue("@bookTime", bookingTime);
-            cmd.Parameters.AddWithValue("@resDate", reserveDate);
-            cmd.Parameters.AddWithValue("@resStartTime", reserveStartTime);
-            cmd.Parameters.AddWithValue("@resEndTime", reserveEndTime);
+            cmd.Parameters.AddWithValue("@bookDate", DateTime.Parse(bookingDate));
+            cmd.Parameters.AddWithValue("@bookTime", DateTime.Parse(bookingTime));
+            cmd.Parameters.AddWithValue("@resDate", DateTime.Parse(reserveDate));
+            cmd.Parameters.AddWithValue("@resStartTime", DateTime.Parse(reserveStartTime));
+            cmd.Parameters.AddWithValue("@resEndTime", DateTime.Parse(reserveEndTime));
             cmd.ExecuteNonQuery();
 
             conn.Close();
