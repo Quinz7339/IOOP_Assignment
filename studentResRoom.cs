@@ -24,8 +24,6 @@ namespace IOOP_Assignment
         string resStartTime;
         string resEndTime;
 
-        SqlDataReader dr;
-
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
 
         private static extern IntPtr CreateRoundRectRgn
@@ -159,8 +157,8 @@ namespace IOOP_Assignment
         {
             fieldsClear();
             setDateTime();
+
             //display start and end time
-            //DateTime dateToReserve = DateTime.Parse();
             DateTime startTime_Start = DateTime.Parse("08:00AM");
             DateTime startTime_End = DateTime.Parse("09:00PM");
             

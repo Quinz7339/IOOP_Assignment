@@ -330,6 +330,7 @@
             this.dgvModRes.Name = "dgvModRes";
             this.dgvModRes.Size = new System.Drawing.Size(697, 156);
             this.dgvModRes.TabIndex = 29;
+            this.dgvModRes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvModRes_CellContentClick);
             // 
             // panel3
             // 
@@ -362,7 +363,7 @@
             this.Name = "studentResStatus";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Mod_Res_Page);
+            this.Load += new System.EventHandler(this.Mod_Res_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();

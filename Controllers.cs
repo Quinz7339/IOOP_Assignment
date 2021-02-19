@@ -22,7 +22,7 @@ namespace IOOP_Assignment
             using (SqlConnection getUserIdConn = new SqlConnection("Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = |DataDirectory|\\Library_Reservation_Database.mdf; Integrated Security = True; Connect Timeout = 30 "))
             {
                 //SQL commands for USER_PASSWORD_T for authentication purposes
-                string checkPasswordStr = "SELECT * FROM USER_PASSWORD_T WHERE userId = @usrId AND pwd= @pwd COLLATE SQL_Latin1_General_CP1_CS_AS";
+                string checkPasswordStr = "SELECT * FROM USER_PASSWORD_T WHERE userId = @usrId AND pwd = @pwd COLLATE SQL_Latin1_General_CP1_CS_AS";
                 getUserIdConn.Open();
                 using (SqlCommand checkPasswordCmd = new SqlCommand(checkPasswordStr, getUserIdConn))
                 {

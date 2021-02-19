@@ -40,20 +40,15 @@ namespace IOOP_Assignment
         }
 
 
-        private void Mod_Res_Page(object sender, EventArgs e)
+        private void Mod_Res_Load(object sender, EventArgs e)
         {
             lblDateTime.Text = DateTime.Now.ToString("dd MMM yyyy      hh:mm tt");
-            string ModResStr = "SELECT roomId As [Room Id], bookingDate As [Booking Date], bookingTime As [Booking Time], reserveDate AS [Reserve Date], reserveStartTime AS [Reserve Start Time], reserveEndTime AS [Reserve End Time], reserveStatus AS [Status] FROM RESERVATION_INFO_T WHERE userId = @userId AND reserveStatus IN ('APPROVED','PENDING')";
+            string ModResStr = "SELECT res.roomId As [Room Id], ro.roomName AS [Room Name], res.bookingDate As [Booking Date], res.bookingTime As [Booking Time], res.reserveDate AS [Reserve Date], res.reserveStartTime AS [Reserve Start Time], res.reserveEndTime AS [Reserve End Time], res.reserveStatus AS [Status] FROM RESERVATION_INFO_T  res INNER JOIN ROOM_INFO_T ro ON res.roomId = ro.roomId WHERE userId = @userId AND reserveStatus IN ('APPROVED','PENDING')";
             using (SqlConnection ModResConn = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\Library_Reservation_Database.mdf;Integrated Security=True;Connect Timeout=30"))
             {
                 ModResConn.Open();
 
-                using (SqlCommand ModResCmd = new SqlCommand(ModResStr, ModResConn))
-                {
-                    ModResCmd.Parameters.AddWithValue("@userId", Controllers.userID);
-                    //SqlDataAdapter ModResDa = new SqlDataAdapter(ModResStr,ModResConn);
-
-                }
+                // SqlDataAdapater to be used to fill in the dataset that serves as the data source of the datagridview
                 using (SqlDataAdapter ModResDa = new SqlDataAdapter(ModResStr, ModResConn))
                 {
                     ModResDa.SelectCommand.Parameters.AddWithValue("@userId", Controllers.userID); //adds the parametrized value to the select command of the data adapter
@@ -62,8 +57,80 @@ namespace IOOP_Assignment
                     dgvModRes.DataSource = ModResDs.Tables["RESERVATION_INFO_T"];
                 }
             }
+            // create the datagridview column buttons
+            DataGridViewButtonColumn btnModify = new DataGridViewButtonColumn();
+            DataGridViewButtonColumn btnCancel = new DataGridViewButtonColumn();
 
+            // setting for the Modify button in the datagridview
+            btnModify.HeaderText = "MODIFY";
+            btnModify.Text = "Modify";
+            btnModify.UseColumnTextForButtonValue = true;
 
+            //setting for the Cancel button in the datagridview
+            btnCancel.HeaderText = "CANCEL";
+            btnCancel.Text = "Cancel";
+            btnCancel.UseColumnTextForButtonValue = true;
+
+            // add the datagridview column buttons
+            dgvModRes.Columns.Add(btnModify);
+            dgvModRes.Columns.Add(btnCancel);
+            dgvModRes.Columns[0].Width = 60;
+            dgvModRes.Columns[1].Width = 80;
+            dgvModRes.Columns[2].Width = 70;
+            dgvModRes.Columns[3].Width = 60;
+            dgvModRes.Columns[4].Width = 70;
+            dgvModRes.Columns[5].Width = 60;
+            dgvModRes.Columns[6].Width = 60;
+            dgvModRes.Columns[7].Width = 60;
+            dgvModRes.Columns[8].Width = 50;
+            dgvModRes.Columns[9].Width = 50;
+
+            //formating the dates and times format 
+            dgvModRes.Columns[2].DefaultCellStyle.Format = "dd MMM yyyy";
+            dgvModRes.Columns[3].DefaultCellStyle.Format = "hh:mm tt";
+            dgvModRes.Columns[4].DefaultCellStyle.Format = "dd MMM yyyy";
+            dgvModRes.Columns[5].DefaultCellStyle.Format = "hh:mm tt";
+            dgvModRes.Columns[6].DefaultCellStyle.Format = "hh:mm tt";
+
+            for (int i = 0; i < dgvModRes.ColumnCount - 2; i++)
+            {
+                dgvModRes.Columns[i].ReadOnly = true;
+            }
+        }
+        private void dgvModRes_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //if modify button is clicked
+            if (e.ColumnIndex == 8)
+            {
+                //get the row value of the cell click event
+                //make the 2nd columms of the corresponding to row into a combobox
+                //add items into the combobox which is not the original room itself
+                //combobox default value is the data from the database
+
+                List<string> roomNames_L = new List<string>() { "Amber", "BlackThorn", "Cedar", "Daphne" };
+                string a = dgvModRes.Rows[e.RowIndex].Cells[1].Value.ToString().Trim();
+                dgvModRes.Rows[e.RowIndex].Cells[1].ReadOnly = true;
+                DataGridViewComboBoxCell cboRoomNames = new DataGridViewComboBoxCell();
+                foreach(string items in roomNames_L)
+                {
+                    cboRoomNames.Items.Add(items.ToString().Trim());
+                }
+                var btnMod = (DataGridViewButtonCell)dgvModRes.Rows[e.RowIndex].Cells[e.ColumnIndex];
+                btnMod.Value = "Revert";
+
+                //dgvModRes[e.ColumnIndex, e.RowIndex].Value= "Revert";
+                dgvModRes[1 , e.RowIndex] = cboRoomNames;
+                cboRoomNames.Value = cboRoomNames.Items[0];
+                dgvModRes.Rows[e.RowIndex].Cells[1].ReadOnly = false;
+
+            }
+            //if cancel is clicked
+            if (e.ColumnIndex == 9)
+            {
+                //userId = dgvPending.Rows[e.RowIndex].Cells[0].Value.ToString();
+                //reserveId = dgvPending.Rows[e.RowIndex].Cells[1].Value.ToString();
+
+            }
         }
 
         private void btnDashboard_Click(object sender, EventArgs e)
@@ -139,6 +206,8 @@ namespace IOOP_Assignment
         {
             Application.Exit();
         }
+
+
     }
 
 }
