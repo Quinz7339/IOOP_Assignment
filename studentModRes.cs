@@ -12,7 +12,7 @@ using System.Data.SqlClient;
 
 namespace IOOP_Assignment
 {
-    public partial class studentResStatus : Form
+    public partial class studentModRes : Form
     {
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
 
@@ -26,7 +26,7 @@ namespace IOOP_Assignment
               int nHeightEllipse
           );
 
-        public studentResStatus()
+        public studentModRes()
         {
             InitializeComponent();
             this.Size = new Size(960, 575);

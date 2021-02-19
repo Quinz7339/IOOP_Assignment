@@ -81,7 +81,7 @@ namespace IOOP_Assignment
             pnlNav.Left = btnModRes.Left;
             btnModRes.BackColor = Color.FromArgb(46, 51, 73);
 
-            studentResStatus resStatus = new studentResStatus();
+            studentModRes resStatus = new studentModRes();
             resStatus.Show();
             this.Hide();
         }

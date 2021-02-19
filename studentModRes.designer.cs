@@ -1,6 +1,6 @@
 ﻿namespace IOOP_Assignment
 {
-    partial class studentResStatus
+    partial class studentModRes
     {
         /// <summary>
         /// Required designer variable.

@@ -67,11 +67,11 @@
     <Compile Include="studentResRoom.designer.cs">
       <DependentUpon>studentResRoom.cs</DependentUpon>
     </Compile>
-    <Compile Include="studentResStatus.cs">
+    <Compile Include="studentModRes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="studentResStatus.designer.cs">
-      <DependentUpon>studentResStatus.cs</DependentUpon>
+    <Compile Include="studentModRes.designer.cs">
+      <DependentUpon>studentModRes.cs</DependentUpon>
     </Compile>
     <Compile Include="studentUpdateInfo.cs">
       <SubType>Form</SubType>
@@ -99,8 +99,8 @@
     <EmbeddedResource Include="studentResRoom.resx">
       <DependentUpon>studentResRoom.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="studentResStatus.resx">
-      <DependentUpon>studentResStatus.cs</DependentUpon>
+    <EmbeddedResource Include="studentModRes.resx">
+      <DependentUpon>studentModRes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="studentUpdateInfo.resx">
       <DependentUpon>studentUpdateInfo.cs</DependentUpon>
