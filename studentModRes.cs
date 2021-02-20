@@ -44,17 +44,24 @@ namespace IOOP_Assignment
             lblAfter.Hide();
             pnlBefore.Hide();
             pnlAfter.Hide();
-            lblStatus.Text = "Please select an action below";
+            lblCancel.Hide();
+            pnlCancel.Hide();
+            lblStatus.Text = "Please select an action below, 'Change Booking' || 'Cancel Booking' ";
         }
 
         private void btnChangeRoom_Click(object sender, EventArgs e)
         {
             modResStatus = "Modify";
             lblStatus.Text = "Please select a reservation ID from the dropdown menu";
+            lblBefore.Hide();
             pnlBefore.Hide();
+            lblAfter.Hide();
             pnlAfter.Hide();
+            lblCancel.Hide();
+            pnlCancel.Hide();
             cboResId.Items.Clear();
             cboResId.Enabled = true;
+
             string ModResStr = "SELECT reserveId FROM RESERVATION_INFO_T WHERE userId = @userId AND reserveStatus IN ('PENDING','APPROVED')";
             using (SqlConnection ModResConn = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\Library_Reservation_Database.mdf;Integrated Security=True;Connect Timeout=30"))
             {
@@ -73,14 +80,22 @@ namespace IOOP_Assignment
                 }
             }
         }
-
-        private void cboResId_SelectedIndexChanged(object sender, EventArgs e)
+        private void btnCancelBooking_Click(object sender, EventArgs e)
         {
-            lblStatus.Text = "Please select a Room Name at the bottom.";
-            lblBefore.Show();
-            pnlBefore.Show();
-            lblAfter.Show();
-            pnlAfter.Show();
+            modResStatus = "Cancel";
+            lblStatus.Text = "Please select a reservation ID from the dropdown menu";
+            lblBefore.Hide();
+            pnlBefore.Hide();
+            lblAfter.Hide();
+            pnlAfter.Hide();
+            lblCancel.Hide();
+            pnlCancel.Hide();
+            cboResId.Items.Clear();
+            cboResId.Enabled = true;
+
+        }
+        private void displayData()
+        {
             string checkResStr = "SELECT res.reserveId, res.roomId, ro.roomName, res.reserveDate, res.reserveStartTime, res.reserveEndTime FROM RESERVATION_INFO_T res INNER JOIN ROOM_INFO_T ro ON ro.roomId = res.roomId WHERE userId = @userId AND reserveId = @resId";
             using (SqlConnection checkResConn = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\Library_Reservation_Database.mdf;Integrated Security=True;Connect Timeout=30"))
             {
@@ -110,6 +125,15 @@ namespace IOOP_Assignment
                     }
                 }
             }
+        }
+        private void cboResId_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            lblStatus.Text = "Please select a Room Name at the bottom.";
+            lblBefore.Show();
+            pnlBefore.Show();
+            lblAfter.Show();
+            pnlAfter.Show();
+            displayData();
             lblAftResId.Text = lblPrevResId.Text;
             lblAftRoomId.Text = lblPrevRoomId.Text;
             lblAftRoomName.Text = lblPrevRoomName.Text;
@@ -118,6 +142,7 @@ namespace IOOP_Assignment
             lblAftReserveEndTime.Text = lblPrevEndTime.Text;
 
         }
+
         private void checkRoom(string roomPrefix, string roomName, string reserveDate, string reserveStartTime, string reserveEndTime)
         {
             List<string> roomIds = new List<string>();
@@ -145,10 +170,10 @@ namespace IOOP_Assignment
                 string checkRoomStr = "SELECT roomId, reserveStartTime, reserveEndTime, reserveDate FROM RESERVATION_INFO_T WHERE roomId LIKE @roomPrefix AND reserveDate = @reserveDate AND (reserveStatus = 'PENDING' OR reserveStatus = 'APPROVED')";
                 using (SqlCommand checkRoomCmd = new SqlCommand(checkRoomStr, checkRoomConn))
                 {
-                    checkRoomCmd.Parameters.AddWithValue("@roomPrefix",roomPrefix + "%");
+                    checkRoomCmd.Parameters.AddWithValue("@roomPrefix", roomPrefix + "%");
                     DateTime getReserveDate = DateTime.Parse(reserveDate);
                     checkRoomCmd.Parameters.AddWithValue("@reserveDate", getReserveDate);
-                    
+
                     using (SqlDataReader checkRoomReader = checkRoomCmd.ExecuteReader())
                     {
                         while (checkRoomReader.Read())
@@ -190,82 +215,6 @@ namespace IOOP_Assignment
             }
         }
 
-
-        private void btnDashboard_Click(object sender, EventArgs e)
-        {
-            pnlNav.Height = btnDashboard.Height;
-            pnlNav.Top = btnDashboard.Top;
-            pnlNav.Left = btnDashboard.Left;
-            btnDashboard.BackColor = Color.FromArgb(46, 51, 73);
-
-            studentDashboard dsb = new studentDashboard();
-            dsb.Show();
-            this.Hide();
-        }
-
-        private void btnResRoom_Click(object sender, EventArgs e)
-        {
-            pnlNav.Height = btnResRoom.Height;
-            pnlNav.Top = btnResRoom.Top;
-            pnlNav.Left = btnResRoom.Left;
-            btnResRoom.BackColor = Color.FromArgb(46, 51, 73);
-            
-            studentResRoom ResRoom = new studentResRoom();
-            ResRoom.Show();
-            this.Hide();
-        }
-
-        private void btnUpdate_Click(object sender, EventArgs e)
-        {
-            pnlNav.Height = btnUpdate.Height;
-            pnlNav.Top = btnUpdate.Top;
-            pnlNav.Left = btnUpdate.Left;
-            btnUpdate.BackColor = Color.FromArgb(46, 51, 73);
-
-            studentUpdateInfo uptInfo = new studentUpdateInfo();
-            uptInfo.Show();
-            this.Hide();
-        }
-
-        private void btnLogout_Click(object sender, EventArgs e)
-        {
-            pnlNav.Height = btnLogout.Height;
-            pnlNav.Top = btnLogout.Top;
-            pnlNav.Left = btnLogout.Left;
-            btnLogout.BackColor = Color.FromArgb(46, 51, 73);
-        }
-
-        private void btnDashboad_Leave(object sender, EventArgs e)
-        {
-            btnDashboard.BackColor = Color.FromArgb(24, 30, 54);
-        }
-
-        private void btnResRoom_Leave(object sender, EventArgs e)
-        {
-            btnResRoom.BackColor = Color.FromArgb(24, 30, 54);
-        }
-
-        private void btnResStatus_Leave(object sender, EventArgs e)
-        {
-            btnResStatus.BackColor = Color.FromArgb(24, 30, 54);
-        }
-
-        private void btnUpdate_Leave(object sender, EventArgs e)
-        {
-            btnUpdate.BackColor = Color.FromArgb(24, 30, 54);
-        }
-
-        private void btnLogout_Leave(object sender, EventArgs e)
-        {
-            btnLogout.BackColor = Color.FromArgb(24, 30, 54);
-        }
-
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             reserveId = lblPrevResId.Text;
@@ -278,9 +227,9 @@ namespace IOOP_Assignment
                     using (SqlCommand updateResCmd = new SqlCommand(updateResStr, updateResConn))
                     {
                         updateResCmd.Parameters.AddWithValue("@roomId", roomId);
-                        updateResCmd.Parameters.AddWithValue("@date", DateTime.Now.ToString("dd/M/yyyy"));
-                        updateResCmd.Parameters.AddWithValue("@modTime", DateTime.Now.ToString("hh:mm tt"));
-                        updateResCmd.Parameters.AddWithValue("@reserveId",reserveId );
+                        updateResCmd.Parameters.AddWithValue("@date", DateTime.ParseExact(DateTime.Now.ToString("dd/M/yyyy"), "dd/M/yyyy", CultureInfo.InvariantCulture));
+                        updateResCmd.Parameters.AddWithValue("@modTime", DateTime.ParseExact(DateTime.Now.ToString("hh:mm tt"), "hh:mm tt", CultureInfo.InvariantCulture));
+                        updateResCmd.Parameters.AddWithValue("@reserveId", reserveId);
 
                         updateResCmd.ExecuteNonQuery();
                     }
@@ -337,9 +286,84 @@ namespace IOOP_Assignment
             checkRoom(aftRoomPrefix, aftRoomName, lblPrevReserveDate.Text, lblPrevStartTime.Text, lblPrevEndTime.Text);
         }
 
-        private void btnCancelBooking_Click(object sender, EventArgs e)
+        private void btnDashboard_Click(object sender, EventArgs e)
         {
-            modResStatus = "Cancel";
+            pnlNav.Height = btnDashboard.Height;
+            pnlNav.Top = btnDashboard.Top;
+            pnlNav.Left = btnDashboard.Left;
+            btnDashboard.BackColor = Color.FromArgb(46, 51, 73);
+
+            studentDashboard dsb = new studentDashboard();
+            dsb.Show();
+            this.Hide();
+        }
+
+        private void btnResRoom_Click(object sender, EventArgs e)
+        {
+            pnlNav.Height = btnResRoom.Height;
+            pnlNav.Top = btnResRoom.Top;
+            pnlNav.Left = btnResRoom.Left;
+            btnResRoom.BackColor = Color.FromArgb(46, 51, 73);
+            
+            studentResRoom ResRoom = new studentResRoom();
+            ResRoom.Show();
+            this.Hide();
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            pnlNav.Height = btnUpdate.Height;
+            pnlNav.Top = btnUpdate.Top;
+            pnlNav.Left = btnUpdate.Left;
+            btnUpdate.BackColor = Color.FromArgb(46, 51, 73);
+
+            studentUpdateInfo uptInfo = new studentUpdateInfo();
+            uptInfo.Show();
+            this.Hide();
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            pnlNav.Height = btnLogout.Height;
+            pnlNav.Top = btnLogout.Top;
+            pnlNav.Left = btnLogout.Left;
+            btnLogout.BackColor = Color.FromArgb(46, 51, 73);
+            if (MessageBox.Show("Are you sure you want to logout from the current session?", "Logging Out?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                this.Close();
+                Login_Page login = new Login_Page();
+                login.Show();
+            }
+        }
+
+        private void btnDashboad_Leave(object sender, EventArgs e)
+        {
+            btnDashboard.BackColor = Color.FromArgb(24, 30, 54);
+        }
+
+        private void btnResRoom_Leave(object sender, EventArgs e)
+        {
+            btnResRoom.BackColor = Color.FromArgb(24, 30, 54);
+        }
+
+        private void btnResStatus_Leave(object sender, EventArgs e)
+        {
+            btnResStatus.BackColor = Color.FromArgb(24, 30, 54);
+        }
+
+        private void btnUpdate_Leave(object sender, EventArgs e)
+        {
+            btnUpdate.BackColor = Color.FromArgb(24, 30, 54);
+        }
+
+        private void btnLogout_Leave(object sender, EventArgs e)
+        {
+            btnLogout.BackColor = Color.FromArgb(24, 30, 54);
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 

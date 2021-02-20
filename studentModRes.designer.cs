@@ -87,6 +87,20 @@
             this.label30 = new System.Windows.Forms.Label();
             this.lblBefore = new System.Windows.Forms.Label();
             this.lblAfter = new System.Windows.Forms.Label();
+            this.pnlCancel = new System.Windows.Forms.Panel();
+            this.lblCancelEndTime = new System.Windows.Forms.Label();
+            this.lblCancelStartTime = new System.Windows.Forms.Label();
+            this.lblCancelReserveDate = new System.Windows.Forms.Label();
+            this.lblCancelRoomId = new System.Windows.Forms.Label();
+            this.lblCancelRoomName = new System.Windows.Forms.Label();
+            this.lblCancelId = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.lab = new System.Windows.Forms.Label();
+            this.lblCancel = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -94,6 +108,7 @@
             this.pnlBefore.SuspendLayout();
             this.panel5.SuspendLayout();
             this.pnlAfter.SuspendLayout();
+            this.pnlCancel.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -400,6 +415,7 @@
             // pnlBefore
             // 
             this.pnlBefore.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
+            this.pnlBefore.Controls.Add(this.pnlCancel);
             this.pnlBefore.Controls.Add(this.lblPrevEndTime);
             this.pnlBefore.Controls.Add(this.lblPrevStartTime);
             this.pnlBefore.Controls.Add(this.lblPrevReserveDate);
@@ -814,12 +830,178 @@
             this.lblAfter.TabIndex = 36;
             this.lblAfter.Text = "After:";
             // 
+            // pnlCancel
+            // 
+            this.pnlCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
+            this.pnlCancel.Controls.Add(this.lblCancelEndTime);
+            this.pnlCancel.Controls.Add(this.lblCancelStartTime);
+            this.pnlCancel.Controls.Add(this.lblCancelReserveDate);
+            this.pnlCancel.Controls.Add(this.lblCancelRoomId);
+            this.pnlCancel.Controls.Add(this.lblCancelRoomName);
+            this.pnlCancel.Controls.Add(this.lblCancelId);
+            this.pnlCancel.Controls.Add(this.label19);
+            this.pnlCancel.Controls.Add(this.label20);
+            this.pnlCancel.Controls.Add(this.label21);
+            this.pnlCancel.Controls.Add(this.label22);
+            this.pnlCancel.Controls.Add(this.label23);
+            this.pnlCancel.Controls.Add(this.lab);
+            this.pnlCancel.Location = new System.Drawing.Point(179, 3);
+            this.pnlCancel.Name = "pnlCancel";
+            this.pnlCancel.Size = new System.Drawing.Size(341, 206);
+            this.pnlCancel.TabIndex = 35;
+            // 
+            // lblCancelEndTime
+            // 
+            this.lblCancelEndTime.AutoSize = true;
+            this.lblCancelEndTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCancelEndTime.ForeColor = System.Drawing.Color.Silver;
+            this.lblCancelEndTime.Location = new System.Drawing.Point(186, 170);
+            this.lblCancelEndTime.Name = "lblCancelEndTime";
+            this.lblCancelEndTime.Size = new System.Drawing.Size(80, 20);
+            this.lblCancelEndTime.TabIndex = 11;
+            this.lblCancelEndTime.Text = "End Time:";
+            // 
+            // lblCancelStartTime
+            // 
+            this.lblCancelStartTime.AutoSize = true;
+            this.lblCancelStartTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCancelStartTime.ForeColor = System.Drawing.Color.Silver;
+            this.lblCancelStartTime.Location = new System.Drawing.Point(186, 136);
+            this.lblCancelStartTime.Name = "lblCancelStartTime";
+            this.lblCancelStartTime.Size = new System.Drawing.Size(86, 20);
+            this.lblCancelStartTime.TabIndex = 10;
+            this.lblCancelStartTime.Text = "Start Time:";
+            // 
+            // lblCancelReserveDate
+            // 
+            this.lblCancelReserveDate.AutoSize = true;
+            this.lblCancelReserveDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCancelReserveDate.ForeColor = System.Drawing.Color.Silver;
+            this.lblCancelReserveDate.Location = new System.Drawing.Point(186, 105);
+            this.lblCancelReserveDate.Name = "lblCancelReserveDate";
+            this.lblCancelReserveDate.Size = new System.Drawing.Size(120, 20);
+            this.lblCancelReserveDate.TabIndex = 9;
+            this.lblCancelReserveDate.Text = "Reserved Date:";
+            // 
+            // lblCancelRoomId
+            // 
+            this.lblCancelRoomId.AutoSize = true;
+            this.lblCancelRoomId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCancelRoomId.ForeColor = System.Drawing.Color.Silver;
+            this.lblCancelRoomId.Location = new System.Drawing.Point(186, 75);
+            this.lblCancelRoomId.Name = "lblCancelRoomId";
+            this.lblCancelRoomId.Size = new System.Drawing.Size(77, 20);
+            this.lblCancelRoomId.TabIndex = 8;
+            this.lblCancelRoomId.Text = "Room ID:";
+            // 
+            // lblCancelRoomName
+            // 
+            this.lblCancelRoomName.AutoSize = true;
+            this.lblCancelRoomName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCancelRoomName.ForeColor = System.Drawing.Color.Silver;
+            this.lblCancelRoomName.Location = new System.Drawing.Point(186, 44);
+            this.lblCancelRoomName.Name = "lblCancelRoomName";
+            this.lblCancelRoomName.Size = new System.Drawing.Size(102, 20);
+            this.lblCancelRoomName.TabIndex = 7;
+            this.lblCancelRoomName.Text = "Room Name:";
+            // 
+            // lblCancelId
+            // 
+            this.lblCancelId.AutoSize = true;
+            this.lblCancelId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCancelId.ForeColor = System.Drawing.Color.Silver;
+            this.lblCancelId.Location = new System.Drawing.Point(186, 12);
+            this.lblCancelId.Name = "lblCancelId";
+            this.lblCancelId.Size = new System.Drawing.Size(119, 20);
+            this.lblCancelId.TabIndex = 6;
+            this.lblCancelId.Text = "Reservation ID:";
+            this.lblCancelId.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.ForeColor = System.Drawing.Color.Silver;
+            this.label19.Location = new System.Drawing.Point(11, 170);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(169, 20);
+            this.label19.TabIndex = 5;
+            this.label19.Text = "Reservation End Time:";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.ForeColor = System.Drawing.Color.Silver;
+            this.label20.Location = new System.Drawing.Point(6, 136);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(175, 20);
+            this.label20.TabIndex = 4;
+            this.label20.Text = "Reservation Start Time:";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.ForeColor = System.Drawing.Color.Silver;
+            this.label21.Location = new System.Drawing.Point(58, 104);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(120, 20);
+            this.label21.TabIndex = 3;
+            this.label21.Text = "Reserved Date:";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.ForeColor = System.Drawing.Color.Silver;
+            this.label22.Location = new System.Drawing.Point(101, 75);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(77, 20);
+            this.label22.TabIndex = 2;
+            this.label22.Text = "Room ID:";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.ForeColor = System.Drawing.Color.Silver;
+            this.label23.Location = new System.Drawing.Point(76, 44);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(102, 20);
+            this.label23.TabIndex = 1;
+            this.label23.Text = "Room Name:";
+            // 
+            // lab
+            // 
+            this.lab.AutoSize = true;
+            this.lab.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lab.ForeColor = System.Drawing.Color.Silver;
+            this.lab.Location = new System.Drawing.Point(59, 12);
+            this.lab.Name = "lab";
+            this.lab.Size = new System.Drawing.Size(119, 20);
+            this.lab.TabIndex = 0;
+            this.lab.Text = "Reservation ID:";
+            this.lab.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblCancel
+            // 
+            this.lblCancel.AutoSize = true;
+            this.lblCancel.Font = new System.Drawing.Font("Nirmala UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCancel.ForeColor = System.Drawing.Color.White;
+            this.lblCancel.Location = new System.Drawing.Point(551, 221);
+            this.lblCancel.Name = "lblCancel";
+            this.lblCancel.Size = new System.Drawing.Size(73, 25);
+            this.lblCancel.TabIndex = 37;
+            this.lblCancel.Text = "Cancel:";
+            // 
             // studentModRes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(951, 577);
+            this.Controls.Add(this.lblCancel);
             this.Controls.Add(this.lblAfter);
             this.Controls.Add(this.lblBefore);
             this.Controls.Add(this.pnlAfter);
@@ -847,6 +1029,8 @@
             this.panel5.ResumeLayout(false);
             this.pnlAfter.ResumeLayout(false);
             this.pnlAfter.PerformLayout();
+            this.pnlCancel.ResumeLayout(false);
+            this.pnlCancel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -912,6 +1096,20 @@
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.Label lblBefore;
         private System.Windows.Forms.Label lblAfter;
+        private System.Windows.Forms.Panel pnlCancel;
+        private System.Windows.Forms.Label lblCancelEndTime;
+        private System.Windows.Forms.Label lblCancelStartTime;
+        private System.Windows.Forms.Label lblCancelReserveDate;
+        private System.Windows.Forms.Label lblCancelRoomId;
+        private System.Windows.Forms.Label lblCancelRoomName;
+        private System.Windows.Forms.Label lblCancelId;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label lab;
+        private System.Windows.Forms.Label lblCancel;
     }
 }
 

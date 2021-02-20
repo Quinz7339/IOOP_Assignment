@@ -93,6 +93,12 @@ namespace IOOP_Assignment
             pnlNav.Top = btnLogout.Top;
             pnlNav.Left = btnLogout.Left;
             btnLogout.BackColor = Color.FromArgb(46, 51, 73);
+            if (MessageBox.Show("Are you sure you want to logout from the current session?", "Logging Out?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                this.Close();
+                Login_Page login = new Login_Page();
+                login.Show();
+            }
         }
 
         private void btnDashboard_Leave(object sender, EventArgs e)
