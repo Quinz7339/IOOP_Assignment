@@ -146,7 +146,6 @@ namespace IOOP_Assignment
                 using (SqlCommand checkRoomCmd = new SqlCommand(checkRoomStr, checkRoomConn))
                 {
                     checkRoomCmd.Parameters.AddWithValue("@roomPrefix",roomPrefix + "%");
-                    MessageBox.Show(reserveDate);
                     DateTime getReserveDate = DateTime.Parse(reserveDate);
                     checkRoomCmd.Parameters.AddWithValue("@reserveDate", getReserveDate);
                     
@@ -154,12 +153,7 @@ namespace IOOP_Assignment
                     {
                         while (checkRoomReader.Read())
                         {
-                            if (DateTime.Compare(getReserveDate, DateTime.Parse(checkRoomReader[3].ToString()))==0)
-                            {
-                                MessageBox.Show("Equal");
-                            }
-                            //DateTime
-                            //parsing the user selected times into datetime format
+                            //parsing the chosen record starttime and endtime into datetime format
                             DateTime selectedStartTime = DateTime.Parse(reserveStartTime);
                             DateTime selectedEndTime = DateTime.Parse(reserveEndTime);
 
@@ -271,13 +265,6 @@ namespace IOOP_Assignment
             Application.Exit();
         }
 
-        private void btnAmber_Click(object sender, EventArgs e)
-        {
-            string aftRoomName = "Amber";
-            string aftRoomPrefix = "AM";
-            lblAftRoomName.Text = aftRoomName;
-            checkRoom(aftRoomPrefix, aftRoomName, lblPrevReserveDate.Text, lblPrevStartTime.Text,lblPrevEndTime.Text);
-        }
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
@@ -294,25 +281,60 @@ namespace IOOP_Assignment
                         updateResCmd.Parameters.AddWithValue("@date", DateTime.Now.ToString("dd/M/yyyy"));
                         updateResCmd.Parameters.AddWithValue("@modTime", DateTime.Now.ToString("hh:mm tt"));
                         updateResCmd.Parameters.AddWithValue("@reserveId",reserveId );
+
+                        updateResCmd.ExecuteNonQuery();
                     }
                 }
-
             }
+            if (modResStatus == "Cancel")
+            {
+                string cancelResStr = "UPDATE RESERVATION_INFO_T SET roomId = @roomId, bookingDate = @date, bookingTime = @modTime, reserveStatus = 'CANCELLED'  WHERE reserveId = @reserveId";
+                using (SqlConnection cancelResConn = new SqlConnection("Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = |DataDirectory|\\Library_Reservation_Database.mdf; Integrated Security = True; Connect Timeout = 30"))
+                {
+                    cancelResConn.Open();
+                    using (SqlCommand cancelResCmd = new SqlCommand(cancelResStr, cancelResConn))
+                    {
+                        cancelResCmd.Parameters.AddWithValue("@roomId", roomId);
+                        cancelResCmd.Parameters.AddWithValue("@date", DateTime.Now.ToString("dd/M/yyyy"));
+                        cancelResCmd.Parameters.AddWithValue("@modTime", DateTime.Now.ToString("hh:mm tt"));
+                        cancelResCmd.Parameters.AddWithValue("@reserveId", reserveId);
+
+                        cancelResCmd.ExecuteNonQuery();
+                    }
+                }
+            }
+        }
+
+        private void btnAmber_Click(object sender, EventArgs e)
+        {
+            string aftRoomName = "Amber";
+            string aftRoomPrefix = "AM";
+            lblAftRoomName.Text = aftRoomName;
+            checkRoom(aftRoomPrefix, aftRoomName, lblPrevReserveDate.Text, lblPrevStartTime.Text, lblPrevEndTime.Text);
         }
 
         private void btnBlackThorn_Click(object sender, EventArgs e)
         {
-
+            string aftRoomName = "BlackThorn";
+            string aftRoomPrefix = "BT";
+            lblAftRoomName.Text = aftRoomName;
+            checkRoom(aftRoomPrefix, aftRoomName, lblPrevReserveDate.Text, lblPrevStartTime.Text, lblPrevEndTime.Text);
         }
 
         private void btnCedar_Click(object sender, EventArgs e)
         {
-
+            string aftRoomName = "Cedar";
+            string aftRoomPrefix = "CD";
+            lblAftRoomName.Text = aftRoomName;
+            checkRoom(aftRoomPrefix, aftRoomName, lblPrevReserveDate.Text, lblPrevStartTime.Text, lblPrevEndTime.Text);
         }
 
         private void btnDaphne_Click(object sender, EventArgs e)
         {
-
+            string aftRoomName = "Daphne";
+            string aftRoomPrefix = "DN";
+            lblAftRoomName.Text = aftRoomName;
+            checkRoom(aftRoomPrefix, aftRoomName, lblPrevReserveDate.Text, lblPrevStartTime.Text, lblPrevEndTime.Text);
         }
 
         private void btnCancelBooking_Click(object sender, EventArgs e)
