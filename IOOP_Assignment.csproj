@@ -60,11 +60,6 @@
       <DependentUpon>DailyReport.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="dsDailyReport.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>dsDailyReport.xsd</DependentUpon>
-    </Compile>
     <Compile Include="dsMonthlyReport.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -132,17 +127,6 @@
     <EmbeddedResource Include="Librarian_PendingRes.resx">
       <DependentUpon>Librarian_PendingRes.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="dsDailyReport.xsc">
-      <DependentUpon>dsDailyReport.xsd</DependentUpon>
-    </None>
-    <None Include="dsDailyReport.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>dsDailyReport.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="dsDailyReport.xss">
-      <DependentUpon>dsDailyReport.xsd</DependentUpon>
-    </None>
     <None Include="dsMonthlyReport.xsc">
       <DependentUpon>dsMonthlyReport.xsd</DependentUpon>
     </None>

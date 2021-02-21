@@ -64,7 +64,7 @@ namespace IOOP_Assignment
         public int addReservation(string roomId, string bookingDate, string bookingTime, string reserveDate, string reserveStartTime, string reserveEndTime, string reserveStatus, string userId)
         {
             //SQL command to insert user's reservation info into the database table (RESERVATION_INFO_T)
-            string insertSQL = "INSERT INTO RESERVATION_INFO_T(roomId, bookingDate, bookingTime, reserveDate, reserveStartTime, reserveEndTime, reserveStatus, userId) VALUES(@reserveID, @roomId, @bookingDate, @bookingTime, @reserveDate, @reserveStartTime, @reserveEndTime, @reserveStatus, @userId)";
+            string insertSQL = "INSERT INTO RESERVATION_INFO_T(roomId, bookDate, bookTime, reserveDate, reserveStartTime, reserveEndTime, reserveStatus, userId) VALUES(@reserveID, @roomId, @bookingDate, @bookingTime, @reserveDate, @reserveStartTime, @reserveEndTime, @reserveStatus, @userId)";
 
             Connect();
             SqlCommand cmd = new SqlCommand(insertSQL, conn);
