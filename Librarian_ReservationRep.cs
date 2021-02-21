@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using System.Data.SqlClient;
+
 
 namespace IOOP_Assignment
 {
@@ -185,6 +187,12 @@ namespace IOOP_Assignment
 
         private void btnDailyRep_Click(object sender, EventArgs e)
         {
+            DateTime d = DateTime.Parse(dtpDailyReport.Text);
+            SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\Library_Reservation_Database.mdf;Integrated Security=True;Connect Timeout=30");
+            SqlCommand command = new SqlCommand("Select * from RESERVATION_INFO_T where reserveDate = '"+d+"'", con);
+            SqlDataAdapter da = new SqlDataAdapter(command);
+            DataSet s = new DataSet();
+            da.Fill(s);
             dsDailyReport dsD = new dsDailyReport();
             dsDailyReportTableAdapters.RESERVATION_INFO_TTableAdapter ad = new dsDailyReportTableAdapters.RESERVATION_INFO_TTableAdapter();
             ad.Fill(dsD.RESERVATION_INFO_T);

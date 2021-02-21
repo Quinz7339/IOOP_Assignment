@@ -48,6 +48,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnMonthlyRep = new System.Windows.Forms.Button();
             this.btnDailyRep = new System.Windows.Forms.Button();
+            this.dtpDailyReport = new System.Windows.Forms.DateTimePicker();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -304,12 +305,20 @@
             this.btnDailyRep.UseVisualStyleBackColor = true;
             this.btnDailyRep.Click += new System.EventHandler(this.btnDailyRep_Click);
             // 
+            // dtpDailyReport
+            // 
+            this.dtpDailyReport.Location = new System.Drawing.Point(368, 40);
+            this.dtpDailyReport.Name = "dtpDailyReport";
+            this.dtpDailyReport.Size = new System.Drawing.Size(267, 26);
+            this.dtpDailyReport.TabIndex = 8;
+            // 
             // Librarian_ReservationRep
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(1552, 888);
+            this.Controls.Add(this.dtpDailyReport);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.crystalReportViewer1);
             this.Controls.Add(this.lblDateTime);
@@ -352,6 +361,7 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button btnMonthlyRep;
         private System.Windows.Forms.Button btnDailyRep;
+        private System.Windows.Forms.DateTimePicker dtpDailyReport;
     }
 }
 
