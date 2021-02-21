@@ -47,14 +47,16 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
-            this.txtTpNumber = new System.Windows.Forms.TextBox();
-            this.txtUpdateName = new System.Windows.Forms.TextBox();
+            this.txtUserId = new System.Windows.Forms.TextBox();
+            this.txtName = new System.Windows.Forms.TextBox();
             this.btnReset = new System.Windows.Forms.Button();
             this.btnSubmit = new System.Windows.Forms.Button();
             this.lblPassword = new System.Windows.Forms.Label();
             this.lblEmail = new System.Windows.Forms.Label();
-            this.lblTpNumber = new System.Windows.Forms.Label();
+            this.lblUserId = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
+            this.txtConfrimPassword = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -246,20 +248,21 @@
             this.lblDateTime.Size = new System.Drawing.Size(113, 20);
             this.lblDateTime.TabIndex = 5;
             this.lblDateTime.Text = "Date and Time";
-            this.lblDateTime.Click += new System.EventHandler(this.lblDateTime_Click);
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
+            this.panel3.Controls.Add(this.txtConfrimPassword);
+            this.panel3.Controls.Add(this.label4);
             this.panel3.Controls.Add(this.txtPassword);
             this.panel3.Controls.Add(this.txtEmail);
-            this.panel3.Controls.Add(this.txtTpNumber);
-            this.panel3.Controls.Add(this.txtUpdateName);
+            this.panel3.Controls.Add(this.txtUserId);
+            this.panel3.Controls.Add(this.txtName);
             this.panel3.Controls.Add(this.btnReset);
             this.panel3.Controls.Add(this.btnSubmit);
             this.panel3.Controls.Add(this.lblPassword);
             this.panel3.Controls.Add(this.lblEmail);
-            this.panel3.Controls.Add(this.lblTpNumber);
+            this.panel3.Controls.Add(this.lblUserId);
             this.panel3.Controls.Add(this.lblName);
             this.panel3.Location = new System.Drawing.Point(218, 87);
             this.panel3.Name = "panel3";
@@ -268,36 +271,40 @@
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(109, 153);
+            this.txtPassword.Location = new System.Drawing.Point(170, 153);
             this.txtPassword.Multiline = true;
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(404, 20);
+            this.txtPassword.Size = new System.Drawing.Size(343, 20);
             this.txtPassword.TabIndex = 35;
+            this.txtPassword.Enter += new System.EventHandler(this.txtPassword_Enter);
+            this.txtPassword.Leave += new System.EventHandler(this.txtPassword_Leave);
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(81, 110);
+            this.txtEmail.Location = new System.Drawing.Point(170, 110);
             this.txtEmail.Multiline = true;
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(432, 20);
+            this.txtEmail.Size = new System.Drawing.Size(343, 20);
             this.txtEmail.TabIndex = 34;
+            this.txtEmail.Enter += new System.EventHandler(this.txtEmail_Enter);
+            this.txtEmail.Leave += new System.EventHandler(this.txtEmail_Leave);
             // 
-            // txtTpNumber
+            // txtUserId
             // 
-            this.txtTpNumber.Enabled = false;
-            this.txtTpNumber.Location = new System.Drawing.Point(122, 68);
-            this.txtTpNumber.Name = "txtTpNumber";
-            this.txtTpNumber.Size = new System.Drawing.Size(141, 20);
-            this.txtTpNumber.TabIndex = 33;
+            this.txtUserId.Enabled = false;
+            this.txtUserId.Location = new System.Drawing.Point(170, 68);
+            this.txtUserId.Name = "txtUserId";
+            this.txtUserId.Size = new System.Drawing.Size(343, 20);
+            this.txtUserId.TabIndex = 33;
             // 
-            // txtUpdateName
+            // txtName
             // 
-            this.txtUpdateName.Enabled = false;
-            this.txtUpdateName.Location = new System.Drawing.Point(86, 21);
-            this.txtUpdateName.Multiline = true;
-            this.txtUpdateName.Name = "txtUpdateName";
-            this.txtUpdateName.Size = new System.Drawing.Size(427, 20);
-            this.txtUpdateName.TabIndex = 32;
+            this.txtName.Enabled = false;
+            this.txtName.Location = new System.Drawing.Point(170, 21);
+            this.txtName.Multiline = true;
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(343, 20);
+            this.txtName.TabIndex = 32;
             // 
             // btnReset
             // 
@@ -313,6 +320,7 @@
             this.btnReset.TabIndex = 31;
             this.btnReset.Text = "Reset";
             this.btnReset.UseVisualStyleBackColor = false;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // btnSubmit
             // 
@@ -328,6 +336,7 @@
             this.btnSubmit.TabIndex = 30;
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = false;
+            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
             // lblPassword
             // 
@@ -351,16 +360,16 @@
             this.lblEmail.TabIndex = 28;
             this.lblEmail.Text = "Email :";
             // 
-            // lblTpNumber
+            // lblUserId
             // 
-            this.lblTpNumber.AutoSize = true;
-            this.lblTpNumber.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTpNumber.ForeColor = System.Drawing.Color.White;
-            this.lblTpNumber.Location = new System.Drawing.Point(20, 65);
-            this.lblTpNumber.Name = "lblTpNumber";
-            this.lblTpNumber.Size = new System.Drawing.Size(96, 21);
-            this.lblTpNumber.TabIndex = 25;
-            this.lblTpNumber.Text = "TP Number :";
+            this.lblUserId.AutoSize = true;
+            this.lblUserId.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUserId.ForeColor = System.Drawing.Color.White;
+            this.lblUserId.Location = new System.Drawing.Point(20, 65);
+            this.lblUserId.Name = "lblUserId";
+            this.lblUserId.Size = new System.Drawing.Size(68, 21);
+            this.lblUserId.TabIndex = 25;
+            this.lblUserId.Text = "User ID :";
             // 
             // lblName
             // 
@@ -372,6 +381,25 @@
             this.lblName.Size = new System.Drawing.Size(59, 21);
             this.lblName.TabIndex = 22;
             this.lblName.Text = "Name :";
+            // 
+            // txtConfrimPassword
+            // 
+            this.txtConfrimPassword.Location = new System.Drawing.Point(170, 196);
+            this.txtConfrimPassword.Multiline = true;
+            this.txtConfrimPassword.Name = "txtConfrimPassword";
+            this.txtConfrimPassword.Size = new System.Drawing.Size(343, 20);
+            this.txtConfrimPassword.TabIndex = 37;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(20, 195);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(144, 21);
+            this.label4.TabIndex = 36;
+            this.label4.Text = "Confrim Password :";
             // 
             // studentUpdateInfo
             // 
@@ -389,7 +417,7 @@
             this.Name = "studentUpdateInfo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Login_Page_Load);
+            this.Load += new System.EventHandler(this.studentUpdateInfo_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -420,15 +448,17 @@
         private System.Windows.Forms.Button btnResRoom;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label lblEmail;
-        private System.Windows.Forms.Label lblTpNumber;
+        private System.Windows.Forms.Label lblUserId;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label lblPassword;
         private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.TextBox txtEmail;
-        private System.Windows.Forms.TextBox txtTpNumber;
-        private System.Windows.Forms.TextBox txtUpdateName;
+        private System.Windows.Forms.TextBox txtUserId;
+        private System.Windows.Forms.TextBox txtName;
+        private System.Windows.Forms.TextBox txtConfrimPassword;
+        private System.Windows.Forms.Label label4;
     }
 }
 

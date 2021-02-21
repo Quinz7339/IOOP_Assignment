@@ -8,11 +8,21 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using System.Data.SqlClient;
 
 namespace IOOP_Assignment
 {
     public partial class studentUpdateInfo : Form
     {
+        string userId = Controllers.userID;
+        string email;
+        readonly string pw = "8 alphanumeric characters or longer";
+
+        SqlConnection conn = new SqlConnection("Data Source = (LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\Library_Reservation_Database.mdf;Integrated Security = True; Connect Timeout = 30");
+        
+        SqlCommand cmdEmail;
+        SqlCommand cmdPassword;
+
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
 
         private static extern IntPtr CreateRoundRectRgn
@@ -23,7 +33,6 @@ namespace IOOP_Assignment
               int nBottomRect,
               int nWidthEllipse,
               int nHeightEllipse
-
           );
 
         public studentUpdateInfo()
@@ -38,9 +47,155 @@ namespace IOOP_Assignment
 
         }
 
-        private void Login_Page_Load(object sender, EventArgs e)
+        private void studentUpdateInfo_Load(object sender, EventArgs e)
         {
             lblDateTime.Text = DateTime.Now.ToString("dd MMM yyyy      hh:mm tt");
+
+            txtPassword.Text = pw;
+            txtPassword.ForeColor = SystemColors.GrayText;
+            txtPassword.UseSystemPasswordChar = false;
+
+            conn.Open();
+            cmdEmail = new SqlCommand("Select full_name, email FROM USER_INFO_T WHERE userId=@userId", conn);
+            cmdEmail.Parameters.AddWithValue("@userId", userId);
+            SqlDataReader dr = cmdEmail.ExecuteReader();
+            while (dr.Read())
+            {
+                email = dr["email"].ToString();
+                txtName.Text = dr["full_name"].ToString();
+                txtUserId.Text = userId;
+                txtEmail.Text = email;
+                txtEmail.ForeColor = SystemColors.GrayText;
+            }
+            conn.Close(); 
+        }
+
+        private void txtEmail_Enter(object sender, EventArgs e)
+        {
+            if (txtEmail.Text == email)
+            {
+                txtEmail.Text = "";
+                txtEmail.ForeColor = Color.Black;
+            }
+        }
+
+        private void txtEmail_Leave(object sender, EventArgs e)
+        {
+            if (txtEmail.Text == "")
+            {
+                txtEmail.Text = email;
+                txtEmail.ForeColor = SystemColors.GrayText;
+            }
+        }
+
+        private void txtPassword_Enter(object sender, EventArgs e)
+        {
+            if (txtPassword.Text == pw)
+            {
+                txtPassword.Text = "";
+                txtPassword.ForeColor = Color.Black;
+                txtPassword.UseSystemPasswordChar = true;
+            }
+        }
+
+        private void txtPassword_Leave(object sender, EventArgs e)
+        {
+            if (txtPassword.Text == "" || txtPassword.Text == pw)
+            {
+                txtPassword.Text = pw;
+                txtPassword.ForeColor = Color.Gray;
+                txtPassword.UseSystemPasswordChar = false;
+            }
+        }
+
+        private void btnSubmit_Click(object sender, EventArgs e)
+        {
+            if (txtConfrimPassword.Text == txtPassword.Text)
+            {
+                conn.Open();
+
+                //if both email and password inputed
+                if (txtEmail.Text != email && txtPassword.Text != pw)
+                {
+                    if (txtPassword.TextLength > 7)
+                    {
+                        //update email
+                        cmdEmail = new SqlCommand("Update USER_INFO_T SET email=@email WHERE userId=@userId", conn);
+                        cmdEmail.Parameters.AddWithValue("@userId", userId);
+                        cmdEmail.Parameters.AddWithValue("@email", txtEmail.Text);
+                        cmdEmail.ExecuteNonQuery();
+
+                        //update password
+                        cmdPassword = new SqlCommand("Update USER_PASSWORD_T SET pwd=@password WHERE userId=@userId", conn);
+                        cmdPassword.Parameters.AddWithValue("@userId", userId);
+                        cmdPassword.Parameters.AddWithValue("@password", txtPassword.Text);
+                        cmdPassword.ExecuteNonQuery();
+
+                        MessageBox.Show("User email and password updated !", "Submit Successfully", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+
+                        //if password inputed less than 8 alphanumeric
+                        if (txtPassword.Text != pw && txtPassword.TextLength != 0)
+                        {
+                            MessageBox.Show("Password must contains at least 8 alphanumeric characters or longer ! Please try again.", "Submit Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+
+                // if only email inputed
+                if (txtEmail.Text != email && txtPassword.Text == pw)
+
+                {
+                    //update email
+                    cmdEmail = new SqlCommand("Update USER_INFO_T SET email=@email WHERE userId=@userId", conn);
+                    cmdEmail.Parameters.AddWithValue("@userId", userId);
+                    cmdEmail.Parameters.AddWithValue("@email", txtEmail.Text);
+                    cmdEmail.ExecuteNonQuery();
+                    MessageBox.Show("User email updated !", "Submit Successfully", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+                //if only password inputed
+                if (txtEmail.Text == email && txtPassword.Text != pw && txtPassword.TextLength > 7)
+                {
+                    //update password
+                    cmdPassword = new SqlCommand("Update USER_PASSWORD_T SET pwd=@password WHERE userId=@userId", conn);
+                    cmdPassword.Parameters.AddWithValue("@userId", userId);
+                    cmdPassword.Parameters.AddWithValue("@password", txtPassword.Text);
+                    cmdPassword.ExecuteNonQuery();
+                    MessageBox.Show("User password updated !", "Submit Successfully", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    //if password inputed less than 8 alphanumeric
+                    if (txtPassword.Text != pw && txtPassword.TextLength != 0)
+                    {
+                        MessageBox.Show("Password must contains at least 8 alphanumeric characters or longer ! Please try again.", "Submit Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+
+                conn.Close();
+            }
+            else
+            {
+                MessageBox.Show("Two password are not match ! Please try again.", "Submit Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            btnReset.PerformClick();
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            txtEmail.Clear();
+            txtEmail.Text = email;
+            txtEmail.ForeColor = SystemColors.GrayText;
+            txtPassword.Clear();
+            txtPassword.Text = pw;
+            txtPassword.ForeColor = Color.Gray;
+            txtPassword.UseSystemPasswordChar = false;
+            txtConfrimPassword.Clear();
+
         }
 
         private void btnDashboard_Click(object sender, EventArgs e)
@@ -129,11 +284,6 @@ namespace IOOP_Assignment
         private void btnClose_Click(object sender, EventArgs e)
         {
             Application.Exit();
-        }
-
-        private void lblDateTime_Click(object sender, EventArgs e)
-        {
-
         }
     }
 
