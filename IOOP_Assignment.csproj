@@ -38,7 +38,9 @@
     <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
-    <Reference Include="System" />
+    <Reference Include="System">
+      <HintPath>..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
+    </Reference>
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Services" />
@@ -59,6 +61,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DailyReport.rpt</DependentUpon>
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="dsDailyReport.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsDailyReport.xsd</DependentUpon>
     </Compile>
     <Compile Include="dsMonthlyReport.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -127,6 +134,17 @@
     <EmbeddedResource Include="Librarian_PendingRes.resx">
       <DependentUpon>Librarian_PendingRes.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="dsDailyReport.xsc">
+      <DependentUpon>dsDailyReport.xsd</DependentUpon>
+    </None>
+    <None Include="dsDailyReport.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsDailyReport.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dsDailyReport.xss">
+      <DependentUpon>dsDailyReport.xsd</DependentUpon>
+    </None>
     <None Include="dsMonthlyReport.xsc">
       <DependentUpon>dsMonthlyReport.xsd</DependentUpon>
     </None>

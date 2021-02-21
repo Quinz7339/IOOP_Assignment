@@ -185,8 +185,8 @@ namespace IOOP_Assignment
 
         private void btnDailyRep_Click(object sender, EventArgs e)
         {
-            dsMonthlyReport dsD = new dsMonthlyReport();
-            dsMonthlyReportTableAdapters.RESERVATION_INFO_TTableAdapter ad = new dsMonthlyReportTableAdapters.RESERVATION_INFO_TTableAdapter();
+            dsDailyReport dsD = new dsDailyReport();
+            dsDailyReportTableAdapters.RESERVATION_INFO_TTableAdapter ad = new dsDailyReportTableAdapters.RESERVATION_INFO_TTableAdapter();
             ad.Fill(dsD.RESERVATION_INFO_T);
             DailyReport rpt = new DailyReport();
             rpt.SetDataSource(dsD);
