@@ -39,6 +39,8 @@ namespace IOOP_Assignment
             txtUsername.ForeColor = SystemColors.GrayText;
             txtPassword.Text = pw;
             txtPassword.ForeColor = SystemColors.GrayText;
+            Controllers updateDb = new Controllers();
+            updateDb.preUpdateDatabase();
         }
 
         private void btnClose_Click(object sender, EventArgs e)

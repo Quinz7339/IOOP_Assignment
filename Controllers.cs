@@ -15,6 +15,26 @@ namespace IOOP_Assignment
         public static string userName;
         public static string userRole;
 
+        //method to be called at the start of the program to update records that are before the current date and time to be ELAPSED or expired
+       public void preUpdateDatabase()
+        {
+            using (SqlConnection updateDBConn = new SqlConnection("Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = |DataDirectory|\\Library_Reservation_Database.mdf; Integrated Security = True; Connect Timeout = 30 "))
+            {
+                updateDBConn.Open();
+                string updateDBStr = "UPDATE RESERVATION_INFO_T SET reserveStatus = 'ELAPSED' WHERE ((reserveDate <= @currentDate) AND (reserveStartTime < @currentTime)) AND (reserveStatus IN ('APPROVED','PENDING'))";
+                using (SqlCommand updateDBCmd = new SqlCommand(updateDBStr, updateDBConn))
+                {
+                    string currentDate = DateTime.Today.ToString("yyyy-MM-dd");
+                    string currentTime = DateTime.Now.ToString("hh:mm:ss tt");
+                    string currentDateTime = currentDate + ' ' + currentTime;
+                    updateDBCmd.Parameters.AddWithValue("@currentDate", currentDate);
+                    updateDBCmd.Parameters.AddWithValue("@currentTime", DateTime.ParseExact(currentDateTime, "yyyy-MM-dd hh:mm:ss tt", CultureInfo.InvariantCulture));
+
+                    updateDBCmd.ExecuteNonQuery();
+                }
+            }
+        }
+
         //to be used between Login_Page and the dashboard for both users
         // return the status the authentication process, whether it is successful or failed
         public bool getUserId(string userId, string password)

@@ -285,13 +285,15 @@ namespace IOOP_Assignment
                             updateResCmd.Parameters.AddWithValue("@reserveId", reserveId);
 
                             updateResCmd.ExecuteNonQuery();
-
                         }
                     }
+                    MessageBox.Show("Modification Succesful!", "Your reservation has been modified.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    btnReset.PerformClick();
                 }
                 else
                 {
                     MessageBox.Show("Please select a different room.", "Notifcation", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    btnReset.PerformClick();
                 }
             }
             else if (modResStatus == "Cancel")
