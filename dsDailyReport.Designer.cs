@@ -279,23 +279,7 @@ namespace IOOP_Assignment {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class RESERVATION_INFO_TDataTable : global::System.Data.TypedTableBase<RESERVATION_INFO_TRow> {
             
-            private global::System.Data.DataColumn columnreserveId;
-            
-            private global::System.Data.DataColumn columnroomId;
-            
-            private global::System.Data.DataColumn columnbookingDate;
-            
-            private global::System.Data.DataColumn columnbookingTime;
-            
-            private global::System.Data.DataColumn columnreserveDate;
-            
-            private global::System.Data.DataColumn columnreserveStartTime;
-            
-            private global::System.Data.DataColumn columnreserveEndTime;
-            
-            private global::System.Data.DataColumn columnreserveStatus;
-            
-            private global::System.Data.DataColumn columnuserId;
+            private global::System.Data.DataColumn columnReserve_Date;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -332,73 +316,9 @@ namespace IOOP_Assignment {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn reserveIdColumn {
+            public global::System.Data.DataColumn Reserve_DateColumn {
                 get {
-                    return this.columnreserveId;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn roomIdColumn {
-                get {
-                    return this.columnroomId;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn bookingDateColumn {
-                get {
-                    return this.columnbookingDate;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn bookingTimeColumn {
-                get {
-                    return this.columnbookingTime;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn reserveDateColumn {
-                get {
-                    return this.columnreserveDate;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn reserveStartTimeColumn {
-                get {
-                    return this.columnreserveStartTime;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn reserveEndTimeColumn {
-                get {
-                    return this.columnreserveEndTime;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn reserveStatusColumn {
-                get {
-                    return this.columnreserveStatus;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn userIdColumn {
-                get {
-                    return this.columnuserId;
+                    return this.columnReserve_Date;
                 }
             }
             
@@ -439,28 +359,13 @@ namespace IOOP_Assignment {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public RESERVATION_INFO_TRow AddRESERVATION_INFO_TRow(string roomId, System.DateTime bookingDate, System.DateTime bookingTime, System.DateTime reserveDate, System.DateTime reserveStartTime, System.DateTime reserveEndTime, string reserveStatus, string userId) {
+            public RESERVATION_INFO_TRow AddRESERVATION_INFO_TRow(System.DateTime Reserve_Date) {
                 RESERVATION_INFO_TRow rowRESERVATION_INFO_TRow = ((RESERVATION_INFO_TRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        null,
-                        roomId,
-                        bookingDate,
-                        bookingTime,
-                        reserveDate,
-                        reserveStartTime,
-                        reserveEndTime,
-                        reserveStatus,
-                        userId};
+                        Reserve_Date};
                 rowRESERVATION_INFO_TRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowRESERVATION_INFO_TRow);
                 return rowRESERVATION_INFO_TRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public RESERVATION_INFO_TRow FindByreserveId(int reserveId) {
-                return ((RESERVATION_INFO_TRow)(this.Rows.Find(new object[] {
-                            reserveId})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -480,57 +385,15 @@ namespace IOOP_Assignment {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
-                this.columnreserveId = base.Columns["reserveId"];
-                this.columnroomId = base.Columns["roomId"];
-                this.columnbookingDate = base.Columns["bookingDate"];
-                this.columnbookingTime = base.Columns["bookingTime"];
-                this.columnreserveDate = base.Columns["reserveDate"];
-                this.columnreserveStartTime = base.Columns["reserveStartTime"];
-                this.columnreserveEndTime = base.Columns["reserveEndTime"];
-                this.columnreserveStatus = base.Columns["reserveStatus"];
-                this.columnuserId = base.Columns["userId"];
+                this.columnReserve_Date = base.Columns["Reserve Date"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             private void InitClass() {
-                this.columnreserveId = new global::System.Data.DataColumn("reserveId", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnreserveId);
-                this.columnroomId = new global::System.Data.DataColumn("roomId", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnroomId);
-                this.columnbookingDate = new global::System.Data.DataColumn("bookingDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnbookingDate);
-                this.columnbookingTime = new global::System.Data.DataColumn("bookingTime", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnbookingTime);
-                this.columnreserveDate = new global::System.Data.DataColumn("reserveDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnreserveDate);
-                this.columnreserveStartTime = new global::System.Data.DataColumn("reserveStartTime", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnreserveStartTime);
-                this.columnreserveEndTime = new global::System.Data.DataColumn("reserveEndTime", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnreserveEndTime);
-                this.columnreserveStatus = new global::System.Data.DataColumn("reserveStatus", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnreserveStatus);
-                this.columnuserId = new global::System.Data.DataColumn("userId", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnuserId);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnreserveId}, true));
-                this.columnreserveId.AutoIncrement = true;
-                this.columnreserveId.AutoIncrementSeed = -1;
-                this.columnreserveId.AutoIncrementStep = -1;
-                this.columnreserveId.AllowDBNull = false;
-                this.columnreserveId.ReadOnly = true;
-                this.columnreserveId.Unique = true;
-                this.columnroomId.AllowDBNull = false;
-                this.columnroomId.MaxLength = 8;
-                this.columnbookingDate.AllowDBNull = false;
-                this.columnbookingTime.AllowDBNull = false;
-                this.columnreserveDate.AllowDBNull = false;
-                this.columnreserveStartTime.AllowDBNull = false;
-                this.columnreserveEndTime.AllowDBNull = false;
-                this.columnreserveStatus.AllowDBNull = false;
-                this.columnreserveStatus.MaxLength = 9;
-                this.columnuserId.AllowDBNull = false;
-                this.columnuserId.MaxLength = 8;
+                this.columnReserve_Date = new global::System.Data.DataColumn("Reserve Date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnReserve_Date);
+                this.columnReserve_Date.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -673,101 +536,30 @@ namespace IOOP_Assignment {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int reserveId {
+            public System.DateTime Reserve_Date {
                 get {
-                    return ((int)(this[this.tableRESERVATION_INFO_T.reserveIdColumn]));
+                    try {
+                        return ((global::System.DateTime)(this[this.tableRESERVATION_INFO_T.Reserve_DateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Reserve Date\' in table \'RESERVATION_INFO_T\' is DBNull.", e);
+                    }
                 }
                 set {
-                    this[this.tableRESERVATION_INFO_T.reserveIdColumn] = value;
+                    this[this.tableRESERVATION_INFO_T.Reserve_DateColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string roomId {
-                get {
-                    return ((string)(this[this.tableRESERVATION_INFO_T.roomIdColumn]));
-                }
-                set {
-                    this[this.tableRESERVATION_INFO_T.roomIdColumn] = value;
-                }
+            public bool IsReserve_DateNull() {
+                return this.IsNull(this.tableRESERVATION_INFO_T.Reserve_DateColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.DateTime bookingDate {
-                get {
-                    return ((global::System.DateTime)(this[this.tableRESERVATION_INFO_T.bookingDateColumn]));
-                }
-                set {
-                    this[this.tableRESERVATION_INFO_T.bookingDateColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.DateTime bookingTime {
-                get {
-                    return ((global::System.DateTime)(this[this.tableRESERVATION_INFO_T.bookingTimeColumn]));
-                }
-                set {
-                    this[this.tableRESERVATION_INFO_T.bookingTimeColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.DateTime reserveDate {
-                get {
-                    return ((global::System.DateTime)(this[this.tableRESERVATION_INFO_T.reserveDateColumn]));
-                }
-                set {
-                    this[this.tableRESERVATION_INFO_T.reserveDateColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.DateTime reserveStartTime {
-                get {
-                    return ((global::System.DateTime)(this[this.tableRESERVATION_INFO_T.reserveStartTimeColumn]));
-                }
-                set {
-                    this[this.tableRESERVATION_INFO_T.reserveStartTimeColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.DateTime reserveEndTime {
-                get {
-                    return ((global::System.DateTime)(this[this.tableRESERVATION_INFO_T.reserveEndTimeColumn]));
-                }
-                set {
-                    this[this.tableRESERVATION_INFO_T.reserveEndTimeColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string reserveStatus {
-                get {
-                    return ((string)(this[this.tableRESERVATION_INFO_T.reserveStatusColumn]));
-                }
-                set {
-                    this[this.tableRESERVATION_INFO_T.reserveStatusColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string userId {
-                get {
-                    return ((string)(this[this.tableRESERVATION_INFO_T.userIdColumn]));
-                }
-                set {
-                    this[this.tableRESERVATION_INFO_T.userIdColumn] = value;
-                }
+            public void SetReserve_DateNull() {
+                this[this.tableRESERVATION_INFO_T.Reserve_DateColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -930,72 +722,15 @@ namespace IOOP_Assignment.dsDailyReportTableAdapters {
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "RESERVATION_INFO_T";
-            tableMapping.ColumnMappings.Add("reserveId", "reserveId");
-            tableMapping.ColumnMappings.Add("roomId", "roomId");
-            tableMapping.ColumnMappings.Add("bookingDate", "bookingDate");
-            tableMapping.ColumnMappings.Add("bookingTime", "bookingTime");
-            tableMapping.ColumnMappings.Add("reserveDate", "reserveDate");
-            tableMapping.ColumnMappings.Add("reserveStartTime", "reserveStartTime");
-            tableMapping.ColumnMappings.Add("reserveEndTime", "reserveEndTime");
-            tableMapping.ColumnMappings.Add("reserveStatus", "reserveStatus");
-            tableMapping.ColumnMappings.Add("userId", "userId");
+            tableMapping.ColumnMappings.Add("Reserve Date", "Reserve Date");
             this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[RESERVATION_INFO_T] WHERE (([reserveId] = @Original_reserveId) AND ([roomId] = @Original_roomId) AND ([bookingDate] = @Original_bookingDate) AND ([bookingTime] = @Original_bookingTime) AND ([reserveDate] = @Original_reserveDate) AND ([reserveStartTime] = @Original_reserveStartTime) AND ([reserveEndTime] = @Original_reserveEndTime) AND ([reserveStatus] = @Original_reserveStatus) AND ([userId] = @Original_userId))";
-            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_reserveId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "reserveId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_roomId", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "roomId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_bookingDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "bookingDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_bookingTime", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "bookingTime", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_reserveDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "reserveDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_reserveStartTime", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "reserveStartTime", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_reserveEndTime", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "reserveEndTime", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_reserveStatus", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "reserveStatus", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_userId", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "userId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[RESERVATION_INFO_T] ([roomId], [bookingDate], [bookingTime], [reserveDate], [reserveStartTime], [reserveEndTime], [reserveStatus], [userId]) VALUES (@roomId, @bookingDate, @bookingTime, @reserveDate, @reserveStartTime, @reserveEndTime, @reserveStatus, @userId);
-SELECT reserveId, roomId, bookingDate, bookingTime, reserveDate, reserveStartTime, reserveEndTime, reserveStatus, userId FROM RESERVATION_INFO_T WHERE (reserveId = SCOPE_IDENTITY())";
-            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@roomId", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "roomId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@bookingDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "bookingDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@bookingTime", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "bookingTime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@reserveDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "reserveDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@reserveStartTime", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "reserveStartTime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@reserveEndTime", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "reserveEndTime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@reserveStatus", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "reserveStatus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@userId", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "userId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[RESERVATION_INFO_T] SET [roomId] = @roomId, [bookingDate] = @bookingDate, [bookingTime] = @bookingTime, [reserveDate] = @reserveDate, [reserveStartTime] = @reserveStartTime, [reserveEndTime] = @reserveEndTime, [reserveStatus] = @reserveStatus, [userId] = @userId WHERE (([reserveId] = @Original_reserveId) AND ([roomId] = @Original_roomId) AND ([bookingDate] = @Original_bookingDate) AND ([bookingTime] = @Original_bookingTime) AND ([reserveDate] = @Original_reserveDate) AND ([reserveStartTime] = @Original_reserveStartTime) AND ([reserveEndTime] = @Original_reserveEndTime) AND ([reserveStatus] = @Original_reserveStatus) AND ([userId] = @Original_userId));
-SELECT reserveId, roomId, bookingDate, bookingTime, reserveDate, reserveStartTime, reserveEndTime, reserveStatus, userId FROM RESERVATION_INFO_T WHERE (reserveId = @reserveId)";
-            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@roomId", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "roomId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@bookingDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "bookingDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@bookingTime", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "bookingTime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@reserveDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "reserveDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@reserveStartTime", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "reserveStartTime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@reserveEndTime", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "reserveEndTime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@reserveStatus", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "reserveStatus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@userId", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "userId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_reserveId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "reserveId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_roomId", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "roomId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_bookingDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "bookingDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_bookingTime", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "bookingTime", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_reserveDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "reserveDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_reserveStartTime", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "reserveStartTime", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_reserveEndTime", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "reserveEndTime", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_reserveStatus", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "reserveStatus", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_userId", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "userId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@reserveId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "reserveId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::IOOP_Assignment.Properties.Settings.Default.Library_Reservation_DatabaseConnectionString1;
+            this._connection.ConnectionString = global::IOOP_Assignment.Properties.Settings.Default.Library_Reservation_DatabaseConnectionString2;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1004,8 +739,8 @@ SELECT reserveId, roomId, bookingDate, bookingTime, reserveDate, reserveStartTim
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT reserveId, roomId, bookingDate, bookingTime, reserveDate, reserveStartTime" +
-                ", reserveEndTime, reserveStatus, userId FROM dbo.RESERVATION_INFO_T";
+            this._commandCollection[0].CommandText = "SELECT CAST(reserveDate AS datetime) AS \'Reserve Date\'\r\nFROM   RESERVATION_INFO_T" +
+                "";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -1032,236 +767,6 @@ SELECT reserveId, roomId, bookingDate, bookingTime, reserveDate, reserveStartTim
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(dsDailyReport.RESERVATION_INFO_TDataTable dataTable) {
-            return this.Adapter.Update(dataTable);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(dsDailyReport dataSet) {
-            return this.Adapter.Update(dataSet, "RESERVATION_INFO_T");
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow dataRow) {
-            return this.Adapter.Update(new global::System.Data.DataRow[] {
-                        dataRow});
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow[] dataRows) {
-            return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_reserveId, string Original_roomId, System.DateTime Original_bookingDate, System.DateTime Original_bookingTime, System.DateTime Original_reserveDate, System.DateTime Original_reserveStartTime, System.DateTime Original_reserveEndTime, string Original_reserveStatus, string Original_userId) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_reserveId));
-            if ((Original_roomId == null)) {
-                throw new global::System.ArgumentNullException("Original_roomId");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_roomId));
-            }
-            this.Adapter.DeleteCommand.Parameters[2].Value = ((System.DateTime)(Original_bookingDate));
-            this.Adapter.DeleteCommand.Parameters[3].Value = ((System.DateTime)(Original_bookingTime));
-            this.Adapter.DeleteCommand.Parameters[4].Value = ((System.DateTime)(Original_reserveDate));
-            this.Adapter.DeleteCommand.Parameters[5].Value = ((System.DateTime)(Original_reserveStartTime));
-            this.Adapter.DeleteCommand.Parameters[6].Value = ((System.DateTime)(Original_reserveEndTime));
-            if ((Original_reserveStatus == null)) {
-                throw new global::System.ArgumentNullException("Original_reserveStatus");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((string)(Original_reserveStatus));
-            }
-            if ((Original_userId == null)) {
-                throw new global::System.ArgumentNullException("Original_userId");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_userId));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.DeleteCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.DeleteCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string roomId, System.DateTime bookingDate, System.DateTime bookingTime, System.DateTime reserveDate, System.DateTime reserveStartTime, System.DateTime reserveEndTime, string reserveStatus, string userId) {
-            if ((roomId == null)) {
-                throw new global::System.ArgumentNullException("roomId");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(roomId));
-            }
-            this.Adapter.InsertCommand.Parameters[1].Value = ((System.DateTime)(bookingDate));
-            this.Adapter.InsertCommand.Parameters[2].Value = ((System.DateTime)(bookingTime));
-            this.Adapter.InsertCommand.Parameters[3].Value = ((System.DateTime)(reserveDate));
-            this.Adapter.InsertCommand.Parameters[4].Value = ((System.DateTime)(reserveStartTime));
-            this.Adapter.InsertCommand.Parameters[5].Value = ((System.DateTime)(reserveEndTime));
-            if ((reserveStatus == null)) {
-                throw new global::System.ArgumentNullException("reserveStatus");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(reserveStatus));
-            }
-            if ((userId == null)) {
-                throw new global::System.ArgumentNullException("userId");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(userId));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(
-                    string roomId, 
-                    System.DateTime bookingDate, 
-                    System.DateTime bookingTime, 
-                    System.DateTime reserveDate, 
-                    System.DateTime reserveStartTime, 
-                    System.DateTime reserveEndTime, 
-                    string reserveStatus, 
-                    string userId, 
-                    int Original_reserveId, 
-                    string Original_roomId, 
-                    System.DateTime Original_bookingDate, 
-                    System.DateTime Original_bookingTime, 
-                    System.DateTime Original_reserveDate, 
-                    System.DateTime Original_reserveStartTime, 
-                    System.DateTime Original_reserveEndTime, 
-                    string Original_reserveStatus, 
-                    string Original_userId, 
-                    int reserveId) {
-            if ((roomId == null)) {
-                throw new global::System.ArgumentNullException("roomId");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(roomId));
-            }
-            this.Adapter.UpdateCommand.Parameters[1].Value = ((System.DateTime)(bookingDate));
-            this.Adapter.UpdateCommand.Parameters[2].Value = ((System.DateTime)(bookingTime));
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((System.DateTime)(reserveDate));
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((System.DateTime)(reserveStartTime));
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((System.DateTime)(reserveEndTime));
-            if ((reserveStatus == null)) {
-                throw new global::System.ArgumentNullException("reserveStatus");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(reserveStatus));
-            }
-            if ((userId == null)) {
-                throw new global::System.ArgumentNullException("userId");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(userId));
-            }
-            this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_reserveId));
-            if ((Original_roomId == null)) {
-                throw new global::System.ArgumentNullException("Original_roomId");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_roomId));
-            }
-            this.Adapter.UpdateCommand.Parameters[10].Value = ((System.DateTime)(Original_bookingDate));
-            this.Adapter.UpdateCommand.Parameters[11].Value = ((System.DateTime)(Original_bookingTime));
-            this.Adapter.UpdateCommand.Parameters[12].Value = ((System.DateTime)(Original_reserveDate));
-            this.Adapter.UpdateCommand.Parameters[13].Value = ((System.DateTime)(Original_reserveStartTime));
-            this.Adapter.UpdateCommand.Parameters[14].Value = ((System.DateTime)(Original_reserveEndTime));
-            if ((Original_reserveStatus == null)) {
-                throw new global::System.ArgumentNullException("Original_reserveStatus");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_reserveStatus));
-            }
-            if ((Original_userId == null)) {
-                throw new global::System.ArgumentNullException("Original_userId");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Original_userId));
-            }
-            this.Adapter.UpdateCommand.Parameters[17].Value = ((int)(reserveId));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(
-                    string roomId, 
-                    System.DateTime bookingDate, 
-                    System.DateTime bookingTime, 
-                    System.DateTime reserveDate, 
-                    System.DateTime reserveStartTime, 
-                    System.DateTime reserveEndTime, 
-                    string reserveStatus, 
-                    string userId, 
-                    int Original_reserveId, 
-                    string Original_roomId, 
-                    System.DateTime Original_bookingDate, 
-                    System.DateTime Original_bookingTime, 
-                    System.DateTime Original_reserveDate, 
-                    System.DateTime Original_reserveStartTime, 
-                    System.DateTime Original_reserveEndTime, 
-                    string Original_reserveStatus, 
-                    string Original_userId) {
-            return this.Update(roomId, bookingDate, bookingTime, reserveDate, reserveStartTime, reserveEndTime, reserveStatus, userId, Original_reserveId, Original_roomId, Original_bookingDate, Original_bookingTime, Original_reserveDate, Original_reserveStartTime, Original_reserveEndTime, Original_reserveStatus, Original_userId, Original_reserveId);
-        }
     }
     
     /// <summary>
@@ -1276,8 +781,6 @@ SELECT reserveId, roomId, bookingDate, bookingTime, reserveDate, reserveStartTim
         
         private UpdateOrderOption _updateOrder;
         
-        private RESERVATION_INFO_TTableAdapter _rESERVATION_INFO_TTableAdapter;
-        
         private bool _backupDataSetBeforeUpdate;
         
         private global::System.Data.IDbConnection _connection;
@@ -1290,20 +793,6 @@ SELECT reserveId, roomId, bookingDate, bookingTime, reserveDate, reserveStartTim
             }
             set {
                 this._updateOrder = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
-            "a", "System.Drawing.Design.UITypeEditor")]
-        public RESERVATION_INFO_TTableAdapter RESERVATION_INFO_TTableAdapter {
-            get {
-                return this._rESERVATION_INFO_TTableAdapter;
-            }
-            set {
-                this._rESERVATION_INFO_TTableAdapter = value;
             }
         }
         
@@ -1326,10 +815,6 @@ SELECT reserveId, roomId, bookingDate, bookingTime, reserveDate, reserveStartTim
                 if ((this._connection != null)) {
                     return this._connection;
                 }
-                if (((this._rESERVATION_INFO_TTableAdapter != null) 
-                            && (this._rESERVATION_INFO_TTableAdapter.Connection != null))) {
-                    return this._rESERVATION_INFO_TTableAdapter.Connection;
-                }
                 return null;
             }
             set {
@@ -1343,9 +828,6 @@ SELECT reserveId, roomId, bookingDate, bookingTime, reserveDate, reserveStartTim
         public int TableAdapterInstanceCount {
             get {
                 int count = 0;
-                if ((this._rESERVATION_INFO_TTableAdapter != null)) {
-                    count = (count + 1);
-                }
                 return count;
             }
         }
@@ -1357,15 +839,6 @@ SELECT reserveId, roomId, bookingDate, bookingTime, reserveDate, reserveStartTim
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private int UpdateUpdatedRows(dsDailyReport dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._rESERVATION_INFO_TTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.RESERVATION_INFO_T.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._rESERVATION_INFO_TTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             return result;
         }
         
@@ -1376,14 +849,6 @@ SELECT reserveId, roomId, bookingDate, bookingTime, reserveDate, reserveStartTim
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private int UpdateInsertedRows(dsDailyReport dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._rESERVATION_INFO_TTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.RESERVATION_INFO_T.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._rESERVATION_INFO_TTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             return result;
         }
         
@@ -1394,14 +859,6 @@ SELECT reserveId, roomId, bookingDate, bookingTime, reserveDate, reserveStartTim
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private int UpdateDeletedRows(dsDailyReport dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._rESERVATION_INFO_TTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.RESERVATION_INFO_T.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._rESERVATION_INFO_TTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             return result;
         }
         
@@ -1441,11 +898,6 @@ SELECT reserveId, roomId, bookingDate, bookingTime, reserveDate, reserveStartTim
             if ((dataSet.HasChanges() == false)) {
                 return 0;
             }
-            if (((this._rESERVATION_INFO_TTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._rESERVATION_INFO_TTableAdapter.Connection) == false))) {
-                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
-                        "tring.");
-            }
             global::System.Data.IDbConnection workConnection = this.Connection;
             if ((workConnection == null)) {
                 throw new global::System.ApplicationException("TableAdapterManager contains no connection information. Set each TableAdapterMana" +
@@ -1478,15 +930,6 @@ SELECT reserveId, roomId, bookingDate, bookingTime, reserveDate, reserveStartTim
             try {
                 // ---- Prepare for update -----------
                 //
-                if ((this._rESERVATION_INFO_TTableAdapter != null)) {
-                    revertConnections.Add(this._rESERVATION_INFO_TTableAdapter, this._rESERVATION_INFO_TTableAdapter.Connection);
-                    this._rESERVATION_INFO_TTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._rESERVATION_INFO_TTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._rESERVATION_INFO_TTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._rESERVATION_INFO_TTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._rESERVATION_INFO_TTableAdapter.Adapter);
-                    }
-                }
                 // 
                 //---- Perform updates -----------
                 //
@@ -1544,10 +987,6 @@ SELECT reserveId, roomId, bookingDate, bookingTime, reserveDate, reserveStartTim
             finally {
                 if (workConnOpened) {
                     workConnection.Close();
-                }
-                if ((this._rESERVATION_INFO_TTableAdapter != null)) {
-                    this._rESERVATION_INFO_TTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._rESERVATION_INFO_TTableAdapter]));
-                    this._rESERVATION_INFO_TTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];

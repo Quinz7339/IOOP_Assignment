@@ -199,6 +199,7 @@ namespace IOOP_Assignment
             DailyReport rpt = new DailyReport();
             rpt.SetDataSource(dsD);
             crystalReportViewer1.ReportSource = rpt;
+
         }
 
         private void btnMonthlyRep_Click(object sender, EventArgs e)
