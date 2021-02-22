@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.Diagnostics;
 using System.Data.SqlClient;
+using System.Globalization;
 
 namespace IOOP_Assignment
 {
@@ -52,7 +53,7 @@ namespace IOOP_Assignment
             lblUsername.Text = userName;
         }
          
-        private void btnDashboad_Click(object sender, EventArgs e)
+        private void btnDashboard_Click(object sender, EventArgs e)
         {
             pnlNav.Height = btnDashboard.Height;
             pnlNav.Top = btnDashboard.Top;
@@ -227,14 +228,15 @@ namespace IOOP_Assignment
                         while (checkRoomReader.Read())
                         {
                             //parsing the user selected times into datetime format
-                            DateTime selectedStartTime = DateTime.Parse(cboStartTime.SelectedItem.ToString());
-                            DateTime selectedEndTime = DateTime.Parse(cboStartTime.SelectedItem.ToString());
+                            DateTime selectedStartTime = DateTime.ParseExact(dtpResDate.Value.ToString("yyyy-M-dd") + ' ' + cboStartTime.SelectedItem.ToString(), "yyyy-M-dd hh:mm tt", CultureInfo.InvariantCulture);
+                            DateTime selectedEndTime = DateTime.ParseExact(dtpResDate.Value.ToString("yyyy-M-dd") + ' ' + cboEndTime.SelectedItem.ToString(), "yyyy-M-dd hh:mm tt", CultureInfo.InvariantCulture);
 
                             //parsing the datetime value of each reservations' start time and end time into datetime format
                             DateTime recordStartTime = DateTime.Parse(checkRoomReader[1].ToString());
                             DateTime recordEndTime = DateTime.Parse(checkRoomReader[2].ToString());
+                            MessageBox.Show(cboStartTime.SelectedItem.ToString(), recordStartTime.ToString());
 
-                             //if either of this is true, where the user selected time intesects with any records' time, code blocks below is executed
+                            //if either of this is true, where the user selected time intesects with any records' time, code blocks below is executed
                             if ((DateTime.Compare(selectedStartTime, recordStartTime) >= 0 && DateTime.Compare(selectedStartTime, recordEndTime) <= 0) || // Check if user selected start time is both (later than a record's start time ) AND (earlier than a record's end time)
                                 (DateTime.Compare(selectedEndTime, recordStartTime) >= 0 && DateTime.Compare(selectedEndTime, recordEndTime) <= 0) || // Check if user selected endtime is both (later than a record's start time ) AND (earlier than a record's end time)
                                 (DateTime.Compare(selectedStartTime, recordStartTime) <= 0 && DateTime.Compare(selectedEndTime, recordEndTime) >= 0)) // Check if user's (selected start time is earlier than a record's start time ) AND (selected end time later than a record's end time)
