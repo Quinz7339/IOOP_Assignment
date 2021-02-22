@@ -21,7 +21,7 @@ namespace IOOP_Assignment
             using (SqlConnection updateDBConn = new SqlConnection("Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = |DataDirectory|\\Library_Reservation_Database.mdf; Integrated Security = True; Connect Timeout = 30 "))
             {
                 updateDBConn.Open();
-                string updateDBStr = "UPDATE RESERVATION_INFO_T SET reserveStatus = 'ELAPSED' WHERE ((reserveDate <= @currentDate) AND (reserveStartTime < @currentTime)) AND (reserveStatus IN ('APPROVED','PENDING'))";
+                string updateDBStr = "UPDATE RESERVATION_INFO_T SET reserveStatus = 'REJECTED' WHERE ((reserveDate <= @currentDate) AND (reserveStartTime < @currentTime)) AND (reserveStatus = 'PENDING')";
                 using (SqlCommand updateDBCmd = new SqlCommand(updateDBStr, updateDBConn))
                 {
                     string currentDate = DateTime.Today.ToString("yyyy-MM-dd");
@@ -98,13 +98,19 @@ namespace IOOP_Assignment
                 addReservationConn.Open();
                 using (SqlCommand addReservationCmd= new SqlCommand(addReservationStr, addReservationConn))
                 {
+
+                    //DateTime reserveStartTimeDT = DateTime.ParseExact(reserveStartTime, "hh:mm tt", CultureInfo.InvariantCulture);
+                    //DateTime reserveEndTimeDT = DateTime.ParseExact(reserveEndTime, "hh:mm tt", CultureInfo.InvariantCulture)
+                    string reserveStartTimeWithDate = reserveDate + " " + reserveStartTime;
+                    string reserveEndTimeWithDate = reserveDate + " " + reserveEndTime;
+
                     //concentate TextBox values to SQL string
                     addReservationCmd.Parameters.AddWithValue("@roomId", roomId);
                     addReservationCmd.Parameters.AddWithValue("@bookingDate", DateTime.ParseExact(bookingDate, "dd/M/yyyy", CultureInfo.InvariantCulture));
                     addReservationCmd.Parameters.AddWithValue("@bookingTime", DateTime.ParseExact(bookingTime, "hh:mm tt", CultureInfo.InvariantCulture));
-                    addReservationCmd.Parameters.AddWithValue("@reserveDate", DateTime.ParseExact(reserveDate, "dd/M/yyyy", CultureInfo.InvariantCulture));
-                    addReservationCmd.Parameters.AddWithValue("@reserveStartTime", DateTime.ParseExact(reserveStartTime, "hh:mm tt", CultureInfo.InvariantCulture));
-                    addReservationCmd.Parameters.AddWithValue("@reserveEndTime", DateTime.ParseExact(reserveEndTime, "hh:mm tt", CultureInfo.InvariantCulture));
+                    addReservationCmd.Parameters.AddWithValue("@reserveDate", DateTime.ParseExact(reserveDate, "yyyy-M-dd", CultureInfo.InvariantCulture));
+                    addReservationCmd.Parameters.AddWithValue("@reserveStartTime", DateTime.ParseExact(reserveStartTimeWithDate, "yyyy-M-dd hh:mm tt", CultureInfo.InvariantCulture));
+                    addReservationCmd.Parameters.AddWithValue("@reserveEndTime", DateTime.ParseExact(reserveEndTimeWithDate, "yyyy-M-dd hh:mm tt", CultureInfo.InvariantCulture));
                     addReservationCmd.Parameters.AddWithValue("@reserveStatus", "APPROVED");
                     addReservationCmd.Parameters.AddWithValue("@userId", userId);
 

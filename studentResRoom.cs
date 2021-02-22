@@ -20,9 +20,7 @@ namespace IOOP_Assignment
         string roomId;
         string roomSelected;
         string selectedRoomPrefix;
-        string resDate;
-        string resStartTime;
-        string resEndTime;
+
 
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
 
@@ -314,11 +312,6 @@ namespace IOOP_Assignment
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            //changing user input data to string
-            resDate = dtpResDate.Value.ToString("dd/MM/yyyy");
-            resStartTime = cboStartTime.SelectedItem.ToString();
-            resEndTime = cboEndTime.SelectedItem.ToString();
-
             // clears the listbox before displaying new items
             lstReceipt.Items.Clear();
 
@@ -327,15 +320,15 @@ namespace IOOP_Assignment
             lstReceipt.Items.Add("Time: " + DateTime.Now.ToString("hh:mm tt"));
             lstReceipt.Items.Add("\n"); // displays a new empty line
             lstReceipt.Items.Add("Room Booked:\t\t" + roomId);
-            lstReceipt.Items.Add("Reserved Date:\t\t" + resDate);
-            lstReceipt.Items.Add("Reserved Start Time:\t" + resStartTime);
-            lstReceipt.Items.Add("Reserved End Time:\t" + resEndTime);
+            lstReceipt.Items.Add("Reserved Date:\t\t" + dtpResDate.Value.ToString());
+            lstReceipt.Items.Add("Reserved Start Time:\t" + cboStartTime.SelectedItem.ToString());
+            lstReceipt.Items.Add("Reserved End Time:\t" + cboEndTime.SelectedItem.ToString());
 
  
             Controllers stuResRoomCtl = new Controllers();
 
             //attempts to insert the given reservation info into the database
-            int i = stuResRoomCtl.addReservation(roomId, DateTime.Now.ToString("dd/MM/yyyy"), DateTime.Now.ToString("hh:mm tt"), resDate, resStartTime, resEndTime, "", userId);
+            int i = stuResRoomCtl.addReservation(roomId, DateTime.Now.ToString("dd/MM/yyyy"), DateTime.Now.ToString("hh:mm tt"), dtpResDate.Value.ToString("yyyy-M-dd"), cboStartTime.SelectedItem.ToString(), cboEndTime.SelectedItem.ToString(), "", userId);
             
             // shows meesage box based on the status of Inserting the reservation info 
             if (i > 0)

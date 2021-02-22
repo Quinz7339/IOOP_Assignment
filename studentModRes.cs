@@ -66,14 +66,20 @@ namespace IOOP_Assignment
 
         private void loadComboBox()
         {
-            string ModResStr = "SELECT reserveId FROM RESERVATION_INFO_T WHERE userId = @userId AND reserveStatus IN ('PENDING','APPROVED')";
+            string ModResStr = "SELECT reserveId FROM RESERVATION_INFO_T WHERE userId = @userId AND reserveStatus IN ('PENDING','APPROVED') AND (reserveDate >= @currentDate AND reserveStartTime > @currentTime)";
             using (SqlConnection ModResConn = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\Library_Reservation_Database.mdf;Integrated Security=True;Connect Timeout=30"))
             {
                 ModResConn.Open();
 
                 using (SqlCommand ModResCmd = new SqlCommand(ModResStr, ModResConn))
                 {
+                    string currentDate = DateTime.Today.ToString("yyyy-MM-dd");
+                    string currentTime = DateTime.Now.ToString("hh:mm:ss tt");
+                    string currentDateTime = currentDate + ' ' + currentTime;
+                    ModResCmd.Parameters.AddWithValue("@currentDate", currentDate);
+                    ModResCmd.Parameters.AddWithValue("@currentTime", DateTime.ParseExact(currentDateTime, "yyyy-MM-dd hh:mm:ss tt", CultureInfo.InvariantCulture));
                     ModResCmd.Parameters.AddWithValue("@userId", Controllers.userID);
+
                     using (SqlDataReader ModResDr = ModResCmd.ExecuteReader())
                     {
                         while (ModResDr.Read())
