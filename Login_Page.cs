@@ -104,10 +104,11 @@ namespace IOOP_Assignment
         {
             // method to check if any record exist in the Database
             Controllers getUsrInfo = new Controllers();
+            User userInfo = new User();
 
             if (getUsrInfo.getUserId(txtUsername.Text, txtPassword.Text) == true)
             {
-                string userRole = getUsrInfo.UserRole;
+                string userRole = userInfo.UserRole;
                 //opens student's side of program
                 if (userRole == "S")
                 {

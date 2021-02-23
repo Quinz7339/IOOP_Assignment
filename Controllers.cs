@@ -11,32 +11,6 @@ namespace IOOP_Assignment
 {
     class Controllers
     {
-        private static string userID;
-        private static string userFullName;
-        private static string userRole;
-        private static string email;
-
-        //get and settors method for various private static strings for security purposes
-        public string UserID
-        {
-            get { return userID; }
-            set { userID = value; }
-        }
-        public string UserRole
-        {
-            get { return userRole; }
-            set { userRole = value; }
-        }
-        public string UserFullName
-        {
-            get { return userFullName; }
-            set { userFullName = value; }
-        }
-        public string Email
-        {
-            get { return email; }
-            set { email = value; }
-        }
 
         //be used by Login_Page at the runtime of the program
         //method to be called to update PENDING records that are before the current date and time to be REJECTED 
@@ -79,8 +53,9 @@ namespace IOOP_Assignment
                         //check if credentials entered is present in the database
                         if (checkPasswordDr.Read())
                         {
-                            userID = checkPasswordDr["userId"].ToString();
-                            getUserInfo(userID);
+                            User userInfo = new User();
+                            userInfo.UserID = checkPasswordDr["userId"].ToString();
+                            getUserInfo(userInfo.UserID);
                             return true;
                         }
                         return false;
@@ -91,6 +66,8 @@ namespace IOOP_Assignment
 
         private void getUserInfo(string userID)
         {
+            User userInfo = new User();
+
             string cmdGetUserInfo = "SELECT * FROM USER_INFO_T WHERE userId = @usrId";
             using (SqlConnection getUserInfoConn = new SqlConnection("Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = |DataDirectory|\\Library_Reservation_Database.mdf; Integrated Security = True; Connect Timeout = 30"))
             {
@@ -103,9 +80,9 @@ namespace IOOP_Assignment
                     {
                         if (getUserInfoDr.Read())
                         {
-                            UserID = getUserInfoDr["userId"].ToString();
-                            UserFullName = getUserInfoDr["full_name"].ToString();
-                            UserRole = getUserInfoDr["user_role"].ToString();
+                            userInfo.UserID = getUserInfoDr["userId"].ToString();
+                            userInfo.UserFullName = getUserInfoDr["full_name"].ToString();
+                            userInfo.UserRole = getUserInfoDr["user_role"].ToString();
                         }
                     }
                 }
@@ -213,7 +190,7 @@ namespace IOOP_Assignment
             }
         }
 
-
+        //method to be called by the btnSubmit_Click event at studentModRes to update the details of a modified room
         public int UpdateReserv(string roomId, string reserveId)
         {
             string updateResStr = "UPDATE RESERVATION_INFO_T SET roomId = @roomId, bookingDate = @date, bookingTime = @modTime, reserveStatus = 'PENDING'  WHERE reserveId = @reserveId";
@@ -233,6 +210,7 @@ namespace IOOP_Assignment
             }
         }
 
+        //method to be called by the btnSubmit_Click event at studentModRes to update the details of a modified room
         public int CancelReserv(string roomId, string reserveId)
         {
             string cancelResStr = "UPDATE RESERVATION_INFO_T SET reserveStatus = 'CANCELLED'  WHERE reserveId = @reserveId";

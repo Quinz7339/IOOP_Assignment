@@ -36,10 +36,10 @@ namespace IOOP_Assignment
             pnlNav.Left = btnDashboad.Left;
             btnDashboad.BackColor = Color.FromArgb(46, 51, 73);
 
-            Controllers getUsrInfo = new Controllers();
+            User userInfo = new User();
 
-            lblUserId.Text = getUsrInfo.UserID;
-            lblUsername.Text = getUsrInfo.UserFullName;
+            lblUserId.Text = userInfo.UserID;
+            lblUsername.Text = userInfo.UserFullName;
         }
 
         private void Login_Page_Load(object sender, EventArgs e)

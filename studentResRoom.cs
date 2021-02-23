@@ -47,10 +47,10 @@ namespace IOOP_Assignment
             setDateTime();
             fieldsClear();
             dtpResDate.Enabled = false;
-            Controllers getUsrInfo = new Controllers();
+            User userInfo = new User();
 
-            lblUserId.Text = getUsrInfo.UserID;
-            lblUsername.Text = getUsrInfo.UserFullName;
+            lblUserId.Text = userInfo.UserID;
+            lblUsername.Text = userInfo.UserFullName;
         }
          
         private void btnDashboard_Click(object sender, EventArgs e)
@@ -274,9 +274,10 @@ namespace IOOP_Assignment
 
  
             Controllers stuResRoomCtl = new Controllers();
+            User userInfo = new User();
 
             //attempts to insert the given reservation info into the database
-            int i = stuResRoomCtl.addReservation(roomId, DateTime.Now.ToString("dd/MM/yyyy"), DateTime.Now.ToString("hh:mm tt"), dtpResDate.Value.ToString("yyyy-M-dd"), cboStartTime.SelectedItem.ToString(), cboEndTime.SelectedItem.ToString(), "", stuResRoomCtl.UserID);
+            int i = stuResRoomCtl.addReservation(roomId, DateTime.Now.ToString("dd/MM/yyyy"), DateTime.Now.ToString("hh:mm tt"), dtpResDate.Value.ToString("yyyy-M-dd"), cboStartTime.SelectedItem.ToString(), cboEndTime.SelectedItem.ToString(), "", userInfo.UserID);
             
             // shows meesage box based on the status of Inserting the reservation info 
             if (i > 0)

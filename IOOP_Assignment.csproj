@@ -85,6 +85,7 @@
     <Compile Include="Update_Info.designer.cs">
       <DependentUpon>librarianUpdateInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="User.cs" />
     <EmbeddedResource Include="Login_Page.resx">
       <DependentUpon>Login_Page.cs</DependentUpon>
     </EmbeddedResource>
