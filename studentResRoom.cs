@@ -50,7 +50,7 @@ namespace IOOP_Assignment
             Controllers getUsrInfo = new Controllers();
 
             lblUserId.Text = getUsrInfo.UserID;
-            lblUsername.Text = getUsrInfo.UserName;
+            lblUsername.Text = getUsrInfo.UserFullName;
         }
          
         private void btnDashboard_Click(object sender, EventArgs e)

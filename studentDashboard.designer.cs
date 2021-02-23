@@ -193,7 +193,7 @@
             // 
             this.lblUserId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUserId.ForeColor = System.Drawing.Color.White;
-            this.lblUserId.Location = new System.Drawing.Point(41, 123);
+            this.lblUserId.Location = new System.Drawing.Point(45, 123);
             this.lblUserId.Name = "lblUserId";
             this.lblUserId.Size = new System.Drawing.Size(100, 16);
             this.lblUserId.TabIndex = 3;

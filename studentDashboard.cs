@@ -40,7 +40,7 @@ namespace IOOP_Assignment
             Controllers getUsrInfo = new Controllers();
 
             lblUserId.Text = getUsrInfo.UserID;
-            lblUsername.Text = getUsrInfo.UserName;
+            lblUsername.Text = getUsrInfo.UserFullName;
         }
 
         private void Login_Page_Load(object sender, EventArgs e)

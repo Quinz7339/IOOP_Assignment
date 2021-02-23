@@ -12,7 +12,7 @@ namespace IOOP_Assignment
     class Controllers
     {
         private static string userID;
-        private static string userName;
+        private static string userFullName;
         private static string userRole;
         private static string email;
 
@@ -27,10 +27,10 @@ namespace IOOP_Assignment
             get { return userRole; }
             set { userRole = value; }
         }
-        public string UserName
+        public string UserFullName
         {
-            get { return userName; }
-            set { userName = value; }
+            get { return userFullName; }
+            set { userFullName = value; }
         }
         public string Email
         {
@@ -104,7 +104,7 @@ namespace IOOP_Assignment
                         if (getUserInfoDr.Read())
                         {
                             UserID = getUserInfoDr["userId"].ToString();
-                            UserName = getUserInfoDr["usrName"].ToString();
+                            UserFullName = getUserInfoDr["full_name"].ToString();
                             UserRole = getUserInfoDr["user_role"].ToString();
                         }
                     }
