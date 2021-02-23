@@ -120,10 +120,10 @@ namespace IOOP_Assignment
 
         private void btnDashboad_Click(object sender, EventArgs e)
         {
-            pnlNav.Height = btnDashboad.Height;
-            pnlNav.Top = btnDashboad.Top;
-            pnlNav.Left = btnDashboad.Left;
-            btnDashboad.BackColor = Color.FromArgb(46, 51, 73);
+            pnlNav.Height = btnDashboard.Height;
+            pnlNav.Top = btnDashboard.Top;
+            pnlNav.Left = btnDashboard.Left;
+            btnDashboard.BackColor = Color.FromArgb(46, 51, 73);
 
             Librarian_Dashboard LibDash = new Librarian_Dashboard();
             LibDash.Show();
@@ -182,7 +182,7 @@ namespace IOOP_Assignment
 
         private void btnDashboad_Leave(object sender, EventArgs e)
         {
-            btnDashboad.BackColor = Color.FromArgb(24, 30,54);
+            btnDashboard.BackColor = Color.FromArgb(24, 30,54);
         }
 
         private void btnPendingRes_Leave(object sender, EventArgs e)

@@ -46,11 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller.cs" />
     <Compile Include="Librarian_Report.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Librarian_Report.Designer.cs">
       <DependentUpon>Librarian_Report.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Librarian_ReservationRep.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Librarian_ReservationRep.Designer.cs">
+      <DependentUpon>Librarian_ReservationRep.cs</DependentUpon>
     </Compile>
     <Compile Include="Librarian_Update.cs">
       <SubType>Form</SubType>
@@ -80,6 +87,9 @@
     </Compile>
     <EmbeddedResource Include="Librarian_Report.resx">
       <DependentUpon>Librarian_Report.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Librarian_ReservationRep.resx">
+      <DependentUpon>Librarian_ReservationRep.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Librarian_Update.resx">
       <DependentUpon>Librarian_Update.cs</DependentUpon>

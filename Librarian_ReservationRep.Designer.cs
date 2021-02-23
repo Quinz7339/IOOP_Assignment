@@ -1,6 +1,6 @@
 ﻿namespace IOOP_Assignment
 {
-    partial class Librarian_PendingRes
+    partial class Librarian_ReservationRep
     {
         /// <summary>
         /// Required designer variable.
@@ -41,19 +41,18 @@
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlNav = new System.Windows.Forms.FlowLayoutPanel();
-            this.lblPendingRes = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.lblDateTime = new System.Windows.Forms.Label();
-            this.lblPending = new System.Windows.Forms.Label();
-            this.libraryReservationDatabaseDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dgvPending = new System.Windows.Forms.DataGridView();
-            this.btnUpdateDgv = new System.Windows.Forms.Button();
+            this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.btnMonthlyRep = new System.Windows.Forms.Button();
+            this.btnDailyRep = new System.Windows.Forms.Button();
+            this.dtpDailyReport = new System.Windows.Forms.DateTimePicker();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.libraryReservationDatabaseDataSetBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPending)).BeginInit();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -67,8 +66,9 @@
             this.panel1.Controls.Add(this.btnDashboard);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(186, 577);
+            this.panel1.Size = new System.Drawing.Size(279, 888);
             this.panel1.TabIndex = 0;
             // 
             // btnResReport
@@ -79,13 +79,15 @@
             this.btnResReport.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnResReport.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.btnResReport.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.btnResReport.Location = new System.Drawing.Point(0, 301);
+            this.btnResReport.Location = new System.Drawing.Point(0, 463);
+            this.btnResReport.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnResReport.Name = "btnResReport";
-            this.btnResReport.Size = new System.Drawing.Size(186, 50);
+            this.btnResReport.Size = new System.Drawing.Size(279, 77);
             this.btnResReport.TabIndex = 11;
             this.btnResReport.Text = "Reservation Report";
             this.btnResReport.UseVisualStyleBackColor = false;
-            this.btnResReport.Click += new System.EventHandler(this.btnResReport_Click);
+            this.btnResReport.Click += new System.EventHandler(this.btnResReport_Click_2);
+            this.btnResReport.Leave += new System.EventHandler(this.btnResReport_Leave);
             // 
             // btnPastRes
             // 
@@ -95,13 +97,15 @@
             this.btnPastRes.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPastRes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.btnPastRes.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.btnPastRes.Location = new System.Drawing.Point(0, 253);
+            this.btnPastRes.Location = new System.Drawing.Point(0, 389);
+            this.btnPastRes.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnPastRes.Name = "btnPastRes";
-            this.btnPastRes.Size = new System.Drawing.Size(186, 50);
+            this.btnPastRes.Size = new System.Drawing.Size(279, 77);
             this.btnPastRes.TabIndex = 10;
             this.btnPastRes.Text = "Past Reservations";
             this.btnPastRes.UseVisualStyleBackColor = false;
             this.btnPastRes.Click += new System.EventHandler(this.btnPastRes_Click);
+            this.btnPastRes.Leave += new System.EventHandler(this.btnPastRes_Leave);
             // 
             // btnPendingRes
             // 
@@ -111,13 +115,15 @@
             this.btnPendingRes.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPendingRes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.btnPendingRes.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.btnPendingRes.Location = new System.Drawing.Point(0, 203);
+            this.btnPendingRes.Location = new System.Drawing.Point(0, 312);
+            this.btnPendingRes.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnPendingRes.Name = "btnPendingRes";
-            this.btnPendingRes.Size = new System.Drawing.Size(186, 50);
+            this.btnPendingRes.Size = new System.Drawing.Size(279, 77);
             this.btnPendingRes.TabIndex = 7;
             this.btnPendingRes.Text = "Pending Reservations";
             this.btnPendingRes.UseVisualStyleBackColor = false;
             this.btnPendingRes.Click += new System.EventHandler(this.btnPendingRes_Click);
+            this.btnPendingRes.Leave += new System.EventHandler(this.btnPendingRes_Leave);
             // 
             // btnUpdate
             // 
@@ -127,9 +133,10 @@
             this.btnUpdate.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.btnUpdate.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.btnUpdate.Location = new System.Drawing.Point(0, 350);
+            this.btnUpdate.Location = new System.Drawing.Point(0, 538);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(186, 50);
+            this.btnUpdate.Size = new System.Drawing.Size(279, 77);
             this.btnUpdate.TabIndex = 6;
             this.btnUpdate.Text = "Update Info";
             this.btnUpdate.UseVisualStyleBackColor = false;
@@ -145,9 +152,10 @@
             this.btnLogout.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogout.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.btnLogout.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.btnLogout.Location = new System.Drawing.Point(0, 527);
+            this.btnLogout.Location = new System.Drawing.Point(0, 811);
+            this.btnLogout.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(186, 50);
+            this.btnLogout.Size = new System.Drawing.Size(279, 77);
             this.btnLogout.TabIndex = 5;
             this.btnLogout.Text = "Logout";
             this.btnLogout.UseVisualStyleBackColor = false;
@@ -162,14 +170,15 @@
             this.btnDashboard.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDashboard.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.btnDashboard.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.btnDashboard.Location = new System.Drawing.Point(0, 154);
+            this.btnDashboard.Location = new System.Drawing.Point(0, 237);
+            this.btnDashboard.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnDashboard.Name = "btnDashboard";
-            this.btnDashboard.Size = new System.Drawing.Size(186, 50);
+            this.btnDashboard.Size = new System.Drawing.Size(279, 77);
             this.btnDashboard.TabIndex = 1;
             this.btnDashboard.Text = "Dashboard";
             this.btnDashboard.UseVisualStyleBackColor = false;
-            this.btnDashboard.Click += new System.EventHandler(this.btnDashboad_Click);
-            this.btnDashboard.Leave += new System.EventHandler(this.btnDashboad_Leave);
+            this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
+            this.btnDashboard.Leave += new System.EventHandler(this.btnDashboard_Leave);
             // 
             // panel2
             // 
@@ -178,8 +187,9 @@
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(186, 154);
+            this.panel2.Size = new System.Drawing.Size(279, 237);
             this.panel2.TabIndex = 0;
             // 
             // label1
@@ -187,9 +197,10 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(41, 124);
+            this.label1.Location = new System.Drawing.Point(62, 191);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(100, 16);
+            this.label1.Size = new System.Drawing.Size(138, 25);
             this.label1.TabIndex = 3;
             this.label1.Text = "User position";
             // 
@@ -198,18 +209,20 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.label2.Location = new System.Drawing.Point(52, 98);
+            this.label2.Location = new System.Drawing.Point(78, 151);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(79, 16);
+            this.label2.Size = new System.Drawing.Size(110, 25);
             this.label2.TabIndex = 2;
             this.label2.Text = "Username";
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::IOOP_Assignment.Properties.Resources.User_profile_pic;
-            this.pictureBox1.Location = new System.Drawing.Point(60, 22);
+            this.pictureBox1.Location = new System.Drawing.Point(90, 34);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(63, 63);
+            this.pictureBox1.Size = new System.Drawing.Size(94, 97);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -217,21 +230,11 @@
             // pnlNav
             // 
             this.pnlNav.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(127)))), ((int)(((byte)(0)))));
-            this.pnlNav.Location = new System.Drawing.Point(0, 154);
+            this.pnlNav.Location = new System.Drawing.Point(0, 237);
+            this.pnlNav.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pnlNav.Name = "pnlNav";
-            this.pnlNav.Size = new System.Drawing.Size(15, 99);
+            this.pnlNav.Size = new System.Drawing.Size(22, 152);
             this.pnlNav.TabIndex = 1;
-            // 
-            // lblPendingRes
-            // 
-            this.lblPendingRes.AutoSize = true;
-            this.lblPendingRes.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPendingRes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(161)))), ((int)(((byte)(176)))));
-            this.lblPendingRes.Location = new System.Drawing.Point(212, 22);
-            this.lblPendingRes.Name = "lblPendingRes";
-            this.lblPendingRes.Size = new System.Drawing.Size(300, 31);
-            this.lblPendingRes.TabIndex = 2;
-            this.lblPendingRes.Text = "Pending Reservations";
             // 
             // btnClose
             // 
@@ -239,9 +242,10 @@
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(127)))), ((int)(((byte)(0)))));
-            this.btnClose.Location = new System.Drawing.Point(898, 26);
+            this.btnClose.Location = new System.Drawing.Point(1347, 40);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(30, 30);
+            this.btnClose.Size = new System.Drawing.Size(45, 46);
             this.btnClose.TabIndex = 4;
             this.btnClose.Text = "X";
             this.btnClose.UseVisualStyleBackColor = true;
@@ -252,75 +256,85 @@
             this.lblDateTime.AutoSize = true;
             this.lblDateTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDateTime.ForeColor = System.Drawing.Color.White;
-            this.lblDateTime.Location = new System.Drawing.Point(681, 32);
+            this.lblDateTime.Location = new System.Drawing.Point(1022, 49);
+            this.lblDateTime.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDateTime.Name = "lblDateTime";
-            this.lblDateTime.Size = new System.Drawing.Size(113, 20);
+            this.lblDateTime.Size = new System.Drawing.Size(171, 29);
             this.lblDateTime.TabIndex = 5;
             this.lblDateTime.Text = "Date and Time";
             // 
-            // lblPending
+            // crystalReportViewer1
             // 
-            this.lblPending.AutoSize = true;
-            this.lblPending.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPending.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblPending.Location = new System.Drawing.Point(214, 69);
-            this.lblPending.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblPending.Name = "lblPending";
-            this.lblPending.Size = new System.Drawing.Size(64, 17);
-            this.lblPending.TabIndex = 6;
-            this.lblPending.Text = "Pending ";
+            this.crystalReportViewer1.ActiveViewIndex = -1;
+            this.crystalReportViewer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.crystalReportViewer1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.crystalReportViewer1.Location = new System.Drawing.Point(286, 215);
+            this.crystalReportViewer1.Name = "crystalReportViewer1";
+            this.crystalReportViewer1.Size = new System.Drawing.Size(1147, 661);
+            this.crystalReportViewer1.TabIndex = 6;
+            this.crystalReportViewer1.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
             // 
-            // dgvPending
+            // panel3
             // 
-            this.dgvPending.AllowUserToAddRows = false;
-            this.dgvPending.AllowUserToDeleteRows = false;
-            this.dgvPending.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPending.Location = new System.Drawing.Point(218, 98);
-            this.dgvPending.Name = "dgvPending";
-            this.dgvPending.Size = new System.Drawing.Size(772, 392);
-            this.dgvPending.TabIndex = 7;
-            this.dgvPending.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPending_CellClick);
+            this.panel3.Controls.Add(this.btnMonthlyRep);
+            this.panel3.Controls.Add(this.btnDailyRep);
+            this.panel3.Location = new System.Drawing.Point(286, 116);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1147, 100);
+            this.panel3.TabIndex = 7;
             // 
-            // btnUpdateDgv
+            // btnMonthlyRep
             // 
-            this.btnUpdateDgv.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
-            this.btnUpdateDgv.FlatAppearance.BorderSize = 0;
-            this.btnUpdateDgv.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUpdateDgv.Font = new System.Drawing.Font("Nirmala UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdateDgv.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.btnUpdateDgv.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.btnUpdateDgv.Location = new System.Drawing.Point(523, 507);
-            this.btnUpdateDgv.Name = "btnUpdateDgv";
-            this.btnUpdateDgv.Size = new System.Drawing.Size(138, 41);
-            this.btnUpdateDgv.TabIndex = 9;
-            this.btnUpdateDgv.Text = "Update";
-            this.btnUpdateDgv.UseVisualStyleBackColor = false;
-            this.btnUpdateDgv.Click += new System.EventHandler(this.btnUpdateDgv_Click);
+            this.btnMonthlyRep.Font = new System.Drawing.Font("Baskerville Old Face", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMonthlyRep.Location = new System.Drawing.Point(411, 22);
+            this.btnMonthlyRep.Name = "btnMonthlyRep";
+            this.btnMonthlyRep.Size = new System.Drawing.Size(326, 53);
+            this.btnMonthlyRep.TabIndex = 1;
+            this.btnMonthlyRep.Text = "Monthly Room Utilization Report";
+            this.btnMonthlyRep.UseVisualStyleBackColor = true;
+            this.btnMonthlyRep.Click += new System.EventHandler(this.btnMonthlyRep_Click);
             // 
-            // Librarian_PendingRes
+            // btnDailyRep
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.btnDailyRep.Font = new System.Drawing.Font("Baskerville Old Face", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDailyRep.Location = new System.Drawing.Point(82, 22);
+            this.btnDailyRep.Name = "btnDailyRep";
+            this.btnDailyRep.Size = new System.Drawing.Size(268, 53);
+            this.btnDailyRep.TabIndex = 0;
+            this.btnDailyRep.Text = "Daily Reservations Report";
+            this.btnDailyRep.UseVisualStyleBackColor = true;
+            this.btnDailyRep.Click += new System.EventHandler(this.btnDailyRep_Click);
+            // 
+            // dtpDailyReport
+            // 
+            this.dtpDailyReport.Location = new System.Drawing.Point(368, 40);
+            this.dtpDailyReport.Name = "dtpDailyReport";
+            this.dtpDailyReport.Size = new System.Drawing.Size(267, 26);
+            this.dtpDailyReport.TabIndex = 8;
+            // 
+            // Librarian_ReservationRep
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.ClientSize = new System.Drawing.Size(1035, 577);
-            this.Controls.Add(this.btnUpdateDgv);
-            this.Controls.Add(this.dgvPending);
-            this.Controls.Add(this.lblPending);
+            this.ClientSize = new System.Drawing.Size(1552, 888);
+            this.Controls.Add(this.dtpDailyReport);
+            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.crystalReportViewer1);
             this.Controls.Add(this.lblDateTime);
             this.Controls.Add(this.btnClose);
-            this.Controls.Add(this.lblPendingRes);
             this.Controls.Add(this.pnlNav);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Librarian_PendingRes";
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.Name = "Librarian_ReservationRep";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Load += new System.EventHandler(this.Pending_Page_Load);
+            this.Load += new System.EventHandler(this.Login_Page_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.libraryReservationDatabaseDataSetBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPending)).EndInit();
+            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -337,17 +351,17 @@
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.FlowLayoutPanel pnlNav;
-        private System.Windows.Forms.Label lblPendingRes;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label lblDateTime;
         private System.Windows.Forms.Button btnPendingRes;
-        private System.Windows.Forms.Label lblPending;
         private System.Windows.Forms.Button btnPastRes;
         private System.Windows.Forms.Button btnResReport;
-        private System.Windows.Forms.BindingSource libraryReservationDatabaseDataSetBindingSource;
-        private System.Windows.Forms.DataGridView dgvPending;
-        private System.Windows.Forms.Button btnUpdateDgv;
+        private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer1;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Button btnMonthlyRep;
+        private System.Windows.Forms.Button btnDailyRep;
+        private System.Windows.Forms.DateTimePicker dtpDailyReport;
     }
 }
 

@@ -44,7 +44,6 @@ namespace IOOP_Assignment
 
         SqlDataAdapter daPending;
         DataSet dsPending;
-        SqlCommand cmd;
 
         public Librarian_PendingRes()
         {
@@ -127,7 +126,7 @@ namespace IOOP_Assignment
         {
             if (e.ColumnIndex == 8)
             {
-
+                //fetch all velue in data grid view for updating the database
                 userId = dgvPending.Rows[e.RowIndex].Cells[0].Value.ToString();
                 reserveId = dgvPending.Rows[e.RowIndex].Cells[1].Value.ToString();
                 roomId = dgvPending.Rows[e.RowIndex].Cells[2].Value.ToString();
@@ -143,6 +142,7 @@ namespace IOOP_Assignment
             }
             if (e.ColumnIndex == 9)
             {
+                //fetch all velue in data grid view for updating the database
                 userId = dgvPending.Rows[e.RowIndex].Cells[0].Value.ToString();
                 reserveId = dgvPending.Rows[e.RowIndex].Cells[1].Value.ToString();
                 roomId = dgvPending.Rows[e.RowIndex].Cells[2].Value.ToString();
@@ -159,21 +159,18 @@ namespace IOOP_Assignment
 
         private void updateDb()
         {
-            conn.Open();
+            //Controller update the database and return the Sqlcommand execute status back
+            Controller ctl = new Controller();
+            int i = ctl.updateDatabase(reserveId, userId, roomId, bookingDate, bookingTime, reserveDate, reserveStartTime, reserveEndTime, approveOrReject);
+            if (i > 0)
+            {
+                MessageBox.Show("Record has been successfully updated. Please click Update button to update the database.");
+            }
+            else
+            {
+                MessageBox.Show("Record faild to updated");
+            }
 
-            cmd = new SqlCommand("Update RESERVATION_INFO_T SET reserveStatus=@status WHERE userId=@usrId AND reserveId=@resId AND roomId=@rmId AND bookingDate=@bookDate AND bookingTime=@bookTime AND reserveDate=@resDate AND reserveStartTime=@resStartTime AND reserveEndTime=@resEndTime", conn);
-            cmd.Parameters.AddWithValue("@status", approveOrReject);
-            cmd.Parameters.AddWithValue("@usrid", userId);
-            cmd.Parameters.AddWithValue("@resid", reserveId);
-            cmd.Parameters.AddWithValue("@rmid", roomId);
-            cmd.Parameters.AddWithValue("@bookDate", DateTime.Parse(bookingDate));
-            cmd.Parameters.AddWithValue("@bookTime", DateTime.Parse(bookingTime));
-            cmd.Parameters.AddWithValue("@resDate", DateTime.Parse(reserveDate));
-            cmd.Parameters.AddWithValue("@resStartTime", DateTime.Parse(reserveStartTime));
-            cmd.Parameters.AddWithValue("@resEndTime", DateTime.Parse(reserveEndTime));
-            cmd.ExecuteNonQuery();
-
-            conn.Close();
         }
 
         private void btnUpdateDgv_Click(object sender, EventArgs e)
@@ -185,10 +182,10 @@ namespace IOOP_Assignment
 
         private void btnDashboad_Click(object sender, EventArgs e)
         {
-            pnlNav.Height = btnDashboad.Height;
-            pnlNav.Top = btnDashboad.Top;
-            pnlNav.Left = btnDashboad.Left;
-            btnDashboad.BackColor = Color.FromArgb(46, 51, 73);
+            pnlNav.Height = btnDashboard.Height;
+            pnlNav.Top = btnDashboard.Top;
+            pnlNav.Left = btnDashboard.Left;
+            btnDashboard.BackColor = Color.FromArgb(46, 51, 73);
 
             Librarian_Dashboard LibDash = new Librarian_Dashboard();
             LibDash.Show();
@@ -248,7 +245,7 @@ namespace IOOP_Assignment
 
         private void btnDashboad_Leave(object sender, EventArgs e)
         {
-            btnDashboad.BackColor = Color.FromArgb(24, 30, 54);
+            btnDashboard.BackColor = Color.FromArgb(24, 30, 54);
         }
 
         private void btnPendingRes_Leave(object sender, EventArgs e)
