@@ -459,7 +459,7 @@ namespace IOOP_Assignment {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public RESERVATION_ROOM_TRow AddRESERVATION_ROOM_TRow(string reserveId, string roomId, string bookingDate, string bookingTime, string reserveDate, string reserveStartTime, string reserveEndTime, string reserveStatus, string userId, string roomName, string room_capacity) {
+            public RESERVATION_ROOM_TRow AddRESERVATION_ROOM_TRow(string reserveId, string roomId, string bookingDate, string bookingTime, System.DateTime reserveDate, System.DateTime reserveStartTime, System.DateTime reserveEndTime, string reserveStatus, string userId, string roomName, string room_capacity) {
                 RESERVATION_ROOM_TRow rowRESERVATION_ROOM_TRow = ((RESERVATION_ROOM_TRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         reserveId,
@@ -519,11 +519,11 @@ namespace IOOP_Assignment {
                 base.Columns.Add(this.columnbookingDate);
                 this.columnbookingTime = new global::System.Data.DataColumn("bookingTime", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnbookingTime);
-                this.columnreserveDate = new global::System.Data.DataColumn("reserveDate", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnreserveDate = new global::System.Data.DataColumn("reserveDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnreserveDate);
-                this.columnreserveStartTime = new global::System.Data.DataColumn("reserveStartTime", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnreserveStartTime = new global::System.Data.DataColumn("reserveStartTime", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnreserveStartTime);
-                this.columnreserveEndTime = new global::System.Data.DataColumn("reserveEndTime", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnreserveEndTime = new global::System.Data.DataColumn("reserveEndTime", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnreserveEndTime);
                 this.columnreserveStatus = new global::System.Data.DataColumn("reserveStatus", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnreserveStatus);
@@ -739,10 +739,10 @@ namespace IOOP_Assignment {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string reserveDate {
+            public System.DateTime reserveDate {
                 get {
                     try {
-                        return ((string)(this[this.tableRESERVATION_ROOM_T.reserveDateColumn]));
+                        return ((global::System.DateTime)(this[this.tableRESERVATION_ROOM_T.reserveDateColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'reserveDate\' in table \'RESERVATION_ROOM_T\' is DBNull.", e);
@@ -755,10 +755,10 @@ namespace IOOP_Assignment {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string reserveStartTime {
+            public System.DateTime reserveStartTime {
                 get {
                     try {
-                        return ((string)(this[this.tableRESERVATION_ROOM_T.reserveStartTimeColumn]));
+                        return ((global::System.DateTime)(this[this.tableRESERVATION_ROOM_T.reserveStartTimeColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'reserveStartTime\' in table \'RESERVATION_ROOM_T\' is DBNull.", e);
@@ -771,10 +771,10 @@ namespace IOOP_Assignment {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string reserveEndTime {
+            public System.DateTime reserveEndTime {
                 get {
                     try {
-                        return ((string)(this[this.tableRESERVATION_ROOM_T.reserveEndTimeColumn]));
+                        return ((global::System.DateTime)(this[this.tableRESERVATION_ROOM_T.reserveEndTimeColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'reserveEndTime\' in table \'RESERVATION_ROOM_T\' is DBNull.", e);
