@@ -14,7 +14,7 @@ namespace IOOP_Assignment
 {
     public partial class Login_Page : Form
     {
-        string userRole;
+        //strings to be displayed into the textbox at runtime
         readonly string usr = "Usrxxxx";
         readonly string pw = "8 characters or longer";
 
@@ -107,7 +107,7 @@ namespace IOOP_Assignment
 
             if (getUsrInfo.getUserId(txtUsername.Text, txtPassword.Text) == true)
             {
-                userRole = getUsrInfo.UserRole;
+                string userRole = getUsrInfo.UserRole;
                 //opens student's side of program
                 if (userRole == "S")
                 {
