@@ -11,12 +11,36 @@ namespace IOOP_Assignment
 {
     class Controllers
     {
-        public static string userID;
-        public static string userName;
-        public static string userRole;
+        private static string userID;
+        private static string userName;
+        private static string userRole;
+        private static string email;
 
-        //method to be called at the start of the program to update records that are before the current date and time to be ELAPSED or expired
-       public void preUpdateDatabase()
+        //get and settors method for various private static strings for security purposes
+        public string UserID
+        {
+            get { return userID; }
+            set { userID = value; }
+        }
+        public string UserRole
+        {
+            get { return userRole; }
+            set { userRole = value; }
+        }
+        public string UserName
+        {
+            get { return userName; }
+            set { userName = value; }
+        }
+        public string Email
+        {
+            get { return email; }
+            set { email = value; }
+        }
+
+        //be used by Login_Page at the runtime of the program
+        //method to be called to update PENDING records that are before the current date and time to be REJECTED 
+        public void preUpdateDatabase()
         {
             using (SqlConnection updateDBConn = new SqlConnection("Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = |DataDirectory|\\Library_Reservation_Database.mdf; Integrated Security = True; Connect Timeout = 30 "))
             {
@@ -79,15 +103,83 @@ namespace IOOP_Assignment
                     {
                         if (getUserInfoDr.Read())
                         {
-                            userName = getUserInfoDr["usrName"].ToString();
-                            userRole = getUserInfoDr["user_role"].ToString();
+                            UserID = getUserInfoDr["userId"].ToString();
+                            UserName = getUserInfoDr["usrName"].ToString();
+                            UserRole = getUserInfoDr["user_role"].ToString();
                         }
                     }
                 }
             }
         }
+        public string getUsableRoomId(string roomPrefix, string aSelectedDate, string aSelectedStartTime, string aSelectedEndTime)
+        {
+            //list to fill all the roomId(s) of a particular room type based on the selection made by the user
+            List<string> roomIds = new List<string>();
 
-        //return status of adding reservation, either success or fail
+            using (SqlConnection getRoomIdConn = new SqlConnection("Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = |DataDirectory|\\Library_Reservation_Database.mdf; Integrated Security = True; Connect Timeout = 30"))
+            {
+                getRoomIdConn.Open();
+                string getRoomIdStr = "Select roomId FROM ROOM_INFO_T WHERE roomId LIKE @roomPrefix";
+                using (SqlCommand getRoomIdCmd = new SqlCommand(getRoomIdStr, getRoomIdConn))
+                {
+                    getRoomIdCmd.Parameters.AddWithValue("@roomPrefix", roomPrefix + "%");
+
+                    using (SqlDataReader getRoomIdReader = getRoomIdCmd.ExecuteReader())
+                    {
+                        //adds the roomIds from the ROOM_INFO_T table to the List <roomIds>
+                        while (getRoomIdReader.Read())
+                        {
+                            roomIds.Add(getRoomIdReader[0].ToString());
+                        }
+                    }
+                }
+            }
+
+            using (SqlConnection checkRoomConn = new SqlConnection("Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = |DataDirectory|\\Library_Reservation_Database.mdf; Integrated Security = True; Connect Timeout = 30"))
+            {
+                checkRoomConn.Open();
+                string checkRoomStr = "SELECT roomId, reserveStartTime, reserveEndTime FROM RESERVATION_INFO_T WHERE roomId LIKE @roomPrefix AND reserveDate = @reserveDate AND (reserveStatus = 'PENDING' OR reserveStatus = 'APPROVED')";
+                using (SqlCommand checkRoomCmd = new SqlCommand(checkRoomStr, checkRoomConn))
+                {
+                    checkRoomCmd.Parameters.AddWithValue("@roomPrefix", roomPrefix + "%");
+                    checkRoomCmd.Parameters.AddWithValue("@reserveDate", aSelectedDate);
+
+                    using (SqlDataReader checkRoomReader = checkRoomCmd.ExecuteReader())
+                    {
+                        while (checkRoomReader.Read())
+                        {
+                            //parsing the user selected times into datetime format
+                            DateTime selectedStartTime = DateTime.ParseExact(aSelectedDate + ' ' + aSelectedStartTime, "yyyy-M-dd hh:mm tt", CultureInfo.InvariantCulture);
+                            DateTime selectedEndTime = DateTime.ParseExact(aSelectedDate + ' ' + aSelectedEndTime, "yyyy-M-dd hh:mm tt", CultureInfo.InvariantCulture);
+
+                            //parsing the datetime value of each reservations'(from the database) start time and end time into datetime format
+                            DateTime recordStartTime = DateTime.Parse(checkRoomReader[1].ToString());
+                            DateTime recordEndTime = DateTime.Parse(checkRoomReader[2].ToString());
+
+                            //if either of this is true, where the user selected time intesects with any records' time, code blocks below is executed
+                            if ((DateTime.Compare(selectedStartTime, recordStartTime) >= 0 && DateTime.Compare(selectedStartTime, recordEndTime) <= 0) || // Check if user selected start time is both (later than a record's start time ) AND (earlier than a record's end time)
+                                (DateTime.Compare(selectedEndTime, recordStartTime) >= 0 && DateTime.Compare(selectedEndTime, recordEndTime) <= 0) || // Check if user selected endtime is both (later than a record's start time ) AND (earlier than a record's end time)
+                                (DateTime.Compare(selectedStartTime, recordStartTime) <= 0 && DateTime.Compare(selectedEndTime, recordEndTime) >= 0)) // Check if user's (selected start time is earlier than a record's start time ) AND (selected end time later than a record's end time)
+                            {
+
+                                //loop to remove the roomId that intersects with the existing record from the List <roomIds>
+                                //the List <roomIds> would only be filled with the valid roomIds to be used for reservation
+                                for (int i = 0; i < roomIds.Count; i++)
+                                {
+                                    if (roomIds[i] == checkRoomReader[0].ToString())
+                                    {
+                                        roomIds.RemoveAt(i);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            return roomIds[0].ToString(); //return the 1st available roomId to the studentResRoom.cs form
+        }
+
+        //return the status of adding a reservation, either success or fail
         public int addReservation(string roomId, string bookingDate, string bookingTime, string reserveDate, string reserveStartTime, string reserveEndTime, string reserveStatus, string userId)
         {
             //SQL command to insert user's reservation info into the database table (RESERVATION_INFO_T)
@@ -99,13 +191,12 @@ namespace IOOP_Assignment
                 using (SqlCommand addReservationCmd= new SqlCommand(addReservationStr, addReservationConn))
                 {
 
-                    //DateTime reserveStartTimeDT = DateTime.ParseExact(reserveStartTime, "hh:mm tt", CultureInfo.InvariantCulture);
-                    //DateTime reserveEndTimeDT = DateTime.ParseExact(reserveEndTime, "hh:mm tt", CultureInfo.InvariantCulture)
+                    //formating the user selected reservation date together with their selected start time and selected endtime
                     string reserveStartTimeWithDate = reserveDate + " " + reserveStartTime;
                     string reserveEndTimeWithDate = reserveDate + " " + reserveEndTime;
 
                     //concentate TextBox values to SQL string
-                    addReservationCmd.Parameters.AddWithValue("@roomId", roomId);
+                    addReservationCmd.Parameters.AddWithValue("@roomId", roomId.Trim());
                     addReservationCmd.Parameters.AddWithValue("@bookingDate", DateTime.ParseExact(bookingDate, "dd/M/yyyy", CultureInfo.InvariantCulture));
                     addReservationCmd.Parameters.AddWithValue("@bookingTime", DateTime.ParseExact(bookingTime, "hh:mm tt", CultureInfo.InvariantCulture));
                     addReservationCmd.Parameters.AddWithValue("@reserveDate", DateTime.ParseExact(reserveDate, "yyyy-M-dd", CultureInfo.InvariantCulture));
@@ -114,14 +205,12 @@ namespace IOOP_Assignment
                     addReservationCmd.Parameters.AddWithValue("@reserveStatus", "APPROVED");
                     addReservationCmd.Parameters.AddWithValue("@userId", userId);
 
-
-                    int status = addReservationCmd.ExecuteNonQuery(); //int is to check status success of faild the insert value
-                    return status;
+                    //integer to be returned to be determined whether record has been added successfully or not
+                    int status = addReservationCmd.ExecuteNonQuery(); 
+                    return status; 
                 }
             }
         }
-        
-
 
     }
 

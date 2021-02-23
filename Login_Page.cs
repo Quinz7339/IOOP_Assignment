@@ -14,7 +14,7 @@ namespace IOOP_Assignment
 {
     public partial class Login_Page : Form
     {
-        string userRole = Controllers.userRole;
+        string userRole;
         readonly string usr = "Usrxxxx";
         readonly string pw = "8 characters or longer";
 
@@ -103,11 +103,11 @@ namespace IOOP_Assignment
         private void btnLogin_Click(object sender, EventArgs e)
         {
             // method to check if any record exist in the Database
-            Controllers getUserId = new Controllers();
+            Controllers getUsrInfo = new Controllers();
 
-            if (getUserId.getUserId(txtUsername.Text, txtPassword.Text) == true)
+            if (getUsrInfo.getUserId(txtUsername.Text, txtPassword.Text) == true)
             {
-                userRole = Controllers.userRole;
+                userRole = getUsrInfo.UserRole;
                 //opens student's side of program
                 if (userRole == "S")
                 {

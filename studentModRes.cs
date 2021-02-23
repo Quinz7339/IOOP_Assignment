@@ -66,6 +66,8 @@ namespace IOOP_Assignment
 
         private void loadComboBox()
         {
+            Controllers getUsrInfo = new Controllers();
+
             string ModResStr = "SELECT reserveId FROM RESERVATION_INFO_T WHERE userId = @userId AND reserveStatus IN ('PENDING','APPROVED') AND (reserveDate >= @currentDate AND reserveStartTime > @currentTime)";
             using (SqlConnection ModResConn = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\Library_Reservation_Database.mdf;Integrated Security=True;Connect Timeout=30"))
             {
@@ -78,7 +80,7 @@ namespace IOOP_Assignment
                     string currentDateTime = currentDate + ' ' + currentTime;
                     ModResCmd.Parameters.AddWithValue("@currentDate", currentDate);
                     ModResCmd.Parameters.AddWithValue("@currentTime", DateTime.ParseExact(currentDateTime, "yyyy-MM-dd hh:mm:ss tt", CultureInfo.InvariantCulture));
-                    ModResCmd.Parameters.AddWithValue("@userId", Controllers.userID);
+                    ModResCmd.Parameters.AddWithValue("@userId", getUsrInfo.UserID);
 
                     using (SqlDataReader ModResDr = ModResCmd.ExecuteReader())
                     {
@@ -106,6 +108,8 @@ namespace IOOP_Assignment
 
         private void displayModData()
         {
+            Controllers getUsrInfo = new Controllers();
+
             string checkResStr = "SELECT res.reserveId, res.roomId, ro.roomName, res.reserveDate, res.reserveStartTime, res.reserveEndTime FROM RESERVATION_INFO_T res INNER JOIN ROOM_INFO_T ro ON ro.roomId = res.roomId WHERE userId = @userId AND reserveId = @resId";
             using (SqlConnection checkResConn = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\Library_Reservation_Database.mdf;Integrated Security=True;Connect Timeout=30"))
             {
@@ -113,7 +117,7 @@ namespace IOOP_Assignment
                 using (SqlCommand checkResCmd = new SqlCommand(checkResStr, checkResConn))
                 {
                     string[] getResId = cboResId.SelectedItem.ToString().Split(' ');
-                    checkResCmd.Parameters.AddWithValue("@userId", Controllers.userID);
+                    checkResCmd.Parameters.AddWithValue("@userId", getUsrInfo.UserID);
                     checkResCmd.Parameters.AddWithValue("@resId", getResId[2]);
 
                     using (SqlDataReader checkResDr = checkResCmd.ExecuteReader())
@@ -139,6 +143,8 @@ namespace IOOP_Assignment
 
         private void displayCancelData()
         {
+            Controllers getUsrInfo = new Controllers();
+
             roomId = lblCancelRoomId.Text;
             string checkResStr = "SELECT res.reserveId, res.roomId, ro.roomName, res.reserveDate, res.reserveStartTime, res.reserveEndTime FROM RESERVATION_INFO_T res INNER JOIN ROOM_INFO_T ro ON ro.roomId = res.roomId WHERE userId = @userId AND reserveId = @resId";
             using (SqlConnection checkResConn = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\Library_Reservation_Database.mdf;Integrated Security=True;Connect Timeout=30"))
@@ -147,7 +153,7 @@ namespace IOOP_Assignment
                 using (SqlCommand checkResCmd = new SqlCommand(checkResStr, checkResConn))
                 {
                     string[] getResId = cboResId.SelectedItem.ToString().Split(' ');
-                    checkResCmd.Parameters.AddWithValue("@userId", Controllers.userID);
+                    checkResCmd.Parameters.AddWithValue("@userId", getUsrInfo.UserID);
                     checkResCmd.Parameters.AddWithValue("@resId", getResId[2]);
 
                     using (SqlDataReader checkResDr = checkResCmd.ExecuteReader())

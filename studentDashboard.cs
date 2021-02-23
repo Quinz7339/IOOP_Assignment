@@ -13,8 +13,7 @@ namespace IOOP_Assignment
 {
     public partial class studentDashboard : Form
     {
-        string userId = Controllers.userID;
-        string userName = Controllers.userName;
+
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
 
         private static extern IntPtr CreateRoundRectRgn
@@ -37,8 +36,11 @@ namespace IOOP_Assignment
             pnlNav.Top = btnDashboad.Top;
             pnlNav.Left = btnDashboad.Left;
             btnDashboad.BackColor = Color.FromArgb(46, 51, 73);
-            lblUserId.Text = userId;
-            lblUsername.Text = userName;
+
+            Controllers getUsrInfo = new Controllers();
+
+            lblUserId.Text = getUsrInfo.UserID;
+            lblUsername.Text = getUsrInfo.UserName;
         }
 
         private void Login_Page_Load(object sender, EventArgs e)
