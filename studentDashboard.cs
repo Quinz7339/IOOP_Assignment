@@ -24,7 +24,6 @@ namespace IOOP_Assignment
               int nBottomRect,
               int nWidthEllipse,
               int nHeightEllipse
-
           );
 
         public studentDashboard()

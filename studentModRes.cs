@@ -39,29 +39,25 @@ namespace IOOP_Assignment
             pnlNav.Top = btnResStatus.Top;
             pnlNav.Left = btnResStatus.Left;
             btnResStatus.BackColor = Color.FromArgb(46, 51, 73);
-            cboResId.Enabled = false;
+
             lblBefore.Hide();
             lblAfter.Hide();
             pnlBefore.Hide();
             pnlAfter.Hide();
             lblCancel.Hide();
             pnlCancel.Hide();
+
+            btnAmber.Enabled = false;
+            btnBlackThorn.Enabled = false;
+            btnCedar.Enabled = false;
+            btnDaphne.Enabled = false;
+            cboResId.Enabled = false;
+
             lblStatus.Text = "Please select an action below, 'Change Booking' || 'Cancel Booking' ";
         }
-
-        private void btnChangeRoom_Click(object sender, EventArgs e)
+        private void studentModRes_Load(object sender, EventArgs e)
         {
-            modResStatus = "Modify";
-            lblStatus.Text = "Please select a reservation ID from the dropdown menu";
-            lblBefore.Hide();
-            pnlBefore.Hide();
-            lblAfter.Hide();
-            pnlAfter.Hide();
-            lblCancel.Hide();
-            pnlCancel.Hide();
-            cboResId.Items.Clear();
-            cboResId.Enabled = true;
-            loadComboBox();
+            lblDateTime.Text = DateTime.Now.ToString("dd MMM yyyy      hh:mm tt");
         }
 
         private void loadComboBox()
@@ -93,21 +89,83 @@ namespace IOOP_Assignment
             }
         }
 
+        private void btnChangeRoom_Click(object sender, EventArgs e)
+        {
+            modResStatus = "Modify";
+            lblStatus.Text = "Please select a reservation ID from the dropdown menu";
+
+            lblBefore.Hide();
+            pnlBefore.Hide();
+
+            lblAfter.Hide();
+            pnlAfter.Hide();
+
+            lblCancel.Hide();
+            pnlCancel.Hide();
+
+            cboResId.Items.Clear();
+            cboResId.Enabled = true;
+
+            loadComboBox();
+        }
         private void btnCancelBooking_Click(object sender, EventArgs e)
         {
             modResStatus = "Cancel";
             lblStatus.Text = "Please select a reservation ID from the dropdown menu";
+
             lblBefore.Hide();
             pnlBefore.Hide();
+
             lblAfter.Hide();
             pnlAfter.Hide();
+
+            btnAmber.Enabled = false;
+            btnBlackThorn.Enabled = false;
+            btnCedar.Enabled = false;
+            btnDaphne.Enabled = false;
+
             cboResId.Items.Clear();
             cboResId.Enabled = true;
+
             loadComboBox();
+        }
+        private void cboResId_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (modResStatus == "Modify")
+            {
+                lblStatus.Text = "Please select a Room Name at the bottom.";
+
+                lblBefore.Show();
+                pnlBefore.Show();
+                lblAfter.Show();
+                pnlAfter.Show();
+                displayModData();
+
+                btnAmber.Enabled = true;
+                btnBlackThorn.Enabled = true;
+                btnCedar.Enabled = true;
+                btnDaphne.Enabled = true;
+
+                lblAftResId.Text = lblPrevResId.Text;
+                lblAftRoomId.Text = lblPrevRoomId.Text;
+                lblAftRoomName.Text = lblPrevRoomName.Text;
+                lblAftReserveDate.Text = lblPrevReserveDate.Text;
+                lblAftReserveStartTime.Text = lblPrevStartTime.Text;
+                lblAftReserveEndTime.Text = lblPrevEndTime.Text;
+            }
+            else
+            {
+                lblCancel.Show();
+                lblCancel.Text = "Is this the reservation you want to cancel?";
+                pnlCancel.Show();
+                displayCancelData();
+            }
+
         }
 
         private void displayModData()
         {
+            //instatiate object to use the getUserInfo method from the Controllers class
             Controllers getUsrInfo = new Controllers();
 
             string checkResStr = "SELECT res.reserveId, res.roomId, ro.roomName, res.reserveDate, res.reserveStartTime, res.reserveEndTime FROM RESERVATION_INFO_T res INNER JOIN ROOM_INFO_T ro ON ro.roomId = res.roomId WHERE userId = @userId AND reserveId = @resId";
@@ -133,13 +191,14 @@ namespace IOOP_Assignment
                             string[] getEndTime = checkResDr[5].ToString().Split(' ');
 
                             lblPrevReserveDate.Text = getResDate[0];
-                            lblPrevStartTime.Text = getStartTime[1] + getStartTime[2];
-                            lblPrevEndTime.Text = getEndTime[1] + getEndTime[2];
+                            lblPrevStartTime.Text = DateTime.Parse(getStartTime[1] + getStartTime[2]).ToString("hh:mm tt");
+                            lblPrevEndTime.Text = DateTime.Parse(getEndTime[1] + getEndTime[2]).ToString("hh:mm tt");
                         }
                     }
                 }
             }
         }
+
 
         private void displayCancelData()
         {
@@ -169,176 +228,107 @@ namespace IOOP_Assignment
                             string[] getEndTime = checkResDr[5].ToString().Split(' ');
 
                             lblCancelReserveDate.Text = getResDate[0];
-                            lblCancelStartTime.Text = getStartTime[1] + getStartTime[2];
-                            lblCancelEndTime.Text = getEndTime[1] + getEndTime[2];
+                            lblCancelStartTime.Text = DateTime.Parse(getStartTime[1] + getStartTime[2]).ToString("hh:mm tt");
+                            lblCancelEndTime.Text = DateTime.Parse(getEndTime[1] + getEndTime[2]).ToString("hh:mm tt");
                         }
                     }
                 }
             }
         }
 
-        private void cboResId_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (modResStatus == "Modify")
-            {
-                lblStatus.Text = "Please select a Room Name at the bottom.";
-                lblBefore.Show();
-                pnlBefore.Show();
-                lblAfter.Show();
-                pnlAfter.Show();
-                displayModData();
-                lblAftResId.Text = lblPrevResId.Text;
-                lblAftRoomId.Text = lblPrevRoomId.Text;
-                lblAftRoomName.Text = lblPrevRoomName.Text;
-                lblAftReserveDate.Text = lblPrevReserveDate.Text;
-                lblAftReserveStartTime.Text = lblPrevStartTime.Text;
-                lblAftReserveEndTime.Text = lblPrevEndTime.Text;
-            }
-            else
-            {
-                lblCancel.Show();
-                lblCancel.Text = "Is this the reservation you want to cancel?";
-                pnlCancel.Show();
-                displayCancelData();
-            }
-
-        }
         //will only be called after the buttons with the room Names are clicked
         private void checkRoom(string roomPrefix, string roomName, string reserveDate, string reserveStartTime, string reserveEndTime)
         {
-            List<string> roomIds = new List<string>();
-            using (SqlConnection getRoomIdConn = new SqlConnection("Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = |DataDirectory|\\Library_Reservation_Database.mdf; Integrated Security = True; Connect Timeout = 30"))
+            DateTime aReserveDate = DateTime.Parse(reserveDate);
+            string bReserveDate = aReserveDate.ToString("yyyy-M-dd");
+
+            Controllers usableRoomId = new Controllers();
+            roomId = usableRoomId.getUsableRoomId(roomPrefix, bReserveDate.ToString(), reserveStartTime, reserveEndTime);
+            //checkRoom(string roomPrefix, string roomName, string reserveDate, string reserveStartTime, string reserveEndTime)
+            if (roomId == "")
             {
-                getRoomIdConn.Open();
-                string getRoomIdStr = "Select roomId FROM ROOM_INFO_T WHERE roomName = @roomName";
-                using (SqlCommand getRoomIdCmd = new SqlCommand(getRoomIdStr, getRoomIdConn))
-                {
-                    getRoomIdCmd.Parameters.AddWithValue("@roomName", roomName);
-
-                    using (SqlDataReader getRoomIdReader = getRoomIdCmd.ExecuteReader())
-                    {
-                        while (getRoomIdReader.Read())
-                        {
-                            roomIds.Add(getRoomIdReader[0].ToString());
-                        }
-                    }
-                }
-            }
-
-            using (SqlConnection checkRoomConn = new SqlConnection("Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = |DataDirectory|\\Library_Reservation_Database.mdf; Integrated Security = True; Connect Timeout = 30"))
-            {
-                checkRoomConn.Open();
-                string checkRoomStr = "SELECT roomId, reserveStartTime, reserveEndTime, reserveDate FROM RESERVATION_INFO_T WHERE roomId LIKE @roomPrefix AND reserveDate = @reserveDate AND (reserveStatus = 'PENDING' OR reserveStatus = 'APPROVED')";
-                using (SqlCommand checkRoomCmd = new SqlCommand(checkRoomStr, checkRoomConn))
-                {
-                    checkRoomCmd.Parameters.AddWithValue("@roomPrefix", roomPrefix + "%");
-                    DateTime getReserveDate = DateTime.Parse(reserveDate);
-                    checkRoomCmd.Parameters.AddWithValue("@reserveDate", getReserveDate);
-
-                    using (SqlDataReader checkRoomReader = checkRoomCmd.ExecuteReader())
-                    {
-                        while (checkRoomReader.Read())
-                        {
-                            //parsing the chosen record starttime and endtime into datetime format
-                            DateTime selectedStartTime = DateTime.Parse(reserveStartTime);
-                            DateTime selectedEndTime = DateTime.Parse(reserveEndTime);
-
-                            //parsing the datetime value of each reservations' start time and end time into datetime format
-                            DateTime recordStartTime = DateTime.Parse(checkRoomReader[1].ToString());
-                            DateTime recordEndTime = DateTime.Parse(checkRoomReader[2].ToString());
-
-                            //if either of this is true, where the user selected time intesects with any records' time, code blocks below is executed
-                            if ((DateTime.Compare(selectedStartTime, recordStartTime) >= 0 && DateTime.Compare(selectedStartTime, recordEndTime) <= 0) || // Check if user selected start time is both (later than a record's start time ) AND (earlier than a record's end time)
-                                (DateTime.Compare(selectedEndTime, recordStartTime) >= 0 && DateTime.Compare(selectedEndTime, recordEndTime) <= 0) || // Check if user selected endtime is both (earlier than a record's start time ) AND (laterthan a record's end time)
-                                (DateTime.Compare(selectedStartTime, recordStartTime) <= 0 && DateTime.Compare(selectedEndTime, recordEndTime) >= 0)) // Check if user's (selected start time is earlier than a record's start time ) AND (selected end time later than a record's end time)
-                            {
-                                for (int i = 0; i < roomIds.Count; i++)
-                                {
-                                    if (roomIds[i] == checkRoomReader[0].ToString())
-                                    {
-                                        roomIds.RemoveAt(i);
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-            if (roomIds.Count == 0)
-            {
-                lblAftRoomName.Text = "There is no available room";
+                lblAftRoomName.Text = "There is no available room for the selected room type.";
             }
             else
             {
-                roomId = roomIds[0];
                 lblAftRoomId.Text = roomId;
                 lblAftRoomName.Text = roomName;
             }
         }
 
-        private void btnSubmit_Click(object sender, EventArgs e)
+        //method to check whether user has selected the same room type for modifcation
+        private int sameRoom()
         {
-            reserveId = lblPrevResId.Text;
-            bool check = sameRoom();
-
-            if (modResStatus == "Modify")
+            if (lblAftRoomName.Text.Trim() == lblPrevRoomName.Text.Trim())
             {
-                if (check == false)
-                {
-                    string updateResStr = "UPDATE RESERVATION_INFO_T SET roomId = @roomId, bookingDate = @date, bookingTime = @modTime, reserveStatus = 'PENDING'  WHERE reserveId = @reserveId";
-                    using (SqlConnection updateResConn = new SqlConnection("Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = |DataDirectory|\\Library_Reservation_Database.mdf; Integrated Security = True; Connect Timeout = 30"))
-                    {
-                        updateResConn.Open();
-                        using (SqlCommand updateResCmd = new SqlCommand(updateResStr, updateResConn))
-                        {
-                            updateResCmd.Parameters.AddWithValue("@roomId", roomId);
-                            updateResCmd.Parameters.AddWithValue("@date", DateTime.ParseExact(DateTime.Now.ToString("dd/M/yyyy"), "dd/M/yyyy", CultureInfo.InvariantCulture));
-                            updateResCmd.Parameters.AddWithValue("@modTime", DateTime.ParseExact(DateTime.Now.ToString("hh:mm tt"), "hh:mm tt", CultureInfo.InvariantCulture));
-                            updateResCmd.Parameters.AddWithValue("@reserveId", reserveId);
-
-                            updateResCmd.ExecuteNonQuery();
-                        }
-                    }
-                    MessageBox.Show("Modification Succesful!", "Your reservation has been modified.", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    btnReset.PerformClick();
-                }
-                else
-                {
-                    MessageBox.Show("Please select a different room.", "Notifcation", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    btnReset.PerformClick();
-                }
+                return 1;
             }
-            else if (modResStatus == "Cancel")
-            {
-                string cancelResStr = "UPDATE RESERVATION_INFO_T SET roomId = @roomId, bookingDate = @date, bookingTime = @modTime, reserveStatus = 'CANCELLED'  WHERE reserveId = @reserveId";
-                using (SqlConnection cancelResConn = new SqlConnection("Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = |DataDirectory|\\Library_Reservation_Database.mdf; Integrated Security = True; Connect Timeout = 30"))
-                {
-                    cancelResConn.Open();
-                    using (SqlCommand cancelResCmd = new SqlCommand(cancelResStr, cancelResConn))
-                    {
-                        cancelResCmd.Parameters.AddWithValue("@roomId", roomId);
-                        cancelResCmd.Parameters.AddWithValue("@date", DateTime.ParseExact(DateTime.Now.ToString("dd/M/yyyy"), "dd/M/yyyy", CultureInfo.InvariantCulture));
-                        cancelResCmd.Parameters.AddWithValue("@modTime", DateTime.ParseExact(DateTime.Now.ToString("hh:mm tt"), "hh:mm tt", CultureInfo.InvariantCulture));
-                        cancelResCmd.Parameters.AddWithValue("@reserveId", reserveId);
-
-                        cancelResCmd.ExecuteNonQuery();
-                    }
-                }
+            else if (lblAftRoomName.Text.Trim() != lblPrevRoomName.Text.Trim()) 
+            { 
+                return 0; 
             }
             else
             {
-                MessageBox.Show("Please select a mode of operation.", "Notifcation", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return -1;
             }
         }
 
-        private bool sameRoom()
+        private void btnSubmit_Click(object sender, EventArgs e)
         {
-            if (lblAftRoomName.Text == lblPrevRoomName.Text.Trim())
+            
+            int check = sameRoom();
+            Controllers ModRes = new Controllers();
+            if (modResStatus == null)
             {
-                return true;
+                MessageBox.Show("Please select a mode of operation.", "Notifcation", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            return false;
+            else
+            {
+                if (reserveId == null)
+                {
+                    MessageBox.Show("No reservation ID was selected.", "Kindly retry and select a reservation ID.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    if (modResStatus == "Modify")
+                    {
+                        if (check == 1)
+                        {
+                            reserveId = lblPrevResId.Text.Trim();
+                            if (ModRes.UpdateReserv(roomId.Trim(), reserveId) == 1)
+                            {
+                                MessageBox.Show("Modification Succesful!", "Your reservation has been modified.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                btnReset.PerformClick();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Modification Failed!", "Kindly retry.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }
+                        else if (check == 0)
+                        {
+                            MessageBox.Show("Please select a different room.", "Notifcation", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            btnReset.PerformClick();
+                        }
+                    }
+                    else if (modResStatus == "Cancel")
+                    {
+                        reserveId = lblCancelId.Text;
+                        if (ModRes.CancelReserv(roomId.Trim(), reserveId) == 1)
+                        {
+                            MessageBox.Show("Cancellation Successful!", "Your reservation has been cancelled.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            btnReset.PerformClick();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Cancellation Failed!", "Kindly retry.");
+                            btnReset.PerformClick();
+                        }
+                    }
+                }
+            }
         }
+
 
         private void btnAmber_Click(object sender, EventArgs e)
         {
@@ -422,6 +412,29 @@ namespace IOOP_Assignment
             }
         }
 
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            lblBefore.Hide();
+            pnlBefore.Hide();
+            
+            lblAfter.Hide();
+            pnlAfter.Hide();
+            
+            lblCancel.Hide();
+            pnlCancel.Hide();
+
+            cboResId.Items.Clear();
+
+            modResStatus = null;
+            cboResId.Enabled = false;
+            lblStatus.Text = "Please select an action below, 'Change Booking' || 'Cancel Booking' ";
+        }
+
         private void btnDashboad_Leave(object sender, EventArgs e)
         {
             btnDashboard.BackColor = Color.FromArgb(24, 30, 54);
@@ -445,25 +458,6 @@ namespace IOOP_Assignment
         private void btnLogout_Leave(object sender, EventArgs e)
         {
             btnLogout.BackColor = Color.FromArgb(24, 30, 54);
-        }
-
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void btnReset_Click(object sender, EventArgs e)
-        {
-            pnlAfter.Hide();
-            pnlBefore.Hide();
-            pnlCancel.Hide();
-            modResStatus = null;
-            lblBefore.Hide();
-            lblAfter.Hide();
-            lblCancel.Hide();
-            cboResId.Items.Clear();
-            cboResId.Enabled = false;
-            lblStatus.Text = "Please select an action below, 'Change Booking' || 'Cancel Booking' ";
         }
     }
 

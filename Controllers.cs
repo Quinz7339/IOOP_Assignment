@@ -111,6 +111,7 @@ namespace IOOP_Assignment
                 }
             }
         }
+        //method to be used by studentResRoom to add reservation
         public string getUsableRoomId(string roomPrefix, string aSelectedDate, string aSelectedStartTime, string aSelectedEndTime)
         {
             //list to fill all the roomId(s) of a particular room type based on the selection made by the user
@@ -212,6 +213,42 @@ namespace IOOP_Assignment
             }
         }
 
+
+        public int UpdateReserv(string roomId, string reserveId)
+        {
+            string updateResStr = "UPDATE RESERVATION_INFO_T SET roomId = @roomId, bookingDate = @date, bookingTime = @modTime, reserveStatus = 'PENDING'  WHERE reserveId = @reserveId";
+            using (SqlConnection updateResConn = new SqlConnection("Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = |DataDirectory|\\Library_Reservation_Database.mdf; Integrated Security = True; Connect Timeout = 30"))
+            {
+                updateResConn.Open();
+                using (SqlCommand updateResCmd = new SqlCommand(updateResStr, updateResConn))
+                {
+                    updateResCmd.Parameters.AddWithValue("@roomId", roomId);
+                    updateResCmd.Parameters.AddWithValue("@date", DateTime.ParseExact(DateTime.Now.ToString("dd/M/yyyy"), "dd/M/yyyy", CultureInfo.InvariantCulture));
+                    updateResCmd.Parameters.AddWithValue("@modTime", DateTime.ParseExact(DateTime.Now.ToString("hh:mm tt"), "hh:mm tt", CultureInfo.InvariantCulture));
+                    updateResCmd.Parameters.AddWithValue("@reserveId", reserveId);
+
+                    int status = updateResCmd.ExecuteNonQuery();
+                    return status;
+                }
+            }
+        }
+
+        public int CancelReserv(string roomId, string reserveId)
+        {
+            string cancelResStr = "UPDATE RESERVATION_INFO_T SET reserveStatus = 'CANCELLED'  WHERE reserveId = @reserveId";
+            using (SqlConnection cancelResConn = new SqlConnection("Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = |DataDirectory|\\Library_Reservation_Database.mdf; Integrated Security = True; Connect Timeout = 30"))
+            {
+                cancelResConn.Open();
+                using (SqlCommand cancelResCmd = new SqlCommand(cancelResStr, cancelResConn))
+                {
+                    cancelResCmd.Parameters.AddWithValue("@roomId", roomId);
+                    cancelResCmd.Parameters.AddWithValue("@reserveId", reserveId);
+
+                    int status = cancelResCmd.ExecuteNonQuery();
+                    return status;
+                }
+            }
+        }
     }
 
 }
