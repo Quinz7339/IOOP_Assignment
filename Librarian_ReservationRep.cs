@@ -188,16 +188,19 @@ namespace IOOP_Assignment
         private void btnDailyRep_Click(object sender, EventArgs e)
         {
             DateTime d = DateTime.Parse(dtpDailyReport.Text);
+            //DateTime datejoin = DateTime.Parse(dtpDailyReport.Value.ToString());
+            //DateTime z = new DateTime();
+            //DateTime c = Convert.ToDateTime(z);
             SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\Library_Reservation_Database.mdf;Integrated Security=True;Connect Timeout=30");
-            SqlCommand command = new SqlCommand("Select * from RESERVATION_INFO_T where reserveDate = '"+d+"'", con);
+            SqlCommand command = new SqlCommand($"Select * from RESERVATION_INFO_T where reserveDate = '{d.ToString("yyyy-MM-dd")}'", con);
             SqlDataAdapter da = new SqlDataAdapter(command);
+            dailyRep dsD = new dailyRep();
             DataSet s = new DataSet();
-            da.Fill(s);
-            dsDailyReport dsD = new dsDailyReport();
-            dsDailyReportTableAdapters.RESERVATION_INFO_TTableAdapter ad = new dsDailyReportTableAdapters.RESERVATION_INFO_TTableAdapter();
-            ad.Fill(dsD.RESERVATION_INFO_T);
-            DailyReport rpt = new DailyReport();
-            rpt.SetDataSource(dsD);
+            da.Fill(s,"RESERVATION_INFO_T");
+            //dailyRepTableAdapters.RESERVATION_INFO_TTableAdapter ad = new dailyRepTableAdapters.RESERVATION_INFO_TTableAdapter();
+            //ad.Fill(dsD.RESERVATION_INFO_T);
+            dReport rpt = new dReport();
+            rpt.SetDataSource(s);
             crystalReportViewer1.ReportSource = rpt;
 
         }
