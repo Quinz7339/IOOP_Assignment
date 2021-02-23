@@ -43,6 +43,9 @@ namespace IOOP_Assignment
         private void Login_Page_Load(object sender, EventArgs e)
         {
             lblDateTime.Text = DateTime.Now.ToString();
+            dtpMonthlyReport.Format = DateTimePickerFormat.Custom;
+            dtpMonthlyReport.CustomFormat = "MMMM/yyyy";
+            dtpMonthlyReport.ShowUpDown = true;
         }
 
         private void btnPendingRes_Click(object sender, EventArgs e)
@@ -207,11 +210,19 @@ namespace IOOP_Assignment
 
         private void btnMonthlyRep_Click(object sender, EventArgs e)
         {
-            dsMonthlyReport dsM = new dsMonthlyReport();
-            dsMonthlyReportTableAdapters.ROOM_INFO_TTableAdapter ad = new dsMonthlyReportTableAdapters.ROOM_INFO_TTableAdapter();
-            ad.Fill(dsM.ROOM_INFO_T);
-            MonthlyReport rpt = new MonthlyReport();
-            rpt.SetDataSource(dsM);
+            DateTime m = DateTime.Parse(dtpMonthlyReport.Text);
+            string thisMonth = m.ToString("yyyy-MM-dd");
+            string nextMonth = m.AddMonths(1).ToString("yyyy-MM-dd");
+
+            string selectSQL = $"SELECT j.reserveDate, o.roomName, j.roomId, j.userId, j.reserveId, j.reserveStartTime, j.reserveEndTime, j.reserveStatus FROM ROOM_INFO_T o INNER JOIN RESERVATION_INFO_T j ON o.roomId = j.roomId where reserveDate >= '{thisMonth}' and reserveDate < '{nextMonth}'";
+            SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\Library_Reservation_Database.mdf;Integrated Security=True;Connect Timeout=30");
+            SqlCommand command = new SqlCommand(selectSQL, con);
+            SqlDataAdapter da = new SqlDataAdapter(command);
+            monthlyRep dsM = new monthlyRep();
+            DataSet s = new DataSet();
+            da.Fill(s, "RESERVATION_ROOM_T");
+            mReport rpt = new mReport();
+            rpt.SetDataSource(s);
             crystalReportViewer1.ReportSource = rpt;
         }
 
@@ -228,6 +239,11 @@ namespace IOOP_Assignment
         private void btnResReport_Leave(object sender, EventArgs e)
         {
             btnResReport.BackColor = Color.FromArgb(24, 30, 54);
+        }
+
+        private void dtpMonthlyReport_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

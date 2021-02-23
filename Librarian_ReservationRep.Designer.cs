@@ -49,6 +49,7 @@
             this.btnMonthlyRep = new System.Windows.Forms.Button();
             this.btnDailyRep = new System.Windows.Forms.Button();
             this.dtpDailyReport = new System.Windows.Forms.DateTimePicker();
+            this.dtpMonthlyReport = new System.Windows.Forms.DateTimePicker();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -286,7 +287,7 @@
             // btnMonthlyRep
             // 
             this.btnMonthlyRep.Font = new System.Drawing.Font("Baskerville Old Face", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMonthlyRep.Location = new System.Drawing.Point(411, 22);
+            this.btnMonthlyRep.Location = new System.Drawing.Point(389, 22);
             this.btnMonthlyRep.Name = "btnMonthlyRep";
             this.btnMonthlyRep.Size = new System.Drawing.Size(326, 53);
             this.btnMonthlyRep.TabIndex = 1;
@@ -307,10 +308,19 @@
             // 
             // dtpDailyReport
             // 
-            this.dtpDailyReport.Location = new System.Drawing.Point(368, 40);
+            this.dtpDailyReport.CustomFormat = "";
+            this.dtpDailyReport.Location = new System.Drawing.Point(368, 49);
             this.dtpDailyReport.Name = "dtpDailyReport";
-            this.dtpDailyReport.Size = new System.Drawing.Size(267, 26);
+            this.dtpDailyReport.Size = new System.Drawing.Size(268, 26);
             this.dtpDailyReport.TabIndex = 8;
+            // 
+            // dtpMonthlyReport
+            // 
+            this.dtpMonthlyReport.Location = new System.Drawing.Point(675, 49);
+            this.dtpMonthlyReport.Name = "dtpMonthlyReport";
+            this.dtpMonthlyReport.Size = new System.Drawing.Size(326, 26);
+            this.dtpMonthlyReport.TabIndex = 9;
+            this.dtpMonthlyReport.ValueChanged += new System.EventHandler(this.dtpMonthlyReport_ValueChanged);
             // 
             // Librarian_ReservationRep
             // 
@@ -318,6 +328,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(1552, 888);
+            this.Controls.Add(this.dtpMonthlyReport);
             this.Controls.Add(this.dtpDailyReport);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.crystalReportViewer1);
@@ -362,6 +373,7 @@
         private System.Windows.Forms.Button btnMonthlyRep;
         private System.Windows.Forms.Button btnDailyRep;
         private System.Windows.Forms.DateTimePicker dtpDailyReport;
+        private System.Windows.Forms.DateTimePicker dtpMonthlyReport;
     }
 }
 

@@ -16,14 +16,14 @@ namespace IOOP_Assignment {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class DailyReport : ReportClass {
+    public class mReport : ReportClass {
         
-        public DailyReport() {
+        public mReport() {
         }
         
         public override string ResourceName {
             get {
-                return "DailyReport.rpt";
+                return "mReport.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace IOOP_Assignment {
         
         public override string FullResourceName {
             get {
-                return "IOOP_Assignment.DailyReport.rpt";
+                return "IOOP_Assignment.mReport.rpt";
             }
             set {
                 // Do nothing
@@ -90,9 +90,9 @@ namespace IOOP_Assignment {
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedDailyReport : Component, ICachedReport {
+    public class CachedmReport : Component, ICachedReport {
         
-        public CachedDailyReport() {
+        public CachedmReport() {
         }
         
         [Browsable(false)]
@@ -129,7 +129,7 @@ namespace IOOP_Assignment {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            DailyReport rpt = new DailyReport();
+            mReport rpt = new mReport();
             rpt.Site = this.Site;
             return rpt;
         }

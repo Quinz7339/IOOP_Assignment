@@ -65,22 +65,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dailyRep.xsd</DependentUpon>
     </Compile>
-    <Compile Include="DailyReport.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DailyReport.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="dReport.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>dReport.rpt</DependentUpon>
       <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="dsDailyReport.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>dsDailyReport.xsd</DependentUpon>
     </Compile>
     <Compile Include="dsMonthlyReport.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -105,10 +94,24 @@
     <Compile Include="Librarian_PastRes.Designer.cs">
       <DependentUpon>Librarian_PastRes.cs</DependentUpon>
     </Compile>
+    <Compile Include="monthlyRep.cs">
+      <DependentUpon>monthlyRep.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="monthlyRep.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>monthlyRep.xsd</DependentUpon>
+    </Compile>
     <Compile Include="MonthlyReport.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>MonthlyReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="mReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>mReport.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Program.cs" />
@@ -119,10 +122,6 @@
     <Compile Include="Librarian_PendingRes.Designer.cs">
       <DependentUpon>Librarian_PendingRes.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="DailyReport.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>DailyReport.cs</LastGenOutput>
-    </EmbeddedResource>
     <EmbeddedResource Include="dReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>dReport.cs</LastGenOutput>
@@ -139,6 +138,10 @@
     <EmbeddedResource Include="MonthlyReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>MonthlyReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="mReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>mReport.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -164,17 +167,6 @@
     <None Include="dailyRep.xss">
       <DependentUpon>dailyRep.xsd</DependentUpon>
     </None>
-    <None Include="dsDailyReport.xsc">
-      <DependentUpon>dsDailyReport.xsd</DependentUpon>
-    </None>
-    <None Include="dsDailyReport.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>dsDailyReport.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="dsDailyReport.xss">
-      <DependentUpon>dsDailyReport.xsd</DependentUpon>
-    </None>
     <None Include="dsMonthlyReport.xsc">
       <DependentUpon>dsMonthlyReport.xsd</DependentUpon>
     </None>
@@ -185,6 +177,17 @@
     </None>
     <None Include="dsMonthlyReport.xss">
       <DependentUpon>dsMonthlyReport.xsd</DependentUpon>
+    </None>
+    <None Include="monthlyRep.xsc">
+      <DependentUpon>monthlyRep.xsd</DependentUpon>
+    </None>
+    <None Include="monthlyRep.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>monthlyRep.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="monthlyRep.xss">
+      <DependentUpon>monthlyRep.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
