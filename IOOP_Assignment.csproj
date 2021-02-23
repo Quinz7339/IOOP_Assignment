@@ -79,13 +79,16 @@
     <Compile Include="studentUpdateInfo.designer.cs">
       <DependentUpon>studentUpdateInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="librarianUpdateInfo.cs">
+    <Compile Include="Librarian_UpdateInfo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Update_Info.designer.cs">
-      <DependentUpon>librarianUpdateInfo.cs</DependentUpon>
+    <Compile Include="Librarian_UpdateInfo.designer.cs">
+      <DependentUpon>Librarian_UpdateInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="User.cs" />
+    <EmbeddedResource Include="Librarian_UpdateInfo.resx">
+      <DependentUpon>Librarian_UpdateInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login_Page.resx">
       <DependentUpon>Login_Page.cs</DependentUpon>
     </EmbeddedResource>
@@ -107,7 +110,7 @@
       <DependentUpon>studentUpdateInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Update_Info.resx">
-      <DependentUpon>librarianUpdateInfo.cs</DependentUpon>
+      <DependentUpon>Librarian_UpdateInfo.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
