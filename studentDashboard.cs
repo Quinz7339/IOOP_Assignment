@@ -42,7 +42,7 @@ namespace IOOP_Assignment
             lblUsername.Text = userInfo.UserFullName;
         }
 
-        private void Login_Page_Load(object sender, EventArgs e)
+        private void Student_Dashboard_Load(object sender, EventArgs e)
         {
             lblDateTime.Text = DateTime.Now.ToString("dd MMM yyyy      hh:mm tt");
         }
@@ -135,5 +135,4 @@ namespace IOOP_Assignment
             Application.Exit();
         }
     }
-
 }

@@ -23,7 +23,6 @@ namespace IOOP_Assignment
               int nBottomRect,
               int nWidthEllipse,
               int nHeightEllipse
-
           );
 
         public Librarian_Dashboard()
@@ -77,28 +76,14 @@ namespace IOOP_Assignment
             pnlNav.Top = btnLogout.Top;
             pnlNav.Left = btnLogout.Left;
             btnLogout.BackColor = Color.FromArgb(46, 51, 73);
+            if (MessageBox.Show("Are you sure you want to logout from the current session?", "Logging Out?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                this.Close();
+                Login_Page login = new Login_Page();
+                login.Show();
+            }
         }
 
-        private void btnDashboard_Leave(object sender, EventArgs e)
-        {
-            btnDashboard.BackColor = Color.FromArgb(24, 30, 54);
-        }
-
-
-        private void btnUpdate_Leave(object sender, EventArgs e)
-        {
-            btnUpdate.BackColor = Color.FromArgb(24, 30, 54);
-        }
-
-        private void btnLogout_Leave(object sender, EventArgs e)
-        {
-            btnLogout.BackColor = Color.FromArgb(24, 30, 54);
-        }
-
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
 
         private void btnPastRes_Click(object sender, EventArgs e)
         {
@@ -108,7 +93,7 @@ namespace IOOP_Assignment
             btnPastRes.BackColor = Color.FromArgb(46, 51, 73);
 
             Librarian_PastRes LibPastRes = new Librarian_PastRes();
-            LibPastRes.ShowDialog();
+            LibPastRes.Show();
             this.Hide();
         }
 
@@ -132,26 +117,19 @@ namespace IOOP_Assignment
             pnlNav.Top = btnDashboard.Top;
             pnlNav.Left = btnDashboard.Left;
             btnDashboard.BackColor = Color.FromArgb(46, 51, 73);
-
         }
 
-        private void btnCheckPending_Click(object sender, EventArgs e)
-        {
-            Librarian_PendingRes LibPendingRes = new Librarian_PendingRes();
-            LibPendingRes.ShowDialog();
-            this.Hide();
-        }
-
-        private void btnCheckPast_Click(object sender, EventArgs e)
-        {
-            Librarian_PastRes LibPastRes = new Librarian_PastRes();
-            LibPastRes.ShowDialog();
-            this.Hide();
-        }
 
         private void btnUpdateInfo_Click(object sender, EventArgs e)
         {
+            pnlNav.Height = btnUpdate.Height;
+            pnlNav.Top = btnUpdate.Top;
+            pnlNav.Left = btnUpdate.Left;
+            btnUpdate.BackColor = Color.FromArgb(46, 51, 73);
 
+            Librarian_UpdateInfo uptInfo = new Librarian_UpdateInfo();
+            uptInfo.Show();
+            this.Hide();
         }
 
 
@@ -168,6 +146,26 @@ namespace IOOP_Assignment
         private void btnResReport_Leave(object sender, EventArgs e)
         {
             btnResReport.BackColor = Color.FromArgb(24, 30, 54);
+        }
+
+        private void btnDashboard_Leave(object sender, EventArgs e)
+        {
+            btnDashboard.BackColor = Color.FromArgb(24, 30, 54);
+        }
+
+        private void btnUpdate_Leave(object sender, EventArgs e)
+        {
+            btnUpdate.BackColor = Color.FromArgb(24, 30, 54);
+        }
+
+        private void btnLogout_Leave(object sender, EventArgs e)
+        {
+            btnLogout.BackColor = Color.FromArgb(24, 30, 54);
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

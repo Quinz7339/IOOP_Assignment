@@ -100,6 +100,7 @@
             this.btnPastRes.TabIndex = 10;
             this.btnPastRes.Text = "Past Reservations";
             this.btnPastRes.UseVisualStyleBackColor = false;
+            this.btnPastRes.Click += new System.EventHandler(this.btnPastRes_Click);
             this.btnPastRes.Leave += new System.EventHandler(this.btnPastRes_Leave);
             // 
             // btnPendingRes
@@ -133,7 +134,7 @@
             this.btnUpdate.TabIndex = 6;
             this.btnUpdate.Text = "Update Info";
             this.btnUpdate.UseVisualStyleBackColor = false;
-            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdateInfo_Click);
             this.btnUpdate.Leave += new System.EventHandler(this.btnUpdate_Leave);
             // 
             // btnLogout
@@ -270,7 +271,7 @@
             this.btnCheckPending.TabIndex = 6;
             this.btnCheckPending.Text = "Check pending reservations?";
             this.btnCheckPending.UseVisualStyleBackColor = false;
-            this.btnCheckPending.Click += new System.EventHandler(this.btnCheckPending_Click);
+            this.btnCheckPending.Click += new System.EventHandler(this.btnPendingRes_Click);
             // 
             // btnCheckPast
             // 
@@ -284,7 +285,7 @@
             this.btnCheckPast.TabIndex = 7;
             this.btnCheckPast.Text = "Check past reservations?";
             this.btnCheckPast.UseVisualStyleBackColor = false;
-            this.btnCheckPast.Click += new System.EventHandler(this.btnCheckPast_Click);
+            this.btnCheckPast.Click += new System.EventHandler(this.btnPastRes_Click);
             // 
             // btnUpdateInfo
             // 

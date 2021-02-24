@@ -47,8 +47,8 @@ namespace IOOP_Assignment
             setDateTime();
             fieldsClear();
             dtpResDate.Enabled = false;
-            User userInfo = new User();
 
+            User userInfo = new User();
             lblUserId.Text = userInfo.UserID;
             lblUsername.Text = userInfo.UserFullName;
         }
