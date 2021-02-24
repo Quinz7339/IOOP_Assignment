@@ -53,7 +53,7 @@ namespace IOOP_Assignment
             btnDaphne.Enabled = false;
             cboResId.Enabled = false;
 
-            lblStatus.Text = "Please select an action below, 'Change Booking' || 'Cancel Booking' ";
+            lblStatus.Text = "Please select an action below, 'Change Room' || 'Cancel Booking' ";
         }
         private void studentModRes_Load(object sender, EventArgs e)
         {
