@@ -60,7 +60,6 @@
             this.lstReceipt = new System.Windows.Forms.ListBox();
             this.label24 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.bubtnDownRept = new System.Windows.Forms.Button();
             this.btnAmber = new System.Windows.Forms.Button();
             this.lblDTotal = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
@@ -448,11 +447,13 @@
             // lstReceipt
             // 
             this.lstReceipt.BackColor = System.Drawing.Color.White;
+            this.lstReceipt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstReceipt.ForeColor = System.Drawing.SystemColors.InfoText;
             this.lstReceipt.FormattingEnabled = true;
+            this.lstReceipt.ItemHeight = 16;
             this.lstReceipt.Location = new System.Drawing.Point(18, 43);
             this.lstReceipt.Name = "lstReceipt";
-            this.lstReceipt.Size = new System.Drawing.Size(330, 160);
+            this.lstReceipt.Size = new System.Drawing.Size(330, 164);
             this.lstReceipt.TabIndex = 17;
             // 
             // label24
@@ -462,35 +463,19 @@
             this.label24.ForeColor = System.Drawing.Color.White;
             this.label24.Location = new System.Drawing.Point(14, 12);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(92, 25);
+            this.label24.Size = new System.Drawing.Size(249, 25);
             this.label24.TabIndex = 18;
-            this.label24.Text = "Receipt";
+            this.label24.Text = "Reservation Summary:";
             // 
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
-            this.panel8.Controls.Add(this.bubtnDownRept);
             this.panel8.Controls.Add(this.label24);
             this.panel8.Controls.Add(this.lstReceipt);
             this.panel8.Location = new System.Drawing.Point(554, 308);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(374, 246);
             this.panel8.TabIndex = 19;
-            // 
-            // bubtnDownRept
-            // 
-            this.bubtnDownRept.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
-            this.bubtnDownRept.FlatAppearance.BorderSize = 0;
-            this.bubtnDownRept.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bubtnDownRept.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bubtnDownRept.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.bubtnDownRept.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.bubtnDownRept.Location = new System.Drawing.Point(218, 212);
-            this.bubtnDownRept.Name = "bubtnDownRept";
-            this.bubtnDownRept.Size = new System.Drawing.Size(130, 27);
-            this.bubtnDownRept.TabIndex = 7;
-            this.bubtnDownRept.Text = "Download Receipt";
-            this.bubtnDownRept.UseVisualStyleBackColor = false;
             // 
             // btnAmber
             // 
@@ -918,7 +903,6 @@
         private System.Windows.Forms.ListBox lstReceipt;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.Button bubtnDownRept;
         private System.Windows.Forms.Button btnAmber;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Label lblDTotal;
