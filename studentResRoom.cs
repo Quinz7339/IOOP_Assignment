@@ -270,7 +270,7 @@ namespace IOOP_Assignment
             lstReceipt.Items.Add("Room Booked:\t\t" + roomId);
             lstReceipt.Items.Add("Reserved Date:\t\t" + dtpResDate.Value.ToString());
             lstReceipt.Items.Add("Reserved Start Time:\t" + cboStartTime.SelectedItem.ToString());
-            lstReceipt.Items.Add("Reserved End Time:\t" + cboEndTime.SelectedItem.ToString());
+            lstReceipt.Items.Add("Reserved End Time:\t\t" + cboEndTime.SelectedItem.ToString());
 
  
             Controllers stuResRoomCtl = new Controllers();
