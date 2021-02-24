@@ -47,6 +47,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers.cs" />
+    <Compile Include="Librarian_Dashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Librarian_Dashboard.designer.cs">
+      <DependentUpon>Librarian_Dashboard.cs</DependentUpon>
+    </Compile>
     <Compile Include="Librarian_PastRes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -98,6 +104,9 @@
       <DependentUpon>Librarian_UpdateInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="User.cs" />
+    <EmbeddedResource Include="Librarian_Dashboard.resx">
+      <DependentUpon>Librarian_Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Librarian_PastRes.resx">
       <DependentUpon>Librarian_PastRes.cs</DependentUpon>
     </EmbeddedResource>
