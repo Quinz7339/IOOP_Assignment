@@ -33,6 +33,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -47,6 +51,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers.cs" />
+    <Compile Include="dailyRep.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dailyRep.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Librarian_Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -65,11 +80,28 @@
     <Compile Include="Librarian_PendingRes.designer.cs">
       <DependentUpon>Librarian_PendingRes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Librarian_ReservationRep.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Librarian_ReservationRep.designer.cs">
+      <DependentUpon>Librarian_ReservationRep.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login_Page.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Login_Page.Designer.cs">
       <DependentUpon>Login_Page.cs</DependentUpon>
+    </Compile>
+    <Compile Include="monthlyRep.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>monthlyRep.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="mReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>mReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -104,6 +136,10 @@
       <DependentUpon>Librarian_UpdateInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="User.cs" />
+    <EmbeddedResource Include="dReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>dReport.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Librarian_Dashboard.resx">
       <DependentUpon>Librarian_Dashboard.cs</DependentUpon>
     </EmbeddedResource>
@@ -113,11 +149,18 @@
     <EmbeddedResource Include="Librarian_PendingRes.resx">
       <DependentUpon>Librarian_PendingRes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Librarian_ReservationRep.resx">
+      <DependentUpon>Librarian_ReservationRep.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Librarian_UpdateInfo.resx">
       <DependentUpon>Librarian_UpdateInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login_Page.resx">
       <DependentUpon>Login_Page.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="mReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>mReport.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -136,6 +179,28 @@
     <EmbeddedResource Include="studentUpdateInfo.resx">
       <DependentUpon>studentUpdateInfo.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="dailyRep.xsc">
+      <DependentUpon>dailyRep.xsd</DependentUpon>
+    </None>
+    <None Include="dailyRep.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dailyRep.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="dailyRep.xss">
+      <DependentUpon>dailyRep.xsd</DependentUpon>
+    </None>
+    <None Include="monthlyRep.xsc">
+      <DependentUpon>monthlyRep.xsd</DependentUpon>
+    </None>
+    <None Include="monthlyRep.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>monthlyRep.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="monthlyRep.xss">
+      <DependentUpon>monthlyRep.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -165,6 +230,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\opened_eye.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

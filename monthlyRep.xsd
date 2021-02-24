@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="monthlyRep" targetNamespace="http://tempuri.org/monthlyRep.xsd" xmlns:mstns="http://tempuri.org/monthlyRep.xsd" xmlns="http://tempuri.org/monthlyRep.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="monthlyRep" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="monthlyRep" msprop:Generator_UserDSName="monthlyRep">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="RESERVATION_ROOM_T" msprop:Generator_TableClassName="RESERVATION_ROOM_TDataTable" msprop:Generator_TableVarName="tableRESERVATION_ROOM_T" msprop:Generator_TablePropName="RESERVATION_ROOM_T" msprop:Generator_RowDeletingName="RESERVATION_ROOM_TRowDeleting" msprop:Generator_RowChangingName="RESERVATION_ROOM_TRowChanging" msprop:Generator_RowEvHandlerName="RESERVATION_ROOM_TRowChangeEventHandler" msprop:Generator_RowDeletedName="RESERVATION_ROOM_TRowDeleted" msprop:Generator_UserTableName="RESERVATION_ROOM_T" msprop:Generator_RowChangedName="RESERVATION_ROOM_TRowChanged" msprop:Generator_RowEvArgName="RESERVATION_ROOM_TRowChangeEvent" msprop:Generator_RowClassName="RESERVATION_ROOM_TRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="reserveId" msprop:Generator_ColumnVarNameInTable="columnreserveId" msprop:Generator_ColumnPropNameInRow="reserveId" msprop:Generator_ColumnPropNameInTable="reserveIdColumn" msprop:Generator_UserColumnName="reserveId" type="xs:string" minOccurs="0" />
+              <xs:element name="roomId" msprop:Generator_ColumnVarNameInTable="columnroomId" msprop:Generator_ColumnPropNameInRow="roomId" msprop:Generator_ColumnPropNameInTable="roomIdColumn" msprop:Generator_UserColumnName="roomId" type="xs:string" minOccurs="0" />
+              <xs:element name="bookingDate" msprop:Generator_ColumnVarNameInTable="columnbookingDate" msprop:Generator_ColumnPropNameInRow="bookingDate" msprop:Generator_ColumnPropNameInTable="bookingDateColumn" msprop:Generator_UserColumnName="bookingDate" type="xs:string" minOccurs="0" />
+              <xs:element name="bookingTime" msprop:Generator_ColumnVarNameInTable="columnbookingTime" msprop:Generator_ColumnPropNameInRow="bookingTime" msprop:Generator_ColumnPropNameInTable="bookingTimeColumn" msprop:Generator_UserColumnName="bookingTime" type="xs:string" minOccurs="0" />
+              <xs:element name="reserveDate" msprop:Generator_ColumnVarNameInTable="columnreserveDate" msprop:Generator_ColumnPropNameInRow="reserveDate" msprop:Generator_ColumnPropNameInTable="reserveDateColumn" msprop:Generator_UserColumnName="reserveDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="reserveStartTime" msprop:Generator_ColumnVarNameInTable="columnreserveStartTime" msprop:Generator_ColumnPropNameInRow="reserveStartTime" msprop:Generator_ColumnPropNameInTable="reserveStartTimeColumn" msprop:Generator_UserColumnName="reserveStartTime" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="reserveEndTime" msprop:Generator_ColumnVarNameInTable="columnreserveEndTime" msprop:Generator_ColumnPropNameInRow="reserveEndTime" msprop:Generator_ColumnPropNameInTable="reserveEndTimeColumn" msprop:Generator_UserColumnName="reserveEndTime" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="reserveStatus" msprop:Generator_ColumnVarNameInTable="columnreserveStatus" msprop:Generator_ColumnPropNameInRow="reserveStatus" msprop:Generator_ColumnPropNameInTable="reserveStatusColumn" msprop:Generator_UserColumnName="reserveStatus" type="xs:string" minOccurs="0" />
+              <xs:element name="userId" msprop:Generator_ColumnVarNameInTable="columnuserId" msprop:Generator_ColumnPropNameInRow="userId" msprop:Generator_ColumnPropNameInTable="userIdColumn" msprop:Generator_UserColumnName="userId" type="xs:string" minOccurs="0" />
+              <xs:element name="roomName" msprop:Generator_ColumnVarNameInTable="columnroomName" msprop:Generator_ColumnPropNameInRow="roomName" msprop:Generator_ColumnPropNameInTable="roomNameColumn" msprop:Generator_UserColumnName="roomName" type="xs:string" minOccurs="0" />
+              <xs:element name="room_capacity" msprop:Generator_ColumnVarNameInTable="columnroom_capacity" msprop:Generator_ColumnPropNameInRow="room_capacity" msprop:Generator_ColumnPropNameInTable="room_capacityColumn" msprop:Generator_UserColumnName="room_capacity" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
