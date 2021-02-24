@@ -275,7 +275,7 @@ namespace IOOP_Assignment
             }
             else
             {
-                if (reserveId == null)
+                if (reserveId == null || reserveId == lblPrevResId.Text.Trim())
                 {
                     MessageBox.Show("No reservation ID was selected.", "Kindly retry and select a reservation ID.", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
