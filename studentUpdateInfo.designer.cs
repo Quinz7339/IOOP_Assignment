@@ -45,6 +45,8 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.lblDateTime = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.txtConfrimPassword = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtUserId = new System.Windows.Forms.TextBox();
@@ -55,8 +57,6 @@
             this.lblEmail = new System.Windows.Forms.Label();
             this.lblUserId = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
-            this.txtConfrimPassword = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -220,9 +220,9 @@
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(161)))), ((int)(((byte)(176)))));
             this.label3.Location = new System.Drawing.Point(212, 22);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(166, 31);
+            this.label3.Size = new System.Drawing.Size(236, 31);
             this.label3.TabIndex = 2;
-            this.label3.Text = "Update Info";
+            this.label3.Text = "Update User Info";
             // 
             // btnClose
             // 
@@ -268,6 +268,25 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(682, 433);
             this.panel3.TabIndex = 20;
+            // 
+            // txtConfrimPassword
+            // 
+            this.txtConfrimPassword.Location = new System.Drawing.Point(170, 196);
+            this.txtConfrimPassword.Multiline = true;
+            this.txtConfrimPassword.Name = "txtConfrimPassword";
+            this.txtConfrimPassword.Size = new System.Drawing.Size(343, 20);
+            this.txtConfrimPassword.TabIndex = 37;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(20, 195);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(144, 21);
+            this.label4.TabIndex = 36;
+            this.label4.Text = "Confrim Password :";
             // 
             // txtPassword
             // 
@@ -381,25 +400,6 @@
             this.lblName.Size = new System.Drawing.Size(59, 21);
             this.lblName.TabIndex = 22;
             this.lblName.Text = "Name :";
-            // 
-            // txtConfrimPassword
-            // 
-            this.txtConfrimPassword.Location = new System.Drawing.Point(170, 196);
-            this.txtConfrimPassword.Multiline = true;
-            this.txtConfrimPassword.Name = "txtConfrimPassword";
-            this.txtConfrimPassword.Size = new System.Drawing.Size(343, 20);
-            this.txtConfrimPassword.TabIndex = 37;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(20, 195);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(144, 21);
-            this.label4.TabIndex = 36;
-            this.label4.Text = "Confrim Password :";
             // 
             // studentUpdateInfo
             // 

@@ -109,7 +109,6 @@
             this.btnPendingRes.TabIndex = 6;
             this.btnPendingRes.Text = "Pending Reservations";
             this.btnPendingRes.UseVisualStyleBackColor = false;
-            this.btnPendingRes.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnUpdate
             // 

@@ -30,7 +30,6 @@ namespace IOOP_Assignment
               int nBottomRect,
               int nWidthEllipse,
               int nHeightEllipse
-
           );
 
         public Lib_UpdateInfo()
@@ -72,68 +71,46 @@ namespace IOOP_Assignment
         }
 
 
-
-        private void btnDashboard_Click(object sender, EventArgs e)
+        private void txtEmail_Enter(object sender, EventArgs e)
         {
-            pnlNav.Height = btnDashboard.Height;
-            pnlNav.Top = btnDashboard.Top;
-            pnlNav.Left = btnDashboard.Left;
-            btnDashboard.BackColor = Color.FromArgb(46, 51, 73);
+            User userInfo = new User();
+
+            if (txtEmail.Text == userInfo.Email)
+            {
+                txtEmail.Text = "";
+                txtEmail.ForeColor = Color.Black;
+            }
         }
 
-        private void btnResReport_Click(object sender, EventArgs e)
+        private void txtEmail_Leave(object sender, EventArgs e)
         {
-            pnlNav.Height = btnResReport.Height;
-            pnlNav.Top = btnResReport.Top;
-            pnlNav.Left = btnResReport.Left;
-            btnResReport.BackColor = Color.FromArgb(46, 51, 73);
+            User userInfo = new User();
+
+            if (txtEmail.Text == "")
+            {
+                txtEmail.Text = userInfo.Email;
+                txtEmail.ForeColor = SystemColors.GrayText;
+            }
         }
 
-        private void btnUpdate_Click(object sender, EventArgs e)
+        private void txtPassword_Enter(object sender, EventArgs e)
         {
-            pnlNav.Height = btnUpdate.Height;
-            pnlNav.Top = btnUpdate.Top;
-            pnlNav.Left = btnUpdate.Left;
-            btnUpdate.BackColor = Color.FromArgb(46, 51, 73);
+            if (txtPassword.Text == pw)
+            {
+                txtPassword.Text = "";
+                txtPassword.ForeColor = Color.Black;
+                txtPassword.UseSystemPasswordChar = true;
+            }
         }
 
-        private void btnLogout_Click(object sender, EventArgs e)
+        private void txtPassword_Leave(object sender, EventArgs e)
         {
-            pnlNav.Height = btnLogout.Height;
-            pnlNav.Top = btnLogout.Top;
-            pnlNav.Left = btnLogout.Left;
-            btnLogout.BackColor = Color.FromArgb(46, 51, 73);
-        }
-
-        private void btnDashboad_Leave(object sender, EventArgs e)
-        {
-            btnDashboard.BackColor = Color.FromArgb(24, 30, 54);
-        }
-
-        private void btnResReport_Leave(object sender, EventArgs e)
-        {
-            btnResReport.BackColor = Color.FromArgb(24, 30, 54);
-        }
-
-        private void btnUpdate_Leave(object sender, EventArgs e)
-        {
-            btnUpdate.BackColor = Color.FromArgb(24, 30, 54);
-        }
-
-        private void btnLogout_Leave(object sender, EventArgs e)
-        {
-            btnLogout.BackColor = Color.FromArgb(24, 30, 54);
-        }
-
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
+            if (txtPassword.Text == "" || txtPassword.Text == pw)
+            {
+                txtPassword.Text = pw;
+                txtPassword.ForeColor = Color.Gray;
+                txtPassword.UseSystemPasswordChar = false;
+            }
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
@@ -215,48 +192,6 @@ namespace IOOP_Assignment
             btnReset.PerformClick();
         }
 
-        private void txtEmail_Enter(object sender, EventArgs e)
-        {
-            User userInfo = new User();
-
-            if (txtEmail.Text == userInfo.Email)
-            {
-                txtEmail.Text = "";
-                txtEmail.ForeColor = Color.Black;
-            }
-        }
-
-        private void txtEmail_Leave(object sender, EventArgs e)
-        {
-            User userInfo = new User();
-
-            if (txtEmail.Text == "")
-            {
-                txtEmail.Text = userInfo.Email;
-                txtEmail.ForeColor = SystemColors.GrayText;
-            }
-        }
-
-        private void txtPassword_Enter(object sender, EventArgs e)
-        {
-            if (txtPassword.Text == pw)
-            {
-                txtPassword.Text = "";
-                txtPassword.ForeColor = Color.Black;
-                txtPassword.UseSystemPasswordChar = true;
-            }
-        }
-
-        private void txtPassword_Leave(object sender, EventArgs e)
-        {
-            if (txtPassword.Text == "" || txtPassword.Text == pw)
-            {
-                txtPassword.Text = pw;
-                txtPassword.ForeColor = Color.Gray;
-                txtPassword.UseSystemPasswordChar = false;
-            }
-        }
-
         private void btnReset_Click(object sender, EventArgs e)
         {
             User userInfo = new User();
@@ -268,6 +203,62 @@ namespace IOOP_Assignment
             txtPassword.ForeColor = Color.Gray;
             txtPassword.UseSystemPasswordChar = false;
             txtConfirmPassword.Clear();
+        }
+
+        private void btnDashboard_Click(object sender, EventArgs e)
+        {
+            pnlNav.Height = btnDashboard.Height;
+            pnlNav.Top = btnDashboard.Top;
+            pnlNav.Left = btnDashboard.Left;
+            btnDashboard.BackColor = Color.FromArgb(46, 51, 73);
+        }
+
+        private void btnResReport_Click(object sender, EventArgs e)
+        {
+            pnlNav.Height = btnResReport.Height;
+            pnlNav.Top = btnResReport.Top;
+            pnlNav.Left = btnResReport.Left;
+            btnResReport.BackColor = Color.FromArgb(46, 51, 73);
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            pnlNav.Height = btnUpdate.Height;
+            pnlNav.Top = btnUpdate.Top;
+            pnlNav.Left = btnUpdate.Left;
+            btnUpdate.BackColor = Color.FromArgb(46, 51, 73);
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            pnlNav.Height = btnLogout.Height;
+            pnlNav.Top = btnLogout.Top;
+            pnlNav.Left = btnLogout.Left;
+            btnLogout.BackColor = Color.FromArgb(46, 51, 73);
+        }
+
+        private void btnDashboad_Leave(object sender, EventArgs e)
+        {
+            btnDashboard.BackColor = Color.FromArgb(24, 30, 54);
+        }
+
+        private void btnResReport_Leave(object sender, EventArgs e)
+        {
+            btnResReport.BackColor = Color.FromArgb(24, 30, 54);
+        }
+
+        private void btnUpdate_Leave(object sender, EventArgs e)
+        {
+            btnUpdate.BackColor = Color.FromArgb(24, 30, 54);
+        }
+
+        private void btnLogout_Leave(object sender, EventArgs e)
+        {
+            btnLogout.BackColor = Color.FromArgb(24, 30, 54);
+        }
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
