@@ -42,7 +42,6 @@ namespace IOOP_Assignment
             pnlNav.Top = btnUpdate.Top;
             pnlNav.Left = btnUpdate.Left;
             btnUpdate.BackColor = Color.FromArgb(46, 51, 73);
-
         }
 
         private void studentUpdateInfo_Load(object sender, EventArgs e)

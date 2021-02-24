@@ -175,25 +175,25 @@
             // 
             // lblUserIdL
             // 
-            this.lblUserIdL.AutoSize = true;
             this.lblUserIdL.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUserIdL.ForeColor = System.Drawing.Color.White;
-            this.lblUserIdL.Location = new System.Drawing.Point(41, 124);
+            this.lblUserIdL.Location = new System.Drawing.Point(45, 124);
             this.lblUserIdL.Name = "lblUserIdL";
             this.lblUserIdL.Size = new System.Drawing.Size(100, 16);
             this.lblUserIdL.TabIndex = 3;
             this.lblUserIdL.Text = "User position";
+            this.lblUserIdL.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblUsername
             // 
-            this.lblUsername.AutoSize = true;
             this.lblUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUsername.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.lblUsername.Location = new System.Drawing.Point(52, 98);
+            this.lblUsername.Location = new System.Drawing.Point(53, 98);
             this.lblUsername.Name = "lblUsername";
             this.lblUsername.Size = new System.Drawing.Size(79, 16);
             this.lblUsername.TabIndex = 2;
             this.lblUsername.Text = "Username";
+            this.lblUsername.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pictureBox1
             // 
@@ -420,7 +420,6 @@
             this.Load += new System.EventHandler(this.studentUpdateInfo_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();

@@ -57,7 +57,11 @@ namespace IOOP_Assignment
         }
         private void studentModRes_Load(object sender, EventArgs e)
         {
+            User userInfo = new User();
+
             lblDateTime.Text = DateTime.Now.ToString("dd MMM yyyy      hh:mm tt");
+            lblUsername.Text = userInfo.UserFullName;
+            lblUserId.Text = userInfo.UserID;
         }
 
         private void loadComboBox()
