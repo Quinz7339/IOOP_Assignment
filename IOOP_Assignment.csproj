@@ -109,9 +109,6 @@
     <EmbeddedResource Include="studentUpdateInfo.resx">
       <DependentUpon>studentUpdateInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Update_Info.resx">
-      <DependentUpon>Librarian_UpdateInfo.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
