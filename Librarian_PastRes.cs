@@ -48,11 +48,15 @@ namespace IOOP_Assignment
             btnPastRes.BackColor = Color.FromArgb(46, 51, 73);
             dgvApproved.Size = new Size (720, 150);
             dgvRejected.Size = new Size(720, 150);
+
+            User userInfo = new User();
+            lblUsername.Text = userInfo.UserFullName;
+            lblUserId.Text = userInfo.UserID;
         }
 
         private void pastRes_Page_Load(object sender, EventArgs e)
         {
-            lblDateTime.Text = DateTime.Now.ToString();
+            lblDateTime.Text = DateTime.Now.ToString("dd MMM yyyy      hh:mm tt");
             dgvApproved.Update();
             dgvApproved.Refresh();
             dgvRejected.Update();
@@ -125,8 +129,8 @@ namespace IOOP_Assignment
             pnlNav.Left = btnDashboard.Left;
             btnDashboard.BackColor = Color.FromArgb(46, 51, 73);
 
-            //Librarian_Dashboard LibDash = new Librarian_Dashboard();
-            //LibDash.Show();
+            Librarian_Dashboard LibDash = new Librarian_Dashboard();
+            LibDash.Show();
             this.Hide();
         }
 

@@ -88,7 +88,7 @@
             this.btnPastRes.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPastRes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.btnPastRes.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.btnPastRes.Location = new System.Drawing.Point(0, 266);
+            this.btnPastRes.Location = new System.Drawing.Point(0, 259);
             this.btnPastRes.Name = "btnPastRes";
             this.btnPastRes.Size = new System.Drawing.Size(186, 50);
             this.btnPastRes.TabIndex = 6;
@@ -105,7 +105,7 @@
             this.btnPendingRes.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPendingRes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.btnPendingRes.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.btnPendingRes.Location = new System.Drawing.Point(0, 210);
+            this.btnPendingRes.Location = new System.Drawing.Point(0, 205);
             this.btnPendingRes.Name = "btnPendingRes";
             this.btnPendingRes.Size = new System.Drawing.Size(186, 50);
             this.btnPendingRes.TabIndex = 6;
@@ -121,7 +121,7 @@
             this.btnUpdate.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.btnUpdate.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.btnUpdate.Location = new System.Drawing.Point(0, 378);
+            this.btnUpdate.Location = new System.Drawing.Point(0, 369);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(186, 50);
             this.btnUpdate.TabIndex = 6;
@@ -156,7 +156,7 @@
             this.btnResReport.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnResReport.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.btnResReport.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.btnResReport.Location = new System.Drawing.Point(0, 322);
+            this.btnResReport.Location = new System.Drawing.Point(0, 315);
             this.btnResReport.Name = "btnResReport";
             this.btnResReport.Size = new System.Drawing.Size(186, 50);
             this.btnResReport.TabIndex = 2;
@@ -195,14 +195,14 @@
             // 
             // lblUserIdL
             // 
-            this.lblUserIdL.AutoSize = true;
             this.lblUserIdL.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUserIdL.ForeColor = System.Drawing.Color.White;
-            this.lblUserIdL.Location = new System.Drawing.Point(41, 124);
+            this.lblUserIdL.Location = new System.Drawing.Point(43, 124);
             this.lblUserIdL.Name = "lblUserIdL";
             this.lblUserIdL.Size = new System.Drawing.Size(100, 16);
             this.lblUserIdL.TabIndex = 3;
             this.lblUserIdL.Text = "User position";
+            this.lblUserIdL.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblUserName
             // 

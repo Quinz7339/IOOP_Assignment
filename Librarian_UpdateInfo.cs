@@ -211,6 +211,11 @@ namespace IOOP_Assignment
             pnlNav.Top = btnDashboard.Top;
             pnlNav.Left = btnDashboard.Left;
             btnDashboard.BackColor = Color.FromArgb(46, 51, 73);
+
+            Librarian_Dashboard libDash = new Librarian_Dashboard();
+            libDash.Show();
+            this.Close();
+
         }
         private void btnPendingRes_Click(object sender, EventArgs e)
         {
@@ -218,6 +223,10 @@ namespace IOOP_Assignment
             pnlNav.Top = btnPendingRes.Top;
             pnlNav.Left = btnPendingRes.Left;
             btnPendingRes.BackColor = Color.FromArgb(46, 51, 73);
+
+            Librarian_PendingRes libPendingRes = new Librarian_PendingRes();
+            libPendingRes.Show();
+            this.Close();
         }
 
         private void btnPastRes_Click(object sender, EventArgs e)
@@ -226,6 +235,10 @@ namespace IOOP_Assignment
             pnlNav.Top = btnPastRes.Top;
             pnlNav.Left = btnPastRes.Left;
             btnPastRes.BackColor = Color.FromArgb(46, 51, 73);
+
+            Librarian_PastRes libPastRes = new Librarian_PastRes();
+            libPastRes.Show();
+            this.Close();
         }
 
         private void btnResReport_Click(object sender, EventArgs e)
@@ -234,6 +247,8 @@ namespace IOOP_Assignment
             pnlNav.Top = btnResReport.Top;
             pnlNav.Left = btnResReport.Left;
             btnResReport.BackColor = Color.FromArgb(46, 51, 73);
+
+
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -262,7 +277,6 @@ namespace IOOP_Assignment
         private void btnDashboard_Leave(object sender, EventArgs e)
         {
             btnDashboard.BackColor = Color.FromArgb(24, 30, 54);
-
         }
 
         private void btnPastRes_Leave(object sender, EventArgs e)
