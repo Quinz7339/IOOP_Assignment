@@ -1,6 +1,6 @@
 ﻿namespace IOOP_Assignment
 {
-    partial class Lib_UpdateInfo
+    partial class Librarian_UpdateInfo
     {
         /// <summary>
         /// Required designer variable.

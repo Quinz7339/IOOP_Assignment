@@ -12,7 +12,7 @@ using System.Data.SqlClient;
 
 namespace IOOP_Assignment
 {
-    public partial class Lib_UpdateInfo : Form
+    public partial class Librarian_UpdateInfo : Form
     {
         readonly string pw = "8 alphanumeric characters or longer";
 
@@ -32,7 +32,7 @@ namespace IOOP_Assignment
               int nHeightEllipse
           );
 
-        public Lib_UpdateInfo()
+        public Librarian_UpdateInfo()
         {
             InitializeComponent();
             this.Size = new Size(960, 575);
