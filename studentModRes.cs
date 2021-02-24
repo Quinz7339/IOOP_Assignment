@@ -256,26 +256,18 @@ namespace IOOP_Assignment
         }
 
         //method to check whether user has selected the same room type for modifcation
-        private int sameRoom()
+        private void sameRoom()
         {
             if (lblAftRoomName.Text.Trim() == lblPrevRoomName.Text.Trim())
             {
-                return 1;
-            }
-            else if (lblAftRoomName.Text.Trim() != lblPrevRoomName.Text.Trim()) 
-            { 
-                return 0; 
-            }
-            else
-            {
-                return -1;
+                MessageBox.Show("Please select a different room type/name.", "Same room type selected.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                btnReset.PerformClick();
             }
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            
-            int check = sameRoom();
+            reserveId = lblPrevResId.Text.Trim();
             Controllers ModRes = new Controllers();
             if (modResStatus == null)
             {
@@ -291,28 +283,21 @@ namespace IOOP_Assignment
                 {
                     if (modResStatus == "Modify")
                     {
-                        if (check == 1)
+
+                        if (ModRes.UpdateReserv(roomId.Trim(), reserveId) == 1)
                         {
-                            reserveId = lblPrevResId.Text.Trim();
-                            if (ModRes.UpdateReserv(roomId.Trim(), reserveId) == 1)
-                            {
-                                MessageBox.Show("Modification Succesful!", "Your reservation has been modified.", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                btnReset.PerformClick();
-                            }
-                            else
-                            {
-                                MessageBox.Show("Modification Failed!", "Kindly retry.", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-                        }
-                        else if (check == 0)
-                        {
-                            MessageBox.Show("Please select a different room.", "Notifcation", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Modification Succesful!", "Your reservation has been modified.", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             btnReset.PerformClick();
                         }
+                        else
+                        {
+                            MessageBox.Show("Modification Failed!", "Kindly retry.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+
                     }
                     else if (modResStatus == "Cancel")
                     {
-                        reserveId = lblCancelId.Text;
+                        reserveId = lblCancelId.Text.Trim();
                         if (ModRes.CancelReserv(roomId.Trim(), reserveId) == 1)
                         {
                             MessageBox.Show("Cancellation Successful!", "Your reservation has been cancelled.", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -334,6 +319,7 @@ namespace IOOP_Assignment
             string aftRoomName = "Amber";
             string aftRoomPrefix = "AM";
             lblAftRoomName.Text = aftRoomName;
+            sameRoom();
             checkRoom(aftRoomPrefix, aftRoomName, lblPrevReserveDate.Text, lblPrevStartTime.Text, lblPrevEndTime.Text);
         }
 
@@ -342,6 +328,7 @@ namespace IOOP_Assignment
             string aftRoomName = "BlackThorn";
             string aftRoomPrefix = "BT";
             lblAftRoomName.Text = aftRoomName;
+            sameRoom();
             checkRoom(aftRoomPrefix, aftRoomName, lblPrevReserveDate.Text, lblPrevStartTime.Text, lblPrevEndTime.Text);
         }
 
@@ -350,6 +337,7 @@ namespace IOOP_Assignment
             string aftRoomName = "Cedar";
             string aftRoomPrefix = "CD";
             lblAftRoomName.Text = aftRoomName;
+            sameRoom();
             checkRoom(aftRoomPrefix, aftRoomName, lblPrevReserveDate.Text, lblPrevStartTime.Text, lblPrevEndTime.Text);
         }
 
@@ -358,6 +346,7 @@ namespace IOOP_Assignment
             string aftRoomName = "Daphne";
             string aftRoomPrefix = "DN";
             lblAftRoomName.Text = aftRoomName;
+            sameRoom();
             checkRoom(aftRoomPrefix, aftRoomName, lblPrevReserveDate.Text, lblPrevStartTime.Text, lblPrevEndTime.Text);
         }
 
@@ -430,6 +419,10 @@ namespace IOOP_Assignment
             cboResId.Items.Clear();
 
             modResStatus = null;
+            btnAmber.Enabled = false;
+            btnBlackThorn.Enabled = false;
+            btnCedar.Enabled = false;
+            btnDaphne.Enabled = false;
             cboResId.Enabled = false;
             lblStatus.Text = "Please select an action below, 'Change Booking' || 'Cancel Booking' ";
         }
