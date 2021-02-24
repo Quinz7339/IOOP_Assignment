@@ -237,9 +237,9 @@
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(161)))), ((int)(((byte)(176)))));
             this.label3.Location = new System.Drawing.Point(212, 22);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(156, 31);
+            this.label3.Size = new System.Drawing.Size(236, 31);
             this.label3.TabIndex = 2;
-            this.label3.Text = "Dashboard";
+            this.label3.Text = "Update User Info";
             // 
             // btnClose
             // 

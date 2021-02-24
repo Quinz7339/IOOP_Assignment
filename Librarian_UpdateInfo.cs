@@ -49,8 +49,6 @@ namespace IOOP_Assignment
             lblDateTime.Text = DateTime.Now.ToString("dd MMM yyyy      hh:mm tt");
             User userInfo = new User();
 
-            lblDateTime.Text = DateTime.Now.ToString("dd MMM yyyy      hh:mm tt");
-
             txtPassword.Text = pw;
             txtPassword.ForeColor = SystemColors.GrayText;
             txtPassword.UseSystemPasswordChar = false;
