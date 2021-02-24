@@ -108,8 +108,8 @@ namespace IOOP_Assignment
             pnlNav.Left = btnResReport.Left;
             btnResReport.BackColor = Color.FromArgb(46, 51, 73);
 
-            //Librarian_ReservationRep LibReservationRep = new Librarian_ReservationRep();
-            //LibReservationRep.Show();
+            Librarian_ReservationRep LibReservationRep = new Librarian_ReservationRep();
+            LibReservationRep.Show();
             this.Hide();
         }
 

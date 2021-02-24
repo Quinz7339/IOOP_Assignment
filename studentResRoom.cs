@@ -268,7 +268,7 @@ namespace IOOP_Assignment
             lstReceipt.Items.Add("Time: " + DateTime.Now.ToString("hh:mm tt"));
             lstReceipt.Items.Add("\n"); // displays a new empty line
             lstReceipt.Items.Add("Room Booked:\t\t" + roomId);
-            lstReceipt.Items.Add("Reserved Date:\t\t" + dtpResDate.Value.ToString());
+            lstReceipt.Items.Add("Reserved Date:\t\t" + dtpResDate.Value.ToString("dd/MM/yyyy"));
             lstReceipt.Items.Add("Reserved Start Time:\t" + cboStartTime.SelectedItem.ToString());
             lstReceipt.Items.Add("Reserved End Time:\t\t" + cboEndTime.SelectedItem.ToString());
 

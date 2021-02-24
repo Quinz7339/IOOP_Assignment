@@ -190,40 +190,40 @@ namespace IOOP_Assignment
 
         private void btnDailyRep_Click(object sender, EventArgs e)
         {
-            //DateTime d = DateTime.Parse(dtpDailyReport.Text);
-            ////DateTime datejoin = DateTime.Parse(dtpDailyReport.Value.ToString());
-            ////DateTime z = new DateTime();
-            ////DateTime c = Convert.ToDateTime(z);
-            //SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\Library_Reservation_Database.mdf;Integrated Security=True;Connect Timeout=30");
-            //SqlCommand command = new SqlCommand($"Select * from RESERVATION_INFO_T where reserveDate = '{d.ToString("yyyy-MM-dd")}'", con);
-            //SqlDataAdapter da = new SqlDataAdapter(command);
-            //dailyRep dsD = new dailyRep();
-            //DataSet s = new DataSet();
-            //da.Fill(s,"RESERVATION_INFO_T");
-            ////dailyRepTableAdapters.RESERVATION_INFO_TTableAdapter ad = new dailyRepTableAdapters.RESERVATION_INFO_TTableAdapter();
-            ////ad.Fill(dsD.RESERVATION_INFO_T);
-            //dReport rpt = new dReport();
-            //rpt.SetDataSource(s);
-            //crystalReportViewer1.ReportSource = rpt;
+            DateTime d = DateTime.Parse(dtpDailyReport.Text);
+            //DateTime datejoin = DateTime.Parse(dtpDailyReport.Value.ToString());
+            //DateTime z = new DateTime();
+            //DateTime c = Convert.ToDateTime(z);
+            SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\Library_Reservation_Database.mdf;Integrated Security=True;Connect Timeout=30");
+            SqlCommand command = new SqlCommand($"Select * from RESERVATION_INFO_T where reserveDate = '{d.ToString("yyyy-MM-dd")}'", con);
+            SqlDataAdapter da = new SqlDataAdapter(command);
+            dailyRep dsD = new dailyRep();
+            DataSet s = new DataSet();
+            da.Fill(s, "RESERVATION_INFO_T");
+            //dailyRepTableAdapters.RESERVATION_INFO_TTableAdapter ad = new dailyRepTableAdapters.RESERVATION_INFO_TTableAdapter();
+            //ad.Fill(dsD.RESERVATION_INFO_T);
+            dReport rpt = new dReport();
+            rpt.SetDataSource(s);
+            crystalReportViewer1.ReportSource = rpt;
 
         }
 
         private void btnMonthlyRep_Click(object sender, EventArgs e)
         {
-            //DateTime m = DateTime.Parse(dtpMonthlyReport.Text);
-            //string thisMonth = m.ToString("yyyy-MM-dd");
-            //string nextMonth = m.AddMonths(1).ToString("yyyy-MM-dd");
+            DateTime m = DateTime.Parse(dtpMonthlyReport.Text);
+            string thisMonth = m.ToString("yyyy-MM-dd");
+            string nextMonth = m.AddMonths(1).ToString("yyyy-MM-dd");
 
-            //string selectSQL = $"SELECT j.reserveDate, o.roomName, j.roomId, j.userId, j.reserveId, j.reserveStartTime, j.reserveEndTime, j.reserveStatus FROM ROOM_INFO_T o INNER JOIN RESERVATION_INFO_T j ON o.roomId = j.roomId where reserveDate >= '{thisMonth}' and reserveDate < '{nextMonth}'";
-            //SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\Library_Reservation_Database.mdf;Integrated Security=True;Connect Timeout=30");
-            //SqlCommand command = new SqlCommand(selectSQL, con);
-            //SqlDataAdapter da = new SqlDataAdapter(command);
-            //monthlyRep dsM = new monthlyRep();
-            //DataSet s = new DataSet();
-            //da.Fill(s, "RESERVATION_ROOM_T");
-            //mReport rpt = new mReport();
-            //rpt.SetDataSource(s);
-            //crystalReportViewer1.ReportSource = rpt;
+            string selectSQL = $"SELECT j.reserveDate, o.roomName, j.roomId, j.userId, j.reserveId, j.reserveStartTime, j.reserveEndTime, j.reserveStatus FROM ROOM_INFO_T o INNER JOIN RESERVATION_INFO_T j ON o.roomId = j.roomId where reserveDate >= '{thisMonth}' and reserveDate < '{nextMonth}'";
+            SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\Library_Reservation_Database.mdf;Integrated Security=True;Connect Timeout=30");
+            SqlCommand command = new SqlCommand(selectSQL, con);
+            SqlDataAdapter da = new SqlDataAdapter(command);
+            monthlyRep dsM = new monthlyRep();
+            DataSet s = new DataSet();
+            da.Fill(s, "RESERVATION_ROOM_T");
+            mReport rpt = new mReport();
+            rpt.SetDataSource(s);
+            crystalReportViewer1.ReportSource = rpt;
         }
 
         private void btnPendingRes_Leave(object sender, EventArgs e)
