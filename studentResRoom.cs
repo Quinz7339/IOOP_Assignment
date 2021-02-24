@@ -178,7 +178,7 @@ namespace IOOP_Assignment
             cboStartTime.Enabled = true;
         }
 
-        //add time based on input on StartTime
+        //add time based on input on cboStartTime
         private void cboStartTime_SelectedIndexChanged(object sender, EventArgs e)
         {
             cboEndTime.Items.Clear();
@@ -282,11 +282,11 @@ namespace IOOP_Assignment
             // shows meesage box based on the status of Inserting the reservation info 
             if (i > 0)
             {
-                MessageBox.Show("Record has been successfully added","Your reservation has been booked",MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Your reservation has been booked.", "Record has been successfully added.", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                MessageBox.Show("Record failed to be added","Your reservation has failed to be booked. Kindly try again.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Your reservation has failed to be booked. ", "Kindly try again.Record failed to be added.", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             dtpResDate.Enabled = false;
             cboStartTime.Enabled = false;
