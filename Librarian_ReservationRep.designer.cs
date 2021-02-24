@@ -37,8 +37,8 @@
             this.btnLogout = new System.Windows.Forms.Button();
             this.btnDashboard = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblUserId = new System.Windows.Forms.Label();
+            this.lblUsername = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlNav = new System.Windows.Forms.FlowLayoutPanel();
             this.btnClose = new System.Windows.Forms.Button();
@@ -67,9 +67,8 @@
             this.panel1.Controls.Add(this.btnDashboard);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(279, 888);
+            this.panel1.Size = new System.Drawing.Size(186, 577);
             this.panel1.TabIndex = 0;
             // 
             // btnResReport
@@ -80,10 +79,9 @@
             this.btnResReport.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnResReport.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.btnResReport.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.btnResReport.Location = new System.Drawing.Point(0, 463);
-            this.btnResReport.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnResReport.Location = new System.Drawing.Point(0, 301);
             this.btnResReport.Name = "btnResReport";
-            this.btnResReport.Size = new System.Drawing.Size(279, 77);
+            this.btnResReport.Size = new System.Drawing.Size(186, 50);
             this.btnResReport.TabIndex = 11;
             this.btnResReport.Text = "Reservation Report";
             this.btnResReport.UseVisualStyleBackColor = false;
@@ -98,10 +96,9 @@
             this.btnPastRes.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPastRes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.btnPastRes.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.btnPastRes.Location = new System.Drawing.Point(0, 389);
-            this.btnPastRes.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnPastRes.Location = new System.Drawing.Point(0, 253);
             this.btnPastRes.Name = "btnPastRes";
-            this.btnPastRes.Size = new System.Drawing.Size(279, 77);
+            this.btnPastRes.Size = new System.Drawing.Size(186, 50);
             this.btnPastRes.TabIndex = 10;
             this.btnPastRes.Text = "Past Reservations";
             this.btnPastRes.UseVisualStyleBackColor = false;
@@ -116,10 +113,9 @@
             this.btnPendingRes.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPendingRes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.btnPendingRes.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.btnPendingRes.Location = new System.Drawing.Point(0, 312);
-            this.btnPendingRes.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnPendingRes.Location = new System.Drawing.Point(0, 203);
             this.btnPendingRes.Name = "btnPendingRes";
-            this.btnPendingRes.Size = new System.Drawing.Size(279, 77);
+            this.btnPendingRes.Size = new System.Drawing.Size(186, 50);
             this.btnPendingRes.TabIndex = 7;
             this.btnPendingRes.Text = "Pending Reservations";
             this.btnPendingRes.UseVisualStyleBackColor = false;
@@ -134,10 +130,9 @@
             this.btnUpdate.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.btnUpdate.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.btnUpdate.Location = new System.Drawing.Point(0, 538);
-            this.btnUpdate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnUpdate.Location = new System.Drawing.Point(0, 350);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(279, 77);
+            this.btnUpdate.Size = new System.Drawing.Size(186, 50);
             this.btnUpdate.TabIndex = 6;
             this.btnUpdate.Text = "Update Info";
             this.btnUpdate.UseVisualStyleBackColor = false;
@@ -153,10 +148,9 @@
             this.btnLogout.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogout.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.btnLogout.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.btnLogout.Location = new System.Drawing.Point(0, 811);
-            this.btnLogout.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnLogout.Location = new System.Drawing.Point(0, 527);
             this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(279, 77);
+            this.btnLogout.Size = new System.Drawing.Size(186, 50);
             this.btnLogout.TabIndex = 5;
             this.btnLogout.Text = "Logout";
             this.btnLogout.UseVisualStyleBackColor = false;
@@ -171,10 +165,9 @@
             this.btnDashboard.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDashboard.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.btnDashboard.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.btnDashboard.Location = new System.Drawing.Point(0, 237);
-            this.btnDashboard.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnDashboard.Location = new System.Drawing.Point(0, 154);
             this.btnDashboard.Name = "btnDashboard";
-            this.btnDashboard.Size = new System.Drawing.Size(279, 77);
+            this.btnDashboard.Size = new System.Drawing.Size(186, 50);
             this.btnDashboard.TabIndex = 1;
             this.btnDashboard.Text = "Dashboard";
             this.btnDashboard.UseVisualStyleBackColor = false;
@@ -183,47 +176,43 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.lblUserId);
+            this.panel2.Controls.Add(this.lblUsername);
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(279, 237);
+            this.panel2.Size = new System.Drawing.Size(186, 154);
             this.panel2.TabIndex = 0;
             // 
-            // label1
+            // lblUserId
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(62, 191);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(138, 25);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "User position";
+            this.lblUserId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUserId.ForeColor = System.Drawing.Color.White;
+            this.lblUserId.Location = new System.Drawing.Point(41, 124);
+            this.lblUserId.Name = "lblUserId";
+            this.lblUserId.Size = new System.Drawing.Size(109, 16);
+            this.lblUserId.TabIndex = 3;
+            this.lblUserId.Text = "User position";
+            this.lblUserId.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label2
+            // lblUsername
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.label2.Location = new System.Drawing.Point(78, 151);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(110, 25);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Username";
+            this.lblUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsername.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.lblUsername.Location = new System.Drawing.Point(52, 98);
+            this.lblUsername.Name = "lblUsername";
+            this.lblUsername.Size = new System.Drawing.Size(89, 16);
+            this.lblUsername.TabIndex = 2;
+            this.lblUsername.Text = "Username";
+            this.lblUsername.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::IOOP_Assignment.Properties.Resources.User_profile_pic;
-            this.pictureBox1.Location = new System.Drawing.Point(90, 34);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pictureBox1.Location = new System.Drawing.Point(60, 22);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(94, 97);
+            this.pictureBox1.Size = new System.Drawing.Size(63, 63);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -231,10 +220,9 @@
             // pnlNav
             // 
             this.pnlNav.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(127)))), ((int)(((byte)(0)))));
-            this.pnlNav.Location = new System.Drawing.Point(0, 237);
-            this.pnlNav.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pnlNav.Location = new System.Drawing.Point(0, 154);
             this.pnlNav.Name = "pnlNav";
-            this.pnlNav.Size = new System.Drawing.Size(22, 152);
+            this.pnlNav.Size = new System.Drawing.Size(15, 99);
             this.pnlNav.TabIndex = 1;
             // 
             // btnClose
@@ -243,10 +231,9 @@
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(127)))), ((int)(((byte)(0)))));
-            this.btnClose.Location = new System.Drawing.Point(1347, 40);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnClose.Location = new System.Drawing.Point(898, 26);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(45, 46);
+            this.btnClose.Size = new System.Drawing.Size(30, 30);
             this.btnClose.TabIndex = 4;
             this.btnClose.Text = "X";
             this.btnClose.UseVisualStyleBackColor = true;
@@ -257,10 +244,9 @@
             this.lblDateTime.AutoSize = true;
             this.lblDateTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDateTime.ForeColor = System.Drawing.Color.White;
-            this.lblDateTime.Location = new System.Drawing.Point(1022, 49);
-            this.lblDateTime.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblDateTime.Location = new System.Drawing.Point(681, 32);
             this.lblDateTime.Name = "lblDateTime";
-            this.lblDateTime.Size = new System.Drawing.Size(171, 29);
+            this.lblDateTime.Size = new System.Drawing.Size(113, 20);
             this.lblDateTime.TabIndex = 5;
             this.lblDateTime.Text = "Date and Time";
             // 
@@ -269,9 +255,10 @@
             this.crystalReportViewer1.ActiveViewIndex = -1;
             this.crystalReportViewer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.crystalReportViewer1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.crystalReportViewer1.Location = new System.Drawing.Point(286, 215);
+            this.crystalReportViewer1.Location = new System.Drawing.Point(191, 140);
+            this.crystalReportViewer1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.crystalReportViewer1.Name = "crystalReportViewer1";
-            this.crystalReportViewer1.Size = new System.Drawing.Size(1147, 661);
+            this.crystalReportViewer1.Size = new System.Drawing.Size(765, 430);
             this.crystalReportViewer1.TabIndex = 6;
             this.crystalReportViewer1.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
             // 
@@ -279,17 +266,19 @@
             // 
             this.panel3.Controls.Add(this.btnMonthlyRep);
             this.panel3.Controls.Add(this.btnDailyRep);
-            this.panel3.Location = new System.Drawing.Point(286, 116);
+            this.panel3.Location = new System.Drawing.Point(191, 75);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1147, 100);
+            this.panel3.Size = new System.Drawing.Size(765, 65);
             this.panel3.TabIndex = 7;
             // 
             // btnMonthlyRep
             // 
             this.btnMonthlyRep.Font = new System.Drawing.Font("Baskerville Old Face", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMonthlyRep.Location = new System.Drawing.Point(389, 22);
+            this.btnMonthlyRep.Location = new System.Drawing.Point(259, 14);
+            this.btnMonthlyRep.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnMonthlyRep.Name = "btnMonthlyRep";
-            this.btnMonthlyRep.Size = new System.Drawing.Size(326, 53);
+            this.btnMonthlyRep.Size = new System.Drawing.Size(217, 34);
             this.btnMonthlyRep.TabIndex = 1;
             this.btnMonthlyRep.Text = "Monthly Room Utilization Report";
             this.btnMonthlyRep.UseVisualStyleBackColor = true;
@@ -298,9 +287,10 @@
             // btnDailyRep
             // 
             this.btnDailyRep.Font = new System.Drawing.Font("Baskerville Old Face", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDailyRep.Location = new System.Drawing.Point(82, 22);
+            this.btnDailyRep.Location = new System.Drawing.Point(55, 14);
+            this.btnDailyRep.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnDailyRep.Name = "btnDailyRep";
-            this.btnDailyRep.Size = new System.Drawing.Size(268, 53);
+            this.btnDailyRep.Size = new System.Drawing.Size(179, 34);
             this.btnDailyRep.TabIndex = 0;
             this.btnDailyRep.Text = "Daily Reservations Report";
             this.btnDailyRep.UseVisualStyleBackColor = true;
@@ -309,25 +299,26 @@
             // dtpDailyReport
             // 
             this.dtpDailyReport.CustomFormat = "";
-            this.dtpDailyReport.Location = new System.Drawing.Point(368, 49);
+            this.dtpDailyReport.Location = new System.Drawing.Point(245, 32);
+            this.dtpDailyReport.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dtpDailyReport.Name = "dtpDailyReport";
-            this.dtpDailyReport.Size = new System.Drawing.Size(268, 26);
+            this.dtpDailyReport.Size = new System.Drawing.Size(180, 20);
             this.dtpDailyReport.TabIndex = 8;
             // 
             // dtpMonthlyReport
             // 
-            this.dtpMonthlyReport.Location = new System.Drawing.Point(675, 49);
+            this.dtpMonthlyReport.Location = new System.Drawing.Point(450, 32);
+            this.dtpMonthlyReport.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dtpMonthlyReport.Name = "dtpMonthlyReport";
-            this.dtpMonthlyReport.Size = new System.Drawing.Size(326, 26);
+            this.dtpMonthlyReport.Size = new System.Drawing.Size(219, 20);
             this.dtpMonthlyReport.TabIndex = 9;
-            this.dtpMonthlyReport.ValueChanged += new System.EventHandler(this.dtpMonthlyReport_ValueChanged);
             // 
             // Librarian_ReservationRep
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.ClientSize = new System.Drawing.Size(1552, 888);
+            this.ClientSize = new System.Drawing.Size(1035, 577);
             this.Controls.Add(this.dtpMonthlyReport);
             this.Controls.Add(this.dtpDailyReport);
             this.Controls.Add(this.panel3);
@@ -337,13 +328,11 @@
             this.Controls.Add(this.pnlNav);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Librarian_ReservationRep";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Load += new System.EventHandler(this.Login_Page_Load);
+            this.Load += new System.EventHandler(this.Lib_Res_Report_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -356,9 +345,9 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblUsername;
         private System.Windows.Forms.Button btnDashboard;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblUserId;
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.FlowLayoutPanel pnlNav;

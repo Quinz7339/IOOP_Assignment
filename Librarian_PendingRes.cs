@@ -222,8 +222,8 @@ namespace IOOP_Assignment
             pnlNav.Top = btnResReport.Top;
             pnlNav.Left = btnResReport.Left;
             btnResReport.BackColor = Color.FromArgb(46, 51, 73);
-            //Librarian_Report LibReport = new Librarian_Report();
-            //LibReport.Show();
+            Librarian_ReservationRep LibReport = new Librarian_ReservationRep();
+            LibReport.Show();
             this.Hide();
         }
 

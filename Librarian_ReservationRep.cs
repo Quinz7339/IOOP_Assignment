@@ -37,15 +37,18 @@ namespace IOOP_Assignment
             pnlNav.Top = btnResReport.Top;
             pnlNav.Left = btnResReport.Left;
             btnResReport.BackColor = Color.FromArgb(46, 51, 73);
-            
         }
 
-        private void Login_Page_Load(object sender, EventArgs e)
+        private void Lib_Res_Report_Load(object sender, EventArgs e)
         {
             lblDateTime.Text = DateTime.Now.ToString();
             dtpMonthlyReport.Format = DateTimePickerFormat.Custom;
             dtpMonthlyReport.CustomFormat = "MMMM/yyyy";
             dtpMonthlyReport.ShowUpDown = true;
+
+            User userInfo = new User();
+            lblUsername.Text = userInfo.UserFullName;
+            lblUserId.Text = userInfo.UserID;
         }
 
         private void btnPendingRes_Click(object sender, EventArgs e)
@@ -75,7 +78,9 @@ namespace IOOP_Assignment
             pnlNav.Left = btnUpdate.Left;
             btnUpdate.BackColor = Color.FromArgb(46, 51, 73);
 
-
+            Librarian_UpdateInfo updtInfo = new Librarian_UpdateInfo();
+            updtInfo.Show();
+            this.Hide();
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
@@ -84,6 +89,13 @@ namespace IOOP_Assignment
             pnlNav.Top = btnLogout.Top;
             pnlNav.Left = btnLogout.Left;
             btnLogout.BackColor = Color.FromArgb(46, 51, 73);
+
+            if (MessageBox.Show("Are you sure you want to logout from the current session?", "Logging Out?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                this.Close();
+                Login_Page login = new Login_Page();
+                login.Show();
+            }
         }
 
         private void btnDashboard_Leave(object sender, EventArgs e)
@@ -102,36 +114,7 @@ namespace IOOP_Assignment
             btnLogout.BackColor = Color.FromArgb(24, 30, 54);
         }
 
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void btnPastRev_Click(object sender, EventArgs e)
-        {
-            pnlNav.Height = btnPastRes.Height;
-            pnlNav.Top = btnPastRes.Top;
-            pnlNav.Left = btnPastRes.Left;
-            btnPastRes.BackColor = Color.FromArgb(46, 51, 73);
-
-
-        }
-
-       
-
-        private void btnResReport_Click_1(object sender, EventArgs e)
-        {
-            pnlNav.Height = btnResReport.Height;
-            pnlNav.Top = btnResReport.Top;
-            pnlNav.Left = btnResReport.Left;
-            btnResReport.BackColor = Color.FromArgb(46, 51, 73);
-        }
-
+      
         private void btnPastRes_Click(object sender, EventArgs e)
         {
             pnlNav.Height = btnPastRes.Height;
@@ -178,30 +161,17 @@ namespace IOOP_Assignment
             this.Hide();
         }
 
-        private void btnUpdateInfo_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblDashboard_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnDailyRep_Click(object sender, EventArgs e)
         {
             DateTime d = DateTime.Parse(dtpDailyReport.Text);
-            //DateTime datejoin = DateTime.Parse(dtpDailyReport.Value.ToString());
-            //DateTime z = new DateTime();
-            //DateTime c = Convert.ToDateTime(z);
+            
             SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\Library_Reservation_Database.mdf;Integrated Security=True;Connect Timeout=30");
             SqlCommand command = new SqlCommand($"Select * from RESERVATION_INFO_T where reserveDate = '{d.ToString("yyyy-MM-dd")}'", con);
             SqlDataAdapter da = new SqlDataAdapter(command);
             dailyRep dsD = new dailyRep();
             DataSet s = new DataSet();
             da.Fill(s, "RESERVATION_INFO_T");
-            //dailyRepTableAdapters.RESERVATION_INFO_TTableAdapter ad = new dailyRepTableAdapters.RESERVATION_INFO_TTableAdapter();
-            //ad.Fill(dsD.RESERVATION_INFO_T);
+            
             dReport rpt = new dReport();
             rpt.SetDataSource(s);
             crystalReportViewer1.ReportSource = rpt;
@@ -240,10 +210,10 @@ namespace IOOP_Assignment
         {
             btnResReport.BackColor = Color.FromArgb(24, 30, 54);
         }
-
-        private void dtpMonthlyReport_ValueChanged(object sender, EventArgs e)
+        private void btnClose_Click(object sender, EventArgs e)
         {
-
+            Application.Exit();
         }
+
     }
 }
