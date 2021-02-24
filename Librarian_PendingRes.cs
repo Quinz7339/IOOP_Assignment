@@ -55,6 +55,10 @@ namespace IOOP_Assignment
             pnlNav.Left = btnPendingRes.Left;
             btnPendingRes.BackColor = Color.FromArgb(46, 51, 73);
             dgvPending.Size = new Size(720, 392);
+
+            User userInfo = new User();
+            lblUsername.Text = userInfo.UserFullName;
+            lblUserId.Text = userInfo.UserID;
         }
 
         private void Pending_Page_Load(object sender, EventArgs e)
@@ -187,8 +191,8 @@ namespace IOOP_Assignment
             pnlNav.Left = btnDashboard.Left;
             btnDashboard.BackColor = Color.FromArgb(46, 51, 73);
 
-            //Librarian_Dashboard LibDash = new Librarian_Dashboard();
-            //LibDash.Show();
+            Librarian_Dashboard LibDash = new Librarian_Dashboard();
+            LibDash.Show();
             this.Hide();
         }
 
@@ -207,8 +211,8 @@ namespace IOOP_Assignment
             pnlNav.Left = btnPastRes.Left;
             btnPastRes.BackColor = Color.FromArgb(46, 51, 73);
 
-            //Librarian_PastRes LibPastRes = new Librarian_PastRes();
-            //LibPastRes.Show();
+            Librarian_PastRes LibPastRes = new Librarian_PastRes();
+            LibPastRes.Show();
             this.Hide();
         }
 
@@ -229,10 +233,10 @@ namespace IOOP_Assignment
             pnlNav.Top = btnUpdate.Top;
             pnlNav.Left = btnUpdate.Left;
             btnUpdate.BackColor = Color.FromArgb(46, 51, 73);
+
             Librarian_UpdateInfo LibUpdate = new Librarian_UpdateInfo();
             LibUpdate.Show();
             this.Hide();
-
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
@@ -241,6 +245,13 @@ namespace IOOP_Assignment
             pnlNav.Top = btnLogout.Top;
             pnlNav.Left = btnLogout.Left;
             btnLogout.BackColor = Color.FromArgb(46, 51, 73);
+
+            if (MessageBox.Show("Are you sure you want to logout from the current session?", "Logging Out?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                this.Close();
+                Login_Page login = new Login_Page();
+                login.Show();
+            }
         }
 
         private void btnDashboad_Leave(object sender, EventArgs e)

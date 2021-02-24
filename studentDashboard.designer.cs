@@ -176,7 +176,7 @@
             this.btnDashboad.Text = "Dashboard";
             this.btnDashboad.UseVisualStyleBackColor = false;
             this.btnDashboad.Click += new System.EventHandler(this.btnDashboad_Click);
-            this.btnDashboad.Leave += new System.EventHandler(this.btnDashboad_Leave);
+            this.btnDashboad.Leave += new System.EventHandler(this.btnDashboard_Leave);
             // 
             // panel2
             // 

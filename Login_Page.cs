@@ -119,8 +119,8 @@ namespace IOOP_Assignment
                 //opens librarian's side of program
                 else
                 {
-                    //work in progress....
-                    MessageBox.Show("Bruh", "Hi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Librarian_Dashboard dsb = new Librarian_Dashboard();
+                    dsb.Show();
                 }
 
                 //login sucess, hides this form 

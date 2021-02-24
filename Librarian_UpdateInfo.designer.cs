@@ -30,15 +30,15 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnPastRes = new System.Windows.Forms.Button();
             this.btnPendingRes = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
             this.btnResReport = new System.Windows.Forms.Button();
             this.btnDashboard = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblUserIdL = new System.Windows.Forms.Label();
+            this.lblUserName = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlNav = new System.Windows.Forms.FlowLayoutPanel();
             this.label3 = new System.Windows.Forms.Label();
@@ -67,7 +67,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
-            this.panel1.Controls.Add(this.button2);
+            this.panel1.Controls.Add(this.btnPastRes);
             this.panel1.Controls.Add(this.btnPendingRes);
             this.panel1.Controls.Add(this.btnUpdate);
             this.panel1.Controls.Add(this.btnLogout);
@@ -80,20 +80,22 @@
             this.panel1.Size = new System.Drawing.Size(186, 577);
             this.panel1.TabIndex = 0;
             // 
-            // button2
+            // btnPastRes
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.button2.Location = new System.Drawing.Point(0, 266);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(186, 50);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "Past Reservations";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnPastRes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            this.btnPastRes.FlatAppearance.BorderSize = 0;
+            this.btnPastRes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPastRes.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPastRes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.btnPastRes.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+            this.btnPastRes.Location = new System.Drawing.Point(0, 266);
+            this.btnPastRes.Name = "btnPastRes";
+            this.btnPastRes.Size = new System.Drawing.Size(186, 50);
+            this.btnPastRes.TabIndex = 6;
+            this.btnPastRes.Text = "Past Reservations";
+            this.btnPastRes.UseVisualStyleBackColor = false;
+            this.btnPastRes.Click += new System.EventHandler(this.btnPastRes_Click);
+            this.btnPastRes.Leave += new System.EventHandler(this.btnPastRes_Leave);
             // 
             // btnPendingRes
             // 
@@ -109,6 +111,7 @@
             this.btnPendingRes.TabIndex = 6;
             this.btnPendingRes.Text = "Pending Reservations";
             this.btnPendingRes.UseVisualStyleBackColor = false;
+            this.btnPendingRes.Click += new System.EventHandler(this.btnPendingRes_Click);
             // 
             // btnUpdate
             // 
@@ -177,12 +180,12 @@
             this.btnDashboard.Text = "Dashboard";
             this.btnDashboard.UseVisualStyleBackColor = false;
             this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
-            this.btnDashboard.Leave += new System.EventHandler(this.btnDashboad_Leave);
+            this.btnDashboard.Leave += new System.EventHandler(this.btnDashboard_Leave);
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.lblUserIdL);
+            this.panel2.Controls.Add(this.lblUserName);
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
@@ -190,27 +193,27 @@
             this.panel2.Size = new System.Drawing.Size(186, 154);
             this.panel2.TabIndex = 0;
             // 
-            // label1
+            // lblUserIdL
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(41, 124);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(100, 16);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "User position";
+            this.lblUserIdL.AutoSize = true;
+            this.lblUserIdL.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUserIdL.ForeColor = System.Drawing.Color.White;
+            this.lblUserIdL.Location = new System.Drawing.Point(41, 124);
+            this.lblUserIdL.Name = "lblUserIdL";
+            this.lblUserIdL.Size = new System.Drawing.Size(100, 16);
+            this.lblUserIdL.TabIndex = 3;
+            this.lblUserIdL.Text = "User position";
             // 
-            // label2
+            // lblUserName
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.label2.Location = new System.Drawing.Point(52, 98);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(79, 16);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Username";
+            this.lblUserName.AutoSize = true;
+            this.lblUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUserName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.lblUserName.Location = new System.Drawing.Point(52, 98);
+            this.lblUserName.Name = "lblUserName";
+            this.lblUserName.Size = new System.Drawing.Size(79, 16);
+            this.lblUserName.TabIndex = 2;
+            this.lblUserName.Text = "Username";
             // 
             // pictureBox1
             // 
@@ -418,7 +421,7 @@
             this.lblName.TabIndex = 22;
             this.lblName.Text = "Name :";
             // 
-            // Lib_UpdateInfo
+            // Librarian_UpdateInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -431,7 +434,7 @@
             this.Controls.Add(this.pnlNav);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Lib_UpdateInfo";
+            this.Name = "Librarian_UpdateInfo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Lib_UpdateInfo_Load);
@@ -451,9 +454,9 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblUserName;
         private System.Windows.Forms.Button btnDashboard;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblUserIdL;
         private System.Windows.Forms.Button btnResReport;
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.Button btnUpdate;
@@ -462,7 +465,7 @@
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label lblDateTime;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnPastRes;
         private System.Windows.Forms.Button btnPendingRes;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TextBox txtConfirmPassword;

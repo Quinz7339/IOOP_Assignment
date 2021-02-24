@@ -37,11 +37,14 @@ namespace IOOP_Assignment
             InitializeComponent();
             this.Size = new Size(960, 575);
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 25, 25));
-            pnlNav.Height = btnDashboard.Height;
-            pnlNav.Top = btnDashboard.Top;
-            pnlNav.Left = btnDashboard.Left;
-            btnDashboard.BackColor = Color.FromArgb(46, 51, 73);
+            pnlNav.Height = btnUpdate.Height;
+            pnlNav.Top = btnUpdate.Top;
+            pnlNav.Left = btnUpdate.Left;
+            btnUpdate.BackColor = Color.FromArgb(46, 51, 73);
 
+            User userInfo = new User();
+            lblUserName.Text = userInfo.UserFullName;
+            lblUserIdL.Text = userInfo.UserID;
         }
 
         private void Lib_UpdateInfo_Load(object sender, EventArgs e)
@@ -186,7 +189,6 @@ namespace IOOP_Assignment
             {
                 MessageBox.Show("Two password are not match ! Please try again.", "Submit Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
             btnReset.PerformClick();
         }
 
@@ -209,6 +211,21 @@ namespace IOOP_Assignment
             pnlNav.Top = btnDashboard.Top;
             pnlNav.Left = btnDashboard.Left;
             btnDashboard.BackColor = Color.FromArgb(46, 51, 73);
+        }
+        private void btnPendingRes_Click(object sender, EventArgs e)
+        {
+            pnlNav.Height = btnPendingRes.Height;
+            pnlNav.Top = btnPendingRes.Top;
+            pnlNav.Left = btnPendingRes.Left;
+            btnPendingRes.BackColor = Color.FromArgb(46, 51, 73);
+        }
+
+        private void btnPastRes_Click(object sender, EventArgs e)
+        {
+            pnlNav.Height = btnPastRes.Height;
+            pnlNav.Top = btnPastRes.Top;
+            pnlNav.Left = btnPastRes.Left;
+            btnPastRes.BackColor = Color.FromArgb(46, 51, 73);
         }
 
         private void btnResReport_Click(object sender, EventArgs e)
@@ -233,11 +250,24 @@ namespace IOOP_Assignment
             pnlNav.Top = btnLogout.Top;
             pnlNav.Left = btnLogout.Left;
             btnLogout.BackColor = Color.FromArgb(46, 51, 73);
+
+            if (MessageBox.Show("Are you sure you want to logout from the current session?", "Logging Out?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                this.Close();
+                Login_Page login = new Login_Page();
+                login.Show();
+            }
         }
 
-        private void btnDashboad_Leave(object sender, EventArgs e)
+        private void btnDashboard_Leave(object sender, EventArgs e)
         {
             btnDashboard.BackColor = Color.FromArgb(24, 30, 54);
+
+        }
+
+        private void btnPastRes_Leave(object sender, EventArgs e)
+        {
+            btnPastRes.BackColor = Color.FromArgb(24, 30, 54);
         }
 
         private void btnResReport_Leave(object sender, EventArgs e)
@@ -254,6 +284,7 @@ namespace IOOP_Assignment
         {
             btnLogout.BackColor = Color.FromArgb(24, 30, 54);
         }
+
         private void btnClose_Click(object sender, EventArgs e)
         {
             Application.Exit();
