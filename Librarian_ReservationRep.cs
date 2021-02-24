@@ -41,7 +41,7 @@ namespace IOOP_Assignment
 
         private void Lib_Res_Report_Load(object sender, EventArgs e)
         {
-            lblDateTime.Text = DateTime.Now.ToString();
+            lblDateTime.Text = DateTime.Now.ToString("dd MMM yyyy      hh:mm tt");
             dtpMonthlyReport.Format = DateTimePickerFormat.Custom;
             dtpMonthlyReport.CustomFormat = "MMMM/yyyy";
             dtpMonthlyReport.ShowUpDown = true;
