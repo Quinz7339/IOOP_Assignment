@@ -288,7 +288,7 @@ namespace IOOP_Assignment
                     }
                     else
                     {
-                        if (reserveId == lblPrevResId.Text.Trim())
+                        if (lblAftRoomId.Text.Trim() == lblPrevRoomId.Text.Trim())
                         {
                             MessageBox.Show("Kindly retry and select a room type.", "No room type selected.", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
