@@ -184,7 +184,7 @@ namespace IOOP_Assignment
             cboStartTime.Enabled = true;
         }
 
-        //add time based on input on StartTime
+        //add time based on input on cboStartTime
         private void cboStartTime_SelectedIndexChanged(object sender, EventArgs e)
         {
             cboEndTime.Items.Clear();
@@ -274,7 +274,7 @@ namespace IOOP_Assignment
             lstReceipt.Items.Add("Time: " + DateTime.Now.ToString("hh:mm tt"));
             lstReceipt.Items.Add("\n"); // displays a new empty line
             lstReceipt.Items.Add("Room Booked:\t\t" + roomId);
-            lstReceipt.Items.Add("Reserved Date:\t\t" + dtpResDate.Value.ToString());
+            lstReceipt.Items.Add("Reserved Date:\t\t" + dtpResDate.Value.ToString("dd/MM/yyyy"));
             lstReceipt.Items.Add("Reserved Start Time:\t" + cboStartTime.SelectedItem.ToString());
             lstReceipt.Items.Add("Reserved End Time:\t\t" + cboEndTime.SelectedItem.ToString());
 
@@ -288,11 +288,11 @@ namespace IOOP_Assignment
             // shows meesage box based on the status of Inserting the reservation info 
             if (i > 0)
             {
-                MessageBox.Show("Record has been successfully added","Your reservation has been booked",MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Your reservation has been booked.", "Record has been successfully added.", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                MessageBox.Show("Record failed to be added","Your reservation has failed to be booked. Kindly try again.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Your reservation has failed to be booked. ", "Kindly try again.Record failed to be added.", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             dtpResDate.Enabled = false;
             cboStartTime.Enabled = false;

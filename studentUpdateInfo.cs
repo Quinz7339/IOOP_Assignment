@@ -42,7 +42,6 @@ namespace IOOP_Assignment
             pnlNav.Top = btnUpdate.Top;
             pnlNav.Left = btnUpdate.Left;
             btnUpdate.BackColor = Color.FromArgb(46, 51, 73);
-
         }
 
         private void studentUpdateInfo_Load(object sender, EventArgs e)
@@ -50,6 +49,8 @@ namespace IOOP_Assignment
             User userInfo = new User();
 
             lblDateTime.Text = DateTime.Now.ToString("dd MMM yyyy      hh:mm tt");
+            lblUsername.Text = userInfo.UserFullName;
+            lblUserIdL.Text = userInfo.UserID;
 
             txtPassword.Text = pw;
             txtPassword.ForeColor = SystemColors.GrayText;
