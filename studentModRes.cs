@@ -278,14 +278,15 @@ namespace IOOP_Assignment
                 MessageBox.Show("Please select a mode of operation.", "Notifcation", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
-            {
-                if (reserveId == null)
+            {                
+                                    
+                if (modResStatus == "Modify")
                 {
-                    MessageBox.Show("Kindly retry and select a reservation ID.", "No reservation ID was selected.", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else
-                {
-                    if (modResStatus == "Modify")
+                    if(cboResId.SelectedItem == null)
+                    {
+                        MessageBox.Show("Kindly retry and select a reservation ID.", "No reservation ID was selected.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
                     {
                         if (reserveId == lblPrevResId.Text.Trim())
                         {
@@ -304,21 +305,22 @@ namespace IOOP_Assignment
                             }
                         }
                     }
-                    else if (modResStatus == "Cancel")
+                }
+                else if (modResStatus == "Cancel")
+                {
+                    reserveId = lblCancelId.Text.Trim();
+                    if (ModRes.CancelReserv(roomId.Trim(), reserveId) == 1)
                     {
-                        reserveId = lblCancelId.Text.Trim();
-                        if (ModRes.CancelReserv(roomId.Trim(), reserveId) == 1)
-                        {
-                            MessageBox.Show("Your reservation has been cancelled.", "Cancellation Successful!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            btnReset.PerformClick();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Kindly retry.", "Cancellation Failed!");
-                            btnReset.PerformClick();
-                        }
+                        MessageBox.Show("Your reservation has been cancelled.", "Cancellation Successful!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        btnReset.PerformClick();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Kindly retry.", "Cancellation Failed!");
+                        btnReset.PerformClick();
                     }
                 }
+                
             }
         }
 
