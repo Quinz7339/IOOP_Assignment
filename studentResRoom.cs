@@ -56,7 +56,7 @@ namespace IOOP_Assignment
 
         private void studentResRoom_Load(object sender, EventArgs e)
         {
-            Thread.CurrentThread.CurrentCulture.DateTimeFormat = new CultureInfo("en-MY").DateTimeFormat;
+            //Thread.CurrentThread.CurrentCulture.DateTimeFormat = new CultureInfo("en-MY").DateTimeFormat;
         }
 
         private void btnDashboard_Click(object sender, EventArgs e)
