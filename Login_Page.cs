@@ -132,5 +132,13 @@ namespace IOOP_Assignment
                 MessageBox.Show("Incorrect Username or Password. Please try again.", "Log in Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void txtPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnLogin.PerformClick();
+            }
+        }
     }
 }

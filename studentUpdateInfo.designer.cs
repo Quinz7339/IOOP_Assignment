@@ -45,7 +45,7 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.lblDateTime = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.txtConfrimPassword = new System.Windows.Forms.TextBox();
+            this.txtConfirmPassword = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
@@ -252,7 +252,7 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
-            this.panel3.Controls.Add(this.txtConfrimPassword);
+            this.panel3.Controls.Add(this.txtConfirmPassword);
             this.panel3.Controls.Add(this.label4);
             this.panel3.Controls.Add(this.txtPassword);
             this.panel3.Controls.Add(this.txtEmail);
@@ -269,13 +269,15 @@
             this.panel3.Size = new System.Drawing.Size(682, 433);
             this.panel3.TabIndex = 20;
             // 
-            // txtConfrimPassword
+            // txtConfirmPassword
             // 
-            this.txtConfrimPassword.Location = new System.Drawing.Point(170, 196);
-            this.txtConfrimPassword.Multiline = true;
-            this.txtConfrimPassword.Name = "txtConfrimPassword";
-            this.txtConfrimPassword.Size = new System.Drawing.Size(343, 20);
-            this.txtConfrimPassword.TabIndex = 37;
+            this.txtConfirmPassword.Location = new System.Drawing.Point(170, 196);
+            this.txtConfirmPassword.Multiline = true;
+            this.txtConfirmPassword.Name = "txtConfirmPassword";
+            this.txtConfirmPassword.Size = new System.Drawing.Size(343, 20);
+            this.txtConfirmPassword.TabIndex = 37;
+            this.txtConfirmPassword.Enter += new System.EventHandler(this.txtConfirmPassword_Enter);
+            this.txtConfirmPassword.Leave += new System.EventHandler(this.txtConfirmPassword_Leave);
             // 
             // label4
             // 
@@ -286,7 +288,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(144, 21);
             this.label4.TabIndex = 36;
-            this.label4.Text = "Confrim Password :";
+            this.label4.Text = "Confirm Password :";
             // 
             // txtPassword
             // 
@@ -457,7 +459,7 @@
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.TextBox txtUserId;
         private System.Windows.Forms.TextBox txtName;
-        private System.Windows.Forms.TextBox txtConfrimPassword;
+        private System.Windows.Forms.TextBox txtConfirmPassword;
         private System.Windows.Forms.Label label4;
     }
 }

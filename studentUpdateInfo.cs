@@ -55,6 +55,10 @@ namespace IOOP_Assignment
             txtPassword.ForeColor = SystemColors.GrayText;
             txtPassword.UseSystemPasswordChar = false;
 
+            txtConfirmPassword.Text = pw;
+            txtConfirmPassword.ForeColor = SystemColors.GrayText;
+            txtConfirmPassword.UseSystemPasswordChar = false;
+
             conn.Open();
             cmdEmail = new SqlCommand("Select full_name, email FROM USER_INFO_T WHERE userId=@userId", conn);
             cmdEmail.Parameters.AddWithValue("@userId", userInfo.UserID);
@@ -112,11 +116,31 @@ namespace IOOP_Assignment
             }
         }
 
+        private void txtConfirmPassword_Enter(object sender, EventArgs e)
+        {
+            if (txtConfirmPassword.Text == pw)
+            {
+                txtConfirmPassword.Text = "";
+                txtConfirmPassword.ForeColor = Color.Black;
+                txtConfirmPassword.UseSystemPasswordChar = true;
+            }
+        }
+
+        private void txtConfirmPassword_Leave(object sender, EventArgs e)
+        {
+            if (txtConfirmPassword.Text == "" || txtConfirmPassword.Text == pw)
+            {
+                txtConfirmPassword.Text = pw;
+                txtConfirmPassword.ForeColor = Color.Gray;
+                txtConfirmPassword.UseSystemPasswordChar = false;
+            }
+        }
+
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             User userInfo = new User();
 
-            if (txtConfrimPassword.Text == txtPassword.Text)
+            if (txtConfirmPassword.Text == txtPassword.Text)
             {
                 conn.Open();
 
@@ -143,7 +167,7 @@ namespace IOOP_Assignment
                     {
 
                         //if password inputed less than 8 alphanumeric
-                        if (txtPassword.Text != pw && txtPassword.TextLength != 0)
+                        if (txtPassword.Text != pw && txtPassword.TextLength < 8)
                         {
                             MessageBox.Show("Password must contains at least 8 alphanumeric characters or longer ! Please try again.", "Submit Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
@@ -175,7 +199,7 @@ namespace IOOP_Assignment
                 else
                 {
                     //if password inputed less than 8 alphanumeric
-                    if (txtPassword.Text != pw && txtPassword.TextLength != 0)
+                    if (txtPassword.Text != pw && txtPassword.TextLength < 8)
                     {
                         MessageBox.Show("Password must contains at least 8 alphanumeric characters or longer ! Please try again.", "Submit Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
@@ -193,15 +217,21 @@ namespace IOOP_Assignment
 
         private void btnReset_Click(object sender, EventArgs e)
         {
-            User userInfo = new User();
-            txtEmail.Clear();
-            txtEmail.Text = userInfo.Email;
-            txtEmail.ForeColor = SystemColors.GrayText;
-            txtPassword.Clear();
-            txtPassword.Text = pw;
-            txtPassword.ForeColor = Color.Gray;
-            txtPassword.UseSystemPasswordChar = false;
-            txtConfrimPassword.Clear();
+            studentUpdateInfo uptInfo = new studentUpdateInfo();
+            uptInfo.Show();
+            this.Hide();
+            //User userInfo = new User();
+            //txtEmail.Clear();
+            //txtEmail.Text = userInfo.Email;
+            //txtEmail.ForeColor = SystemColors.GrayText;
+            //txtPassword.Clear();
+            //txtPassword.Text = pw;
+            //txtPassword.ForeColor = Color.Gray;
+            //txtPassword.UseSystemPasswordChar = false;
+            //txtConfirmPassword.Clear();
+            //txtConfirmPassword.Text = pw;
+            //txtConfirmPassword.ForeColor = Color.Gray;
+            //txtConfirmPassword.UseSystemPasswordChar = false;
         }
 
         private void btnDashboard_Click(object sender, EventArgs e)

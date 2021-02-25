@@ -296,6 +296,8 @@
             this.txtConfirmPassword.Name = "txtConfirmPassword";
             this.txtConfirmPassword.Size = new System.Drawing.Size(343, 20);
             this.txtConfirmPassword.TabIndex = 37;
+            this.txtConfirmPassword.Enter += new System.EventHandler(this.txtConfirmPassword_Enter);
+            this.txtConfirmPassword.Leave += new System.EventHandler(this.txtConfirmPassword_Leave);
             // 
             // label4
             // 
@@ -306,7 +308,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(144, 21);
             this.label4.TabIndex = 36;
-            this.label4.Text = "Confrim Password :";
+            this.label4.Text = "Confirm Password :";
             // 
             // txtPassword
             // 

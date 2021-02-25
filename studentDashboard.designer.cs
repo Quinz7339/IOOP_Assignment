@@ -122,7 +122,7 @@
             this.btnModRes.Name = "btnModRes";
             this.btnModRes.Size = new System.Drawing.Size(186, 50);
             this.btnModRes.TabIndex = 6;
-            this.btnModRes.Text = "Modify Status";
+            this.btnModRes.Text = "Modify Reservation";
             this.btnModRes.UseVisualStyleBackColor = false;
             this.btnModRes.Click += new System.EventHandler(this.btnModRes_Click);
             // 

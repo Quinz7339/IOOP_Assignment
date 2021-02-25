@@ -11,6 +11,7 @@ using System.Runtime.InteropServices;
 using System.Diagnostics;
 using System.Data.SqlClient;
 using System.Globalization;
+using System.Threading;
 
 namespace IOOP_Assignment
 {
@@ -52,7 +53,12 @@ namespace IOOP_Assignment
             lblUserId.Text = userInfo.UserID;
             lblUsername.Text = userInfo.UserFullName;
         }
-         
+
+        private void studentResRoom_Load(object sender, EventArgs e)
+        {
+            Thread.CurrentThread.CurrentCulture.DateTimeFormat = new CultureInfo("en-MY").DateTimeFormat;
+        }
+
         private void btnDashboard_Click(object sender, EventArgs e)
         {
             pnlNav.Height = btnDashboard.Height;

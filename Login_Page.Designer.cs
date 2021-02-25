@@ -63,6 +63,7 @@
             this.txtPassword.Size = new System.Drawing.Size(314, 29);
             this.txtPassword.TabIndex = 2;
             this.txtPassword.Enter += new System.EventHandler(this.txtPassword_Enter);
+            this.txtPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPassword_KeyDown);
             this.txtPassword.Leave += new System.EventHandler(this.txtPassword_Leave);
             // 
             // btnLogin
