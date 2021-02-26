@@ -45,38 +45,14 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.lblDateTime = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.lblUpComResTime3 = new System.Windows.Forms.Label();
-            this.lblUpComResRoom3 = new System.Windows.Forms.Label();
-            this.lblUpComResDate3 = new System.Windows.Forms.Label();
-            this.lblUpComResTime2 = new System.Windows.Forms.Label();
-            this.lblUpComResRoom2 = new System.Windows.Forms.Label();
-            this.lblUpComResDate2 = new System.Windows.Forms.Label();
-            this.lblUpComResTime1 = new System.Windows.Forms.Label();
-            this.lblUpComResRoom1 = new System.Windows.Forms.Label();
-            this.lblUpComResDate1 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.lblPastResTime3 = new System.Windows.Forms.Label();
-            this.lblPastResRoom3 = new System.Windows.Forms.Label();
-            this.lblPastResDate3 = new System.Windows.Forms.Label();
-            this.lblPastResTime2 = new System.Windows.Forms.Label();
-            this.lblPastResRoom2 = new System.Windows.Forms.Label();
-            this.lblPastResDate2 = new System.Windows.Forms.Label();
-            this.lblPastResTime1 = new System.Windows.Forms.Label();
-            this.lblPastResRoom1 = new System.Windows.Forms.Label();
-            this.lblPastResDate1 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
-            this.label28 = new System.Windows.Forms.Label();
-            this.label29 = new System.Windows.Forms.Label();
+            this.dgvUpCom = new System.Windows.Forms.DataGridView();
+            this.dgvPast = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panel3.SuspendLayout();
-            this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUpCom)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPast)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -276,158 +252,6 @@
             this.label12.TabIndex = 0;
             this.label12.Text = "Past Room Reserved";
             // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
-            this.panel3.Controls.Add(this.lblUpComResTime3);
-            this.panel3.Controls.Add(this.lblUpComResRoom3);
-            this.panel3.Controls.Add(this.lblUpComResDate3);
-            this.panel3.Controls.Add(this.lblUpComResTime2);
-            this.panel3.Controls.Add(this.lblUpComResRoom2);
-            this.panel3.Controls.Add(this.lblUpComResDate2);
-            this.panel3.Controls.Add(this.lblUpComResTime1);
-            this.panel3.Controls.Add(this.lblUpComResRoom1);
-            this.panel3.Controls.Add(this.lblUpComResDate1);
-            this.panel3.Controls.Add(this.label7);
-            this.panel3.Controls.Add(this.label6);
-            this.panel3.Controls.Add(this.label5);
-            this.panel3.Location = new System.Drawing.Point(218, 103);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(666, 148);
-            this.panel3.TabIndex = 20;
-            // 
-            // lblUpComResTime3
-            // 
-            this.lblUpComResTime3.AutoSize = true;
-            this.lblUpComResTime3.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUpComResTime3.ForeColor = System.Drawing.Color.White;
-            this.lblUpComResTime3.Location = new System.Drawing.Point(229, 107);
-            this.lblUpComResTime3.Name = "lblUpComResTime3";
-            this.lblUpComResTime3.Size = new System.Drawing.Size(161, 21);
-            this.lblUpComResTime3.TabIndex = 30;
-            this.lblUpComResTime3.Text = "Reserved Time Range";
-            // 
-            // lblUpComResRoom3
-            // 
-            this.lblUpComResRoom3.AutoSize = true;
-            this.lblUpComResRoom3.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUpComResRoom3.ForeColor = System.Drawing.Color.White;
-            this.lblUpComResRoom3.Location = new System.Drawing.Point(505, 107);
-            this.lblUpComResRoom3.Name = "lblUpComResRoom3";
-            this.lblUpComResRoom3.Size = new System.Drawing.Size(121, 21);
-            this.lblUpComResRoom3.TabIndex = 29;
-            this.lblUpComResRoom3.Text = "Reserved Room";
-            // 
-            // lblUpComResDate3
-            // 
-            this.lblUpComResDate3.AutoSize = true;
-            this.lblUpComResDate3.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUpComResDate3.ForeColor = System.Drawing.Color.White;
-            this.lblUpComResDate3.Location = new System.Drawing.Point(20, 107);
-            this.lblUpComResDate3.Name = "lblUpComResDate3";
-            this.lblUpComResDate3.Size = new System.Drawing.Size(111, 21);
-            this.lblUpComResDate3.TabIndex = 28;
-            this.lblUpComResDate3.Text = "Reserved Date";
-            // 
-            // lblUpComResTime2
-            // 
-            this.lblUpComResTime2.AutoSize = true;
-            this.lblUpComResTime2.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUpComResTime2.ForeColor = System.Drawing.Color.White;
-            this.lblUpComResTime2.Location = new System.Drawing.Point(230, 80);
-            this.lblUpComResTime2.Name = "lblUpComResTime2";
-            this.lblUpComResTime2.Size = new System.Drawing.Size(161, 21);
-            this.lblUpComResTime2.TabIndex = 27;
-            this.lblUpComResTime2.Text = "Reserved Time Range";
-            // 
-            // lblUpComResRoom2
-            // 
-            this.lblUpComResRoom2.AutoSize = true;
-            this.lblUpComResRoom2.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUpComResRoom2.ForeColor = System.Drawing.Color.White;
-            this.lblUpComResRoom2.Location = new System.Drawing.Point(506, 80);
-            this.lblUpComResRoom2.Name = "lblUpComResRoom2";
-            this.lblUpComResRoom2.Size = new System.Drawing.Size(121, 21);
-            this.lblUpComResRoom2.TabIndex = 26;
-            this.lblUpComResRoom2.Text = "Reserved Room";
-            // 
-            // lblUpComResDate2
-            // 
-            this.lblUpComResDate2.AutoSize = true;
-            this.lblUpComResDate2.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUpComResDate2.ForeColor = System.Drawing.Color.White;
-            this.lblUpComResDate2.Location = new System.Drawing.Point(21, 80);
-            this.lblUpComResDate2.Name = "lblUpComResDate2";
-            this.lblUpComResDate2.Size = new System.Drawing.Size(111, 21);
-            this.lblUpComResDate2.TabIndex = 25;
-            this.lblUpComResDate2.Text = "Reserved Date";
-            // 
-            // lblUpComResTime1
-            // 
-            this.lblUpComResTime1.AutoSize = true;
-            this.lblUpComResTime1.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUpComResTime1.ForeColor = System.Drawing.Color.White;
-            this.lblUpComResTime1.Location = new System.Drawing.Point(230, 51);
-            this.lblUpComResTime1.Name = "lblUpComResTime1";
-            this.lblUpComResTime1.Size = new System.Drawing.Size(161, 21);
-            this.lblUpComResTime1.TabIndex = 24;
-            this.lblUpComResTime1.Text = "Reserved Time Range";
-            // 
-            // lblUpComResRoom1
-            // 
-            this.lblUpComResRoom1.AutoSize = true;
-            this.lblUpComResRoom1.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUpComResRoom1.ForeColor = System.Drawing.Color.White;
-            this.lblUpComResRoom1.Location = new System.Drawing.Point(506, 51);
-            this.lblUpComResRoom1.Name = "lblUpComResRoom1";
-            this.lblUpComResRoom1.Size = new System.Drawing.Size(121, 21);
-            this.lblUpComResRoom1.TabIndex = 23;
-            this.lblUpComResRoom1.Text = "Reserved Room";
-            // 
-            // lblUpComResDate1
-            // 
-            this.lblUpComResDate1.AutoSize = true;
-            this.lblUpComResDate1.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUpComResDate1.ForeColor = System.Drawing.Color.White;
-            this.lblUpComResDate1.Location = new System.Drawing.Point(21, 51);
-            this.lblUpComResDate1.Name = "lblUpComResDate1";
-            this.lblUpComResDate1.Size = new System.Drawing.Size(111, 21);
-            this.lblUpComResDate1.TabIndex = 22;
-            this.lblUpComResDate1.Text = "Reserved Date";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(230, 16);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(174, 21);
-            this.label7.TabIndex = 21;
-            this.label7.Text = "Reserved Time Range";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(21, 16);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(120, 21);
-            this.label6.TabIndex = 2;
-            this.label6.Text = "Reserved Date";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(506, 16);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(129, 21);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "Reserved Room";
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -439,157 +263,27 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "Upcoming Room Reserved";
             // 
-            // panel4
+            // dgvUpCom
             // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
-            this.panel4.Controls.Add(this.lblPastResTime3);
-            this.panel4.Controls.Add(this.lblPastResRoom3);
-            this.panel4.Controls.Add(this.lblPastResDate3);
-            this.panel4.Controls.Add(this.lblPastResTime2);
-            this.panel4.Controls.Add(this.lblPastResRoom2);
-            this.panel4.Controls.Add(this.lblPastResDate2);
-            this.panel4.Controls.Add(this.lblPastResTime1);
-            this.panel4.Controls.Add(this.lblPastResRoom1);
-            this.panel4.Controls.Add(this.lblPastResDate1);
-            this.panel4.Controls.Add(this.label27);
-            this.panel4.Controls.Add(this.label28);
-            this.panel4.Controls.Add(this.label29);
-            this.panel4.Location = new System.Drawing.Point(218, 336);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(666, 148);
-            this.panel4.TabIndex = 21;
+            this.dgvUpCom.AllowUserToAddRows = false;
+            this.dgvUpCom.AllowUserToDeleteRows = false;
+            this.dgvUpCom.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvUpCom.Location = new System.Drawing.Point(218, 104);
+            this.dgvUpCom.Name = "dgvUpCom";
+            this.dgvUpCom.ReadOnly = true;
+            this.dgvUpCom.Size = new System.Drawing.Size(710, 180);
+            this.dgvUpCom.TabIndex = 6;
             // 
-            // lblPastResTime3
+            // dgvPast
             // 
-            this.lblPastResTime3.AutoSize = true;
-            this.lblPastResTime3.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPastResTime3.ForeColor = System.Drawing.Color.DarkGray;
-            this.lblPastResTime3.Location = new System.Drawing.Point(229, 107);
-            this.lblPastResTime3.Name = "lblPastResTime3";
-            this.lblPastResTime3.Size = new System.Drawing.Size(161, 21);
-            this.lblPastResTime3.TabIndex = 30;
-            this.lblPastResTime3.Text = "Reserved Time Range";
-            // 
-            // lblPastResRoom3
-            // 
-            this.lblPastResRoom3.AutoSize = true;
-            this.lblPastResRoom3.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPastResRoom3.ForeColor = System.Drawing.Color.DarkGray;
-            this.lblPastResRoom3.Location = new System.Drawing.Point(505, 107);
-            this.lblPastResRoom3.Name = "lblPastResRoom3";
-            this.lblPastResRoom3.Size = new System.Drawing.Size(121, 21);
-            this.lblPastResRoom3.TabIndex = 29;
-            this.lblPastResRoom3.Text = "Reserved Room";
-            // 
-            // lblPastResDate3
-            // 
-            this.lblPastResDate3.AutoSize = true;
-            this.lblPastResDate3.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPastResDate3.ForeColor = System.Drawing.Color.DarkGray;
-            this.lblPastResDate3.Location = new System.Drawing.Point(20, 107);
-            this.lblPastResDate3.Name = "lblPastResDate3";
-            this.lblPastResDate3.Size = new System.Drawing.Size(111, 21);
-            this.lblPastResDate3.TabIndex = 28;
-            this.lblPastResDate3.Text = "Reserved Date";
-            // 
-            // lblPastResTime2
-            // 
-            this.lblPastResTime2.AutoSize = true;
-            this.lblPastResTime2.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPastResTime2.ForeColor = System.Drawing.Color.DarkGray;
-            this.lblPastResTime2.Location = new System.Drawing.Point(230, 80);
-            this.lblPastResTime2.Name = "lblPastResTime2";
-            this.lblPastResTime2.Size = new System.Drawing.Size(161, 21);
-            this.lblPastResTime2.TabIndex = 27;
-            this.lblPastResTime2.Text = "Reserved Time Range";
-            // 
-            // lblPastResRoom2
-            // 
-            this.lblPastResRoom2.AutoSize = true;
-            this.lblPastResRoom2.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPastResRoom2.ForeColor = System.Drawing.Color.DarkGray;
-            this.lblPastResRoom2.Location = new System.Drawing.Point(506, 80);
-            this.lblPastResRoom2.Name = "lblPastResRoom2";
-            this.lblPastResRoom2.Size = new System.Drawing.Size(121, 21);
-            this.lblPastResRoom2.TabIndex = 26;
-            this.lblPastResRoom2.Text = "Reserved Room";
-            // 
-            // lblPastResDate2
-            // 
-            this.lblPastResDate2.AutoSize = true;
-            this.lblPastResDate2.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPastResDate2.ForeColor = System.Drawing.Color.DarkGray;
-            this.lblPastResDate2.Location = new System.Drawing.Point(21, 80);
-            this.lblPastResDate2.Name = "lblPastResDate2";
-            this.lblPastResDate2.Size = new System.Drawing.Size(111, 21);
-            this.lblPastResDate2.TabIndex = 25;
-            this.lblPastResDate2.Text = "Reserved Date";
-            // 
-            // lblPastResTime1
-            // 
-            this.lblPastResTime1.AutoSize = true;
-            this.lblPastResTime1.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPastResTime1.ForeColor = System.Drawing.Color.DarkGray;
-            this.lblPastResTime1.Location = new System.Drawing.Point(230, 51);
-            this.lblPastResTime1.Name = "lblPastResTime1";
-            this.lblPastResTime1.Size = new System.Drawing.Size(161, 21);
-            this.lblPastResTime1.TabIndex = 24;
-            this.lblPastResTime1.Text = "Reserved Time Range";
-            // 
-            // lblPastResRoom1
-            // 
-            this.lblPastResRoom1.AutoSize = true;
-            this.lblPastResRoom1.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPastResRoom1.ForeColor = System.Drawing.Color.DarkGray;
-            this.lblPastResRoom1.Location = new System.Drawing.Point(506, 51);
-            this.lblPastResRoom1.Name = "lblPastResRoom1";
-            this.lblPastResRoom1.Size = new System.Drawing.Size(121, 21);
-            this.lblPastResRoom1.TabIndex = 23;
-            this.lblPastResRoom1.Text = "Reserved Room";
-            // 
-            // lblPastResDate1
-            // 
-            this.lblPastResDate1.AutoSize = true;
-            this.lblPastResDate1.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPastResDate1.ForeColor = System.Drawing.Color.DarkGray;
-            this.lblPastResDate1.Location = new System.Drawing.Point(21, 51);
-            this.lblPastResDate1.Name = "lblPastResDate1";
-            this.lblPastResDate1.Size = new System.Drawing.Size(111, 21);
-            this.lblPastResDate1.TabIndex = 22;
-            this.lblPastResDate1.Text = "Reserved Date";
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label27.ForeColor = System.Drawing.Color.DarkGray;
-            this.label27.Location = new System.Drawing.Point(230, 16);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(174, 21);
-            this.label27.TabIndex = 21;
-            this.label27.Text = "Reserved Time Range";
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label28.ForeColor = System.Drawing.Color.DarkGray;
-            this.label28.Location = new System.Drawing.Point(21, 16);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(120, 21);
-            this.label28.TabIndex = 2;
-            this.label28.Text = "Reserved Date";
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label29.ForeColor = System.Drawing.Color.DarkGray;
-            this.label29.Location = new System.Drawing.Point(506, 16);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(129, 21);
-            this.label29.TabIndex = 1;
-            this.label29.Text = "Reserved Room";
+            this.dgvPast.AllowUserToAddRows = false;
+            this.dgvPast.AllowUserToDeleteRows = false;
+            this.dgvPast.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPast.Location = new System.Drawing.Point(218, 336);
+            this.dgvPast.Name = "dgvPast";
+            this.dgvPast.ReadOnly = true;
+            this.dgvPast.Size = new System.Drawing.Size(710, 180);
+            this.dgvPast.TabIndex = 7;
             // 
             // studentDashboard
             // 
@@ -597,10 +291,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(951, 577);
-            this.Controls.Add(this.panel4);
+            this.Controls.Add(this.dgvPast);
+            this.Controls.Add(this.dgvUpCom);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label12);
-            this.Controls.Add(this.panel3);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lblDateTime);
             this.Controls.Add(this.btnClose);
@@ -614,10 +308,8 @@
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUpCom)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPast)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -641,33 +333,9 @@
         private System.Windows.Forms.Button btnModRes;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button btnResRoom;
-        private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label lblUpComResTime3;
-        private System.Windows.Forms.Label lblUpComResRoom3;
-        private System.Windows.Forms.Label lblUpComResDate3;
-        private System.Windows.Forms.Label lblUpComResTime2;
-        private System.Windows.Forms.Label lblUpComResRoom2;
-        private System.Windows.Forms.Label lblUpComResDate2;
-        private System.Windows.Forms.Label lblUpComResTime1;
-        private System.Windows.Forms.Label lblUpComResRoom1;
-        private System.Windows.Forms.Label lblUpComResDate1;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Label lblPastResTime3;
-        private System.Windows.Forms.Label lblPastResRoom3;
-        private System.Windows.Forms.Label lblPastResDate3;
-        private System.Windows.Forms.Label lblPastResTime2;
-        private System.Windows.Forms.Label lblPastResRoom2;
-        private System.Windows.Forms.Label lblPastResDate2;
-        private System.Windows.Forms.Label lblPastResTime1;
-        private System.Windows.Forms.Label lblPastResRoom1;
-        private System.Windows.Forms.Label lblPastResDate1;
-        private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.DataGridView dgvUpCom;
+        private System.Windows.Forms.DataGridView dgvPast;
     }
 }
 
