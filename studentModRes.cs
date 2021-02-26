@@ -299,7 +299,7 @@ namespace IOOP_Assignment
                         }
                         else
                         {
-                            if (ModRes.UpdateReserv(roomId.Trim(), reserveId) == 1)
+                            if (ModRes.updateReserv(roomId.Trim(), reserveId) == 1)
                             {
                                 MessageBox.Show("Your reservation has been modified.", "Modification Succesful!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 btnReset.PerformClick();
