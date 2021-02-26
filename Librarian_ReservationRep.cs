@@ -163,36 +163,77 @@ namespace IOOP_Assignment
 
         private void btnDailyRep_Click(object sender, EventArgs e)
         {
+            //save date selected into variable d
             DateTime d = DateTime.Parse(dtpDailyReport.Text);
             
+            //define the connection string
             SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\Library_Reservation_Database.mdf;Integrated Security=True;Connect Timeout=30");
+
+            //declare the SQL statement
             SqlCommand command = new SqlCommand($"Select * from RESERVATION_INFO_T where reserveDate = '{d.ToString("yyyy-MM-dd")}'", con);
+
+            //declare data adapter 
             SqlDataAdapter da = new SqlDataAdapter(command);
+
+            //create an instance for the dataset
             dailyRep dsD = new dailyRep();
+
+            //let dataset value be stored in s
             DataSet s = new DataSet();
+
+            //using the data adapter to fill the dataset with the data from RESERVATION_INFO_T table
             da.Fill(s, "RESERVATION_INFO_T");
             
+            //create an instance of the report
             dReport rpt = new dReport();
+
+            //set the data source of the report to the dataset
             rpt.SetDataSource(s);
+
+            //tie the crystal report viewer to the report
             crystalReportViewer1.ReportSource = rpt;
 
         }
 
         private void btnMonthlyRep_Click(object sender, EventArgs e)
         {
+            //save date selected into variable m
             DateTime m = DateTime.Parse(dtpMonthlyReport.Text);
+
+            //declare thisMonth variable
             string thisMonth = m.ToString("yyyy-MM-dd");
+
+            //declare nextMonth variable
             string nextMonth = m.AddMonths(1).ToString("yyyy-MM-dd");
 
+            //declare the SQL statement
             string selectSQL = $"SELECT j.reserveDate, o.roomName, j.roomId, j.userId, j.reserveId, j.reserveStartTime, j.reserveEndTime, j.reserveStatus FROM ROOM_INFO_T o INNER JOIN RESERVATION_INFO_T j ON o.roomId = j.roomId where reserveDate >= '{thisMonth}' and reserveDate < '{nextMonth}'";
+
+            //define the connection string
             SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\Library_Reservation_Database.mdf;Integrated Security=True;Connect Timeout=30");
+
+            //declare SQL command 
             SqlCommand command = new SqlCommand(selectSQL, con);
+
+            //declare data adapter 
             SqlDataAdapter da = new SqlDataAdapter(command);
+
+            //create an instance for the dataset
             monthlyRep dsM = new monthlyRep();
+
+            //let dataset value be stored in s
             DataSet s = new DataSet();
+
+            //using the data adapter to fill the dataset with the data from RESERVATION_ROOM_T datatable
             da.Fill(s, "RESERVATION_ROOM_T");
+
+            //create an instance of the report
             mReport rpt = new mReport();
+
+            //set the data source of the report to the dataset
             rpt.SetDataSource(s);
+
+            //tie the crystal report viewer to the report
             crystalReportViewer1.ReportSource = rpt;
         }
 
