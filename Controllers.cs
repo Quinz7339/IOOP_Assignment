@@ -211,7 +211,7 @@ namespace IOOP_Assignment
         }
 
         //method to be called by the btnSubmit_Click event at studentModRes to update the details of a modified room
-        public int CancelReserv(string roomId, string reserveId)
+        public int cancelReserv(string roomId, string reserveId)
         {
             string cancelResStr = "UPDATE RESERVATION_INFO_T SET reserveStatus = 'CANCELLED'  WHERE reserveId = @reserveId";
             using (SqlConnection cancelResConn = new SqlConnection("Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = |DataDirectory|\\Library_Reservation_Database.mdf; Integrated Security = True; Connect Timeout = 30"))

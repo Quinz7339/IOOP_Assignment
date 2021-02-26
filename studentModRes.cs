@@ -314,7 +314,7 @@ namespace IOOP_Assignment
                 else if (modResStatus == "Cancel")
                 {
                     reserveId = lblCancelId.Text.Trim();
-                    if (ModRes.CancelReserv(roomId.Trim(), reserveId) == 1)
+                    if (ModRes.cancelReserv(roomId.Trim(), reserveId) == 1)
                     {
                         MessageBox.Show("Your reservation has been cancelled.", "Cancellation Successful!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         btnReset.PerformClick();
