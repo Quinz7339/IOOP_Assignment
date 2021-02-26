@@ -64,6 +64,7 @@ namespace IOOP_Assignment
             lblUserId.Text = userInfo.UserID;
         }
 
+        //pre-load the combobox with reservation id's that has their reserve date beyond the current date and time
         private void loadComboBox()
         {
             User userInfo = new User();
@@ -185,17 +186,19 @@ namespace IOOP_Assignment
                     {
                         while (checkResDr.Read())
                         {
+                            //to obtain the exisitng reservation record from the datareader
                             lblPrevResId.Text = checkResDr[0].ToString();
                             lblPrevRoomId.Text = checkResDr[1].ToString();
                             lblPrevRoomName.Text = checkResDr[2].ToString();
 
-                            string[] getResDate = checkResDr[3].ToString().Split(' ');
-                            string[] getStartTime = checkResDr[4].ToString().Split(' ');
-                            string[] getEndTime = checkResDr[5].ToString().Split(' ');
+                            //split the given existing date time of the records using empty space and adding them into an array => [date], [hh:mm], [tt]
+                            string[] getResDate = checkResDr[3].ToString().Split(' ');  
+                            string[] getStartTime = checkResDr[4].ToString().Split(' '); 
+                            string[] getEndTime = checkResDr[5].ToString().Split(' '); 
 
                             lblPrevReserveDate.Text = getResDate[0];
-                            lblPrevStartTime.Text = DateTime.Parse(getStartTime[1] + getStartTime[2]).ToString("hh:mm tt");
-                            lblPrevEndTime.Text = DateTime.Parse(getEndTime[1] + getEndTime[2]).ToString("hh:mm tt");
+                            lblPrevStartTime.Text = DateTime.Parse(getStartTime[1] + getStartTime[2]).ToString("hh:mm tt"); //combines [hh:mm] and [ss] into a string form 
+                            lblPrevEndTime.Text = DateTime.Parse(getEndTime[1] + getEndTime[2]).ToString("hh:mm tt"); //combines [hh:mm] and [ss] into a string form 
                         }
                     }
                 }
@@ -222,17 +225,19 @@ namespace IOOP_Assignment
                     {
                         while (checkResDr.Read())
                         {
+                            //to obtain the exisitng reservation record from the datareader
                             lblCancelId.Text = checkResDr[0].ToString();
                             lblCancelRoomId.Text = checkResDr[1].ToString();
                             lblCancelRoomName.Text = checkResDr[2].ToString();
 
+                            //split the given existing date time of the records using empty space and adding them into an array => [date], [hh:mm], [tt]
                             string[] getResDate = checkResDr[3].ToString().Split(' ');
                             string[] getStartTime = checkResDr[4].ToString().Split(' ');
                             string[] getEndTime = checkResDr[5].ToString().Split(' ');
 
                             lblCancelReserveDate.Text = getResDate[0];
-                            lblCancelStartTime.Text = DateTime.Parse(getStartTime[1] + getStartTime[2]).ToString("hh:mm tt");
-                            lblCancelEndTime.Text = DateTime.Parse(getEndTime[1] + getEndTime[2]).ToString("hh:mm tt");
+                            lblCancelStartTime.Text = DateTime.Parse(getStartTime[1] + getStartTime[2]).ToString("hh:mm tt");//combines [hh:mm] and [ss] into a string form 
+                            lblCancelEndTime.Text = DateTime.Parse(getEndTime[1] + getEndTime[2]).ToString("hh:mm tt");//combines [hh:mm] and [ss] into a string form 
                         }
                     }
                 }
@@ -247,7 +252,7 @@ namespace IOOP_Assignment
 
             Controllers usableRoomId = new Controllers();
             roomId = usableRoomId.getUsableRoomId(roomPrefix, bReserveDate.ToString(), reserveStartTime, reserveEndTime);
-            //checkRoom(string roomPrefix, string roomName, string reserveDate, string reserveStartTime, string reserveEndTime)
+            
             if (roomId == "")
             {
                 lblAftRoomName.Text = "There is no available room for the selected room type.";
@@ -320,7 +325,6 @@ namespace IOOP_Assignment
                         btnReset.PerformClick();
                     }
                 }
-                
             }
         }
 

@@ -299,7 +299,7 @@ namespace IOOP_Assignment
             cboEndTime.Enabled = false;
         }
 
-        //Reset user input data / user inputteed reservation info
+        //Reset user input data / user inputted reservation info
         private void btnReset_Click(object sender, EventArgs e)
         {
             lblRoomSelected.Text = "";
