@@ -14,6 +14,7 @@ namespace IOOP_Assignment
 {
     public partial class Librarian_UpdateInfo : Form
     {
+        //Default message for txtpassword and txtConfirmPassword
         readonly string pw = "8 alphanumeric characters or longer";
 
         SqlConnection conn = new SqlConnection("Data Source = (LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\Library_Reservation_Database.mdf;Integrated Security = True; Connect Timeout = 30");
@@ -42,6 +43,7 @@ namespace IOOP_Assignment
             pnlNav.Left = btnUpdate.Left;
             btnUpdate.BackColor = Color.FromArgb(46, 51, 73);
 
+            //Get user info to display in the application
             User userInfo = new User();
             lblUserName.Text = userInfo.UserFullName;
             lblUserIdL.Text = userInfo.UserID;
@@ -49,9 +51,13 @@ namespace IOOP_Assignment
 
         private void Lib_UpdateInfo_Load(object sender, EventArgs e)
         {
+            // Display date and time in application
             lblDateTime.Text = DateTime.Now.ToString("dd MMM yyyy      hh:mm tt");
+
+            //Create new object called userInfo based on the class User to retrive the user details
             User userInfo = new User();
 
+            // display the default hint message in the textbox
             txtPassword.Text = pw;
             txtPassword.ForeColor = SystemColors.GrayText;
             txtPassword.UseSystemPasswordChar = false;
@@ -60,7 +66,12 @@ namespace IOOP_Assignment
             txtConfirmPassword.ForeColor = SystemColors.GrayText;
             txtConfirmPassword.UseSystemPasswordChar = false;
 
+            //Open connection with database
             conn.Open();
+
+            //Retrive user details from USER_INFO_T table
+            //Using the user info that retrive from the class to search the user's name and email
+            // Display the user's name and email as default messgae in the textbox
             cmdEmail = new SqlCommand("Select full_name, email FROM USER_INFO_T WHERE userId=@userId", conn);
             cmdEmail.Parameters.AddWithValue("@userId", userInfo.UserID);
             SqlDataReader dr = cmdEmail.ExecuteReader();
@@ -72,12 +83,13 @@ namespace IOOP_Assignment
                 txtEmail.Text = userInfo.Email;
                 txtEmail.ForeColor = SystemColors.GrayText;
             }
-            conn.Close();
+            conn.Close(); //close connection
         }
 
 
         private void txtEmail_Enter(object sender, EventArgs e)
         {
+            //Clear the default message in textbox when user start to enter new email
             User userInfo = new User();
 
             if (txtEmail.Text == userInfo.Email)
@@ -89,6 +101,7 @@ namespace IOOP_Assignment
 
         private void txtEmail_Leave(object sender, EventArgs e)
         {
+            // Display user current email when user did not enter anything in textbox
             User userInfo = new User();
 
             if (txtEmail.Text == "")
@@ -100,6 +113,7 @@ namespace IOOP_Assignment
 
         private void txtPassword_Enter(object sender, EventArgs e)
         {
+            //Clear the default message in textbox when user start to enter new password
             if (txtPassword.Text == pw)
             {
                 txtPassword.Text = "";
@@ -110,6 +124,7 @@ namespace IOOP_Assignment
 
         private void txtPassword_Leave(object sender, EventArgs e)
         {
+            // Display default message when user did not enter anything in textbox
             if (txtPassword.Text == "" || txtPassword.Text == pw)
             {
                 txtPassword.Text = pw;
@@ -120,6 +135,7 @@ namespace IOOP_Assignment
 
         private void txtConfirmPassword_Enter(object sender, EventArgs e)
         {
+            //Clear the default message in textbox when user start to enter new password
             if (txtConfirmPassword.Text == pw)
             {
                 txtConfirmPassword.Text = "";
@@ -130,6 +146,7 @@ namespace IOOP_Assignment
 
         private void txtConfirmPassword_Leave(object sender, EventArgs e)
         {
+            // Display default message when user did not enter anything in textbox
             if (txtConfirmPassword.Text == "" || txtConfirmPassword.Text == pw)
             {
                 txtConfirmPassword.Text = pw;
@@ -142,6 +159,7 @@ namespace IOOP_Assignment
         {
             User userInfo = new User();
 
+            // if the content in txtPassword is same with txtConfrimPassword
             if (txtConfirmPassword.Text == txtPassword.Text)
             {
                 conn.Open();
@@ -211,6 +229,7 @@ namespace IOOP_Assignment
             }
             else
             {
+                //Display error message when both password is not same
                 MessageBox.Show("Two password are not match ! Please try again.", "Submit Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             btnReset.PerformClick();
@@ -218,21 +237,10 @@ namespace IOOP_Assignment
 
         private void btnReset_Click(object sender, EventArgs e)
         {
+            //Refresh the current form to refresh data grid view
             Librarian_UpdateInfo LibUpdate = new Librarian_UpdateInfo();
             LibUpdate.Show();
             this.Hide();
-            //User userInfo = new User();
-            //txtEmail.Clear();
-            //txtEmail.Text = userInfo.Email;
-            //txtEmail.ForeColor = SystemColors.GrayText;
-            //txtPassword.Clear();
-            //txtPassword.Text = pw;
-            //txtPassword.ForeColor = Color.Gray;
-            //txtPassword.UseSystemPasswordChar = false;
-            //txtConfirmPassword.Clear();
-            //txtConfirmPassword.Text = pw;
-            //txtConfirmPassword.ForeColor = Color.Gray;
-            //txtConfirmPassword.UseSystemPasswordChar = false;
         }
 
         private void btnDashboard_Click(object sender, EventArgs e)
@@ -298,6 +306,7 @@ namespace IOOP_Assignment
             pnlNav.Left = btnLogout.Left;
             btnLogout.BackColor = Color.FromArgb(46, 51, 73);
 
+            //Message box to confirm logout
             if (MessageBox.Show("Are you sure you want to logout from the current session?", "Logging Out?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 this.Close();

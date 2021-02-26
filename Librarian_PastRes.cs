@@ -49,6 +49,7 @@ namespace IOOP_Assignment
             dgvApproved.Size = new Size (720, 150);
             dgvRejected.Size = new Size(720, 150);
 
+            //Get user info to display in the application
             User userInfo = new User();
             lblUsername.Text = userInfo.UserFullName;
             lblUserId.Text = userInfo.UserID;
@@ -56,18 +57,18 @@ namespace IOOP_Assignment
 
         private void pastRes_Page_Load(object sender, EventArgs e)
         {
+            //Display date and time in application
             lblDateTime.Text = DateTime.Now.ToString("dd MMM yyyy      hh:mm tt");
-            dgvApproved.Update();
-            dgvApproved.Refresh();
-            dgvRejected.Update();
-            dgvRejected.Refresh();
 
+            //Get data from database and display in data grid view
+            //Create SQl query to get data from database table
             strApproved = "SELECT userId AS [User ID], reserveId As [Reserve ID], roomId As [Room Id], bookingDate As [Booking Date], bookingTime As [Booking Time], reserveDate AS [Reserve Date], reserveStartTime AS [Reserve Start Time], reserveEndTime AS [Reserve End Time], reserveStatus As [Reserve Status] FROM RESERVATION_INFO_T WHERE reserveStatus = 'APPROVED'";
 
             strRejected = "SELECT userId AS [User ID], reserveId As [Reserve ID], roomId As [Room Id], bookingDate As [Booking Date], bookingTime As [Booking Time], reserveDate AS [Reserve Date], reserveStartTime AS [Reserve Start Time], reserveEndTime AS [Reserve End Time], reserveStatus As [Reserve Status] FROM RESERVATION_INFO_T WHERE reserveStatus = 'REJECTED'";
 
-            conn.Open();
+            conn.Open(); // Open connection with database
 
+            //  Connect data set and a data source to retrieve data.
             daApproved = new SqlDataAdapter(strApproved, conn);
             daRejected = new SqlDataAdapter(strRejected, conn);
 
@@ -106,7 +107,7 @@ namespace IOOP_Assignment
                 dgvRejected.Columns[i].Width = 80;
             }
 
-            // format the date and time column to use the date format dd MMM yyyy
+            // format the date and time column to use the date format dd MMM yyyy and time format hh:mm tt
             dgvApproved.Columns[3].DefaultCellStyle.Format = "dd MMM yyyy";
             dgvApproved.Columns[4].DefaultCellStyle.Format = "hh:mm tt";
             dgvApproved.Columns[5].DefaultCellStyle.Format = "dd MMM yyyy";
@@ -183,6 +184,7 @@ namespace IOOP_Assignment
             pnlNav.Left = btnLogout.Left;
             btnLogout.BackColor = Color.FromArgb(46, 51, 73);
 
+            //Message box to confirm logout
             if (MessageBox.Show("Are you sure you want to logout from the current session?", "Logging Out?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 this.Close();
