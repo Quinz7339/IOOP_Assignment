@@ -64,9 +64,9 @@ namespace IOOP_Assignment
 
             //Get data from database and display in data grid view
             //Create SQl query to get data from database table
-            strUpCom = "SELECT res.reserveId, res.roomId, ro.roomName, res.reserveDate, res.reserveStartTime, res.reserveEndTime, res.reserveStatus FROM RESERVATION_INFO_T res INNER JOIN ROOM_INFO_T ro ON ro.roomId = res.roomId WHERE userId = @userId AND reserveStatus IN ('PENDING','APPROVED') AND (reserveDate >= @currentDate AND reserveStartTime > @currentTime) ORDER BY reserveId DESC";
+            strUpCom = "SELECT res.reserveId AS 'RESERVATION ID', res.roomId AS 'ROOM ID', ro.roomName AS 'ROOM NAME', res.reserveDate AS 'RESERVATION DATE', res.reserveStartTime AS 'START TIME' , res.reserveEndTime AS 'END TIME', res.reserveStatus AS 'STATUS' FROM RESERVATION_INFO_T res INNER JOIN ROOM_INFO_T ro ON ro.roomId = res.roomId WHERE userId = @userId AND reserveStatus IN ('PENDING','APPROVED') AND (reserveDate >= @currentDate AND reserveStartTime > @currentTime) ORDER BY reserveId DESC";
 
-            strPast = "SELECT res.reserveId, res.roomId, ro.roomName, res.reserveDate, res.reserveStartTime, res.reserveEndTime, res.reserveStatus FROM RESERVATION_INFO_T res INNER JOIN ROOM_INFO_T ro ON ro.roomId = res.roomId WHERE userId = @userId AND NOT reserveStatus = 'PENDING' AND (reserveDate < @currentDate AND reserveStartTime < @currentTime) ORDER BY reserveId DESC";
+            strPast = "SELECT res.reserveId AS 'RESERVATION ID', res.roomId AS 'ROOM ID', ro.roomName AS 'ROOM NAME', res.reserveDate AS 'RESERVATION DATE', res.reserveStartTime AS 'START TIME', res.reserveEndTime AS 'END TIME', res.reserveStatus 'STATUS' FROM RESERVATION_INFO_T res INNER JOIN ROOM_INFO_T ro ON ro.roomId = res.roomId WHERE userId = @userId AND NOT reserveStatus = 'PENDING' AND (reserveDate < @currentDate AND reserveStartTime < @currentTime) ORDER BY reserveId DESC";
 
             conn.Open(); // Open connection with database
 
