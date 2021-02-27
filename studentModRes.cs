@@ -314,15 +314,22 @@ namespace IOOP_Assignment
                 else if (modResStatus == "Cancel")
                 {
                     reserveId = lblCancelId.Text.Trim();
-                    if (ModRes.cancelReserv(roomId.Trim(), reserveId) == 1)
+                    if (cboResId.SelectedItem == null)
                     {
-                        MessageBox.Show("Your reservation has been cancelled.", "Cancellation Successful!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        btnReset.PerformClick();
+                        MessageBox.Show("Kindly retry and select a reservation ID.", "No reservation ID was selected.", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     else
                     {
-                        MessageBox.Show("Kindly retry.", "Cancellation Failed!");
-                        btnReset.PerformClick();
+                        if (ModRes.cancelReserv(roomId.Trim(), reserveId) == 1)
+                        {
+                            MessageBox.Show("Your reservation has been cancelled.", "Cancellation Successful!", MessageBoxButtons.OK, MessageBoxIcon.Notification);
+                            btnReset.PerformClick();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Kindly retry.", "Cancellation Failed!");
+                            btnReset.PerformClick();
+                        }
                     }
                 }
             }
