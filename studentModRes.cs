@@ -322,7 +322,7 @@ namespace IOOP_Assignment
                     {
                         if (ModRes.cancelReserv(roomId.Trim(), reserveId) == 1)
                         {
-                            MessageBox.Show("Your reservation has been cancelled.", "Cancellation Successful!", MessageBoxButtons.OK, MessageBoxIcon.Notification);
+                            MessageBox.Show("Your reservation has been cancelled.", "Cancellation Successful!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             btnReset.PerformClick();
                         }
                         else
