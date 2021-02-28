@@ -64,6 +64,7 @@ namespace IOOP_Assignment
             }
         }
 
+        //method to assign values to the User class private variables
         private void getUserInfo(string userID)
         {
             User userInfo = new User();
@@ -228,7 +229,8 @@ namespace IOOP_Assignment
             }
         }
 
-        public int updateDatabase(string reserveId, string userId, string roomId, string bookingDate, string bookingTime, string reserveDate, string reserveStartTime, string reserveEndTime, string approveOrReject)//int is to check status success of faild the insert value
+        //method to update the database based on the operation 'APPROVE', 'REJECT' that the librarian has made
+        public int updateDatabase(string reserveId, string userId, string roomId, string bookingDate, string bookingTime, string reserveDate, string reserveStartTime, string reserveEndTime, string approveOrReject)
         {
             SqlConnection conn = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\Library_Reservation_Database.mdf;Integrated Security=True;Connect Timeout=30");
             conn.Open();
